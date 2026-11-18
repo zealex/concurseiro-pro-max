@@ -1,0 +1,65 @@
+{
+  "expo": {
+    "name": "Concurseiro Pro Max",
+    "slug": "concurseiro-pro-max",
+    "version": "1.0.0",
+    "description": "Preparação de 90 dias para concursos médicos (Medicina do Trabalho, Médico Legista e editais do Sul) com Radar de concursos médicos de PR, SC e RS.",
+    "orientation": "default",
+    "scheme": "concurseiropromax",
+    "userInterfaceStyle": "automatic",
+    "icon": "./assets/icon.png",
+    "primaryColor": "#2383E2",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "br.com.concurseiropromax.app",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "package": "br.com.concurseiropromax.app",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
+      }
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "single",
+      "favicon": "./assets/favicon.png",
+      "name": "Concurseiro Pro Max",
+      "shortName": "Concurseiro",
+      "lang": "pt-BR",
+      "themeColor": "#FFFFFF",
+      "backgroundColor": "#FFFFFF",
+      "display": "standalone",
+      "startUrl": ".",
+      "description": "Plano de 90 dias, revisões D1/D7/D15/D30, caderno de erros e Radar de concursos médicos do Sul — funciona offline."
+    },
+    "plugins": [
+      "expo-router",
+      "expo-sharing",
+      "expo-status-bar",
+      "expo-font",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/splash-icon.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#FFFFFF",
+          "dark": {
+            "image": "./assets/splash-icon.png",
+            "backgroundColor": "#191919"
+          }
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": false
+    },
+    "extra": {
+      "concursosFeedUrl": ""
+    }
+  }
+}

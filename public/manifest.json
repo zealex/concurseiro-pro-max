@@ -1,0 +1,23 @@
+{
+  "name": "Concurseiro Pro Max",
+  "short_name": "Concurseiro",
+  "description": "Plano de 90 dias para concursos médicos, revisões D1/D7/D15/D30, caderno de erros e Radar de concursos médicos do Sul (PR, SC, RS). Funciona offline.",
+  "lang": "pt-BR",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#FFFFFF",
+  "theme_color": "#FFFFFF",
+  "categories": ["education", "medical", "productivity"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Cronograma de hoje", "url": "./cronograma" },
+    { "name": "Radar Sul", "url": "./radar" },
+    { "name": "Registrar questões", "url": "./questoes" }
+  ]
+}

@@ -1,0 +1,52 @@
+name: Atualizar Radar de Concursos Médicos (Sul)
+
+on:
+  schedule:
+    # A cada 12 horas (00:00 e 12:00 UTC = 21:00 e 09:00 em Brasília)
+    - cron: '0 */12 * * *'
+  workflow_dispatch:
+    inputs:
+      max_details:
+        description: 'Máximo de páginas de detalhe por execução'
+        required: false
+        default: '120'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: radar-concursos-sul
+  cancel-in-progress: false
+
+jobs:
+  coletar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Instalar dependências
+        run: npm ci --no-audit --no-fund
+
+      - name: Coletar concursos médicos de PR, SC e RS
+        run: npx tsx scripts/scrape-concursos-sul.ts --max-details=${{ github.event.inputs.max_details || '120' }}
+
+      - name: Commit se houver novidades
+        run: |
+          if git diff --quiet -- public/data/concursos-sul.json; then
+            echo "Nenhuma mudança no Radar Sul."
+            exit 0
+          fi
+          NOVOS=$(node -e "const f=require('./public/data/concursos-sul.json');console.log(f.concursos.filter(c=>c.isNew).length)")
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/data/concursos-sul.json
+          git commit -m "chore(radar): atualiza concursos médicos do Sul (${NOVOS} novos nos últimos 7 dias)"
+          git push

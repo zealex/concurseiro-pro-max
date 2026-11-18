@@ -1,0 +1,2848 @@
+{
+  "version": 1,
+  "generatedAt": "2026-11-18T18:07:01.379Z",
+  "escopo": "Concursos e processos seletivos que exigem graduação em Medicina, com lotação em PR, SC ou RS",
+  "sources": [
+    {
+      "nome": "PCI Concursos",
+      "ok": true,
+      "itens": 157,
+      "medicos": 37,
+      "erro": null
+    },
+    {
+      "nome": "Concursos no Brasil",
+      "ok": true,
+      "itens": 162,
+      "medicos": 30,
+      "erro": null
+    },
+    {
+      "nome": "FUNDATEC",
+      "ok": true,
+      "itens": 11,
+      "medicos": 1,
+      "erro": null
+    },
+    {
+      "nome": "FEPESE",
+      "ok": true,
+      "itens": 5,
+      "medicos": 0,
+      "erro": null
+    }
+  ],
+  "concursos": [
+    {
+      "id": "rs-ijui-prefeitura-medicina-do-trabalho-2026",
+      "titulo": "Prefeitura de Ijuí - RS retifica edital de concurso público",
+      "orgao": "Prefeitura de Ijuí",
+      "cidade": "Ijuí",
+      "uf": "RS",
+      "tipo": "concurso",
+      "tag": "medicina-do-trabalho",
+      "subcategoria": null,
+      "cargos": [
+        {
+          "nome": "Médico do Trabalho",
+          "tag": "medicina-do-trabalho",
+          "subcategoria": null,
+          "vagas": 1,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        }
+      ],
+      "vagasTotal": 1,
+      "remuneracaoMax": 21312.22,
+      "cargaHoraria": null,
+      "banca": "FUNDATEC",
+      "inscricoes": {
+        "inicio": null,
+        "fim": "2026-11-24"
+      },
+      "dataProva": "2026-12-20",
+      "editalUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-ijui-rs-retifica-edital-de-concurso-publico",
+      "inscricaoUrl": "https://www.fundatec.org.br/portal/concursos/index_concursos.php?concurso=1131",
+      "relacionados": [
+        {
+          "rotulo": "FUNDATEC — PREVIJUÍ – Instituto de Previdência dos Servidores Públicos do Município de Ijuí/RS: Concurso Público nº 01/2026 (inscrições até 19/11)",
+          "url": "https://www.fundatec.org.br/portal/concursos/index_concursos.php?concurso=1131"
+        },
+        {
+          "rotulo": "FUNDATEC — Prefeitura Municipal de Ijuí/RS: Concurso Público nº 01/2026 (inscrições até 24/11)",
+          "url": "https://www.fundatec.org.br/portal/concursos/index_concursos.php?concurso=1120"
+        }
+      ],
+      "fonte": "pci",
+      "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-ijui-rs-retifica-edital-de-concurso-publico",
+      "ano": 2026,
+      "firstSeenAt": "2026-11-18T18:07:01.379Z",
+      "lastSeenAt": "2026-11-18T18:07:01.379Z",
+      "isNew": true,
+      "observacoes": "EDITAL DE ABERTURA - CONCURSO PÚBLICO Nº 01/2026 — disponível na página da notícia (PCI) · EDITAL Nº 04/2026 RETIFICAÇÃO E ADENDO DO EDITAL DE ABERTURA — disponível na página da notícia (PCI) · EDITAL Nº 03/2026 RETIFICAÇÃO E ADENDO AO EDITAL DE ABERTURA — disponível na página da notícia (PCI)"
+    },
+    {
+      "id": "rs-sapucaia-do-sul-fhgv-medicina-do-trabalho-2026",
+      "titulo": "Fundação Hospitalar Getúlio Vargas - RS abre processo seletivo para médicos",
+      "orgao": "FHGV - Fundação Hospitalar Getúlio Vargas",
+      "cidade": "Sapucaia do Sul",
+      "uf": "RS",
+      "tipo": "processo-seletivo",
+      "tag": "medicina-do-trabalho",
+      "subcategoria": null,
+      "cargos": [
+        {
+          "nome": "Médico do Trabalho",
+          "tag": "medicina-do-trabalho",
+          "subcategoria": null,
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        }
+      ],
+      "vagasTotal": null,
+      "remuneracaoMax": 16937.78,
+      "cargaHoraria": null,
+      "banca": null,
+      "inscricoes": {
+        "inicio": "2026-11-06",
+        "fim": "2026-12-04"
+      },
+      "dataProva": null,
+      "editalUrl": "https://www.pciconcursos.com.br/noticias/fundacao-hospitalar-getulio-vargas-rs-abre-processo-seletivo-para-medicos",
+      "inscricaoUrl": null,
+      "relacionados": [
+        {
+          "rotulo": "Também em concursos-no-brasil",
+          "url": "https://concursosnobrasil.com/concursos/rs/2026/11/06/fhgv-rs-lanca-seletivo-com-ganhos-de-ate-r-169-mil-em-sapucaia-do-sul/"
+        }
+      ],
+      "fonte": "pci",
+      "fonteUrl": "https://www.pciconcursos.com.br/noticias/fundacao-hospitalar-getulio-vargas-rs-abre-processo-seletivo-para-medicos",
+      "ano": 2026,
+      "firstSeenAt": "2026-11-18T18:07:01.379Z",
+      "lastSeenAt": "2026-11-18T18:07:01.379Z",
+      "isNew": true,
+      "observacoes": "EDITAL DE ABERTURA Nº 341/2026 - PROCESSO SELETIVO SIMPLIFICADO Nº 007/2026 — disponível na página da notícia (PCI)"
+    },
+    {
+      "id": "sc-fraiburgo-prefeitura-medicina-do-trabalho-2026",
+      "titulo": "Prefeitura de Fraiburgo - SC abre processo seletivo para cadastro de reserva",
+      "orgao": "Prefeitura de Fraiburgo",
+      "cidade": "Fraiburgo",
+      "uf": "SC",
+      "tipo": "processo-seletivo",
+      "tag": "medicina-do-trabalho",
+      "subcategoria": null,
+      "cargos": [
+        {
+          "nome": "Médico do Trabalho",
+          "tag": "medicina-do-trabalho",
+          "subcategoria": null,
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        }
+      ],
+      "vagasTotal": null,
+      "remuneracaoMax": 25103.42,
+      "cargaHoraria": null,
+      "banca": "IBAM",
+      "inscricoes": {
+        "inicio": "2026-11-03",
+        "fim": "2026-12-02"
+      },
+      "dataProva": "2026-12-20",
+      "editalUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-fraiburgo-sc-abre-processo-seletivo-para-cadastro-de-reserva",
+      "inscricaoUrl": null,
+      "relacionados": [
+        {
+          "rotulo": "Também em concursos-no-brasil",
+          "url": "https://concursosnobrasil.com/concursos/sc/2026/11/03/prefeitura-de-fraiburgo-sc-libera-selecao-que-tem-salario-ate-r-25-103/"
+        }
+      ],
+      "fonte": "pci",
+      "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-fraiburgo-sc-abre-processo-seletivo-para-cadastro-de-reserva",
+      "ano": 2026,
+      "firstSeenAt": "2026-11-18T18:07:01.379Z",
+      "lastSeenAt": "2026-11-18T18:07:01.379Z",
+      "isNew": true,
+      "observacoes": "EDITAL Nº 0027/2026 — disponível na página da notícia (PCI)"
+    },
+    {
+      "id": "pr-quedas-do-iguacu-prefeitura-medicina-geral-especialidades-2026",
+      "titulo": "Prefeitura de Quedas do Iguaçu - PR retifica edital de concurso público",
+      "orgao": "Prefeitura de Quedas do Iguaçu",
+      "cidade": "Quedas do Iguaçu",
+      "uf": "PR",
+      "tipo": "concurso",
+      "tag": "medicina-geral-especialidades",
+      "subcategoria": "especialidades",
+      "cargos": [
+        {
+          "nome": "Médico Ginecologista e Obstetra",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": true,
+          "remuneracao": null,
+          "cargaHoraria": null
+        }
+      ],
+      "vagasTotal": null,
+      "remuneracaoMax": 11998.88,
+      "cargaHoraria": null,
+      "banca": "Unioeste",
+      "inscricoes": {
+        "inicio": "2026-10-24",
+        "fim": "2026-11-25"
+      },
+      "dataProva": null,
+      "editalUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-quedas-do-iguacu-pr-retifica-edital-de-concurso-publico",
+      "inscricaoUrl": null,
+      "relacionados": [
+        {
+          "rotulo": "Também em concursos-no-brasil",
+          "url": "https://concursosnobrasil.com/concursos/pr/2026/10/21/concurso-prefeitura-de-quedas-do-iguacu-pr-abre-140-vagas-e-paga-ate-r-119-mil/"
+        }
+      ],
+      "fonte": "pci",
+      "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-quedas-do-iguacu-pr-retifica-edital-de-concurso-publico",
+      "ano": 2026,
+      "firstSeenAt": "2026-11-18T18:07:01.379Z",
+      "lastSeenAt": "2026-11-18T18:07:01.379Z",
+      "isNew": true,
+      "observacoes": "EDITAL Nº 030/2026 - CONCURSO PÚBLICO Nº 001/2026 — disponível na página da notícia (PCI) · EDITAL Nº 030/2026 RETIFICADO - CONCURSO PÚBLICO Nº 001/2026 — disponível na página da notícia (PCI) · RETIFICAÇÃO — disponível na página da notícia (PCI)"
+    },
+    {
+      "id": "pr-umuarama-prefeitura-medicina-geral-especialidades-2026",
+      "titulo": "Prefeitura de Umuarama - PR abre concurso público para médicos generalistas",
+      "orgao": "Prefeitura de Umuarama",
+      "cidade": "Umuarama",
+      "uf": "PR",
+      "tipo": "concurso",
+      "tag": "medicina-geral-especialidades",
+      "subcategoria": "clinico-esf-plantonista",
+      "cargos": [
+        {
+          "nome": "Médico Generalista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "clinico-esf-plantonista",
+          "vagas": 4,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": "20h ou 40h semanais"
+        }
+      ],
+      "vagasTotal": 4,
+      "remuneracaoMax": 14994.61,
+      "cargaHoraria": "20h ou 40h semanais",
+      "banca": "Instituto Unicampo",
+      "inscricoes": {
+        "inicio": "2026-11-14",
+        "fim": "2026-12-02"
+      },
+      "dataProva": "2026-12-20",
+      "editalUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-umuarama-pr-abre-concurso-publico-para-medicos-generalistas",
+      "inscricaoUrl": null,
+      "relacionados": [
+        {
+          "rotulo": "Também em concursos-no-brasil",
+          "url": "https://concursosnobrasil.com/concursos/pr/2026/11/16/concurso-prefeitura-de-umuarama-no-parana-paga-salarios-de-ate-r-149-mil/"
+        }
+      ],
+      "fonte": "pci",
+      "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-umuarama-pr-abre-concurso-publico-para-medicos-generalistas",
+      "ano": 2026,
+      "firstSeenAt": "2026-11-18T18:07:01.379Z",
+      "lastSeenAt": "2026-11-18T18:07:01.379Z",
+      "isNew": true,
+      "observacoes": "EDITAL DE ABERTURA Nº 130/2026 — disponível na página da notícia (PCI)"
+    },
+    {
+      "id": "rs-antonio-prado-prefeitura-medicina-geral-especialidades-2026",
+      "titulo": "Prefeitura de Antônio Prado - RS abre concurso público com salários de até R$ 10.352,30",
+      "orgao": "Prefeitura de Antônio Prado",
+      "cidade": "Antônio Prado",
+      "uf": "RS",
+      "tipo": "concurso",
+      "tag": "medicina-geral-especialidades",
+      "subcategoria": "especialidades",
+      "cargos": [
+        {
+          "nome": "Médico Ginecologista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": 1,
+          "cadastroReserva": true,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Pediatra",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": true,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Psiquiatra",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": 1,
+          "cadastroReserva": true,
+          "remuneracao": null,
+          "cargaHoraria": null
+        }
+      ],
+      "vagasTotal": null,
+      "remuneracaoMax": 10352.3,
+      "cargaHoraria": null,
+      "banca": "Legalle Concursos",
+      "inscricoes": {
+        "inicio": "2026-11-10",
+        "fim": "2026-12-09"
+      },
+      "dataProva": "2027-01-24",
+      "editalUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-antonio-prado-rs-abre-concurso-publico-com-salarios-de-ate-10352",
+      "inscricaoUrl": null,
+      "relacionados": [
+        {
+          "rotulo": "Também em concursos-no-brasil",
+          "url": "https://concursosnobrasil.com/concursos/rs/2026/11/10/prefeitura-de-antonio-prado-abre-concurso-com-21-vagas-e-salarios-de-ate-r-103-mil-no-rs/"
+        }
+      ],
+      "fonte": "pci",
+      "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-antonio-prado-rs-abre-concurso-publico-com-salarios-de-ate-10352",
+      "ano": 2026,
+      "firstSeenAt": "2026-11-18T18:07:01.379Z",
+      "lastSeenAt": "2026-11-18T18:07:01.379Z",
+      "isNew": true,
+      "observacoes": "EDITAL Nº 070/2026 — disponível na página da notícia (PCI)"
+    },
+    {
+      "id": "rs-caxias-do-sul-prefeitura-medicina-geral-especialidades-2026",
+      "titulo": "Prefeitura de Caxias do Sul - RS divulga editais de concurso público",
+      "orgao": "Prefeitura de Caxias do Sul",
+      "cidade": "Caxias do Sul",
+      "uf": "RS",
+      "tipo": "concurso",
+      "tag": "medicina-geral-especialidades",
+      "subcategoria": "clinico-esf-plantonista",
+      "cargos": [
+        {
+          "nome": "Médico Endocrinologista Pediatra",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": 1,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Ginecologista e Obstetra",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": 3,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Neurologista Pediatra",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": 1,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Otorrinolaringologista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": true,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Pediatra",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": 4,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Psiquiatra Forense",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": 1,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Psiquiatra da Infância",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": 1,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Reumatologista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": 1,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Urologista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": 1,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Estratégia da Saúde da Família",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "clinico-esf-plantonista",
+          "vagas": 6,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico da Estratégia da Saúde da Família",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "clinico-esf-plantonista",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": 19787.77,
+          "cargaHoraria": "40h semanais"
+        },
+        {
+          "nome": "Medicina De Família",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        }
+      ],
+      "vagasTotal": null,
+      "remuneracaoMax": 19787.77,
+      "cargaHoraria": "40h semanais",
+      "banca": "FUNDATEC",
+      "inscricoes": {
+        "inicio": "2026-11-04",
+        "fim": "2026-11-29"
+      },
+      "dataProva": "2027-03-28",
+      "editalUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-caxias-do-sul-rs-divulga-editais-de-concurso-publico",
+      "inscricaoUrl": "https://www.fundatec.org.br/portal/concursos/index_concursos.php?concurso=1148",
+      "relacionados": [
+        {
+          "rotulo": "Também em concursos-no-brasil",
+          "url": "https://concursosnobrasil.com/concursos/rs/2026/11/05/concurso-prefeitura-de-caxias-do-sul-rs-reune-24-vagas-com-salarios-acima-de-r-19-mil/"
+        },
+        {
+          "rotulo": "Também em fundatec",
+          "url": "https://www.fundatec.org.br/portal/concursos/index_concursos.php?concurso=1148"
+        },
+        {
+          "rotulo": "FUNDATEC — Município de Caxias do Sul/RS – Procurador: Concurso Público nº 02/2026 (inscrições até 29/11)",
+          "url": "https://www.fundatec.org.br/portal/concursos/index_concursos.php?concurso=1108"
+        }
+      ],
+      "fonte": "pci",
+      "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-caxias-do-sul-rs-divulga-editais-de-concurso-publico",
+      "ano": 2026,
+      "firstSeenAt": "2026-11-18T18:07:01.379Z",
+      "lastSeenAt": "2026-11-18T18:07:01.379Z",
+      "isNew": true,
+      "observacoes": "EDITAL DE CONCURSO Nº 02/2026 — disponível na página da notícia (PCI) · EDITAL DE CONCURSO Nº 03/2026 — disponível na página da notícia (PCI)"
+    },
+    {
+      "id": "rs-ijui-prefeitura-medicina-geral-especialidades-2026",
+      "titulo": "Prefeitura de Ijuí - RS retifica edital de concurso público",
+      "orgao": "Prefeitura de Ijuí",
+      "cidade": "Ijuí",
+      "uf": "RS",
+      "tipo": "concurso",
+      "tag": "medicina-geral-especialidades",
+      "subcategoria": "clinico-esf-plantonista",
+      "cargos": [
+        {
+          "nome": "Médico Auditor",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": 1,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Cardiologista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Dermatologista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": 1,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Geral Comunitário",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": 6,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Gineco-Obstetra",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": 1,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Oftalmologista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Pediatra",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": 1,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Plantonista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "clinico-esf-plantonista",
+          "vagas": 2,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Psiquiatra",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": 1,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Radiologista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": 1,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        }
+      ],
+      "vagasTotal": null,
+      "remuneracaoMax": 21312.22,
+      "cargaHoraria": null,
+      "banca": "FUNDATEC",
+      "inscricoes": {
+        "inicio": null,
+        "fim": "2026-11-24"
+      },
+      "dataProva": "2026-12-20",
+      "editalUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-ijui-rs-retifica-edital-de-concurso-publico",
+      "inscricaoUrl": "https://www.fundatec.org.br/portal/concursos/index_concursos.php?concurso=1131",
+      "relacionados": [
+        {
+          "rotulo": "FUNDATEC — PREVIJUÍ – Instituto de Previdência dos Servidores Públicos do Município de Ijuí/RS: Concurso Público nº 01/2026 (inscrições até 19/11)",
+          "url": "https://www.fundatec.org.br/portal/concursos/index_concursos.php?concurso=1131"
+        },
+        {
+          "rotulo": "FUNDATEC — Prefeitura Municipal de Ijuí/RS: Concurso Público nº 01/2026 (inscrições até 24/11)",
+          "url": "https://www.fundatec.org.br/portal/concursos/index_concursos.php?concurso=1120"
+        }
+      ],
+      "fonte": "pci",
+      "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-ijui-rs-retifica-edital-de-concurso-publico",
+      "ano": 2026,
+      "firstSeenAt": "2026-11-18T18:07:01.379Z",
+      "lastSeenAt": "2026-11-18T18:07:01.379Z",
+      "isNew": true,
+      "observacoes": "EDITAL DE ABERTURA - CONCURSO PÚBLICO Nº 01/2026 — disponível na página da notícia (PCI) · EDITAL Nº 04/2026 RETIFICAÇÃO E ADENDO DO EDITAL DE ABERTURA — disponível na página da notícia (PCI) · EDITAL Nº 03/2026 RETIFICAÇÃO E ADENDO AO EDITAL DE ABERTURA — disponível na página da notícia (PCI)"
+    },
+    {
+      "id": "rs-ipe-prefeitura-medicina-geral-especialidades-2026",
+      "titulo": "Prefeitura de Ipê - RS abre concurso público com salários de até R$ 20.745,08",
+      "orgao": "Prefeitura de Ipê",
+      "cidade": "Ipê",
+      "uf": "RS",
+      "tipo": "concurso",
+      "tag": "medicina-geral-especialidades",
+      "subcategoria": "especialidades",
+      "cargos": [
+        {
+          "nome": "Médico Ginecologista e Obstetra",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": 1,
+          "cadastroReserva": true,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Pediatra",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": 1,
+          "cadastroReserva": true,
+          "remuneracao": null,
+          "cargaHoraria": null
+        }
+      ],
+      "vagasTotal": 2,
+      "remuneracaoMax": 20745.08,
+      "cargaHoraria": null,
+      "banca": "Instituto Objetiva",
+      "inscricoes": {
+        "inicio": "2026-10-23",
+        "fim": "2026-11-23"
+      },
+      "dataProva": "2027-01-17",
+      "editalUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-ipe-rs-abre-concurso-publico-com-salarios-de-ate-20745",
+      "inscricaoUrl": null,
+      "relacionados": [],
+      "fonte": "pci",
+      "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-ipe-rs-abre-concurso-publico-com-salarios-de-ate-20745",
+      "ano": 2026,
+      "firstSeenAt": "2026-11-18T18:07:01.379Z",
+      "lastSeenAt": "2026-11-18T18:07:01.379Z",
+      "isNew": true,
+      "observacoes": "EDITAL DE CONCURSO PÚBLICO Nº 01/2026 — disponível na página da notícia (PCI)"
+    },
+    {
+      "id": "rs-jari-prefeitura-medicina-geral-especialidades-2026",
+      "titulo": "Prefeitura de Jari - RS abre processo seletivo para professores e médicos",
+      "orgao": "Prefeitura de Jari",
+      "cidade": "Jari",
+      "uf": "RS",
+      "tipo": "processo-seletivo",
+      "tag": "medicina-geral-especialidades",
+      "subcategoria": "clinico-esf-plantonista",
+      "cargos": [
+        {
+          "nome": "Médico Clínico Geral",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "clinico-esf-plantonista",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        }
+      ],
+      "vagasTotal": null,
+      "remuneracaoMax": 13385.32,
+      "cargaHoraria": null,
+      "banca": null,
+      "inscricoes": {
+        "inicio": null,
+        "fim": "2026-11-19"
+      },
+      "dataProva": null,
+      "editalUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-jari-rs-abre-processo-seletivo-para-professores-e-medicos",
+      "inscricaoUrl": null,
+      "relacionados": [
+        {
+          "rotulo": "Também em concursos-no-brasil",
+          "url": "https://concursosnobrasil.com/concursos/rs/2026/11/16/prefeitura-de-jari-rs-lanca-processo-seletivo-com-salarios-de-ate-r-133-mil/"
+        }
+      ],
+      "fonte": "pci",
+      "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-jari-rs-abre-processo-seletivo-para-professores-e-medicos",
+      "ano": 2026,
+      "firstSeenAt": "2026-11-18T18:07:01.379Z",
+      "lastSeenAt": "2026-11-18T18:07:01.379Z",
+      "isNew": true,
+      "observacoes": "EDITAL 01 — disponível na página da notícia (PCI)"
+    },
+    {
+      "id": "rs-nova-padua-prefeitura-medicina-geral-especialidades-2026",
+      "titulo": "Prefeitura de Nova Pádua - RS abre concurso para cadastro de reserva em diversas áreas",
+      "orgao": "Prefeitura de Nova Pádua",
+      "cidade": "Nova Pádua",
+      "uf": "RS",
+      "tipo": "concurso",
+      "tag": "medicina-geral-especialidades",
+      "subcategoria": "clinico-esf-plantonista",
+      "cargos": [
+        {
+          "nome": "Médico Clínico Geral",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "clinico-esf-plantonista",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Ginecologista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Pediatra",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        }
+      ],
+      "vagasTotal": null,
+      "remuneracaoMax": 10809.66,
+      "cargaHoraria": null,
+      "banca": "FUNDATEC",
+      "inscricoes": {
+        "inicio": "2026-10-26",
+        "fim": "2026-11-19"
+      },
+      "dataProva": "2027-02-14",
+      "editalUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-nova-padua-rs-abre-concurso-para-cadastro-de-reserva-em-diversas-areas",
+      "inscricaoUrl": "https://www.fundatec.org.br/portal/concursos/index_concursos.php?concurso=1127",
+      "relacionados": [
+        {
+          "rotulo": "Também em concursos-no-brasil",
+          "url": "https://concursosnobrasil.com/concursos/rs/2026/10/27/concurso-prefeitura-de-nova-padua-rs-paga-ate-r-108-mil/"
+        },
+        {
+          "rotulo": "FUNDATEC — Prefeitura Municipal de Nova Pádua/RS: Concurso Público n° 01/2026 (inscrições até 19/11)",
+          "url": "https://www.fundatec.org.br/portal/concursos/index_concursos.php?concurso=1127"
+        }
+      ],
+      "fonte": "pci",
+      "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-nova-padua-rs-abre-concurso-para-cadastro-de-reserva-em-diversas-areas",
+      "ano": 2026,
+      "firstSeenAt": "2026-11-18T18:07:01.379Z",
+      "lastSeenAt": "2026-11-18T18:07:01.379Z",
+      "isNew": true,
+      "observacoes": "EDITAL DE ABERTURA - CONCURSO PÚBLICO Nº 01/2026 — disponível na página da notícia (PCI)"
+    },
+    {
+      "id": "rs-novo-cabrais-prefeitura-medicina-geral-especialidades-2026",
+      "titulo": "Prefeitura de Novo Cabrais - RS abre concurso público com salários de até R$ 19.089,94",
+      "orgao": "Prefeitura de Novo Cabrais",
+      "cidade": "Novo Cabrais",
+      "uf": "RS",
+      "tipo": "concurso",
+      "tag": "medicina-geral-especialidades",
+      "subcategoria": "clinico-esf-plantonista",
+      "cargos": [
+        {
+          "nome": "Médico do PSF",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "clinico-esf-plantonista",
+          "vagas": null,
+          "cadastroReserva": true,
+          "remuneracao": 19089.94,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Pediatra",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": 1,
+          "cadastroReserva": true,
+          "remuneracao": 4424.01,
+          "cargaHoraria": null
+        }
+      ],
+      "vagasTotal": null,
+      "remuneracaoMax": 19089.94,
+      "cargaHoraria": null,
+      "banca": "Instituto Objetiva",
+      "inscricoes": {
+        "inicio": "2026-10-23",
+        "fim": "2026-11-23"
+      },
+      "dataProva": "2027-01-10",
+      "editalUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-novo-cabrais-rs-abre-concurso-publico-com-salarios-de-ate-19089",
+      "inscricaoUrl": null,
+      "relacionados": [
+        {
+          "rotulo": "Também em concursos-no-brasil",
+          "url": "https://concursosnobrasil.com/concursos/rs/2026/10/16/concurso-prefeitura-de-novo-cabrais-rs-oferece-vagas-com-salarios-de-ate-r-19-mil/"
+        }
+      ],
+      "fonte": "pci",
+      "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-novo-cabrais-rs-abre-concurso-publico-com-salarios-de-ate-19089",
+      "ano": 2026,
+      "firstSeenAt": "2026-11-18T18:07:01.379Z",
+      "lastSeenAt": "2026-11-18T18:07:01.379Z",
+      "isNew": true,
+      "observacoes": "EDITAL DE CONCURSO PÚBLICO Nº 01/202 — disponível na página da notícia (PCI)"
+    },
+    {
+      "id": "rs-piratini-prefeitura-medicina-geral-especialidades-2026",
+      "titulo": "Prefeitura de Piratini - RS abre concurso público com salários de até R$ 7.462,95",
+      "orgao": "Prefeitura de Piratini",
+      "cidade": "Piratini",
+      "uf": "RS",
+      "tipo": "concurso",
+      "tag": "medicina-geral-especialidades",
+      "subcategoria": "clinico-esf-plantonista",
+      "cargos": [
+        {
+          "nome": "Médico",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "clinico-esf-plantonista",
+          "vagas": 1,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        }
+      ],
+      "vagasTotal": 1,
+      "remuneracaoMax": 7462.95,
+      "cargaHoraria": null,
+      "banca": "Instituto Objetiva",
+      "inscricoes": {
+        "inicio": "2026-11-10",
+        "fim": "2026-11-25"
+      },
+      "dataProva": "2026-12-20",
+      "editalUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-piratini-rs-abre-concurso-publico-com-salarios-de-ate-7462",
+      "inscricaoUrl": null,
+      "relacionados": [],
+      "fonte": "pci",
+      "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-piratini-rs-abre-concurso-publico-com-salarios-de-ate-7462",
+      "ano": 2026,
+      "firstSeenAt": "2026-11-18T18:07:01.379Z",
+      "lastSeenAt": "2026-11-18T18:07:01.379Z",
+      "isNew": true,
+      "observacoes": "EDITAL Nº 001/2026 — disponível na página da notícia (PCI)"
+    },
+    {
+      "id": "rs-porto-alegre-ghc-medicina-geral-especialidades-2026",
+      "titulo": "Grupo Hospitalar Conceição - RS abre concurso para cadastro de reserva em diversas áreas",
+      "orgao": "GHC - Grupo Hospitalar Conceição",
+      "cidade": "Porto Alegre",
+      "uf": "RS",
+      "tipo": "concurso",
+      "tag": "medicina-geral-especialidades",
+      "subcategoria": "clinico-esf-plantonista",
+      "cargos": [
+        {
+          "nome": "Médico (Anestesiologia Cardiovascular)",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico (Cirurgia da Mão)",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico (Cirurgia do Trauma)",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico (Cirurgia Vascular)",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico (Dermatologia)",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico (Gastroenterologia: Endoscopia)",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico (Ginecologia e Obstetrícia)",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico (Hematologia e Hemoterapia)",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico (Hematologia e Hemoterapia Pediátrica)",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico (Infectologia)",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico (Mamografia)",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico (Mastologia)",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico (Medicina da Dor)",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico (Medicina de Emergência: UPA)",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "clinico-esf-plantonista",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico (Medicina do Adolescente)",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico (Medicina Intensiva Pediátrica)",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico (Neurologia Pediátrica)",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico (Nutrição Parenteral e Enteral)",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico (Oftalmologia: Glaucoma)",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico (Oftalmologia: Pediatria)",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico (Oftalmologia: Retina)",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico (Oftalmologia: Segmento Anterior)",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico (Oftalmologia: Uveíte)",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico (Oncologia Pediátrica)",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico (Ortopedia e Traumatologia: Oncológica)",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico (Ortopedia e Traumatologia Pediátrica)",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico (Otorrinolaringologia: Laringologia)",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico (Otorrinolaringologia: Otologia/Otoneurocirurgia)",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico (Otorrinolaringologia Pediátrica)",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico (Patologia: Citopatologia)",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico (Pneumologia)",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico (Radiologia Intervencionista e Angiorradiologia)",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico (Radioterapia)",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico (Reumatologia Pediátrica)",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Intensivista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        }
+      ],
+      "vagasTotal": null,
+      "remuneracaoMax": 12974.4,
+      "cargaHoraria": null,
+      "banca": "FUNDATEC",
+      "inscricoes": {
+        "inicio": "2026-11-05",
+        "fim": "2026-12-04"
+      },
+      "dataProva": "2027-01-10",
+      "editalUrl": "https://www.pciconcursos.com.br/noticias/grupo-hospitalar-conceicao-rs-abre-concurso-para-cadastro-de-reserva-em-diversas-areas",
+      "inscricaoUrl": null,
+      "relacionados": [
+        {
+          "rotulo": "Também em concursos-no-brasil",
+          "url": "https://concursosnobrasil.com/concursos/rs/2026/11/05/concurso-ghc-movimenta-area-da-saude-com-salarios-de-ate-r-129-mil/"
+        }
+      ],
+      "fonte": "pci",
+      "fonteUrl": "https://www.pciconcursos.com.br/noticias/grupo-hospitalar-conceicao-rs-abre-concurso-para-cadastro-de-reserva-em-diversas-areas",
+      "ano": 2026,
+      "firstSeenAt": "2026-11-18T18:07:01.379Z",
+      "lastSeenAt": "2026-11-18T18:07:01.379Z",
+      "isNew": true,
+      "observacoes": "EDITAL Nº 3 — disponível na página da notícia (PCI)"
+    },
+    {
+      "id": "rs-sapucaia-do-sul-fhgv-medicina-geral-especialidades-2026",
+      "titulo": "Fundação Hospitalar Getúlio Vargas - RS abre processo seletivo para médicos",
+      "orgao": "FHGV - Fundação Hospitalar Getúlio Vargas",
+      "cidade": "Sapucaia do Sul",
+      "uf": "RS",
+      "tipo": "processo-seletivo",
+      "tag": "medicina-geral-especialidades",
+      "subcategoria": "clinico-esf-plantonista",
+      "cargos": [
+        {
+          "nome": "Médico Anestesiologista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Cardiologista Ecocárdio",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Cirurgião Geral Plantonista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "clinico-esf-plantonista",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Cirurgião Geral Rotineiro",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Cirurgião Pediátrico",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Cirurgião Torácico",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Cirurgião Vascular",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Clínico Plantonista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "clinico-esf-plantonista",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Dermatologista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Endocrinologista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Especialista em Cirurgia Ginecológica",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Gastroenterologista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Ginecologista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Gineco-obstetra Plantonista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "clinico-esf-plantonista",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Gineco-obstetra Rotineiro",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Hematologista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Infectologista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Intensivista Rotineiro",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Nefrologista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Neonatologista Rotineiro",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Neurocirurgião Plantonista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "clinico-esf-plantonista",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Neurologista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Oftalmologista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Otorrinolaringologista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Pediatra Plantonista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "clinico-esf-plantonista",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Pediatra Rotineiro",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Plantonista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "clinico-esf-plantonista",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Pneumologista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Proctologista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Psiquiatra Rotineiro",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Radiologista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Reumatologista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Traumatologista Rotineiro",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Traumato-Ortopedista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Urologista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        }
+      ],
+      "vagasTotal": null,
+      "remuneracaoMax": 16937.78,
+      "cargaHoraria": null,
+      "banca": null,
+      "inscricoes": {
+        "inicio": "2026-11-06",
+        "fim": "2026-12-04"
+      },
+      "dataProva": null,
+      "editalUrl": "https://www.pciconcursos.com.br/noticias/fundacao-hospitalar-getulio-vargas-rs-abre-processo-seletivo-para-medicos",
+      "inscricaoUrl": null,
+      "relacionados": [
+        {
+          "rotulo": "Também em concursos-no-brasil",
+          "url": "https://concursosnobrasil.com/concursos/rs/2026/11/06/fhgv-rs-lanca-seletivo-com-ganhos-de-ate-r-169-mil-em-sapucaia-do-sul/"
+        }
+      ],
+      "fonte": "pci",
+      "fonteUrl": "https://www.pciconcursos.com.br/noticias/fundacao-hospitalar-getulio-vargas-rs-abre-processo-seletivo-para-medicos",
+      "ano": 2026,
+      "firstSeenAt": "2026-11-18T18:07:01.379Z",
+      "lastSeenAt": "2026-11-18T18:07:01.379Z",
+      "isNew": true,
+      "observacoes": "EDITAL DE ABERTURA Nº 341/2026 - PROCESSO SELETIVO SIMPLIFICADO Nº 007/2026 — disponível na página da notícia (PCI)"
+    },
+    {
+      "id": "rs-teutonia-prefeitura-medicina-geral-especialidades-2026",
+      "titulo": "Município de Teutônia - RS abre concurso público com salários de até R$ 13.844,56",
+      "orgao": "Prefeitura de Teutônia",
+      "cidade": "Teutônia",
+      "uf": "RS",
+      "tipo": "concurso",
+      "tag": "medicina-geral-especialidades",
+      "subcategoria": "especialidades",
+      "cargos": [
+        {
+          "nome": "Médico Gineco-Obstetra",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": 1,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Pediatra",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": 1,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Psiquiatra",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": 1,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        }
+      ],
+      "vagasTotal": 3,
+      "remuneracaoMax": 13844.56,
+      "cargaHoraria": null,
+      "banca": "Instituto Objetiva",
+      "inscricoes": {
+        "inicio": "2026-10-30",
+        "fim": "2026-11-18"
+      },
+      "dataProva": "2026-12-13",
+      "editalUrl": "https://www.pciconcursos.com.br/noticias/municipio-de-teutonia-rs-abre-concurso-publico-com-salarios-de-ate-13844",
+      "inscricaoUrl": null,
+      "relacionados": [
+        {
+          "rotulo": "Também em concursos-no-brasil",
+          "url": "https://concursosnobrasil.com/concursos/rs/2026/10/29/concurso-teutonia-rs-disponibiliza-vagas-com-salarios-de-ate-r-138-mil/"
+        }
+      ],
+      "fonte": "pci",
+      "fonteUrl": "https://www.pciconcursos.com.br/noticias/municipio-de-teutonia-rs-abre-concurso-publico-com-salarios-de-ate-13844",
+      "ano": 2026,
+      "firstSeenAt": "2026-11-18T18:07:01.379Z",
+      "lastSeenAt": "2026-11-18T18:07:01.379Z",
+      "isNew": true,
+      "observacoes": "EDITAL Nº 001/2026 — disponível na página da notícia (PCI)"
+    },
+    {
+      "id": "sc-agronomica-prefeitura-medicina-geral-especialidades-2026",
+      "titulo": "Prefeitura de Agronômica - SC abre concurso público com salários de até R$ 19.660,06",
+      "orgao": "Prefeitura de Agronômica",
+      "cidade": "Agronômica",
+      "uf": "SC",
+      "tipo": "concurso",
+      "tag": "medicina-geral-especialidades",
+      "subcategoria": "clinico-esf-plantonista",
+      "cargos": [
+        {
+          "nome": "Médico",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "clinico-esf-plantonista",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        }
+      ],
+      "vagasTotal": null,
+      "remuneracaoMax": 19660.06,
+      "cargaHoraria": null,
+      "banca": "Grupo Talent",
+      "inscricoes": {
+        "inicio": "2026-11-04",
+        "fim": "2026-12-04"
+      },
+      "dataProva": "2026-12-13",
+      "editalUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-agronomica-sc-abre-concurso-publico-com-salarios-de-ate-19660",
+      "inscricaoUrl": null,
+      "relacionados": [
+        {
+          "rotulo": "Também em concursos-no-brasil",
+          "url": "https://concursosnobrasil.com/concursos/sc/2026/11/03/concurso-prefeitura-de-agronomica-sc-oferta-salarios-de-ate-r-196-mil/"
+        }
+      ],
+      "fonte": "pci",
+      "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-agronomica-sc-abre-concurso-publico-com-salarios-de-ate-19660",
+      "ano": 2026,
+      "firstSeenAt": "2026-11-18T18:07:01.379Z",
+      "lastSeenAt": "2026-11-18T18:07:01.379Z",
+      "isNew": true,
+      "observacoes": "EDITAL 01/2026 — disponível na página da notícia (PCI)"
+    },
+    {
+      "id": "sc-ararangua-prefeitura-medicina-geral-especialidades-2026",
+      "titulo": "Prefeitura de Araranguá - SC abre processos seletivos para diferentes áreas",
+      "orgao": "Prefeitura de Araranguá",
+      "cidade": "Araranguá",
+      "uf": "SC",
+      "tipo": "processo-seletivo",
+      "tag": "medicina-geral-especialidades",
+      "subcategoria": "clinico-esf-plantonista",
+      "cargos": [
+        {
+          "nome": "Médico I",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "clinico-esf-plantonista",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico II PSF",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "clinico-esf-plantonista",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Psiquiatra",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        }
+      ],
+      "vagasTotal": null,
+      "remuneracaoMax": 11219.13,
+      "cargaHoraria": null,
+      "banca": "Legalle Concursos",
+      "inscricoes": {
+        "inicio": "2026-11-13",
+        "fim": "2026-12-06"
+      },
+      "dataProva": "2026-12-20",
+      "editalUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-ararangua-sc-abre-processos-seletivos-para-diferentes-areas",
+      "inscricaoUrl": null,
+      "relacionados": [],
+      "fonte": "pci",
+      "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-ararangua-sc-abre-processos-seletivos-para-diferentes-areas",
+      "ano": 2026,
+      "firstSeenAt": "2026-11-18T18:07:01.379Z",
+      "lastSeenAt": "2026-11-18T18:07:01.379Z",
+      "isNew": true,
+      "observacoes": "EDITAL DE PROCESSO SELETIVO SIMPLIFICADO 004/2026 EDUCAÇÃO — disponível na página da notícia (PCI) · EDITAL DE PROCESSO SELETIVO SIMPLIFICADO 003/2026 ADMINISTRAÇÃO — disponível na página da notícia (PCI)"
+    },
+    {
+      "id": "sc-bom-retiro-prefeitura-medicina-geral-especialidades-2026",
+      "titulo": "Prefeitura de Bom Retiro - SC abre concurso público com salários de até R$ 20.138,46",
+      "orgao": "Prefeitura de Bom Retiro",
+      "cidade": "Bom Retiro",
+      "uf": "SC",
+      "tipo": "concurso",
+      "tag": "medicina-geral-especialidades",
+      "subcategoria": "clinico-esf-plantonista",
+      "cargos": [
+        {
+          "nome": "Médico",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "clinico-esf-plantonista",
+          "vagas": 2,
+          "cadastroReserva": true,
+          "remuneracao": null,
+          "cargaHoraria": null
+        }
+      ],
+      "vagasTotal": 2,
+      "remuneracaoMax": 20138.46,
+      "cargaHoraria": null,
+      "banca": "SC Treinamentos",
+      "inscricoes": {
+        "inicio": "2026-10-23",
+        "fim": "2026-11-23"
+      },
+      "dataProva": "2026-12-06",
+      "editalUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-bom-retiro-sc-abre-concurso-publico-com-salarios-de-ate-20138",
+      "inscricaoUrl": null,
+      "relacionados": [
+        {
+          "rotulo": "Também em concursos-no-brasil",
+          "url": "https://concursosnobrasil.com/concursos/sc/2026/10/23/concurso-prefeitura-de-bom-retiro-sc-tem-mensais-de-ate-r-20-138/"
+        }
+      ],
+      "fonte": "pci",
+      "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-bom-retiro-sc-abre-concurso-publico-com-salarios-de-ate-20138",
+      "ano": 2026,
+      "firstSeenAt": "2026-11-18T18:07:01.379Z",
+      "lastSeenAt": "2026-11-18T18:07:01.379Z",
+      "isNew": true,
+      "observacoes": "EDITAL DE CONCURSO PÚBLICO Nº 01/2026 — disponível na página da notícia (PCI)"
+    },
+    {
+      "id": "sc-curitibanos-prefeitura-medicina-geral-especialidades-2026",
+      "titulo": "Prefeitura de Curitibanos - SC abre seleções com salários de até R$ 26.193,56",
+      "orgao": "Prefeitura do Município de Curitibanos",
+      "cidade": "Curitibanos",
+      "uf": "SC",
+      "tipo": "concurso",
+      "tag": "medicina-geral-especialidades",
+      "subcategoria": "clinico-esf-plantonista",
+      "cargos": [
+        {
+          "nome": "Médico Clínico Geral",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "clinico-esf-plantonista",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": "20h ou 40h semanais"
+        },
+        {
+          "nome": "Médico Psiquiatra",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": 2,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": "10h ou 20h semanais"
+        },
+        {
+          "nome": "Médico Pediatra",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": 1,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": "20h semanais"
+        }
+      ],
+      "vagasTotal": 3,
+      "remuneracaoMax": 26193.56,
+      "cargaHoraria": "20h ou 40h semanais",
+      "banca": "FAFIPA",
+      "inscricoes": {
+        "inicio": "2026-11-11",
+        "fim": "2026-11-25"
+      },
+      "dataProva": "2026-12-20",
+      "editalUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-curitibanos-sc-abre-selecoes-com-salarios-de-ate-26193",
+      "inscricaoUrl": null,
+      "relacionados": [
+        {
+          "rotulo": "Também em pci",
+          "url": "https://www.pciconcursos.com.br/noticias/prefeitura-de-curitibanos-sc-abre-concurso-publico-com-salarios-de-ate-13096"
+        },
+        {
+          "rotulo": "Também em concursos-no-brasil",
+          "url": "https://concursosnobrasil.com/concursos/sc/2026/11/12/santa-catarina-concurso-prefeitura-de-curitibanos-preve-vencimentos-de-ate-r-13-mil/"
+        },
+        {
+          "rotulo": "Também em concursos-no-brasil",
+          "url": "https://concursosnobrasil.com/concursos/sc/2026/11/12/prefeitura-de-curitibanos-sc-abre-dois-editais-de-seletivo-e-paga-ate-r-26-mil/"
+        }
+      ],
+      "fonte": "pci",
+      "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-curitibanos-sc-abre-selecoes-com-salarios-de-ate-26193",
+      "ano": 2026,
+      "firstSeenAt": "2026-11-18T18:07:01.379Z",
+      "lastSeenAt": "2026-11-18T18:07:01.379Z",
+      "isNew": true,
+      "observacoes": "EDITAL DE ABERTURA Nº 09/2026 — disponível na página da notícia (PCI) · EDITAL DE ABERTURA Nº 08/2026 — disponível na página da notícia (PCI)"
+    },
+    {
+      "id": "sc-faxinal-dos-guedes-prefeitura-medicina-geral-especialidades-2026",
+      "titulo": "Prefeitura de Faxinal dos Guedes - SC abre concurso público e processo seletivo com salários de até R$ 7.454,79",
+      "orgao": "Prefeitura de Faxinal dos Guedes",
+      "cidade": "Faxinal dos Guedes",
+      "uf": "SC",
+      "tipo": "concurso",
+      "tag": "medicina-geral-especialidades",
+      "subcategoria": "especialidades",
+      "cargos": [
+        {
+          "nome": "Médico Especialista em Endocrinologia",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": 1,
+          "cadastroReserva": true,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Endocrinologista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        }
+      ],
+      "vagasTotal": 1,
+      "remuneracaoMax": 7454.79,
+      "cargaHoraria": null,
+      "banca": "Fênix Instituto",
+      "inscricoes": {
+        "inicio": "2026-11-07",
+        "fim": "2026-12-07"
+      },
+      "dataProva": "2026-12-13",
+      "editalUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-faxinal-dos-guedes-sc-abre-concurso-publico-e-processo-seletivo-com-salarios-de-ate-7454",
+      "inscricaoUrl": null,
+      "relacionados": [
+        {
+          "rotulo": "Também em concursos-no-brasil",
+          "url": "https://concursosnobrasil.com/concursos/sc/2026/11/09/concurso-prefeitura-de-faxinal-dos-guedes-sc-paga-ate-r-7-454/"
+        }
+      ],
+      "fonte": "pci",
+      "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-faxinal-dos-guedes-sc-abre-concurso-publico-e-processo-seletivo-com-salarios-de-ate-7454",
+      "ano": 2026,
+      "firstSeenAt": "2026-11-18T18:07:01.379Z",
+      "lastSeenAt": "2026-11-18T18:07:01.379Z",
+      "isNew": true,
+      "observacoes": "EDITAL DE CONCURSO PÚBLICO Nº 01/2026 — disponível na página da notícia (PCI) · EDITAL DE PROCESSO SELETIVO Nº 002/2026 — disponível na página da notícia (PCI)"
+    },
+    {
+      "id": "sc-fraiburgo-prefeitura-medicina-geral-especialidades-2026",
+      "titulo": "Prefeitura de Fraiburgo - SC abre processo seletivo para cadastro de reserva",
+      "orgao": "Prefeitura de Fraiburgo",
+      "cidade": "Fraiburgo",
+      "uf": "SC",
+      "tipo": "processo-seletivo",
+      "tag": "medicina-geral-especialidades",
+      "subcategoria": "clinico-esf-plantonista",
+      "cargos": [
+        {
+          "nome": "Médico Clínico Geral",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "clinico-esf-plantonista",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Ginecologista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Pediatra",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Psiquiatra",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico de Saúde da Família",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "clinico-esf-plantonista",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        }
+      ],
+      "vagasTotal": null,
+      "remuneracaoMax": 25103.42,
+      "cargaHoraria": null,
+      "banca": "IBAM",
+      "inscricoes": {
+        "inicio": "2026-11-03",
+        "fim": "2026-12-02"
+      },
+      "dataProva": "2026-12-20",
+      "editalUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-fraiburgo-sc-abre-processo-seletivo-para-cadastro-de-reserva",
+      "inscricaoUrl": null,
+      "relacionados": [
+        {
+          "rotulo": "Também em concursos-no-brasil",
+          "url": "https://concursosnobrasil.com/concursos/sc/2026/11/03/prefeitura-de-fraiburgo-sc-libera-selecao-que-tem-salario-ate-r-25-103/"
+        }
+      ],
+      "fonte": "pci",
+      "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-fraiburgo-sc-abre-processo-seletivo-para-cadastro-de-reserva",
+      "ano": 2026,
+      "firstSeenAt": "2026-11-18T18:07:01.379Z",
+      "lastSeenAt": "2026-11-18T18:07:01.379Z",
+      "isNew": true,
+      "observacoes": "EDITAL Nº 0027/2026 — disponível na página da notícia (PCI)"
+    },
+    {
+      "id": "sc-guaruja-do-sul-prefeitura-medicina-geral-especialidades-2026",
+      "titulo": "Prefeitura de Guarujá do Sul - SC abre concurso e seleções com salários de até R$ 30,7 mil",
+      "orgao": "Prefeitura de Guarujá do Sul",
+      "cidade": "Guarujá do Sul",
+      "uf": "SC",
+      "tipo": "concurso",
+      "tag": "medicina-geral-especialidades",
+      "subcategoria": "clinico-esf-plantonista",
+      "cargos": [
+        {
+          "nome": "Médico",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "clinico-esf-plantonista",
+          "vagas": null,
+          "cadastroReserva": true,
+          "remuneracao": null,
+          "cargaHoraria": null
+        }
+      ],
+      "vagasTotal": null,
+      "remuneracaoMax": 30761.75,
+      "cargaHoraria": null,
+      "banca": "Associação dos Municípios do Extremo-Oeste de Santa Catarina",
+      "inscricoes": {
+        "inicio": "2026-11-03",
+        "fim": "2026-12-02"
+      },
+      "dataProva": "2026-12-20",
+      "editalUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-guaruja-do-sul-sc-abre-concurso-e-selecoes-com-salarios-de-ate-30-7-mil",
+      "inscricaoUrl": null,
+      "relacionados": [
+        {
+          "rotulo": "Também em concursos-no-brasil",
+          "url": "https://concursosnobrasil.com/concursos/sc/2026/11/03/prefeitura-de-guaruja-do-sul-sc-faz-selecoes-com-salarios-de-ate-r-30-761/"
+        }
+      ],
+      "fonte": "pci",
+      "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-guaruja-do-sul-sc-abre-concurso-e-selecoes-com-salarios-de-ate-30-7-mil",
+      "ano": 2026,
+      "firstSeenAt": "2026-11-18T18:07:01.379Z",
+      "lastSeenAt": "2026-11-18T18:07:01.379Z",
+      "isNew": true,
+      "observacoes": "EDITAL DE CONCURSO PÚBLICO Nº 001/2026 — disponível na página da notícia (PCI) · EDITAL DE PROCESSO SELETIVO Nº 001/2026 — disponível na página da notícia (PCI) · EDITAL DE PROCESSO SELETIVO Nº 002/2026 — disponível na página da notícia (PCI)"
+    },
+    {
+      "id": "sc-ibirama-prefeitura-medicina-geral-especialidades-2026",
+      "titulo": "Prefeitura de Ibirama - SC abre concurso público com salários de até R$ 20.364,15",
+      "orgao": "Prefeitura de Ibirama",
+      "cidade": "Ibirama",
+      "uf": "SC",
+      "tipo": "concurso",
+      "tag": "medicina-geral-especialidades",
+      "subcategoria": "clinico-esf-plantonista",
+      "cargos": [
+        {
+          "nome": "Médico Clínico Geral",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "clinico-esf-plantonista",
+          "vagas": 1,
+          "cadastroReserva": true,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Pediatra",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": true,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Psiquiatra",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": true,
+          "remuneracao": null,
+          "cargaHoraria": null
+        }
+      ],
+      "vagasTotal": null,
+      "remuneracaoMax": 20364.15,
+      "cargaHoraria": null,
+      "banca": "HC Assessoria Administrativa",
+      "inscricoes": {
+        "inicio": "2026-11-06",
+        "fim": "2026-11-29"
+      },
+      "dataProva": "2026-12-13",
+      "editalUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-ibirama-sc-abre-concurso-publico-com-salarios-de-ate-20364",
+      "inscricaoUrl": null,
+      "relacionados": [
+        {
+          "rotulo": "Também em concursos-no-brasil",
+          "url": "https://concursosnobrasil.com/concursos/sc/2026/11/06/concurso-prefeitura-de-ibirama-sc-abre-vagas-com-ate-r-20-364-de-salario/"
+        }
+      ],
+      "fonte": "pci",
+      "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-ibirama-sc-abre-concurso-publico-com-salarios-de-ate-20364",
+      "ano": 2026,
+      "firstSeenAt": "2026-11-18T18:07:01.379Z",
+      "lastSeenAt": "2026-11-18T18:07:01.379Z",
+      "isNew": true,
+      "observacoes": "EDITAL Nº 01/2026 — disponível na página da notícia (PCI)"
+    },
+    {
+      "id": "sc-joinville-ses-medicina-geral-especialidades-2026",
+      "titulo": "SES - SC abre seleção para profissionais de saúde em Joinville",
+      "orgao": "SES - Secretaria de Estado da Saúde de Santa Catarina",
+      "cidade": "Joinville",
+      "uf": "SC",
+      "tipo": "processo-seletivo",
+      "tag": "medicina-geral-especialidades",
+      "subcategoria": "clinico-esf-plantonista",
+      "cargos": [
+        {
+          "nome": "Médico",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "clinico-esf-plantonista",
+          "vagas": 1,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        }
+      ],
+      "vagasTotal": 1,
+      "remuneracaoMax": 10581.16,
+      "cargaHoraria": null,
+      "banca": null,
+      "inscricoes": {
+        "inicio": "2026-11-12",
+        "fim": "2026-11-26"
+      },
+      "dataProva": null,
+      "editalUrl": "https://www.pciconcursos.com.br/noticias/ses-sc-abre-selecao-para-profissionais-de-saude-em-joinville",
+      "inscricaoUrl": null,
+      "relacionados": [
+        {
+          "rotulo": "Também em concursos-no-brasil",
+          "url": "https://concursosnobrasil.com/concursos/sc/2026/11/13/processo-seletivo-ses-sc-abre-15-vagas-com-ganhos-de-ate-r-105-mil/"
+        }
+      ],
+      "fonte": "pci",
+      "fonteUrl": "https://www.pciconcursos.com.br/noticias/ses-sc-abre-selecao-para-profissionais-de-saude-em-joinville",
+      "ano": 2026,
+      "firstSeenAt": "2026-11-18T18:07:01.379Z",
+      "lastSeenAt": "2026-11-18T18:07:01.379Z",
+      "isNew": true,
+      "observacoes": "EDITAL Nº 046/2026 — disponível na página da notícia (PCI)"
+    },
+    {
+      "id": "sc-luiz-alves-prefeitura-medicina-geral-especialidades-2026",
+      "titulo": "Prefeitura de Luiz Alves - SC abre concurso público com salários de até R$ 8.889,30",
+      "orgao": "Prefeitura de Luiz Alves",
+      "cidade": "Luiz Alves",
+      "uf": "SC",
+      "tipo": "concurso",
+      "tag": "medicina-geral-especialidades",
+      "subcategoria": "especialidades",
+      "cargos": [
+        {
+          "nome": "Médico Auditor",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Especialista em Saúde Mental",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": 2,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Ginecologista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": 1,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Obstetra",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": 1,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Pediatra",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": 1,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        }
+      ],
+      "vagasTotal": null,
+      "remuneracaoMax": 8889.3,
+      "cargaHoraria": null,
+      "banca": null,
+      "inscricoes": {
+        "inicio": "2026-10-27",
+        "fim": "2026-11-23"
+      },
+      "dataProva": "2026-12-13",
+      "editalUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-luiz-alves-sc-abre-concurso-publico-com-salarios-de-ate-8889",
+      "inscricaoUrl": null,
+      "relacionados": [],
+      "fonte": "pci",
+      "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-luiz-alves-sc-abre-concurso-publico-com-salarios-de-ate-8889",
+      "ano": 2026,
+      "firstSeenAt": "2026-11-18T18:07:01.379Z",
+      "lastSeenAt": "2026-11-18T18:07:01.379Z",
+      "isNew": true,
+      "observacoes": "EDITAL Nº 08/2026 — disponível na página da notícia (PCI)"
+    },
+    {
+      "id": "sc-luzerna-prefeitura-medicina-geral-especialidades-2026",
+      "titulo": "Prefeitura de Luzerna - SC abre concurso público com salários de até R$ 14.004,25",
+      "orgao": "Prefeitura de Luzerna",
+      "cidade": "Luzerna",
+      "uf": "SC",
+      "tipo": "concurso",
+      "tag": "medicina-geral-especialidades",
+      "subcategoria": "especialidades",
+      "cargos": [
+        {
+          "nome": "Médico Pediatra",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        }
+      ],
+      "vagasTotal": null,
+      "remuneracaoMax": 14004.25,
+      "cargaHoraria": null,
+      "banca": null,
+      "inscricoes": {
+        "inicio": "2026-11-03",
+        "fim": "2026-12-03"
+      },
+      "dataProva": "2027-01-17",
+      "editalUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-luzerna-sc-abre-concurso-publico-com-salarios-de-ate-14004",
+      "inscricaoUrl": null,
+      "relacionados": [
+        {
+          "rotulo": "Também em concursos-no-brasil",
+          "url": "https://concursosnobrasil.com/concursos/sc/2026/11/03/concurso-prefeitura-de-luzerna-sc-oferece-remuneracao-de-ate-r-14-004/"
+        }
+      ],
+      "fonte": "pci",
+      "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-luzerna-sc-abre-concurso-publico-com-salarios-de-ate-14004",
+      "ano": 2026,
+      "firstSeenAt": "2026-11-18T18:07:01.379Z",
+      "lastSeenAt": "2026-11-18T18:07:01.379Z",
+      "isNew": true,
+      "observacoes": "EDITAL DO CONCURSO PÚBLICO Nº 001 — disponível na página da notícia (PCI)"
+    },
+    {
+      "id": "sc-navegantes-prefeitura-medicina-geral-especialidades-2026",
+      "titulo": "Prefeitura e Fundação Cultural de Navegantes - SC abrem seleções com salários de até R$ 19.199,16",
+      "orgao": "Prefeitura e Fundação Cultural de Navegantes",
+      "cidade": "Navegantes",
+      "uf": "SC",
+      "tipo": "concurso",
+      "tag": "medicina-geral-especialidades",
+      "subcategoria": "clinico-esf-plantonista",
+      "cargos": [
+        {
+          "nome": "Médico Auditor",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": "10h semanais"
+        },
+        {
+          "nome": "Médico Clínico Geral",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "clinico-esf-plantonista",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": "20h ou 30h ou 40h semanais"
+        },
+        {
+          "nome": "Médico ESF",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "clinico-esf-plantonista",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": "40h semanais"
+        },
+        {
+          "nome": "Médico Ginecologista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": "10h ou 20h semanais"
+        },
+        {
+          "nome": "Médico Infectologista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": "10h ou 20h semanais"
+        },
+        {
+          "nome": "Médico Mastologista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": "10h semanais"
+        },
+        {
+          "nome": "Médico Neurologista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": "10h ou 20h semanais"
+        },
+        {
+          "nome": "Médico Ortopedista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": "10h ou 20h semanais"
+        },
+        {
+          "nome": "Médico Pediatra",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": "10h ou 20h semanais"
+        },
+        {
+          "nome": "Médico Proctologista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": "10h semanais"
+        },
+        {
+          "nome": "Médico Psiquiatra",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": "20h ou 40h semanais"
+        },
+        {
+          "nome": "Médico Regulador",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": "20h semanais"
+        },
+        {
+          "nome": "Traumatologista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": "20h semanais"
+        }
+      ],
+      "vagasTotal": null,
+      "remuneracaoMax": 19199.16,
+      "cargaHoraria": "10h semanais",
+      "banca": "FURB",
+      "inscricoes": {
+        "inicio": "2026-10-27",
+        "fim": "2026-11-25"
+      },
+      "dataProva": null,
+      "editalUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-e-fundacao-cultural-de-navegantes-sc-abrem-selecoes-com-salarios-de-ate-19199",
+      "inscricaoUrl": null,
+      "relacionados": [
+        {
+          "rotulo": "Também em concursos-no-brasil",
+          "url": "https://concursosnobrasil.com/concursos/sc/2026/10/24/selecoes-em-navegantes-sc-abrem-vagas-com-salario-de-ate-r-192-mil/"
+        }
+      ],
+      "fonte": "pci",
+      "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-e-fundacao-cultural-de-navegantes-sc-abrem-selecoes-com-salarios-de-ate-19199",
+      "ano": 2026,
+      "firstSeenAt": "2026-11-18T18:07:01.379Z",
+      "lastSeenAt": "2026-11-18T18:07:01.379Z",
+      "isNew": true,
+      "observacoes": "EDITAL Nº 0172/2026 — disponível na página da notícia (PCI) · EDITAL Nº 0180/2026 — disponível na página da notícia (PCI) · ERRATA Nº 01 - EDITAL Nº 0172/2026 — disponível na página da notícia (PCI) · EDITAL RETIFICADO Nº 0172/2026 — disponível na página da notícia (PCI)"
+    },
+    {
+      "id": "sc-nova-trento-prefeitura-medicina-geral-especialidades-2026",
+      "titulo": "Município de Nova Trento - SC abre três novos processos seletivos com salários de até R$ 14.189,97",
+      "orgao": "Prefeitura de Nova Trento",
+      "cidade": "Nova Trento",
+      "uf": "SC",
+      "tipo": "processo-seletivo",
+      "tag": "medicina-geral-especialidades",
+      "subcategoria": "clinico-esf-plantonista",
+      "cargos": [
+        {
+          "nome": "Médico",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "clinico-esf-plantonista",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": 14189.97,
+          "cargaHoraria": "40h semanais"
+        }
+      ],
+      "vagasTotal": null,
+      "remuneracaoMax": 14189.97,
+      "cargaHoraria": "40h semanais",
+      "banca": "Acesse Concursos",
+      "inscricoes": {
+        "inicio": "2026-10-30",
+        "fim": "2026-11-28"
+      },
+      "dataProva": "2026-12-13",
+      "editalUrl": "https://www.pciconcursos.com.br/noticias/municipio-de-nova-trento-sc-abre-tres-novos-processos-seletivos-com-salarios-de-ate-14189",
+      "inscricaoUrl": null,
+      "relacionados": [
+        {
+          "rotulo": "Também em concursos-no-brasil",
+          "url": "https://concursosnobrasil.com/concursos/sc/2026/10/30/prefeitura-de-nova-trento-sc-oferece-salarios-de-ate-r-14-189/"
+        }
+      ],
+      "fonte": "pci",
+      "fonteUrl": "https://www.pciconcursos.com.br/noticias/municipio-de-nova-trento-sc-abre-tres-novos-processos-seletivos-com-salarios-de-ate-14189",
+      "ano": 2026,
+      "firstSeenAt": "2026-11-18T18:07:01.379Z",
+      "lastSeenAt": "2026-11-18T18:07:01.379Z",
+      "isNew": true,
+      "observacoes": "EDITAL DE PROCESSO SELETIVO PÚBLICO Nº 001/2026 — disponível na página da notícia (PCI) · EDITAL DE PROCESSO SELETIVO Nº 002/2026 - SECRETARIA DE EDUCAÇÃO — disponível na página da notícia (PCI) · EDITAL DE PROCESSO SELETIVO Nº 003/2026 DEMAIS SECRETARIAS — disponível na página da notícia (PCI)"
+    },
+    {
+      "id": "sc-pouso-redondo-prefeitura-medicina-geral-especialidades-2026",
+      "titulo": "Prefeitura de Pouso Redondo - SC abre processo seletivo com salários de até R$ 21.091,49",
+      "orgao": "Prefeitura de Pouso Redondo",
+      "cidade": "Pouso Redondo",
+      "uf": "SC",
+      "tipo": "processo-seletivo",
+      "tag": "medicina-geral-especialidades",
+      "subcategoria": "clinico-esf-plantonista",
+      "cargos": [
+        {
+          "nome": "Médico",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "clinico-esf-plantonista",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        }
+      ],
+      "vagasTotal": null,
+      "remuneracaoMax": 21091.49,
+      "cargaHoraria": null,
+      "banca": "SC Treinamentos",
+      "inscricoes": {
+        "inicio": "2026-11-16",
+        "fim": "2026-11-26"
+      },
+      "dataProva": "2026-12-05",
+      "editalUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-pouso-redondo-sc-abre-processo-seletivo-com-salarios-de-ate-21091",
+      "inscricaoUrl": null,
+      "relacionados": [
+        {
+          "rotulo": "Também em concursos-no-brasil",
+          "url": "https://concursosnobrasil.com/concursos/sc/2026/11/16/edital-prefeitura-de-pouso-redondo-sc-oferece-remuneracao-de-ate-r-21-091/"
+        }
+      ],
+      "fonte": "pci",
+      "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-pouso-redondo-sc-abre-processo-seletivo-com-salarios-de-ate-21091",
+      "ano": 2026,
+      "firstSeenAt": "2026-11-18T18:07:01.379Z",
+      "lastSeenAt": "2026-11-18T18:07:01.379Z",
+      "isNew": true,
+      "observacoes": "EDITAL DE PROCESSO SELETIVO SIMPLIFICADO Nº 003/2026 — disponível na página da notícia (PCI)"
+    },
+    {
+      "id": "sc-praia-grande-prefeitura-medicina-geral-especialidades-2026",
+      "titulo": "Prefeitura de Praia Grande - SC abre seleções com salários de até R$ 7.921,65",
+      "orgao": "Prefeitura de Praia Grande e Fundo Municipal de Saúde",
+      "cidade": "Praia Grande",
+      "uf": "SC",
+      "tipo": "concurso",
+      "tag": "medicina-geral-especialidades",
+      "subcategoria": "especialidades",
+      "cargos": [
+        {
+          "nome": "Médico Ginecologista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": 1,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Pediatra",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": 1,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        }
+      ],
+      "vagasTotal": 2,
+      "remuneracaoMax": 7921.65,
+      "cargaHoraria": null,
+      "banca": "Legalle Concursos",
+      "inscricoes": {
+        "inicio": "2026-10-27",
+        "fim": "2026-11-22"
+      },
+      "dataProva": "2026-12-13",
+      "editalUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-praia-grande-sc-abre-selecoes-com-salarios-de-ate-7921",
+      "inscricaoUrl": null,
+      "relacionados": [
+        {
+          "rotulo": "Também em concursos-no-brasil",
+          "url": "https://concursosnobrasil.com/concursos/sc/2026/10/28/prefeitura-de-praia-grande-sc-abre-79-vagas-com-salarios-de-ate-r-79-mil/"
+        }
+      ],
+      "fonte": "pci",
+      "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-praia-grande-sc-abre-selecoes-com-salarios-de-ate-7921",
+      "ano": 2026,
+      "firstSeenAt": "2026-11-18T18:07:01.379Z",
+      "lastSeenAt": "2026-11-18T18:07:01.379Z",
+      "isNew": true,
+      "observacoes": "EDITAL DE PROCESSO SELETIVO SIMPLIFICADO 001/2026 — disponível na página da notícia (PCI) · EDITAL DE PROCESSO SELETIVO SIMPLIFICADO 002/2026 — disponível na página da notícia (PCI) · EDITAL DE PROCESSO SELETIVO SIMPLIFICADO 003/2026 — disponível na página da notícia (PCI)"
+    },
+    {
+      "id": "sc-rio-do-oeste-prefeitura-medicina-geral-especialidades-2026",
+      "titulo": "Prefeitura de Rio do Oeste - SC abre processo seletivo com salários de até R$ 15.337,90",
+      "orgao": "Prefeitura de Rio do Oeste",
+      "cidade": "Rio do Oeste",
+      "uf": "SC",
+      "tipo": "processo-seletivo",
+      "tag": "medicina-geral-especialidades",
+      "subcategoria": "clinico-esf-plantonista",
+      "cargos": [
+        {
+          "nome": "Médico Clínico Geral",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "clinico-esf-plantonista",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Ginecologista e Obstetra",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Pediatra",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        }
+      ],
+      "vagasTotal": null,
+      "remuneracaoMax": 15337.9,
+      "cargaHoraria": null,
+      "banca": "SC Treinamentos",
+      "inscricoes": {
+        "inicio": "2026-11-12",
+        "fim": "2026-11-23"
+      },
+      "dataProva": "2026-12-06",
+      "editalUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-rio-do-oeste-sc-abre-processo-seletivo-com-salarios-de-ate-15337",
+      "inscricaoUrl": null,
+      "relacionados": [
+        {
+          "rotulo": "Também em concursos-no-brasil",
+          "url": "https://concursosnobrasil.com/concursos/sc/2026/11/12/sc-prefeitura-de-rio-do-oeste-abre-vagas-com-salarios-de-ate-r-15-mil/"
+        }
+      ],
+      "fonte": "pci",
+      "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-rio-do-oeste-sc-abre-processo-seletivo-com-salarios-de-ate-15337",
+      "ano": 2026,
+      "firstSeenAt": "2026-11-18T18:07:01.379Z",
+      "lastSeenAt": "2026-11-18T18:07:01.379Z",
+      "isNew": true,
+      "observacoes": "EDITAL DE PROCESSO SELETIVO SIMPLIFICADO Nº 007/2026 — disponível na página da notícia (PCI)"
+    },
+    {
+      "id": "sc-santa-terezinha-do-progresso-prefeitura-medicina-geral-especialidades-2026",
+      "titulo": "Prefeitura de Santa Terezinha do Progresso - SC abre concurso com salários de até R$ 10.000,00",
+      "orgao": "Prefeitura de Santa Terezinha do Progresso",
+      "cidade": "Santa Terezinha do Progresso",
+      "uf": "SC",
+      "tipo": "concurso",
+      "tag": "medicina-geral-especialidades",
+      "subcategoria": "clinico-esf-plantonista",
+      "cargos": [
+        {
+          "nome": "Médico",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "clinico-esf-plantonista",
+          "vagas": 1,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        }
+      ],
+      "vagasTotal": 1,
+      "remuneracaoMax": 10000,
+      "cargaHoraria": null,
+      "banca": "Instituto Fênix",
+      "inscricoes": {
+        "inicio": "2026-10-26",
+        "fim": "2026-11-25"
+      },
+      "dataProva": "2026-12-06",
+      "editalUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-santa-terezinha-do-progresso-sc-abre-concurso-com-salarios-de-ate-10000",
+      "inscricaoUrl": null,
+      "relacionados": [
+        {
+          "rotulo": "Também em concursos-no-brasil",
+          "url": "https://concursosnobrasil.com/concursos/sc/2026/10/23/concurso-prefeitura-de-santa-terezinha-do-progresso-sc-oferece-ganhos-de-ate-r-10-mil/"
+        }
+      ],
+      "fonte": "pci",
+      "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-santa-terezinha-do-progresso-sc-abre-concurso-com-salarios-de-ate-10000",
+      "ano": 2026,
+      "firstSeenAt": "2026-11-18T18:07:01.379Z",
+      "lastSeenAt": "2026-11-18T18:07:01.379Z",
+      "isNew": true,
+      "observacoes": "EDITAL DE CONCURSO PÚBLICO DE PROVAS Nº 01/2026 — disponível na página da notícia (PCI)"
+    },
+    {
+      "id": "sc-sao-carlos-prefeitura-medicina-geral-especialidades-2026",
+      "titulo": "Prefeitura de São Carlos - SC abre processos seletivos para cadastro de reserva",
+      "orgao": "Prefeitura de São Carlos",
+      "cidade": "São Carlos",
+      "uf": "SC",
+      "tipo": "processo-seletivo",
+      "tag": "medicina-geral-especialidades",
+      "subcategoria": "clinico-esf-plantonista",
+      "cargos": [
+        {
+          "nome": "Médico Clínico Geral II",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "clinico-esf-plantonista",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Clínico Geral",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "clinico-esf-plantonista",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        }
+      ],
+      "vagasTotal": null,
+      "remuneracaoMax": 22623.36,
+      "cargaHoraria": null,
+      "banca": null,
+      "inscricoes": {
+        "inicio": null,
+        "fim": "2026-11-30"
+      },
+      "dataProva": "2026-12-20",
+      "editalUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-sao-carlos-sc-abre-processos-seletivos-para-cadastro-de-reserva",
+      "inscricaoUrl": null,
+      "relacionados": [
+        {
+          "rotulo": "Também em concursos-no-brasil",
+          "url": "https://concursosnobrasil.com/concursos/sc/2026/11/16/edital-de-sao-carlos-sc-forma-cadastro-com-salario-ate-r-226-mil/"
+        }
+      ],
+      "fonte": "pci",
+      "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-sao-carlos-sc-abre-processos-seletivos-para-cadastro-de-reserva",
+      "ano": 2026,
+      "firstSeenAt": "2026-11-18T18:07:01.379Z",
+      "lastSeenAt": "2026-11-18T18:07:01.379Z",
+      "isNew": true,
+      "observacoes": "EDITAL DO PROCESSO SELETIVO SIMPLIFICADO EDUCAÇÃO Nº 002 — disponível na página da notícia (PCI) · EDITAL DO PROCESSO SELETIVO SIMPLIFICADO CARGOS GERAIS Nº 003 — disponível na página da notícia (PCI)"
+    },
+    {
+      "id": "sc-sao-miguel-do-oeste-prefeitura-medicina-geral-especialidades-2026",
+      "titulo": "Prefeitura de São Miguel do Oeste - SC abre seleção para cadastro de reserva em diversas áreas",
+      "orgao": "Prefeitura de São Miguel do Oeste",
+      "cidade": "São Miguel do Oeste",
+      "uf": "SC",
+      "tipo": "processo-seletivo",
+      "tag": "medicina-geral-especialidades",
+      "subcategoria": "especialidades",
+      "cargos": [
+        {
+          "nome": "Médico Ginecologista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": 26375.18,
+          "cargaHoraria": "40h semanais"
+        }
+      ],
+      "vagasTotal": null,
+      "remuneracaoMax": 26375.18,
+      "cargaHoraria": "40h semanais",
+      "banca": null,
+      "inscricoes": {
+        "inicio": "2026-11-18",
+        "fim": "2026-12-07"
+      },
+      "dataProva": null,
+      "editalUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-sao-miguel-do-oeste-sc-abre-selecao-para-cadastro-de-reserva-em-diversas-areas",
+      "inscricaoUrl": null,
+      "relacionados": [
+        {
+          "rotulo": "Também em concursos-no-brasil",
+          "url": "https://concursosnobrasil.com/concursos/sc/2026/11/13/prefeitura-de-sao-miguel-do-oeste-em-sc-tem-mensais-de-ate-r-26-mil-em-edital/"
+        }
+      ],
+      "fonte": "pci",
+      "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-sao-miguel-do-oeste-sc-abre-selecao-para-cadastro-de-reserva-em-diversas-areas",
+      "ano": 2026,
+      "firstSeenAt": "2026-11-18T18:07:01.379Z",
+      "lastSeenAt": "2026-11-18T18:07:01.379Z",
+      "isNew": true,
+      "observacoes": "EDITAL DE PROCESSO SELETIVO SIMPLIFICADO Nº 006/2026 — disponível na página da notícia (PCI)"
+    },
+    {
+      "id": "sc-tijucas-prefeitura-medicina-geral-especialidades-2026",
+      "titulo": "Prefeitura de Tijucas - SC abre concursos públicos com salários de até R$ 9.941,61",
+      "orgao": "Prefeitura de Tijucas",
+      "cidade": "Tijucas",
+      "uf": "SC",
+      "tipo": "concurso",
+      "tag": "medicina-geral-especialidades",
+      "subcategoria": "especialidades",
+      "cargos": [
+        {
+          "nome": "Médico Ginecologista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": 2,
+          "cadastroReserva": true,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Neuropediatra",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": 1,
+          "cadastroReserva": true,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Neurologista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": 1,
+          "cadastroReserva": true,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Pediatra",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": true,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Psiquiatra",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": 1,
+          "cadastroReserva": true,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Infectologista DST",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": true,
+          "remuneracao": null,
+          "cargaHoraria": null
+        }
+      ],
+      "vagasTotal": null,
+      "remuneracaoMax": 9941.61,
+      "cargaHoraria": null,
+      "banca": null,
+      "inscricoes": {
+        "inicio": "2026-11-24",
+        "fim": "2027-01-05"
+      },
+      "dataProva": null,
+      "editalUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-tijucas-sc-abre-concursos-publicos-com-salarios-de-ate-9941",
+      "inscricaoUrl": null,
+      "relacionados": [],
+      "fonte": "pci",
+      "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-tijucas-sc-abre-concursos-publicos-com-salarios-de-ate-9941",
+      "ano": 2026,
+      "firstSeenAt": "2026-11-18T18:07:01.379Z",
+      "lastSeenAt": "2026-11-18T18:07:01.379Z",
+      "isNew": true,
+      "observacoes": "EDITAL Nº 03/2026 — disponível na página da notícia (PCI) · EDITAL Nº 04/2026 — disponível na página da notícia (PCI)"
+    }
+  ]
+}

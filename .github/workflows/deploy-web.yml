@@ -1,0 +1,63 @@
+name: Publicar app web (GitHub Pages)
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - 'docs/**'
+      - '**/*.md'
+  workflow_run:
+    workflows: ['Atualizar Radar de Concursos Médicos (Sul)']
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout (main atualizado, inclusive commits do robô)
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Instalar dependências
+        run: npm ci --no-audit --no-fund
+
+      - name: Build web + PWA
+        env:
+          # Site de projeto do GitHub Pages fica em /<nome-do-repositório>
+          EXPO_BASE_URL: /${{ github.event.repository.name }}
+        run: npm run build:web
+
+      - name: Enviar artefato
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publicar no GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
