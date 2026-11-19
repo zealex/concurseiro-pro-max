@@ -56,9 +56,15 @@ Todos os dias o app acrescenta as **revisões espaçadas que vencem hoje** e, se
 
 ## 4. Perfis de carga diária
 
-### 4.1 Dia Padrão — 3 h a 4 h líquidas
+### 4.1 Dia Padrão — 3 h a 6 h líquidas
 
-Orçamento configurável entre 180 e 240 minutos (padrão: 210).
+Orçamento configurável de 180 a 360 minutos (3h, 3h30, 4h, 5h ou 6h; padrão: 3h30). O orçamento decide quanto de **Conhecimentos Básicos** cabe na semana:
+
+- o **núcleo** (Português e simulados de básicas) entra sempre;
+- o **complemento** (Matemática, RLM, Informática, Direito, Legislação, Ética…) entra enquanto couber em 5 × orçamento;
+- o **reforço** só entra quando as básicas valem ≥ 50% da prova-alvo (padrão na trilha Clínico, de prefeituras).
+
+Com 6 h por dia, todas as trilhas recebem as básicas completas.
 
 | Ordem | Bloco | Tempo típico |
 |---|---|---|
@@ -67,7 +73,10 @@ Orçamento configurável entre 180 e 240 minutos (padrão: 210).
 | 3 | Teoria de outro eixo (ou SUS/ética) | 45–75 min |
 | 4 | Lei seca com checklist (Lei 8.213, LOAS, Lei 8.112, NRs, CPP/CP) | 30–45 min |
 | 5 | Questões do dia + registro de erros | 45–60 min |
-| 6 | Redistribuídas de dias anteriores (se houver) | até 60 min |
+| 6 | **Conhecimentos Básicos do dia** (1–3 blocos de 25–40 min, espalhados pela semana) | 30–110 min |
+| 7 | Redistribuídas de dias anteriores (se houver; básicas não acumulam) | até 60 min |
+
+> Por que tanto espaço para as básicas? Nas provas de prefeitura do Sul, elas valem de 60% a 75% das questões. Exemplos: FUNDATEC, Xangri-lá/RS 2025, 40 de 60; Objetiva, Cachoeira do Sul/RS 2026, 30 de 40. Nas provas de perito oficial, valem cerca de metade das questões, e há nota mínima no bloco de conhecimentos gerais.
 
 ### 4.2 Modo Plantão — 45 a 60 minutos
 
@@ -148,6 +157,8 @@ Como revisar em cada etapa: **D1** — reler o resumo/checklist e refazer 5 ques
 <!-- PLANO:INICIO -->
 Legenda das trilhas: **G** Generalista Completo · **P** Perícia Médica (INSS/RPPS) · **L** Médico Legista · **C** Clínico Geral/ESF/Plantonista. ★ = bloco essencial (mantido na compressão).
 
+Conhecimentos Básicos: **Núcleo** entra sempre · **Complemento** entra se couber no orçamento diário escolhido (até 6 h) · **Reforço** só quando as básicas valem ≥ 50% da prova-alvo (padrão da trilha Clínico). Com edital-alvo no app, entram só as disciplinas do edital. A carga mostra o Dia Padrão de 3h30 → 6h.
+
 ### Mês 1 — Base pericial, Medicina Legal e clínica essencial
 
 _Construir a base cobrada em todos os concursos que o generalista pode prestar: perícia e incapacidade laborativa, benefícios da Lei 8.213, seguridade e BPC, NR-07 e acidente do trabalho; fundamentos de Medicina Legal (documentos, CPP, traumatologia, PAF, tanatologia); clínica cardiometabólica, respiratória e de urgência; leis do SUS — partindo de um diagnóstico por questões._
@@ -158,11 +169,11 @@ _Construir a base cobrada em todos os concursos que o generalista pode prestar: 
 
 **Bancas-foco:** Diagnóstico misto, CEBRASPE, FUNDATEC · **Meta de questões:** 180
 
-**Carga planejada:** G 18h15 · P 15h45 · L 11h15 · C 12h15
+**Carga planejada:** G 19h35→24h45 · P 18h10→20h45 · L 17h25→17h25 · C 18h15→18h40
 
 | Bloco | Eixo | Tipo | Min | Trilhas | Conteúdo |
 |---|---|---|---|---|---|
-| ★ **Diagnóstico inicial: 40 questões mistas sem consulta** | SUS, Ética e Básicas | Diagnóstico | 120 | G P L C | Resolva 40 questões dos eixos da sua trilha (proporção da trilha), sem consulta e cronometrado. Registre cada disciplina separadamente na Central de Questões: é isso que acende os primeiros pontos fracos do Dashboard. |
+| ★ **Diagnóstico inicial: 40 questões mistas sem consulta** | SUS, Epidemiologia e Ética Médica | Diagnóstico | 120 | G P L C | Resolva 40 questões dos eixos da sua trilha (proporção da trilha), sem consulta e cronometrado. Registre cada disciplina separadamente na Central de Questões: é isso que acende os primeiros pontos fracos do Dashboard. |
 | ★ **Perícia médica: conceitos, ato pericial e o papel do perito** | Perícia, Previdência e Trabalho | Teoria | 75 | G P | Perícia × assistência: o perito não trata e não pode periciar paciente seu, familiar ou pessoa com quem tenha relação que influa no trabalho (CEM Art. 93). Perícia oficial, quesitos e laudo; atribuições do Perito Médico Federal (parecer sobre incapacidade laboral, caracterização da invalidez, auditoria médica, avaliação biopsicossocial da deficiência, FGTS por condição de saúde). |
 | ★ **Incapacidade laborativa: DID, DII e classificação** | Perícia, Previdência e Trabalho | Teoria | 75 | G P | Doença não é incapacidade. DID × DII (a DII define direito, carência e preexistência); incapacidade temporária × permanente, parcial × total, uni, multi e omniprofissional; prognóstico, reabilitação e data estimada de cessação (DCB). |
 | ★ **Lei seca: Lei 8.213 — benefícios por incapacidade** | Perícia, Previdência e Trabalho | Lei seca / NR | 45 | G P | Arts. 25, 26, 27-A, 42, 45, 59–62, 86, 101 e 151: carência, isenções, preexistência, 15 dias da empresa, DCB de 120 dias, reabilitação e acréscimo de 25%. Marque no checklist. |
@@ -176,8 +187,8 @@ _Construir a base cobrada em todos os concursos que o generalista pode prestar: 
 | ★ **Clínica: diabetes tipo 2** | Clínica Médica e Urgência | Teoria | 75 | G C P | Critérios diagnósticos, metas glicêmicas individualizadas, metformina e intensificação, insulinização basal, rastreamento de complicações (pé, retina, rim). |
 | ★ **Clínica: dislipidemia e risco cardiovascular** | Clínica Médica e Urgência | Teoria | 60 | G C P | Estratificação de risco, metas de LDL por risco, estatinas, prevenção primária × secundária. |
 | **Questões: clínica cardiometabólica (30)** | Clínica Médica e Urgência | Questões | 60 | G C P | Filtro: Clínica Médica → HAS, DM, dislipidemia → cargos Médico/Clínico Geral/ESF e Perito Médico. |
-| ★ **CF/88 Arts. 196–200 e Lei 8.080 (princípios e diretrizes)** | SUS, Ética e Básicas | Teoria | 75 | G P L C | Saúde como direito; relevância pública; diretrizes do Art. 198; complementaridade privada (199); competências do SUS (200, inclusive saúde do trabalhador); Lei 8.080 Arts. 2º a 7º e definição de saúde do trabalhador (Art. 6º, §3º). |
-| **Questões: SUS (CF + 8.080) e Português** | SUS, Ética e Básicas | Questões | 45 | G P L C | 20 questões de SUS + 10 de Português (concordância e regência). |
+| ★ **CF/88 Arts. 196–200 e Lei 8.080 (princípios e diretrizes)** | SUS, Epidemiologia e Ética Médica | Teoria | 75 | G P L C | Saúde como direito; relevância pública; diretrizes do Art. 198; complementaridade privada (199); competências do SUS (200, inclusive saúde do trabalhador); Lei 8.080 Arts. 2º a 7º e definição de saúde do trabalhador (Art. 6º, §3º). |
+| **Questões: SUS (CF + Lei 8.080)** | SUS, Epidemiologia e Ética Médica | Questões | 45 | G P L C | 30 questões de SUS: CF arts. 196–200 e Lei 8.080 (princípios, competências, participação complementar). |
 | **Aprofundamento: o edital de Perito Médico Federal** | Perícia, Previdência e Trabalho | Teoria | 60 | P | Leia o conteúdo programático do último concurso (MPS/Cebraspe, 2024: 50 itens de conhecimentos gerais + 70 de específicos, Certo/Errado com desconto). Marque o que já domina em Medicina Geral, Medicina do Trabalho, Direito do Trabalho, Previdenciário, SUS e Assistência Social. |
 | **Aprofundamento: 30 itens Certo/Errado de legislação previdenciária** | Perícia, Previdência e Trabalho | Questões | 60 | P | Estilo CEBRASPE: cada erro anula um acerto pela metade — treine deixar em branco o que não souber. |
 | **Aprofundamento: Lei 13.964/2019 e nulidades da prova pericial** | Medicina Legal | Teoria | 60 | L | Cadeia de custódia na prática do IML/IGP: lacres, rastreabilidade, central de custódia, consequências da quebra da cadeia na jurisprudência. |
@@ -185,7 +196,26 @@ _Construir a base cobrada em todos os concursos que o generalista pode prestar: 
 | **Clínica: rastreamento e prevenção na APS** | Clínica Médica e Urgência | Teoria | 60 | C | Rastreamentos recomendados pelo Ministério da Saúde (colo, mama, colorretal; HAS; DM), prevenção quaternária. |
 | **Clínica: infecções de vias aéreas superiores e antibióticos** | Clínica Médica e Urgência | Teoria | 60 | C | Faringoamigdalite, rinossinusite, otite média: quando (e quando não) prescrever antibiótico. |
 | **Clínica: anemias na APS** | Clínica Médica e Urgência | Teoria | 45 | C | Ferropriva, megaloblástica e de doença crônica: investigação inicial e reposição. |
-| **Correção comentada do diagnóstico e abertura do Caderno de Erros** _(dia 6)_ | SUS, Ética e Básicas | Caderno de erros | 60 | G P L C | Revise cada erro do diagnóstico, registre os relevantes no Caderno de Erros (o app agenda D1/D7/D15/D30) e confira os pontos fracos no Dashboard. |
+| **Correção comentada do diagnóstico e abertura do Caderno de Erros** _(dia 6)_ | SUS, Epidemiologia e Ética Médica | Caderno de erros | 60 | G P L C | Revise cada erro do diagnóstico, registre os relevantes no Caderno de Erros (o app agenda D1/D7/D15/D30) e confira os pontos fracos no Dashboard. |
+
+**Conhecimentos Básicos da semana**
+
+| Bloco | Nível | Tipo | Min | Trilhas |
+|---|---|---|---|---|
+| Português: Ortografia oficial, acentuação, hífen e uso dos porquês | Núcleo | Teoria | 40 | G P L C |
+| Português: Classes de palavras e formação de palavras | Núcleo | Teoria | 40 | G P L C |
+| Português: interpretação de texto | Complemento | Questões | 30 | G P L C |
+| Matemática: Razão, proporção, divisão proporcional e escalas | Complemento | Teoria | 40 | G L C |
+| Matemática: Números, operações, frações, MMC/MDC, potências e raízes | Reforço | Teoria | 30 | G L C |
+| Raciocínio Lógico: Proposições, conectivos e tabela-verdade | Complemento | Teoria | 35 | G P L C |
+| Informática: Segurança da informação: malware, phishing, backup, criptografia e VPN | Complemento | Teoria | 35 | G P L C |
+| Informática: Hardware, software e armazenamento | Reforço | Teoria | 25 | G P L C |
+| Constitucional: Princípios fundamentais (arts. 1º a 4º) | Complemento | Teoria | 30 | G P L C |
+| Administrativo: Administração pública: conceito e princípios | Complemento | Teoria | 30 | G P L |
+| Servidor público: Estatuto municipal e Lei Orgânica: como estudar a lei do seu município | Complemento | Teoria | 30 | G P L C |
+| Ética e transparência: Código de Ética do servidor federal (Decreto 1.171/1994) | Complemento | Teoria | 30 | G P L |
+| História e Geografia do Sul: Município do edital: como estudar história, geografia e dados (IBGE Cidades) | Complemento | Teoria | 30 | G L C |
+| Atualidades: Atualidades: como estudar e recorte do edital | Complemento | Teoria | 20 | G C |
 
 #### Semana 2 — Benefícios por incapacidade, NR-07, traumatologia mecânica e doenças respiratórias
 
@@ -193,7 +223,7 @@ _Construir a base cobrada em todos os concursos que o generalista pode prestar: 
 
 **Bancas-foco:** CEBRASPE, FUNDATEC, FEPESE · **Meta de questões:** 200
 
-**Carga planejada:** G 16h15 · P 13h45 · L 9h45 · C 10h15
+**Carga planejada:** G 18h45→23h20 · P 18h45→18h45 · L 16h50→16h50 · C 16h45→16h45
 
 | Bloco | Eixo | Tipo | Min | Trilhas | Conteúdo |
 |---|---|---|---|---|---|
@@ -210,8 +240,8 @@ _Construir a base cobrada em todos os concursos que o generalista pode prestar: 
 | ★ **Clínica: tuberculose** | Clínica Médica e Urgência | Teoria | 75 | G C P | Busca ativa de sintomático respiratório, TRM-TB, esquema básico (RIPE), controle de contatos, ILTB, notificação e TDO. |
 | ★ **Clínica: pneumonia adquirida na comunidade** | Clínica Médica e Urgência | Teoria | 45 | G C P | CURB-65/CRB-65, local de tratamento e antibioticoterapia empírica. |
 | **Questões: respiratória e TB (30)** | Clínica Médica e Urgência | Questões | 60 | G C P | Bancas do Sul e CEBRASPE; cargos Médico/ESF e Perito Médico. |
-| ★ **Lei 8.080 (competências) e Lei 8.142** | SUS, Ética e Básicas | Teoria | 75 | G P L C | Competências da União, estados e municípios; CONITEC; Fundo de Saúde; Conferência (a cada 4 anos) e Conselho de Saúde (paritário: usuários 50%); requisitos para transferências. |
-| **Questões: SUS e Raciocínio Lógico** | SUS, Ética e Básicas | Questões | 45 | G P L C | 20 de SUS + 10 de RLM (proposições e equivalências). |
+| ★ **Lei 8.080 (competências) e Lei 8.142** | SUS, Epidemiologia e Ética Médica | Teoria | 75 | G P L C | Competências da União, estados e municípios; CONITEC; Fundo de Saúde; Conferência (a cada 4 anos) e Conselho de Saúde (paritário: usuários 50%); requisitos para transferências. |
+| **Questões: SUS (Lei 8.142 e controle social)** | SUS, Epidemiologia e Ética Médica | Questões | 45 | G P L C | 30 questões de SUS: conferências, conselhos de saúde e transferências (Lei 8.142). |
 | **Aprofundamento: casos de DII e preexistência** | Perícia, Previdência e Trabalho | Revisão | 60 | P | Resolva 5 casos: defina DID, DII, se há incapacidade preexistente, a espécie do benefício e se cabe reabilitação. |
 | **Aprofundamento: IN PRES/INSS 128/2022 — benefícios por incapacidade** | Perícia, Previdência e Trabalho | Teoria | 60 | P | Leitura dirigida do capítulo de benefícios por incapacidade: requerimento, perícia, prorrogação, recurso e cessação. |
 | **Aprofundamento: atlas (Hércules) de lesões mecânicas** | Medicina Legal | Revisão | 45 | L | Reconhecimento visual: escoriação × equimose × ferida contusa × incisa × perfuroincisa. Descreva 5 imagens em linguagem de laudo. |
@@ -219,7 +249,28 @@ _Construir a base cobrada em todos os concursos que o generalista pode prestar: 
 | **Clínica: hanseníase** | Clínica Médica e Urgência | Teoria | 60 | C | Classificação operacional (paucibacilar × multibacilar), diagnóstico clínico, PQT-U, reações hansênicas, avaliação de contatos. |
 | **Clínica: dermatoses comuns na APS** | Clínica Médica e Urgência | Teoria | 45 | C | Escabiose, pediculose, micoses superficiais, piodermites. |
 | **Aprofundamento: 20 questões de TB e hanseníase (editais municipais)** | Clínica Médica e Urgência | Questões | 45 | C | Bancas regionais do Sul, cargo Médico/ESF. |
-| **Bateria da semana por banca (40 questões)** _(dia 6)_ | SUS, Ética e Básicas | Questões | 90 | G P L C | Mistura dos temas da semana da sua trilha: CEBRASPE para Perícia, FUNDATEC/FEPESE para Legista e Clínico. Cronometre 2 min por questão. |
+| **Bateria da semana por banca (40 questões)** _(dia 6)_ | SUS, Epidemiologia e Ética Médica | Questões | 90 | G P L C | Mistura dos temas da semana da sua trilha: CEBRASPE para Perícia, FUNDATEC/FEPESE para Legista e Clínico. Cronometre 2 min por questão. |
+
+**Conhecimentos Básicos da semana**
+
+| Bloco | Nível | Tipo | Min | Trilhas |
+|---|---|---|---|---|
+| Português: Concordância verbal e nominal | Núcleo | Teoria | 40 | G P L C |
+| Português: Verbos: tempos, modos, vozes e correlação | Núcleo | Teoria | 40 | G P L C |
+| Português: tipologia e gêneros textuais | Complemento | Questões | 30 | G P L C |
+| Matemática: Regra de três simples e composta | Complemento | Teoria | 40 | G L C |
+| Matemática: Sistema métrico, medidas de tempo e conversões | Reforço | Teoria | 30 | G L C |
+| Raciocínio Lógico: Equivalências e negações (De Morgan, contrapositiva) | Complemento | Teoria | 35 | G P L C |
+| Informática: Windows 10/11: arquivos, pastas e atalhos | Complemento | Teoria | 35 | G P L C |
+| Informática: Redes e protocolos (TCP/IP, DNS, HTTP/HTTPS, Wi-Fi) | Reforço | Teoria | 25 | G P L C |
+| Constitucional: Direitos e deveres individuais e coletivos (art. 5º) e remédios constitucionais | Complemento | Teoria | 35 | G P L C |
+| Administrativo: Organização administrativa: direta e indireta | Complemento | Teoria | 30 | G P L |
+| Servidor público: Lei 8.112: provimento, posse, exercício, estágio probatório e vacância | Complemento | Teoria | 30 | G P L C |
+| Ética e transparência: Sistema de Gestão da Ética (Decreto 6.029/2007) | Complemento | Teoria | 25 | G P L |
+| Legislação: Lei Maria da Penha (Lei 11.340/2006) | Complemento | Teoria | 30 | G L C |
+| Atualidades: Saúde pública e ciência | Reforço | Teoria | 20 | G C |
+| Inglês: Vocabulário médico e forense; falsos cognatos | Complemento | Teoria | 25 | G L |
+| Penal e Processo Penal: Direito Penal: princípios, crime, excludentes e imputabilidade | Complemento | Teoria | 30 | G L |
 
 #### Semana 3 — Seguridade social e BPC, projéteis de arma de fogo e urgência cardiovascular
 
@@ -227,7 +278,7 @@ _Construir a base cobrada em todos os concursos que o generalista pode prestar: 
 
 **Bancas-foco:** CEBRASPE, IBFC, Instituto AOCP · **Meta de questões:** 200
 
-**Carga planejada:** G 16h · P 13h15 · L 9h30 · C 9h45
+**Carga planejada:** G 19h→23h05 · P 18h05→18h05 · L 16h35→16h35 · C 16h30→16h30
 
 | Bloco | Eixo | Tipo | Min | Trilhas | Conteúdo |
 |---|---|---|---|---|---|
@@ -244,15 +295,37 @@ _Construir a base cobrada em todos os concursos que o generalista pode prestar: 
 | ★ **Urgência: síndrome coronariana aguda e AVC** | Clínica Médica e Urgência | Teoria | 75 | G C P | ECG na dor torácica, conduta inicial, angioplastia × trombólise (tempos-alvo); AVC: reconhecimento, TC e janela de trombólise. |
 | ★ **Clínica: insuficiência cardíaca e fibrilação atrial** | Clínica Médica e Urgência | Teoria | 45 | G C P | Classificação funcional (NYHA — usada também na perícia de cardiopatia), terapia que modifica prognóstico, anticoagulação (CHA2DS2-VASc). |
 | **Questões: urgência e cardiologia (30)** | Clínica Médica e Urgência | Questões | 60 | G C P | Bancas do Sul, IBFC e AOCP. |
-| ★ **Decreto 7.508/11 e PNAB** | SUS, Ética e Básicas | Teoria | 60 | G P L C | Região de Saúde (serviços mínimos), Portas de Entrada, CIT/CIB/CIR, COAP, RENASES, RENAME; PNAB: ESF, composição de equipes, população adscrita, atribuições. |
-| **Questões: Decreto 7.508, PNAB e Português** | SUS, Ética e Básicas | Questões | 45 | G P L C | 20 de SUS organizativo + 10 de Português (crase e pontuação). |
+| ★ **Decreto 7.508/11 e PNAB** | SUS, Epidemiologia e Ética Médica | Teoria | 60 | G P L C | Região de Saúde (serviços mínimos), Portas de Entrada, CIT/CIB/CIR, COAP, RENASES, RENAME; PNAB: ESF, composição de equipes, população adscrita, atribuições. |
+| **Questões: Decreto 7.508 e PNAB** | SUS, Epidemiologia e Ética Médica | Questões | 45 | G P L C | 30 questões de SUS organizativo: regiões de saúde, RAS, portas de entrada, COAP e PNAB. |
 | **Aprofundamento: NR-15 e NR-16 — insalubridade e periculosidade** | Perícia, Previdência e Trabalho | Teoria | 60 | P | Graus de insalubridade (10/20/40%), ruído (85 dB(A)/8 h), agentes biológicos (Anexo 14), periculosidade (30%), não cumulatividade e caracterização por perícia (CLT 195). |
 | **Aprofundamento: Decreto 6.214/2007 (regulamento do BPC)** | Perícia, Previdência e Trabalho | Lei seca / NR | 45 | P | Requerimento, avaliação da deficiência e do grau de impedimento, revisão, suspensão e cessação; BPC não gera pensão nem 13º. |
 | **Aprofundamento: atlas de PAF e casos de distância de tiro** | Medicina Legal | Revisão | 45 | L | Classifique 6 imagens de orifícios (entrada/saída; encostado/curta/longa distância) e justifique. |
 | **Aprofundamento: 30 questões de PAF (bancas policiais)** | Medicina Legal | Questões | 60 | L | PAF é o tema campeão de Médico Legista; faça até zerar os erros de sinais epônimos. |
 | **Clínica: zoonoses do Sul — raiva, leptospirose e hantavirose** | Clínica Médica e Urgência | Teoria | 75 | C | Profilaxia pós-exposição da raiva (tipo de exposição × animal), leptospirose (pós-enchentes, doxiciclina, notificação), hantavirose (quadro cardiopulmonar). |
 | **Clínica: acidentes por animais peçonhentos** | Clínica Médica e Urgência | Teoria | 60 | C | Loxoscelismo (aranha-marrom, forma cutânea × cutâneo-visceral), ofidismo (botrópico, crotálico, elapídico — soroterapia), escorpionismo. |
-| **Bateria da semana — banca nacional (40 questões)** _(dia 6)_ | SUS, Ética e Básicas | Questões | 90 | G P L C | Temas da semana da sua trilha filtrando CEBRASPE, IBFC e Instituto AOCP. |
+| **Bateria da semana — banca nacional (40 questões)** _(dia 6)_ | SUS, Epidemiologia e Ética Médica | Questões | 90 | G P L C | Temas da semana da sua trilha filtrando CEBRASPE, IBFC e Instituto AOCP. |
+
+**Conhecimentos Básicos da semana**
+
+| Bloco | Nível | Tipo | Min | Trilhas |
+|---|---|---|---|---|
+| Português: Regência verbal e nominal | Núcleo | Teoria | 40 | G P L C |
+| Português: Crase | Núcleo | Teoria | 40 | G P L C |
+| Português: coesão e conectores | Complemento | Questões | 30 | G P L C |
+| Matemática: Porcentagem, aumentos e descontos sucessivos | Complemento | Teoria | 40 | G L C |
+| Matemática: Matemática aplicada à saúde (dose por peso, gotejamento, IMC, diluições) | Reforço | Teoria | 30 | G L C |
+| Raciocínio Lógico: Tautologia, contradição e contingência | Complemento | Teoria | 30 | G P L C |
+| Informática: Editor de textos (Word/Writer) | Complemento | Teoria | 35 | G P L C |
+| Informática: Apresentações (PowerPoint/Impress) | Reforço | Teoria | 25 | G P L C |
+| Constitucional: Direitos sociais, nacionalidade e direitos políticos | Complemento | Teoria | 30 | G P L C |
+| Administrativo: Poderes administrativos e abuso de poder | Complemento | Teoria | 30 | G P L |
+| Servidor público: Lei 8.112: vencimento, vantagens, férias, licenças e afastamentos | Complemento | Teoria | 30 | G P L C |
+| Ética e transparência: Conflito de interesses (Lei 12.813/2013) | Complemento | Teoria | 25 | G P L |
+| Legislação: Estatuto da Criança e do Adolescente (Lei 8.069/1990) | Complemento | Teoria | 30 | G L C |
+| História e Geografia do Sul: Rio Grande do Sul: história | Reforço | Teoria | 25 | G L C |
+| Criminalística: Local de crime: isolamento, preservação e levantamento | Complemento | Teoria | 35 | G L |
+| Atualidades: Meio ambiente, clima e desastres | Reforço | Teoria | 20 | G C |
+| Penal e Processo Penal: Inquérito policial e ação penal | Complemento | Teoria | 30 | G L |
 
 #### Semana 4 — Acidente do trabalho e NRs essenciais, tanatologia, saúde da mulher e Simulado 1
 
@@ -260,7 +333,7 @@ _Construir a base cobrada em todos os concursos que o generalista pode prestar: 
 
 **Bancas-foco:** FUNDATEC, FEPESE, CEBRASPE · **Meta de questões:** 220
 
-**Carga planejada:** G 16h30 · P 14h · L 11h · C 9h45
+**Carga planejada:** G 20h30→24h50 · P 19h50→19h50 · L 19h20→19h20 · C 17h10→17h10
 
 | Bloco | Eixo | Tipo | Min | Trilhas | Conteúdo |
 |---|---|---|---|---|---|
@@ -276,15 +349,38 @@ _Construir a base cobrada em todos os concursos que o generalista pode prestar: 
 | ★ **Clínica: saúde da mulher e pré-natal** | Clínica Médica e Urgência | Teoria | 75 | G C P | Pré-natal de baixo risco (consultas, exames por trimestre, suplementação), rastreamento de câncer de colo e de mama. |
 | ★ **Clínica: saúde da criança e PNI** | Clínica Médica e Urgência | Teoria | 60 | G C P | Puericultura, marcos do desenvolvimento, calendário vacinal do PNI, IRA e doença diarreica (planos A, B, C). |
 | **Questões: saúde da mulher e da criança (30)** | Clínica Médica e Urgência | Questões | 60 | G C P | Bancas do Sul. |
-| ★ **Ética médica e documentos** | SUS, Ética e Básicas | Teoria | 60 | G P L C | CEM: princípios, sigilo (Arts. 73–79), perícia e auditoria (Arts. 92–98); Res. CFM 2.381/2024 (tipos de documentos e requisitos); Res. CFM 1.779/2005 (DO); Lei 14.289/2022 (sigilo da condição de saúde). |
-| **Questões: ética e Direito Administrativo** | SUS, Ética e Básicas | Questões | 45 | G P L C | 15 de ética + 10 de Direito Administrativo (princípios e atos). |
+| ★ **Ética médica e documentos** | SUS, Epidemiologia e Ética Médica | Teoria | 60 | G P L C | CEM: princípios, sigilo (Arts. 73–79), perícia e auditoria (Arts. 92–98); Res. CFM 2.381/2024 (tipos de documentos e requisitos); Res. CFM 1.779/2005 (DO); Lei 14.289/2022 (sigilo da condição de saúde). |
+| **Questões: ética médica e documentos** | SUS, Epidemiologia e Ética Médica | Questões | 45 | G P L C | 25 questões de Código de Ética Médica, sigilo e documentos médicos (atestado, declaração, relatório). |
 | **Aprofundamento: leitura integral da NR-32** | Perícia, Previdência e Trabalho | Lei seca / NR | 60 | P | Texto oficial, incluindo o anexo de perfurocortantes. |
 | **Aprofundamento: CLT 154–201 e responsabilidade do empregador** | Perícia, Previdência e Trabalho | Teoria | 60 | P | Deveres da empresa e do empregado, exames médicos (Art. 168), insalubridade/periculosidade; responsabilidade objetiva × subjetiva em acidentes e doenças ocupacionais. |
 | **Aprofundamento: cronotanatognose aplicada** | Medicina Legal | Revisão | 45 | L | Resolva 5 casos estimando o intervalo post mortem a partir de livores, rigidez, temperatura e putrefação, citando a faixa do autor. |
 | **Aprofundamento: 30 questões de tanatologia (bancas policiais)** | Medicina Legal | Questões | 60 | L | Fenômenos cadavéricos e cronotanatognose. |
 | **Clínica: planejamento reprodutivo e climatério** | Clínica Médica e Urgência | Teoria | 60 | C | Métodos contraceptivos (critérios de elegibilidade), DIU, contracepção de emergência; climatério e terapia hormonal. |
 | **Clínica: adolescência e violência** | Clínica Médica e Urgência | Teoria | 45 | C | ECA, notificação de violência interpessoal/autoprovocada, sinais de alerta de abuso. |
-| ★ **SIMULADO 1 (fim do Mês 1): 60 questões em 3 h** _(dia 6)_ | SUS, Ética e Básicas | Simulado | 180 | G P L C | Monte o simulado com a proporção da sua trilha e a banca-alvo. Tempo real, sem consulta, sem pausa. Registre como "simulado" na Central de Questões. |
+| ★ **SIMULADO 1 (fim do Mês 1): 60 questões em 3 h** _(dia 6)_ | SUS, Epidemiologia e Ética Médica | Simulado | 180 | G P L C | Monte o simulado com a proporção da sua trilha e a banca-alvo. Tempo real, sem consulta, sem pausa. Registre como "simulado" na Central de Questões. |
+
+**Conhecimentos Básicos da semana**
+
+| Bloco | Nível | Tipo | Min | Trilhas |
+|---|---|---|---|---|
+| Português: Pontuação | Núcleo | Teoria | 40 | G P L C |
+| Português: Termos da oração (período simples) | Núcleo | Teoria | 35 | G P L C |
+| Simulado de básicas nº 1 | Núcleo | Simulado | 60 | G P L C |
+| Matemática: Juros simples e compostos | Complemento | Teoria | 40 | G L C |
+| Matemática: Funções: afim, quadrática, exponencial e logarítmica (noções) | Reforço | Teoria | 30 | G L C |
+| Raciocínio Lógico: Argumentos, validade e silogismos | Complemento | Teoria | 35 | G P L C |
+| Informática: Planilhas (Excel/Calc): fórmulas, referências e funções | Complemento | Teoria | 40 | G P L C |
+| Informática: Linux (noções) | Reforço | Teoria | 25 | G P L C |
+| Constitucional: Administração pública na Constituição (arts. 37 a 41) | Complemento | Teoria | 35 | G P L C |
+| Administrativo: Atos administrativos | Complemento | Teoria | 40 | G P L |
+| Servidor público: Lei 8.112: deveres, proibições, penalidades, sindicância e PAD | Complemento | Teoria | 35 | G P L C |
+| Ética e transparência: Lei de Acesso à Informação (Lei 12.527/2011) | Complemento | Teoria | 30 | G P L |
+| Legislação: Estatuto da Pessoa Idosa (Lei 10.741/2003) | Complemento | Teoria | 25 | G L C |
+| História e Geografia do Sul: Rio Grande do Sul: geografia e economia | Reforço | Teoria | 25 | G L C |
+| Criminalística: Vestígios, evidências e indícios | Complemento | Teoria | 30 | G L |
+| Atualidades: Economia e sociedade brasileira | Reforço | Teoria | 20 | G C |
+| Inglês: Gramática instrumental: tempos verbais, modais, voz passiva e conectivos | Complemento | Teoria | 25 | G L |
+| Penal e Processo Penal: Prisões, medidas cautelares e liberdade provisória | Complemento | Teoria | 30 | G L |
 
 ### Mês 2 — Aprofundamento e engenharia reversa de bancas
 
@@ -296,7 +392,7 @@ _Dominar nexo causal/NTEP, doenças relacionadas ao trabalho, perícia em saúde
 
 **Bancas-foco:** FUNDATEC, FEPESE · **Meta de questões:** 240
 
-**Carga planejada:** G 15h45 · P 14h · L 9h45 · C 9h45
+**Carga planejada:** G 19h20→23h25 · P 18h55→18h55 · L 17h25→17h25 · C 16h25→16h25
 
 | Bloco | Eixo | Tipo | Min | Trilhas | Conteúdo |
 |---|---|---|---|---|---|
@@ -312,16 +408,39 @@ _Dominar nexo causal/NTEP, doenças relacionadas ao trabalho, perícia em saúde
 | ★ **Infectologia: arboviroses e hepatites virais** | Clínica Médica e Urgência | Teoria | 75 | G C P | Dengue (classificação de risco e manejo por grupos A–D), chikungunya, zika; hepatites B e C (rastreamento, marcadores, encaminhamento). |
 | ★ **Infectologia: influenza, COVID-19 e meningites** | Clínica Médica e Urgência | Teoria | 60 | G C P | Síndrome gripal × SRAG, oseltamivir (indicações), síndrome pós-COVID, meningites (quimioprofilaxia de contatos). |
 | **Questões: infectologia — FUNDATEC/FEPESE (30)** | Clínica Médica e Urgência | Questões | 60 | G C P | Cargos Médico/ESF e Perito Médico. |
-| ★ **Epidemiologia: indicadores de saúde e vigilância** | SUS, Ética e Básicas | Teoria | 60 | G P L C | Coeficientes de mortalidade e morbidade, incidência × prevalência, transição epidemiológica e demográfica; vigilância epidemiológica, sanitária, ambiental e do trabalhador. |
-| **Questões: epidemiologia e Português** | SUS, Ética e Básicas | Questões | 45 | G P L C | 15 de epidemiologia + 10 de Português. |
+| ★ **Epidemiologia: indicadores de saúde e vigilância** | SUS, Epidemiologia e Ética Médica | Teoria | 60 | G P L C | Coeficientes de mortalidade e morbidade, incidência × prevalência, transição epidemiológica e demográfica; vigilância epidemiológica, sanitária, ambiental e do trabalhador. |
+| **Questões: epidemiologia** | SUS, Epidemiologia e Ética Médica | Questões | 45 | G P L C | 25 questões de indicadores de saúde, transição epidemiológica e desenhos de estudo. |
 | **Aprofundamento: estabeleça o nexo em 5 casos** | Perícia, Previdência e Trabalho | Revisão | 60 | P | Para cada caso, aplique Schilling, verifique Listas A/B/C e conclua: nexo profissional, NTEP, individual ou ausência de nexo. |
 | **Aprofundamento: indenizações e prescrição em acidentes do trabalho** | Perícia, Previdência e Trabalho | Teoria | 45 | P | Danos morais e materiais, teoria do risco, prazos de prescrição e decadência em processos trabalhistas e previdenciários — tópicos do edital de Perito Médico Federal. |
 | **Aprofundamento: suicídio × homicídio × acidente nas asfixias** | Medicina Legal | Revisão | 45 | L | Monte uma tabela de elementos de diferenciação (local, nó, lesões de defesa, intoxicações associadas). |
 | **Aprofundamento: 30 questões de asfixias (bancas policiais)** | Medicina Legal | Questões | 60 | L | Até zerar erros de sinais epônimos. |
 | **Aprofundamento: leitura dirigida (França) — asfixiologia** | Medicina Legal | Teoria | 45 | L | Classificação e sinais epônimos literais. |
 | **Clínica: vacinação do adulto e do profissional de saúde** | Clínica Médica e Urgência | Teoria | 45 | C | Calendário do adulto, hepatite B (anti-HBs), dT/dTpa, influenza. |
-| **Vigilância no município: notificação imediata × semanal** | SUS, Ética e Básicas | Teoria | 45 | C | Lista nacional de notificação compulsória, investigação de surtos e fluxo do SINAN na unidade de saúde. |
-| **Engenharia reversa: 50 questões FUNDATEC + FEPESE** _(dia 6)_ | SUS, Ética e Básicas | Questões | 120 | G P L C | Resolva e classifique cada questão: literal × aplicada, assunto, pegadinha. Anote os 5 padrões mais frequentes no campo de notas deste bloco. |
+| **Vigilância no município: notificação imediata × semanal** | SUS, Epidemiologia e Ética Médica | Teoria | 45 | C | Lista nacional de notificação compulsória, investigação de surtos e fluxo do SINAN na unidade de saúde. |
+| **Engenharia reversa: 50 questões FUNDATEC + FEPESE** _(dia 6)_ | SUS, Epidemiologia e Ética Médica | Questões | 120 | G P L C | Resolva e classifique cada questão: literal × aplicada, assunto, pegadinha. Anote os 5 padrões mais frequentes no campo de notas deste bloco. |
+
+**Conhecimentos Básicos da semana**
+
+| Bloco | Nível | Tipo | Min | Trilhas |
+|---|---|---|---|---|
+| Português: Período composto: coordenação e subordinação | Núcleo | Teoria | 40 | G P L C |
+| Português: Colocação pronominal | Núcleo | Teoria | 35 | G P L C |
+| Português: reescrita de frases | Complemento | Questões | 30 | G P L C |
+| Matemática: Equações, inequações e sistemas (1º e 2º graus) | Complemento | Teoria | 40 | G L C |
+| Matemática: Progressões aritméticas e geométricas | Reforço | Teoria | 30 | G L C |
+| Raciocínio Lógico: Quantificadores e diagramas lógicos | Complemento | Teoria | 35 | G P L C |
+| Informática: Internet, intranet, extranet, navegadores e URLs | Complemento | Teoria | 35 | G P L C |
+| Informática: SEI — Sistema Eletrônico de Informações | Reforço | Teoria | 25 | G P L C |
+| Constitucional: Organização do Estado: União, estados e municípios | Complemento | Teoria | 30 | G P L C |
+| Administrativo: Agentes públicos: espécies, cargo, emprego e função | Complemento | Teoria | 30 | G P L |
+| Servidor público: Estatutos dos servidores do PR, SC e RS | Complemento | Teoria | 30 | G P L C |
+| Ética e transparência: LGPD (Lei 13.709/2018) e dados pessoais de saúde | Complemento | Teoria | 30 | G P L |
+| Legislação: Estatuto da Igualdade Racial (Lei 12.288/2010) e crimes de racismo | Complemento | Teoria | 25 | G L C |
+| História e Geografia do Sul: Santa Catarina: história | Reforço | Teoria | 25 | G L C |
+| Criminalística: Balística forense | Complemento | Teoria | 30 | G L |
+| Discursiva: Texto dissertativo-argumentativo | Complemento | Teoria | 40 | G L |
+| Atualidades: Política e instituições | Reforço | Teoria | 20 | G C |
+| Penal e Processo Penal: Provas no processo penal (CPP, arts. 155 a 250) | Complemento | Teoria | 30 | G L |
 
 #### Semana 6 — Doenças do trabalho e saúde mental, sexologia forense e psiquiatria
 
@@ -329,7 +448,7 @@ _Dominar nexo causal/NTEP, doenças relacionadas ao trabalho, perícia em saúde
 
 **Bancas-foco:** Objetiva, FURB, NC-UFPR, FAUEL · **Meta de questões:** 240
 
-**Carga planejada:** G 15h30 · P 14h · L 10h15 · C 10h
+**Carga planejada:** G 19h25→23h25 · P 18h40→18h40 · L 18h10→18h10 · C 16h25→16h25
 
 | Bloco | Eixo | Tipo | Min | Trilhas | Conteúdo |
 |---|---|---|---|---|---|
@@ -345,9 +464,9 @@ _Dominar nexo causal/NTEP, doenças relacionadas ao trabalho, perícia em saúde
 | ★ **Saúde mental: transtorno bipolar, psicoses e uso de substâncias** | Clínica Médica e Urgência | Teoria | 60 | G C P | Transtorno bipolar (estabilizadores), esquizofrenia e outros transtornos psicóticos, álcool e outras drogas, transtornos de personalidade; RAPS e internações (Lei 10.216/2001). |
 | ★ **Clínica: saúde do idoso** | Clínica Médica e Urgência | Teoria | 45 | G C P | Polifarmácia (critérios de Beers), quedas, demência, avaliação multidimensional. |
 | **Questões: saúde mental e idoso — Objetiva/FURB/NC-UFPR (30)** | Clínica Médica e Urgência | Questões | 60 | G C P | Bancas regionais. |
-| ★ **RAPS e Rede de Cuidados à Pessoa com Deficiência** | SUS, Ética e Básicas | Teoria | 45 | G P L C | Componentes da Rede de Atenção Psicossocial (CAPS, leitos, residências terapêuticas) e da Rede de Cuidados à Pessoa com Deficiência. |
-| **Questões: Direito Administrativo e Lei 8.112** | SUS, Ética e Básicas | Questões | 45 | G P L C | Agentes públicos, regime jurídico do servidor federal, princípios da administração. |
-| ★ **Básicas: Raciocínio Lógico e Informática** | SUS, Ética e Básicas | Teoria | 45 | G P L C | Porcentagem, regra de três, proposições e equivalências; segurança da informação (phishing, malware, backup). |
+| ★ **RAPS e Rede de Cuidados à Pessoa com Deficiência** | SUS, Epidemiologia e Ética Médica | Teoria | 45 | G P L C | Componentes da Rede de Atenção Psicossocial (CAPS, leitos, residências terapêuticas) e da Rede de Cuidados à Pessoa com Deficiência. |
+| **Questões: Direito Administrativo e Lei 8.112** | Conhecimentos Básicos e Gerais | Questões | 45 | G P L C | Agentes públicos, regime jurídico do servidor federal, princípios da administração. |
+| ★ **Básicas: Raciocínio Lógico e Informática** | Conhecimentos Básicos e Gerais | Teoria | 45 | G P L C | Porcentagem, regra de três, proposições e equivalências; segurança da informação (phishing, malware, backup). |
 | **Aprofundamento: perícia em saúde mental** | Perícia, Previdência e Trabalho | Teoria | 60 | P | Diretrizes de Apoio à Decisão Médico-Pericial em Psiquiatria (INSS): exame do estado mental, gravidade × incapacidade, tempo estimado de afastamento, simulação e dissimulação. |
 | **Aprofundamento: toxicologia ocupacional e indicadores biológicos** | Perícia, Previdência e Trabalho | Teoria | 60 | P | Chumbo, mercúrio, benzeno, tolueno, n-hexano, organofosforados, CO; Quadros 1 e 2 do Anexo I da NR-07. |
 | **Aprofundamento: perícia em violência sexual** | Medicina Legal | Teoria | 45 | L | Lei 12.845/2013 (atendimento obrigatório e integral pelo SUS) e Decreto 7.958/2013 (registro de informações e coleta de vestígios na rede SUS). |
@@ -355,7 +474,31 @@ _Dominar nexo causal/NTEP, doenças relacionadas ao trabalho, perícia em saúde
 | **Aprofundamento: infanticídio e docimásias** | Medicina Legal | Teoria | 45 | L | Estado puerperal, prova de vida extrauterina, docimásia hidrostática de Galeno e suas fases. |
 | **Clínica: cefaleia, tontura e epilepsia** | Clínica Médica e Urgência | Teoria | 60 | C | Sinais de alarme da cefaleia, enxaqueca × tensional, vertigem periférica × central, manejo inicial da epilepsia. |
 | **Clínica: cuidados paliativos e atenção domiciliar** | Clínica Médica e Urgência | Teoria | 45 | C | Controle de sintomas, escada analgésica, comunicação de más notícias. |
-| **Engenharia reversa: 50 questões Objetiva, FURB, NC-UFPR e FAUEL** _(dia 6)_ | SUS, Ética e Básicas | Questões | 120 | G P L C | Mesma análise de padrões da semana anterior; compare com FUNDATEC/FEPESE. |
+| **Engenharia reversa: 50 questões Objetiva, FURB, NC-UFPR e FAUEL** _(dia 6)_ | SUS, Epidemiologia e Ética Médica | Questões | 120 | G P L C | Mesma análise de padrões da semana anterior; compare com FUNDATEC/FEPESE. |
+
+**Conhecimentos Básicos da semana**
+
+| Bloco | Nível | Tipo | Min | Trilhas |
+|---|---|---|---|---|
+| Português: Coesão, coerência e conectores | Núcleo | Teoria | 40 | G P L C |
+| Português: Semântica e figuras de linguagem | Núcleo | Teoria | 35 | G P L C |
+| Português: interpretação de texto (textos longos) | Complemento | Questões | 30 | G P L C |
+| Matemática: Estatística descritiva, tabelas e gráficos | Complemento | Teoria | 40 | G L C |
+| Raciocínio Lógico: Sequências lógicas de números, letras e figuras | Complemento | Teoria | 30 | G P L C |
+| Informática: Correio eletrônico | Complemento | Teoria | 30 | G P L C |
+| Informática: Noções de inteligência artificial | Reforço | Teoria | 25 | G P L C |
+| Constitucional: Organização dos Poderes e controle de constitucionalidade (noções) | Complemento | Teoria | 30 | G P L C |
+| Administrativo: Responsabilidade civil do Estado | Complemento | Teoria | 30 | G P L |
+| Servidor público: EBSERH: Lei 12.550/2011, estatuto social e código de ética | Reforço | Teoria | 25 | G P L C |
+| Ética e transparência: Prevenção e enfrentamento do assédio na administração pública | Complemento | Teoria | 25 | G P L |
+| Legislação: Estatuto da Pessoa com Deficiência (Lei 13.146/2015) | Complemento | Teoria | 25 | G L C |
+| História e Geografia do Sul: Santa Catarina: geografia e economia | Reforço | Teoria | 25 | G L C |
+| Criminalística: Papiloscopia e identificação humana | Complemento | Teoria | 30 | G L |
+| Discursiva: Laudo, parecer e relatório na prova discursiva | Complemento | Teoria | 40 | G L |
+| Atualidades: Tecnologia e inteligência artificial | Reforço | Teoria | 20 | G C |
+| Inglês: Leitura e interpretação de textos técnicos em inglês | Complemento | Teoria | 30 | G L |
+| Penal e Processo Penal: Crimes contra a administração pública | Complemento | Teoria | 30 | G L |
+| Raciocínio Lógico: Raciocínio científico: método, hipóteses, causalidade e vieses | Complemento | Teoria | 30 | G P L C |
 
 #### Semana 7 — Perícia do servidor público, ortopedia pericial, antropologia e psicopatologia forense
 
@@ -363,7 +506,7 @@ _Dominar nexo causal/NTEP, doenças relacionadas ao trabalho, perícia em saúde
 
 **Bancas-foco:** CEBRASPE, FGV · **Meta de questões:** 250
 
-**Carga planejada:** G 15h45 · P 13h45 · L 10h · C 10h
+**Carga planejada:** G 19h15→23h20 · P 18h40→18h40 · L 17h35→17h35 · C 15h45→15h45
 
 | Bloco | Eixo | Tipo | Min | Trilhas | Conteúdo |
 |---|---|---|---|---|---|
@@ -379,8 +522,8 @@ _Dominar nexo causal/NTEP, doenças relacionadas ao trabalho, perícia em saúde
 | ★ **Clínica: nefro e gastro** | Clínica Médica e Urgência | Teoria | 75 | G C P | DRC (estadiamento por TFG e albuminúria, nefroproteção), ITU, DRGE, dispepsia e H. pylori, esteatose e cirrose. |
 | ★ **Clínica: tireoide e obesidade** | Clínica Médica e Urgência | Teoria | 45 | G C P | Hipo e hipertireoidismo, obesidade (abordagem e farmacoterapia). |
 | **Questões: clínica — CEBRASPE/FGV (30)** | Clínica Médica e Urgência | Questões | 60 | G C P | Casos clínicos longos. |
-| ★ **Epidemiologia: desenhos de estudo e testes diagnósticos** | SUS, Ética e Básicas | Teoria | 60 | G P L C | Coorte, caso-controle, transversal e ensaio clínico; risco relativo e razão de chances; sensibilidade, especificidade e valores preditivos. |
-| **Português: interpretação de texto (FGV)** | SUS, Ética e Básicas | Questões | 45 | G P L C | 10 questões de interpretação com textos longos. |
+| ★ **Epidemiologia: desenhos de estudo e testes diagnósticos** | SUS, Epidemiologia e Ética Médica | Teoria | 60 | G P L C | Coorte, caso-controle, transversal e ensaio clínico; risco relativo e razão de chances; sensibilidade, especificidade e valores preditivos. |
+| **Português: interpretação de texto (FGV)** | Conhecimentos Básicos e Gerais | Questões | 45 | G P L C | 10 questões de interpretação com textos longos. |
 | **Aprofundamento: Manual de Perícia Oficial em Saúde do Servidor** | Perícia, Previdência e Trabalho | Teoria | 60 | P | Leitura dirigida dos capítulos de licenças, junta oficial, readaptação e aposentadoria; compare com o regime próprio do seu estado ou município-alvo. |
 | **Aprofundamento: reabilitação profissional e retorno ao trabalho** | Perícia, Previdência e Trabalho | Teoria | 45 | P | Programa de reabilitação do INSS, adaptação do posto, readaptação, inclusão da pessoa com deficiência no trabalho. |
 | **Aprofundamento: identificação em cadáveres desconhecidos e desastres** | Medicina Legal | Revisão | 45 | L | Fluxo de identificação (datiloscopia → odontologia → DNA), estimativa de sexo/idade pelo esqueleto. |
@@ -388,7 +531,28 @@ _Dominar nexo causal/NTEP, doenças relacionadas ao trabalho, perícia em saúde
 | **Aprofundamento: 20 questões de antropologia forense** | Medicina Legal | Questões | 45 | L | Métodos de identificação e estimativas antropológicas. |
 | **Clínica: urgências na APS** | Clínica Médica e Urgência | Teoria | 60 | C | Anafilaxia (adrenalina IM), crise hipertensiva, hipoglicemia, intoxicações exógenas. |
 | **Clínica: gestação de alto risco** | Clínica Médica e Urgência | Teoria | 60 | C | Pré-eclâmpsia (sulfato de magnésio), diabetes gestacional, sífilis na gestação, critérios de encaminhamento. |
-| **Engenharia reversa: 50 questões CEBRASPE (C/E) e FGV** _(dia 6)_ | SUS, Ética e Básicas | Questões | 120 | G P L C | Meça quantas erraria por "chute": em C/E, deixe em branco o que não souber. |
+| **Engenharia reversa: 50 questões CEBRASPE (C/E) e FGV** _(dia 6)_ | SUS, Epidemiologia e Ética Médica | Questões | 120 | G P L C | Meça quantas erraria por "chute": em C/E, deixe em branco o que não souber. |
+
+**Conhecimentos Básicos da semana**
+
+| Bloco | Nível | Tipo | Min | Trilhas |
+|---|---|---|---|---|
+| Português: Compreensão e interpretação de textos | Núcleo | Teoria | 40 | G P L C |
+| Português: Tipologia e gêneros textuais | Núcleo | Teoria | 35 | G P L C |
+| Português: prova mista de Português | Complemento | Questões | 30 | G P L C |
+| Matemática: Análise combinatória e probabilidade | Complemento | Teoria | 40 | G L C |
+| Raciocínio Lógico: Associação lógica, verdades e mentiras | Complemento | Teoria | 35 | G P L C |
+| Informática: Nuvem e colaboração (OneDrive, Google Drive, Microsoft 365, Teams) | Complemento | Teoria | 30 | G P L C |
+| Constitucional: CF arts. 1º a 5º | Complemento | Lei seca / NR | 30 | G P L C |
+| Administrativo: Improbidade administrativa (Lei 8.429/1992) | Complemento | Teoria | 35 | G P L |
+| Servidor público: Lei 8.112/1990 (ou o estatuto do seu edital) | Complemento | Lei seca / NR | 30 | G P L C |
+| Ética e transparência: LAI e LGPD | Complemento | Lei seca / NR | 30 | G P L |
+| Legislação: Tortura (Lei 9.455/1997), abuso de autoridade (Lei 13.869/2019) e Protocolo de Istambul | Complemento | Teoria | 30 | G L C |
+| História e Geografia do Sul: Paraná: história | Reforço | Teoria | 25 | G L C |
+| Criminalística: Genética forense e DNA | Complemento | Teoria | 30 | G L |
+| Discursiva: Critérios de correção e gestão do tempo | Complemento | Teoria | 30 | G L |
+| Atualidades: Brasil e o mundo | Reforço | Teoria | 20 | G C |
+| Penal e Processo Penal: Leis penais especiais: drogas, armas, trânsito e execução penal (noções) | Complemento | Teoria | 30 | G L |
 
 #### Semana 8 — Ética pericial, telemedicina, trauma no pronto atendimento, revisão integrada e Simulado 2
 
@@ -396,7 +560,7 @@ _Dominar nexo causal/NTEP, doenças relacionadas ao trabalho, perícia em saúde
 
 **Bancas-foco:** VUNESP, Instituto AOCP, IBFC · **Meta de questões:** 260
 
-**Carga planejada:** G 17h · P 15h15 · L 11h · C 11h15
+**Carga planejada:** G 21h30→25h05 · P 20h35→20h35 · L 19h05→19h05 · C 17h25→17h25
 
 | Bloco | Eixo | Tipo | Min | Trilhas | Conteúdo |
 |---|---|---|---|---|---|
@@ -412,15 +576,36 @@ _Dominar nexo causal/NTEP, doenças relacionadas ao trabalho, perícia em saúde
 | ★ **Clínica: anemias, anticoagulação e prescrição segura** | Clínica Médica e Urgência | Teoria | 60 | G C P | Investigação de anemias, varfarina × DOACs, interações frequentes, RENAME. |
 | **Revisão: urgências (PCR, sepse, SCA, AVC, anafilaxia)** | Clínica Médica e Urgência | Revisão | 60 | G C P | Preencha de memória a tabela do cheat sheet de urgências e confira. |
 | **Questões: urgência, trauma e hemato — VUNESP/AOCP/IBFC (30)** | Clínica Médica e Urgência | Questões | 60 | G C P | Todos os temas clínicos já vistos. |
-| **Revisão: ética médica e documentos** | SUS, Ética e Básicas | Revisão | 45 | G P L C | CEM, Res. 2.381/2024 e Res. 1.779/2005 (DO). |
-| **Básicas da banca-alvo: Português, RLM, ética no serviço público** | SUS, Ética e Básicas | Questões | 45 | G P L C | 15 questões no formato da banca-alvo (inclua LAI e LGPD se o edital cobrar). |
+| **Revisão: ética médica e documentos** | SUS, Epidemiologia e Ética Médica | Revisão | 45 | G P L C | CEM, Res. 2.381/2024 e Res. 1.779/2005 (DO). |
+| **Básicas da banca-alvo: Português, RLM, ética no serviço público** | Conhecimentos Básicos e Gerais | Questões | 45 | G P L C | 15 questões no formato da banca-alvo (inclua LAI e LGPD se o edital cobrar). |
 | **Aprofundamento: tabela-resumo de prazos e números** | Perícia, Previdência e Trabalho | Revisão | 60 | P | Use os cheat sheets "Perícia previdenciária" e "NRs — prazos e percentuais" e complete o que faltar. |
 | **Aprofundamento: aptidão, inaptidão e retorno ao trabalho** | Perícia, Previdência e Trabalho | Teoria | 60 | P | Casos de ASO (inapto temporário × definitivo), readaptação, retorno após afastamento previdenciário, limbo previdenciário. |
 | **Aprofundamento: laudo de necropsia** | Medicina Legal | Teoria | 45 | L | Estrutura do laudo, causa médica × causa jurídica da morte (homicídio, suicídio, acidente, indeterminada). |
 | **Aprofundamento: 30 questões de ética pericial e documentos** | Medicina Legal | Questões | 60 | L | CEM Cap. XI e documentos médico-legais. |
 | **Questões: zoonoses, peçonhentos, hanseníase e dermatoses (30)** | Clínica Médica e Urgência | Questões | 60 | C | Temas que as bancas do Sul repetem em editais municipais. |
-| **Vigilância epidemiológica no município: surtos e indicadores** | SUS, Ética e Básicas | Teoria | 45 | C | Investigação de surtos, indicadores de saúde do município e metas pactuadas. |
-| ★ **SIMULADO 2 (fim do Mês 2): 80 questões em 4 h** _(dia 6)_ | SUS, Ética e Básicas | Simulado | 240 | G P L C | Proporção da trilha, banca-alvo, tempo real. Compare com o Simulado 1 na Central de Questões. |
+| **Vigilância epidemiológica no município: surtos e indicadores** | SUS, Epidemiologia e Ética Médica | Teoria | 45 | C | Investigação de surtos, indicadores de saúde do município e metas pactuadas. |
+| ★ **SIMULADO 2 (fim do Mês 2): 80 questões em 4 h** _(dia 6)_ | SUS, Epidemiologia e Ética Médica | Simulado | 240 | G P L C | Proporção da trilha, banca-alvo, tempo real. Compare com o Simulado 1 na Central de Questões. |
+
+**Conhecimentos Básicos da semana**
+
+| Bloco | Nível | Tipo | Min | Trilhas |
+|---|---|---|---|---|
+| Português: Reescrita e substituição de trechos | Núcleo | Teoria | 40 | G P L C |
+| Português: Redação Oficial (Manual da Presidência da República) | Núcleo | Teoria | 40 | G P L C |
+| Simulado de básicas nº 2 | Núcleo | Simulado | 60 | G P L C |
+| Matemática: Geometria plana e espacial (áreas, volumes, Pitágoras) | Complemento | Teoria | 40 | G L C |
+| Raciocínio Lógico: Conjuntos e problemas com diagramas de Venn | Complemento | Teoria | 30 | G P L C |
+| Informática: Excel e planilhas | Complemento | Questões | 30 | G P L C |
+| Constitucional: CF arts. 37 a 41 | Complemento | Lei seca / NR | 30 | G P L C |
+| Administrativo: Processo administrativo federal (Lei 9.784/1999) | Complemento | Teoria | 30 | G P L |
+| Servidor público: regime jurídico do servidor | Complemento | Questões | 30 | G P L C |
+| Ética e transparência: ética, LAI e LGPD (Certo/Errado) | Complemento | Questões | 30 | G P L |
+| Legislação: Direitos humanos: DUDH e Convenção Americana (Pacto de San José) | Complemento | Teoria | 25 | G L C |
+| História e Geografia do Sul: Paraná: geografia e economia | Reforço | Teoria | 25 | G L C |
+| Criminalística: noções de criminalística | Complemento | Questões | 30 | G L |
+| Discursiva: laudo ou parecer cronometrado | Complemento | Questões | 45 | G L |
+| Atualidades: atualidades da semana | Reforço | Revisão | 20 | G C |
+| Inglês: textos técnicos em inglês | Complemento | Questões | 25 | G L |
 
 ### Mês 3 — Reta final e performance
 
@@ -432,7 +617,7 @@ _Simulados cronometrados semanais, revisão espaçada intensiva (D1, D7, D15, D3
 
 **Bancas-foco:** Banca-alvo · **Meta de questões:** 300
 
-**Carga planejada:** G 15h45 · P 14h15 · L 11h30 · C 11h
+**Carga planejada:** G 21h15→21h40 · P 18h05→18h05 · L 17h25→17h25 · C 14h40→14h40
 
 | Bloco | Eixo | Tipo | Min | Trilhas | Conteúdo |
 |---|---|---|---|---|---|
@@ -447,15 +632,33 @@ _Simulados cronometrados semanais, revisão espaçada intensiva (D1, D7, D15, D3
 | ★ **Revisão clínica: cardiometabólica e respiratória** | Clínica Médica e Urgência | Revisão | 60 | G C P | HAS, DM, dislipidemia, IC, asma, DPOC, TB. |
 | ★ **Revisão clínica: infectologia e urgência** | Clínica Médica e Urgência | Revisão | 60 | G C P | HIV, sífilis, arboviroses, PCR, sepse, SCA, AVC. |
 | **Questões: clínica na banca-alvo (30)** | Clínica Médica e Urgência | Questões | 60 | G C P | Tempo de prova. |
-| **Revisão do SUS por questões na banca-alvo (30)** | SUS, Ética e Básicas | Questões | 60 | G P L C | CF, 8.080, 8.142, 7.508, PNAB. |
-| ★ **Caderno de erros: zerar 25%** | SUS, Ética e Básicas | Caderno de erros | 60 | G P L C | Refaça as questões do caderno; marque como resolvidas as que acertar com segurança. |
+| **Revisão do SUS por questões na banca-alvo (30)** | SUS, Epidemiologia e Ética Médica | Questões | 60 | G P L C | CF, 8.080, 8.142, 7.508, PNAB. |
+| ★ **Caderno de erros: zerar 25%** | SUS, Epidemiologia e Ética Médica | Caderno de erros | 60 | G P L C | Refaça as questões do caderno; marque como resolvidas as que acertar com segurança. |
 | **Aprofundamento: BPC/LBI e servidor público** | Perícia, Previdência e Trabalho | Revisão | 60 | P | Checklists da Lei 8.742 e da Lei 8.112; refaça os casos de DII. |
 | **Aprofundamento: 40 questões de Lei 8.213 e Decreto 3.048** | Perícia, Previdência e Trabalho | Questões | 60 | P | Banca-alvo, tempo de prova. |
 | **Aprofundamento: asfixias + sexologia** | Medicina Legal | Revisão | 60 | L | Refaça a tabela comparativa de asfixias de memória. |
 | **Aprofundamento: 40 questões de PAF e lesão corporal** | Medicina Legal | Questões | 60 | L | Banca-alvo, tempo de prova. |
 | ★ **Revisão clínica: zoonoses, peçonhentos, hanseníase e dermatoses** | Clínica Médica e Urgência | Revisão | 60 | C | Raiva (PEP), leptospirose, loxoscelismo, hanseníase (PQT-U). |
-| **Questões: SUS municipal e clínica na banca-alvo (30)** | SUS, Ética e Básicas | Questões | 60 | C | Inclua legislação do município do edital, se cobrada. |
-| ★ **SIMULADO 3 cronometrado (prova completa)** _(dia 6)_ | SUS, Ética e Básicas | Simulado | 240 | G P L C | Reproduza a prova-alvo: número de questões, tempo e horário reais. Registre por disciplina. |
+| **Questões: SUS municipal e clínica na banca-alvo (30)** | SUS, Epidemiologia e Ética Médica | Questões | 60 | C | Inclua legislação do município do edital, se cobrada. |
+| ★ **SIMULADO 3 cronometrado (prova completa)** _(dia 6)_ | SUS, Epidemiologia e Ética Médica | Simulado | 240 | G P L C | Reproduza a prova-alvo: número de questões, tempo e horário reais. Registre por disciplina. |
+
+**Conhecimentos Básicos da semana**
+
+| Bloco | Nível | Tipo | Min | Trilhas |
+|---|---|---|---|---|
+| Português: bateria da banca-alvo | Núcleo | Questões | 40 | G P L C |
+| Português: flashcards de Português | Complemento | Revisão | 20 | G P L C |
+| Matemática: bateria mista | Complemento | Questões | 30 | G L C |
+| Raciocínio Lógico: bateria mista | Complemento | Questões | 30 | G P L C |
+| Informática: bateria mista | Complemento | Questões | 30 | G P L C |
+| Administrativo: Licitações e contratos (Lei 14.133/2021 — noções) | Complemento | Teoria | 30 | G P L |
+| Administrativo: Direito Constitucional e Administrativo (Certo/Errado) | Complemento | Questões | 30 | G P L |
+| Servidor público: lei do seu município | Complemento | Questões | 25 | G P L C |
+| Ética e transparência: bateria mista | Complemento | Questões | 25 | G P L |
+| Legislação: estatutos e Maria da Penha | Complemento | Questões | 25 | G L C |
+| Discursiva: laudo ou parecer cronometrado | Complemento | Questões | 45 | G L |
+| Atualidades: atualidades da semana | Reforço | Revisão | 20 | G C |
+| Penal e Processo Penal: bateria mista | Complemento | Questões | 25 | G L |
 
 #### Semana 10 — Reta final II — nexo e doenças do trabalho, asfixias/sexologia e ciclos de vida
 
@@ -463,7 +666,7 @@ _Simulados cronometrados semanais, revisão espaçada intensiva (D1, D7, D15, D3
 
 **Bancas-foco:** Banca-alvo · **Meta de questões:** 300
 
-**Carga planejada:** G 15h30 · P 14h · L 11h15 · C 10h30
+**Carga planejada:** G 21h25→21h25 · P 17h25→17h25 · L 17h10→17h10 · C 14h45→14h45
 
 | Bloco | Eixo | Tipo | Min | Trilhas | Conteúdo |
 |---|---|---|---|---|---|
@@ -478,15 +681,32 @@ _Simulados cronometrados semanais, revisão espaçada intensiva (D1, D7, D15, D3
 | ★ **Revisão clínica: saúde mental, mulher, criança e idoso** | Clínica Médica e Urgência | Revisão | 60 | G C P | Depressão, risco de suicídio, bipolar, psicoses; pré-natal, PNI, puericultura, polifarmácia. |
 | ★ **Revisão clínica: ortopedia, nefro/gastro, endócrino e neuro** | Clínica Médica e Urgência | Revisão | 60 | G C P | Lombalgia, ombro, DRC, DRGE, tireoide, cefaleias. |
 | **Questões: clínica na banca-alvo (30)** | Clínica Médica e Urgência | Questões | 60 | G C P | Tempo de prova. |
-| **Questões: ética, documentos e epidemiologia (20)** | SUS, Ética e Básicas | Questões | 45 | G P L C | CEM, Res. 2.381/2024, DO, indicadores e testes diagnósticos. |
-| ★ **Caderno de erros: zerar mais 25% (total 50%)** | SUS, Ética e Básicas | Caderno de erros | 60 | G P L C | Priorize os itens com mais revisões falhas. |
+| **Questões: ética, documentos e epidemiologia (20)** | SUS, Epidemiologia e Ética Médica | Questões | 45 | G P L C | CEM, Res. 2.381/2024, DO, indicadores e testes diagnósticos. |
+| ★ **Caderno de erros: zerar mais 25% (total 50%)** | SUS, Epidemiologia e Ética Médica | Caderno de erros | 60 | G P L C | Priorize os itens com mais revisões falhas. |
 | **Aprofundamento: toxicologia, NR-15 e NR-16** | Perícia, Previdência e Trabalho | Revisão | 60 | P | Refaça de memória a tabela de indicadores biológicos e os graus de insalubridade. |
 | **Aprofundamento: 40 questões de doenças do trabalho** | Perícia, Previdência e Trabalho | Questões | 60 | P | Banca-alvo, tempo de prova. |
 | **Aprofundamento: documentos médico-legais e ética pericial** | Medicina Legal | Revisão | 60 | L | Estrutura do relatório, tipos de documento, CEM Arts. 92–98. |
 | **Aprofundamento: 40 questões de asfixias e sexologia** | Medicina Legal | Questões | 60 | L | Banca-alvo, tempo de prova. |
 | ★ **Leitura: calendário do PNI e lista de notificação compulsória** | Clínica Médica e Urgência | Lei seca / NR | 45 | C | Calendário vigente e agravos de notificação imediata. |
 | **Aprofundamento: 30 questões do pior tema clínico** | Clínica Médica e Urgência | Questões | 60 | C | Use a tela de Desempenho para escolher o tema. |
-| ★ **SIMULADO 4 cronometrado (prova completa)** _(dia 6)_ | SUS, Ética e Básicas | Simulado | 240 | G P L C | Mesmas condições do Simulado 3; compare acerto por disciplina. |
+| ★ **SIMULADO 4 cronometrado (prova completa)** _(dia 6)_ | SUS, Epidemiologia e Ética Médica | Simulado | 240 | G P L C | Mesmas condições do Simulado 3; compare acerto por disciplina. |
+
+**Conhecimentos Básicos da semana**
+
+| Bloco | Nível | Tipo | Min | Trilhas |
+|---|---|---|---|---|
+| Português: bateria da banca-alvo | Núcleo | Questões | 40 | G P L C |
+| Simulado de básicas nº 3 | Núcleo | Simulado | 60 | G P L C |
+| Matemática: bateria mista | Complemento | Questões | 30 | G L C |
+| Raciocínio Lógico: bateria mista | Complemento | Questões | 30 | G P L C |
+| Informática: bateria mista | Complemento | Questões | 30 | G P L C |
+| Administrativo: Controle da administração pública | Complemento | Teoria | 25 | G P L |
+| Servidor público: prazos do estatuto | Complemento | Revisão | 20 | G P L C |
+| Legislação: bateria mista | Complemento | Questões | 25 | G L C |
+| Discursiva: laudo ou parecer cronometrado | Complemento | Questões | 45 | G L |
+| Criminalística: bateria mista | Complemento | Questões | 25 | G L |
+| Atualidades: atualidades da semana | Reforço | Revisão | 20 | G C |
+| Inglês: textos técnicos em inglês | Complemento | Questões | 25 | G L |
 
 #### Semana 11 — Reta final III — pontos fracos e performance
 
@@ -494,26 +714,39 @@ _Simulados cronometrados semanais, revisão espaçada intensiva (D1, D7, D15, D3
 
 **Bancas-foco:** Banca-alvo · **Meta de questões:** 320
 
-**Carga planejada:** G 13h · P 13h · L 10h45 · C 11h
+**Carga planejada:** G 16h50→16h50 · P 16h30→16h30 · L 14h35→14h35 · C 14h20→14h20
 
 | Bloco | Eixo | Tipo | Min | Trilhas | Conteúdo |
 |---|---|---|---|---|---|
-| ★ **Ataque aos 3 pontos fracos do Dashboard** | SUS, Ética e Básicas | Revisão | 90 | G P L C | Abra o Radar de Pontos Fracos no Dashboard; para cada tema, leia o cheat sheet/checklist indicado e resolva 10 questões. |
+| ★ **Ataque aos 3 pontos fracos do Dashboard** | SUS, Epidemiologia e Ética Médica | Revisão | 90 | G P L C | Abra o Radar de Pontos Fracos no Dashboard; para cada tema, leia o cheat sheet/checklist indicado e resolva 10 questões. |
 | **Questões: 60 mistas de perícia e previdenciário na banca-alvo** | Perícia, Previdência e Trabalho | Questões | 75 | G P | Tempo de prova; registre por tema. |
 | ★ **Leitura rápida: benefícios, nexo e NRs** | Perícia, Previdência e Trabalho | Lei seca / NR | 30 | G P | Cheat sheets "Perícia previdenciária", "Nexo causal, NTEP e CAT" e "NRs — prazos e percentuais". |
 | **Questões: 60 mistas de Medicina Legal na banca-alvo** | Medicina Legal | Questões | 75 | G L | Tempo de prova; registre por tema. |
 | ★ **Leitura rápida: fenômenos cadavéricos, PAF e asfixias** | Medicina Legal | Lei seca / NR | 30 | G L | Três cheat sheets em sequência. |
 | **Questões: 60 mistas de clínica na banca-alvo** | Clínica Médica e Urgência | Questões | 75 | G C P | Tempo de prova; registre por tema. |
 | ★ **Revisão: urgências no pronto atendimento** | Clínica Médica e Urgência | Revisão | 60 | G C P | PCR, anafilaxia, sepse, SCA, AVC, trauma, intoxicações. |
-| ★ **Caderno de erros: zerar mais 25% (total 75%)** | SUS, Ética e Básicas | Caderno de erros | 60 | G P L C | Itens restantes mais antigos primeiro. |
-| **Básicas de sobrevivência: Português e RLM** | SUS, Ética e Básicas | Questões | 45 | G P L C | Garanta a nota mínima: 20 questões da banca-alvo. |
+| ★ **Caderno de erros: zerar mais 25% (total 75%)** | SUS, Epidemiologia e Ética Médica | Caderno de erros | 60 | G P L C | Itens restantes mais antigos primeiro. |
+| **Básicas de sobrevivência: Português e RLM** | Conhecimentos Básicos e Gerais | Questões | 45 | G P L C | Garanta a nota mínima: 20 questões da banca-alvo. |
 | **Aprofundamento: questões extras de perícia** | Perícia, Previdência e Trabalho | Questões | 60 | P | Somente assuntos com menos de 75% de acerto. |
 | **Aprofundamento: caderno de erros de perícia** | Perícia, Previdência e Trabalho | Caderno de erros | 45 | P | Somente os itens deste eixo, do mais antigo ao mais recente. |
 | **Aprofundamento: questões extras de tanatologia e traumatologia** | Medicina Legal | Questões | 60 | L | Somente assuntos com menos de 75% de acerto. |
 | **Aprofundamento: caderno de erros de Medicina Legal** | Medicina Legal | Caderno de erros | 45 | L | Somente os itens deste eixo, do mais antigo ao mais recente. |
 | ★ **Leitura rápida: protocolos clínicos do MS** | Clínica Médica e Urgência | Lei seca / NR | 30 | C | HAS, DM, pré-natal, calendário do PNI, dengue. |
 | **Aprofundamento: questões extras de clínica** | Clínica Médica e Urgência | Questões | 60 | C | Somente assuntos com menos de 75% de acerto. |
-| ★ **SIMULADO 5 cronometrado (prova completa)** _(dia 6)_ | SUS, Ética e Básicas | Simulado | 240 | G P L C | Último simulado completo: treine também alimentação, pausas e gestão do tempo. |
+| ★ **SIMULADO 5 cronometrado (prova completa)** _(dia 6)_ | SUS, Epidemiologia e Ética Médica | Simulado | 240 | G P L C | Último simulado completo: treine também alimentação, pausas e gestão do tempo. |
+
+**Conhecimentos Básicos da semana**
+
+| Bloco | Nível | Tipo | Min | Trilhas |
+|---|---|---|---|---|
+| Português: bateria final | Núcleo | Questões | 40 | G P L C |
+| Simulado de básicas nº 4 | Núcleo | Simulado | 60 | G P L C |
+| Raciocínio Lógico: bateria final de RLM e Matemática | Complemento | Questões | 30 | G P L C |
+| Informática: bateria final | Complemento | Questões | 30 | G P L C |
+| Administrativo: bateria final de Direito | Complemento | Questões | 30 | G P L |
+| Ética e transparência: prazos de LAI e LGPD | Complemento | Revisão | 20 | G P L |
+| Legislação: leis especiais | Complemento | Revisão | 20 | G L C |
+| Atualidades: atualidades da semana | Reforço | Revisão | 20 | G C |
 
 #### Semana 12 — Véspera — polimento, caderno zerado e logística
 
@@ -521,19 +754,26 @@ _Simulados cronometrados semanais, revisão espaçada intensiva (D1, D7, D15, D3
 
 **Bancas-foco:** Banca-alvo · **Meta de questões:** 150
 
-**Carga planejada:** G 9h15 · P 7h45 · L 6h15 · C 6h15
+**Carga planejada:** G 10h05→10h05 · P 8h35→8h35 · L 7h05→7h05 · C 7h05→7h05
 
 | Bloco | Eixo | Tipo | Min | Trilhas | Conteúdo |
 |---|---|---|---|---|---|
-| ★ **Caderno de erros: zerar 100%** | SUS, Ética e Básicas | Caderno de erros | 90 | G P L C | Todo item pendente refeito; o que ainda errar vira uma linha num resumo de 1 página. |
+| ★ **Caderno de erros: zerar 100%** | SUS, Epidemiologia e Ética Médica | Caderno de erros | 90 | G P L C | Todo item pendente refeito; o que ainda errar vira uma linha num resumo de 1 página. |
 | ★ **Leitura final: Lei 8.213, LOAS e Lei 8.112** | Perícia, Previdência e Trabalho | Lei seca / NR | 45 | G P | Somente checklists e cheat sheets, sem livro. |
 | **Questões leves: 30 de revisão (perícia)** | Perícia, Previdência e Trabalho | Questões | 45 | G P | Questões já acertadas antes: objetivo é confiança e ritmo. |
 | ★ **Leitura final: CPP 158–184, CP 121–129 e cheat sheets** | Medicina Legal | Lei seca / NR | 45 | G L | Somente checklists e tabelas. |
 | **Questões leves: 30 de revisão (Medicina Legal)** | Medicina Legal | Questões | 45 | G L | Ritmo e confiança. |
 | ★ **Leitura final: urgências e protocolos clínicos** | Clínica Médica e Urgência | Lei seca / NR | 45 | G C P | Cheat sheet de urgências e resumo de 1 página por área clínica. |
 | **Questões leves de clínica (30)** | Clínica Médica e Urgência | Questões | 45 | G C P | Ritmo e confiança. |
-| ★ **Leitura final: SUS e ética** | SUS, Ética e Básicas | Lei seca / NR | 45 | G P L C | Checklist das leis do SUS e artigos do CEM. |
-| ★ **Logística da prova** | SUS, Ética e Básicas | Revisão | 30 | G P L C | Local e trajeto, documento com foto, caneta transparente, horário de abertura dos portões, sono regular nos 3 dias anteriores, refeição testada nos simulados. |
-| **Simulado curto (2 h) ou descanso ativo** _(dia 6)_ | SUS, Ética e Básicas | Revisão | 120 | G P L C | Se a prova for em até 3 dias, descanse; senão, faça um simulado curto só para manter o ritmo. |
+| ★ **Leitura final: SUS e ética** | SUS, Epidemiologia e Ética Médica | Lei seca / NR | 45 | G P L C | Checklist das leis do SUS e artigos do CEM. |
+| ★ **Logística da prova** | SUS, Epidemiologia e Ética Médica | Revisão | 30 | G P L C | Local e trajeto, documento com foto, caneta transparente, horário de abertura dos portões, sono regular nos 3 dias anteriores, refeição testada nos simulados. |
+| **Simulado curto (2 h) ou descanso ativo** _(dia 6)_ | SUS, Epidemiologia e Ética Médica | Revisão | 120 | G P L C | Se a prova for em até 3 dias, descanse; senão, faça um simulado curto só para manter o ritmo. |
+
+**Conhecimentos Básicos da semana**
+
+| Bloco | Nível | Tipo | Min | Trilhas |
+|---|---|---|---|---|
+| Português: revisão leve de Português | Núcleo | Revisão | 20 | G P L C |
+| Básicas: flashcards dos pontos fracos | Complemento | Revisão | 30 | G P L C |
 
 <!-- PLANO:FIM -->

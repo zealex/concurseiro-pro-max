@@ -24,9 +24,10 @@ export function concluirTarefa(tarefa: TarefaAgenda, data: DateKey, modo: ModoDi
     quest.concluirRevisao(tarefa.revisaoId, data, resultado ?? {});
   } else {
     cron.concluir(tarefa.id, { data, plantao: tarefa.versaoPlantao || modo === 'plantao' });
-    // Teoria concluída (versão completa) abre um ciclo D1/D7/D15/D30.
+    // Teoria concluída (versão completa) abre um ciclo D1/D7/D15/D30 — exceto blocos de básicas,
+    // cuja retenção fica com os flashcards (evita uma avalanche de revisões).
     const bloco = tarefa.blocoId ? getBloco(tarefa.blocoId) : undefined;
-    if (bloco && bloco.tipo === 'teoria' && !tarefa.versaoPlantao && !existeCicloAtivo(quest.revisoes, 'teoria', { refId: bloco.id })) {
+    if (bloco && bloco.tipo === 'teoria' && !bloco.semRevisao && !tarefa.versaoPlantao && !existeCicloAtivo(quest.revisoes, 'teoria', { refId: bloco.id })) {
       quest.addRevisao(
         criarItemRevisao({
           id: gerarId('rev'),

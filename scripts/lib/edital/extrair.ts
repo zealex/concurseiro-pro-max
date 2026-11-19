@@ -148,11 +148,13 @@ export async function obterPdf(origem: string, op: { forcar?: boolean } = {}): P
   });
   if (!resp.ok) throw new Error(`HTTP ${resp.status} ao baixar ${origem}`);
   const bytes = new Uint8Array(await resp.arrayBuffer());
-  const cabecalho = new TextDecoder('latin1').decode(bytes.slice(0, 5));
-  if (cabecalho !== '%PDF-') {
-    throw new Error(`O endereço não devolveu um PDF (começa com "${cabecalho}"). Abra a página do edital e copie o link direto do PDF.`);
+  // Alguns servidores (ex.: FEPESE) mandam bytes extras antes do cabeçalho "%PDF-".
+  const inicio = new TextDecoder('latin1').decode(bytes.slice(0, 1024));
+  const pos = inicio.indexOf('%PDF-');
+  if (pos < 0) {
+    throw new Error(`O endereço não devolveu um PDF (começa com "${inicio.slice(0, 5)}"). Abra a página do edital e copie o link direto do PDF.`);
   }
-  writeFileSync(destino, bytes);
+  writeFileSync(destino, pos > 0 ? bytes.slice(pos) : bytes);
   writeFileSync(`${destino}.url`, origem);
   return destino;
 }

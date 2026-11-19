@@ -17,6 +17,7 @@ export interface ResultadoValidacao {
 const DISCIPLINAS_DE_LEI = new Set([
   'direito-constitucional',
   'direito-administrativo',
+  'direito-penal',
   'servidor-publico',
   'etica-publica',
   'legislacao-geral',

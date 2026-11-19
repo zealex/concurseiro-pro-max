@@ -12,7 +12,7 @@ import { useSettingsStore } from '@/store/useSettingsStore';
 import { COR_TIPO_BLOCO, useCores } from '@/theme/cores';
 import { addDays, diaSemanaCurto, formatBR, formatLongo, relativo } from '@/utils/dates';
 import { horasMinutos } from '@/utils/format';
-import { progressoPorSemana, visaoDaSemana } from '@/utils/scheduler';
+import { OPCOES_ORCAMENTO, progressoPorSemana, visaoDaSemana } from '@/utils/scheduler';
 import { feedback } from '@/utils/haptics';
 
 function capitalizarInicio(t: string): string {
@@ -93,8 +93,9 @@ export default function Cronograma() {
               <View className="mt-3">
                 <Muted className="mb-1">Orçamento do Dia Padrão</Muted>
                 <Segmented
+                  rolavel
                   valor={String(orcamento)}
-                  opcoes={[180, 210, 240].map((n) => ({ valor: String(n), rotulo: horasMinutos(n) }))}
+                  opcoes={OPCOES_ORCAMENTO.map((n) => ({ valor: String(n), rotulo: horasMinutos(n) }))}
                   onChange={(v) => setOrcamento(Number(v))}
                 />
               </View>

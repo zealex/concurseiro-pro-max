@@ -325,6 +325,19 @@ export const DISCIPLINAS: Disciplina[] = [
       { id: 'rl-sequencias', nome: 'Sequências lógicas de números, letras e figuras' },
       { id: 'rl-associacao', nome: 'Associação lógica, verdades e mentiras' },
       { id: 'rl-conjuntos', nome: 'Conjuntos e problemas com diagramas de Venn' },
+      { id: 'rl-cientifico', nome: 'Raciocínio científico: método, hipóteses, causalidade e vieses' },
+    ],
+  },
+  {
+    id: 'lingua-inglesa',
+    eixo: 'basicos',
+    nome: 'Língua Inglesa (leitura instrumental)',
+    // Cobrada em perícia oficial (IGP-RS 2025 e Polícia Científica-SC 2025: 5 questões cada).
+    trilhas: ['generalista', 'legista'],
+    temas: [
+      { id: 'ing-leitura', nome: 'Leitura e interpretação de textos técnicos em inglês' },
+      { id: 'ing-vocabulario', nome: 'Vocabulário médico e forense; falsos cognatos' },
+      { id: 'ing-gramatica', nome: 'Gramática instrumental: tempos verbais, modais, voz passiva e conectivos' },
     ],
   },
   {
@@ -380,6 +393,22 @@ export const DISCIPLINAS: Disciplina[] = [
       { id: 'da-processo', nome: 'Processo administrativo federal (Lei 9.784/1999)' },
       { id: 'da-licitacoes', nome: 'Licitações e contratos (Lei 14.133/2021 — noções)' },
       { id: 'da-controle', nome: 'Controle da administração pública' },
+    ],
+  },
+  {
+    id: 'direito-penal',
+    eixo: 'basicos',
+    nome: 'Direito Penal e Processual Penal (noções)',
+    // Parte geral e processo — cobrados nas provas de perito oficial (PR, SC, RS) e da PF;
+    // os crimes e perícias do interesse médico-legal estão no eixo Medicina Legal.
+    trilhas: ['generalista', 'legista'],
+    temas: [
+      { id: 'dp-parte-geral', nome: 'Direito Penal: princípios, crime, excludentes e imputabilidade' },
+      { id: 'dp-crimes-adm-publica', nome: 'Crimes contra a administração pública' },
+      { id: 'dp-leis-especiais', nome: 'Leis penais especiais: drogas, armas, trânsito e execução penal (noções)' },
+      { id: 'dpp-inquerito-acao', nome: 'Inquérito policial e ação penal' },
+      { id: 'dpp-prisoes', nome: 'Prisões, medidas cautelares e liberdade provisória' },
+      { id: 'dpp-provas', nome: 'Provas no processo penal (CPP, arts. 155 a 250)' },
     ],
   },
   {

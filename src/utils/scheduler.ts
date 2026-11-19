@@ -1,5 +1,6 @@
-import { PLANO_12_SEMANAS, getSemana } from '@/data/plano12Semanas';
+import { PLANO_12_SEMANAS, blocosDaTrilha, getSemana } from '@/data/plano12Semanas';
 import { getTema } from '@/data/eixos';
+import { capacidadeSemanal, chavePerfil, reforcoPadrao, type PerfilBasicas } from '@/data/selecaoBlocos';
 import type { BlocoSemana, Eixo, Trilha } from '@/data/types';
 import { TIPOS_PLANTAO } from '@/data/types';
 import type { AgendaDia, ConclusaoBloco, FaseAgenda, ItemRevisao, TarefaAgenda } from '@/domain/types';
@@ -10,14 +11,17 @@ import { ETAPA_LABEL, minutosDaRevisao, revisoesDevidas } from './spacedRepetiti
  * Agendador determinístico: a agenda de um dia é função pura de (data, configuração, progresso).
  *
  * Semana do plano = 7 dias contados da data de início:
- *   dias 1–5 → blocos da semana (ordem pedagógica, carga equilibrada)
+ *   dias 1–5 → blocos da semana (ordem pedagógica, carga equilibrada) + Conhecimentos Básicos espalhados
  *   dia 6    → blocos marcados `sabado` (bateria/simulado)
  *   dia 7    → revisões + caderno de erros + redistribuídas
  */
 
 export const TOTAL_SEMANAS_PLANO = 12;
 export const ORCAMENTO_MIN = 180;
-export const ORCAMENTO_MAX = 240;
+/** Até 6 h líquidas por dia. */
+export const ORCAMENTO_MAX = 360;
+/** Opções oferecidas nos seletores de orçamento do Dia Padrão. */
+export const OPCOES_ORCAMENTO = [180, 210, 240, 300, 360] as const;
 export const ORCAMENTO_PLANTAO = 60;
 export const TETO_REDISTRIBUICAO = 60;
 const MAX_REVISOES_LISTADAS = 8;
@@ -28,6 +32,8 @@ export interface ConfigAgenda {
   orcamentoMin: number;
   diasPlantao: DateKey[];
   provaAlvo: DateKey | null;
+  /** Perfil de básicas derivado do edital-alvo (ausente = padrão da trilha). */
+  basicas?: PerfilBasicas | null;
 }
 
 export interface ProgressoAgenda {
@@ -82,39 +88,59 @@ export function mapearSemanas(dataInicio: DateKey, provaAlvo: DateKey | null): M
 /* Distribuição dos blocos de uma semana nos dias                      */
 /* ------------------------------------------------------------------ */
 
-/** Capacidade de uma semana comprimida (dias 1–5 no orçamento máximo). */
-export const CAPACIDADE_SEMANA_COMPRIMIDA = 5 * ORCAMENTO_MAX;
+export interface OpcoesSlot {
+  perfil?: PerfilBasicas | null;
+  orcamentoMin?: number;
+}
 
-export function blocosDoSlot(slot: MapaSemanas['slots'][number], trilha: Trilha): BlocoSemana[] {
-  const porSemana = slot.semanas.map(
-    (n) => getSemana(n)?.blocos.filter((b) => b.trilhas.includes(trilha) && (!slot.essencialApenas || b.essencial || b.sabado)) ?? [],
-  );
+function orcamentoValido(orcamentoMin: number | undefined): number {
+  return clamp(orcamentoMin ?? 210, ORCAMENTO_MIN, ORCAMENTO_MAX);
+}
+
+export function blocosDoSlot(slot: MapaSemanas['slots'][number], trilha: Trilha, op: OpcoesSlot = {}): BlocoSemana[] {
+  const orcamentoMin = orcamentoValido(op.orcamentoMin);
+  const sel = { perfil: op.perfil, orcamentoMin, essencialApenas: slot.essencialApenas };
+  const porSemana = slot.semanas.map((n) => blocosDaTrilha(n, trilha, sel));
   if (!slot.essencialApenas || porSemana.length <= 1) return porSemana.flat();
 
   // Várias semanas espremidas numa só: intercala as semanas (1º essencial de cada, depois o 2º…)
   // até a capacidade semanal; do dia 6 fica só o último bloco (simulado/bateria mais avançado).
+  // As básicas (núcleo) têm uma reserva própria para não serem cortadas pelo volume médico.
+  const capacidade = capacidadeSemanal(orcamentoMin);
+  const reforco = op.perfil ? op.perfil.reforco : reforcoPadrao(trilha);
   const sabado = porSemana.flat().filter((b) => b.sabado).slice(-1);
-  const filas = porSemana.map((l) => l.filter((b) => !b.sabado));
+  const filasFlex = porSemana.map((l) => l.filter((b) => !b.sabado && b.nivel));
+  const filasFixas = porSemana.map((l) => l.filter((b) => !b.sabado && !b.nivel));
   const escolhidos: BlocoSemana[] = [];
   let carga = 0;
-  for (let rodada = 0; filas.some((f) => f.length > rodada); rodada++) {
-    for (const fila of filas) {
-      const b = fila[rodada];
-      if (!b || carga + b.minutos > CAPACIDADE_SEMANA_COMPRIMIDA) continue;
-      escolhidos.push(b);
-      carga += b.minutos;
+  const intercalar = (filas: BlocoSemana[][], teto: number) => {
+    for (let rodada = 0; filas.some((f) => f.length > rodada); rodada++) {
+      for (const fila of filas) {
+        const b = fila[rodada];
+        if (!b || carga + b.minutos > teto) continue;
+        escolhidos.push(b);
+        carga += b.minutos;
+      }
     }
-  }
+  };
+  intercalar(filasFlex, Math.round(capacidade * (reforco ? 0.4 : 0.2)));
+  intercalar(filasFixas, capacidade);
   // Mantém a ordem pedagógica original (semana a semana).
   const ordem = new Map(porSemana.flat().map((b, i) => [b.id, i]));
   return [...escolhidos.sort((a, b) => (ordem.get(a.id) ?? 0) - (ordem.get(b.id) ?? 0)), ...sabado];
 }
 
-/** Retorna 7 listas (dia 1..7) de blocos. */
+/**
+ * Retorna 7 listas (dia 1..7) de blocos.
+ * 1ª passada: blocos fixos (médicos) em ordem pedagógica, com carga equilibrada nos dias 1–5.
+ * 2ª passada: blocos flexíveis (básicas) no dia útil mais leve, evitando repetir a disciplina no dia;
+ * entram depois dos fixos do dia (o dia 1 continua começando pelo diagnóstico).
+ */
 export function distribuirSemana(blocos: BlocoSemana[]): BlocoSemana[][] {
   const dias: BlocoSemana[][] = [[], [], [], [], [], [], []];
   const sabado = blocos.filter((b) => b.sabado);
-  const resto = blocos.filter((b) => !b.sabado);
+  const flex = blocos.filter((b) => !b.sabado && b.nivel);
+  const resto = blocos.filter((b) => !b.sabado && !b.nivel);
   const total = resto.reduce((acc, b) => acc + b.minutos, 0);
   const alvo = total / 5;
   let dia = 0;
@@ -128,19 +154,34 @@ export function distribuirSemana(blocos: BlocoSemana[]): BlocoSemana[][] {
     dias[dia]?.push(b);
     carga += b.minutos;
   }
+
+  const cargas = dias.slice(0, 5).map((d) => d.reduce((acc, b) => acc + b.minutos, 0));
+  const disciplinasDoDia = dias.slice(0, 5).map(() => new Set<string>());
+  for (const b of flex) {
+    let melhor = 0;
+    for (let d = 1; d < 5; d++) {
+      const repeteD = disciplinasDoDia[d]!.has(b.disciplinaId) ? 1 : 0;
+      const repeteM = disciplinasDoDia[melhor]!.has(b.disciplinaId) ? 1 : 0;
+      if (repeteD < repeteM || (repeteD === repeteM && cargas[d]! < cargas[melhor]!)) melhor = d;
+    }
+    dias[melhor]!.push(b);
+    cargas[melhor]! += b.minutos;
+    disciplinasDoDia[melhor]!.add(b.disciplinaId);
+  }
   dias[5] = sabado;
   return dias;
 }
 
 const cacheDistribuicao = new Map<string, BlocoSemana[][]>();
 
-function distribuicaoDoSlot(mapa: MapaSemanas, slotIdx: number, trilha: Trilha): BlocoSemana[][] {
+function distribuicaoDoSlot(mapa: MapaSemanas, slotIdx: number, config: ConfigAgenda): BlocoSemana[][] {
   const slot = mapa.slots[slotIdx];
   if (!slot) return [[], [], [], [], [], [], []];
-  const chave = `${trilha}|${slot.semanas.join(',')}|${slot.essencialApenas}`;
+  const orcamentoMin = orcamentoValido(config.orcamentoMin);
+  const chave = `${config.trilha}|${slot.semanas.join(',')}|${slot.essencialApenas}|${chavePerfil(config.basicas)}|${orcamentoMin}`;
   const hit = cacheDistribuicao.get(chave);
   if (hit) return hit;
-  const r = distribuirSemana(blocosDoSlot(slot, trilha));
+  const r = distribuirSemana(blocosDoSlot(slot, config.trilha, { perfil: config.basicas, orcamentoMin }));
   cacheDistribuicao.set(chave, r);
   return r;
 }
@@ -233,10 +274,12 @@ export function filaDeRedistribuicao(config: ConfigAgenda, concluidos: Record<st
   for (let d = 0; d < limiteDias; d++) {
     const slotIdx = Math.floor(d / 7);
     const dia = d % 7;
-    for (const b of distribuicaoDoSlot(mapa, slotIdx, config.trilha)[dia] ?? []) {
+    for (const b of distribuicaoDoSlot(mapa, slotIdx, config)[dia] ?? []) {
       if (vistos.has(b.id) || concluidos[b.id]) continue;
       // Simulados/baterias do dia 6 não se acumulam: se passaram, o próximo da série cobre.
       if (b.sabado) continue;
+      // Básicas não se acumulam (são contínuas: Treino e flashcards cobrem); trocar o edital não inunda a fila.
+      if (b.nivel) continue;
       vistos.add(b.id);
       fila.push(b);
     }
@@ -291,7 +334,7 @@ export function montarAgenda(data: DateKey, config: ConfigAgenda, progresso: Pro
     const slot = mapa.slots[slotIdx];
     base.semanasPlano = slot?.semanas ?? [];
     base.mesociclo = (getSemana(slot?.semanas.at(-1) ?? 1)?.mesociclo ?? null) as AgendaDia['mesociclo'];
-    blocosHoje = distribuicaoDoSlot(mapa, slotIdx, config.trilha)[dia] ?? [];
+    blocosHoje = distribuicaoDoSlot(mapa, slotIdx, config)[dia] ?? [];
   }
 
   // 2. Blocos do dia
@@ -425,14 +468,14 @@ export function montarAgenda(data: DateKey, config: ConfigAgenda, progresso: Pro
 function distribuicaoTodosDias(config: ConfigAgenda, mapa: MapaSemanas, hoje: DateKey): BlocoSemana[] {
   const decorridos = Math.min(diffDays(config.dataInicio, hoje), mapa.slots.length * 7 - 1);
   const out: BlocoSemana[] = [];
-  for (let d = 0; d <= decorridos; d++) out.push(...(distribuicaoDoSlot(mapa, Math.floor(d / 7), config.trilha)[d % 7] ?? []));
+  for (let d = 0; d <= decorridos; d++) out.push(...(distribuicaoDoSlot(mapa, Math.floor(d / 7), config)[d % 7] ?? []));
   return out;
 }
 
 /** Visão das semanas para a tela do Cronograma: blocos por dia com datas reais. */
 export function visaoDaSemana(semanaIndice: number, config: ConfigAgenda): { data: DateKey; dia: number; blocos: BlocoSemana[] }[] {
   const mapa = mapearSemanas(config.dataInicio, config.provaAlvo);
-  const dist = distribuicaoDoSlot(mapa, semanaIndice - 1, config.trilha);
+  const dist = distribuicaoDoSlot(mapa, semanaIndice - 1, config);
   return dist.map((blocos, i) => ({ data: addDays(config.dataInicio, (semanaIndice - 1) * 7 + i), dia: i + 1, blocos }));
 }
 
@@ -440,7 +483,7 @@ export function visaoDaSemana(semanaIndice: number, config: ConfigAgenda): { dat
 export function progressoPorSemana(config: ConfigAgenda, concluidos: Record<string, ConclusaoBloco>): { semanaIndice: number; semanas: number[]; feitos: number; total: number }[] {
   const mapa = mapearSemanas(config.dataInicio, config.provaAlvo);
   return mapa.slots.map((slot, i) => {
-    const blocos = blocosDoSlot(slot, config.trilha);
+    const blocos = blocosDoSlot(slot, config.trilha, { perfil: config.basicas, orcamentoMin: config.orcamentoMin });
     return { semanaIndice: i + 1, semanas: slot.semanas, feitos: blocos.filter((b) => concluidos[b.id]).length, total: blocos.length };
   });
 }

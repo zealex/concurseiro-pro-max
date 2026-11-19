@@ -1,4 +1,6 @@
 import { getTema } from './eixos';
+import { basicasDaSemana } from './planoBasicas';
+import { selecionarBlocos, type OpcoesSelecao } from './selecaoBlocos';
 import type { BlocoSemana, Eixo, MesocicloInfo, Mesociclo, SemanaPlano, TipoBloco, Trilha } from './types';
 import { TRILHAS } from './types';
 
@@ -125,7 +127,8 @@ export const MESOCICLOS: MesocicloInfo[] = [
   },
 ];
 
-export const PLANO_12_SEMANAS: SemanaPlano[] = [
+/** Blocos médicos e legados (ids posicionais "sNN-bMM" — congelados por teste). */
+const SEMANAS_BASE: SemanaPlano[] = [
   /* ============================== SEMANA 1 ============================== */
   semana(
     1,
@@ -180,9 +183,9 @@ export const PLANO_12_SEMANAS: SemanaPlano[] = [
       b('tronco', 'teoria', 75, 'CF/88 Arts. 196–200 e Lei 8.080 (princípios e diretrizes)',
         'Saúde como direito; relevância pública; diretrizes do Art. 198; complementaridade privada (199); competências do SUS (200, inclusive saúde do trabalhador); Lei 8.080 Arts. 2º a 7º e definição de saúde do trabalhador (Art. 6º, §3º).',
         ['cf-saude', 'lei8080']),
-      b('tronco', 'questoes', 45, 'Questões: SUS (CF + 8.080) e Português',
-        '20 questões de SUS + 10 de Português (concordância e regência).',
-        ['lei8080', 'portugues']),
+      b('tronco', 'questoes', 45, 'Questões: SUS (CF + Lei 8.080)',
+        '30 questões de SUS: CF arts. 196–200 e Lei 8.080 (princípios, competências, participação complementar).',
+        ['lei8080']),
       b('pericia', 'teoria', 60, 'Aprofundamento: o edital de Perito Médico Federal',
         'Leia o conteúdo programático do último concurso (MPS/Cebraspe, 2024: 50 itens de conhecimentos gerais + 70 de específicos, Certo/Errado com desconto). Marque o que já domina em Medicina Geral, Medicina do Trabalho, Direito do Trabalho, Previdenciário, SUS e Assistência Social.',
         ['pericia-conceitos'], { trilhas: SO_PER }),
@@ -261,9 +264,9 @@ export const PLANO_12_SEMANAS: SemanaPlano[] = [
       b('tronco', 'teoria', 75, 'Lei 8.080 (competências) e Lei 8.142',
         'Competências da União, estados e municípios; CONITEC; Fundo de Saúde; Conferência (a cada 4 anos) e Conselho de Saúde (paritário: usuários 50%); requisitos para transferências.',
         ['lei8080', 'lei8142']),
-      b('tronco', 'questoes', 45, 'Questões: SUS e Raciocínio Lógico',
-        '20 de SUS + 10 de RLM (proposições e equivalências).',
-        ['lei8142', 'rlm']),
+      b('tronco', 'questoes', 45, 'Questões: SUS (Lei 8.142 e controle social)',
+        '30 questões de SUS: conferências, conselhos de saúde e transferências (Lei 8.142).',
+        ['lei8142']),
       b('pericia', 'revisao', 60, 'Aprofundamento: casos de DII e preexistência',
         'Resolva 5 casos: defina DID, DII, se há incapacidade preexistente, a espécie do benefício e se cabe reabilitação.',
         ['incapacidade-laboral'], { trilhas: SO_PER, refs: ['beneficios-incapacidade'] }),
@@ -342,9 +345,9 @@ export const PLANO_12_SEMANAS: SemanaPlano[] = [
       b('tronco', 'teoria', 60, 'Decreto 7.508/11 e PNAB',
         'Região de Saúde (serviços mínimos), Portas de Entrada, CIT/CIB/CIR, COAP, RENASES, RENAME; PNAB: ESF, composição de equipes, população adscrita, atribuições.',
         ['dec7508', 'pnab']),
-      b('tronco', 'questoes', 45, 'Questões: Decreto 7.508, PNAB e Português',
-        '20 de SUS organizativo + 10 de Português (crase e pontuação).',
-        ['dec7508', 'portugues']),
+      b('tronco', 'questoes', 45, 'Questões: Decreto 7.508 e PNAB',
+        '30 questões de SUS organizativo: regiões de saúde, RAS, portas de entrada, COAP e PNAB.',
+        ['dec7508']),
       b('pericia', 'teoria', 60, 'Aprofundamento: NR-15 e NR-16 — insalubridade e periculosidade',
         'Graus de insalubridade (10/20/40%), ruído (85 dB(A)/8 h), agentes biológicos (Anexo 14), periculosidade (30%), não cumulatividade e caracterização por perícia (CLT 195).',
         ['nr15', 'nr16'], { trilhas: SO_PER, refs: ['nr-15', 'nr-16', 'nr-prazos'] }),
@@ -417,9 +420,9 @@ export const PLANO_12_SEMANAS: SemanaPlano[] = [
       b('tronco', 'teoria', 60, 'Ética médica e documentos',
         'CEM: princípios, sigilo (Arts. 73–79), perícia e auditoria (Arts. 92–98); Res. CFM 2.381/2024 (tipos de documentos e requisitos); Res. CFM 1.779/2005 (DO); Lei 14.289/2022 (sigilo da condição de saúde).',
         ['cem', 'documentos-medicos']),
-      b('tronco', 'questoes', 45, 'Questões: ética e Direito Administrativo',
-        '15 de ética + 10 de Direito Administrativo (princípios e atos).',
-        ['cem', 'direito-adm']),
+      b('tronco', 'questoes', 45, 'Questões: ética médica e documentos',
+        '25 questões de Código de Ética Médica, sigilo e documentos médicos (atestado, declaração, relatório).',
+        ['cem']),
       b('pericia', 'lei-seca', 60, 'Aprofundamento: leitura integral da NR-32',
         'Texto oficial, incluindo o anexo de perfurocortantes.',
         ['nr32'], { trilhas: SO_PER, refs: ['nr-32'] }),
@@ -492,9 +495,9 @@ export const PLANO_12_SEMANAS: SemanaPlano[] = [
       b('tronco', 'teoria', 60, 'Epidemiologia: indicadores de saúde e vigilância',
         'Coeficientes de mortalidade e morbidade, incidência × prevalência, transição epidemiológica e demográfica; vigilância epidemiológica, sanitária, ambiental e do trabalhador.',
         ['epi-indicadores', 'vigilancia-notificacao']),
-      b('tronco', 'questoes', 45, 'Questões: epidemiologia e Português',
-        '15 de epidemiologia + 10 de Português.',
-        ['epi-indicadores', 'portugues']),
+      b('tronco', 'questoes', 45, 'Questões: epidemiologia',
+        '25 questões de indicadores de saúde, transição epidemiológica e desenhos de estudo.',
+        ['epi-indicadores']),
       b('pericia', 'revisao', 60, 'Aprofundamento: estabeleça o nexo em 5 casos',
         'Para cada caso, aplique Schilling, verifique Listas A/B/C e conclua: nexo profissional, NTEP, individual ou ausência de nexo.',
         ['nexo-causal'], { trilhas: SO_PER, refs: ['nexo-cat'] }),
@@ -1003,6 +1006,16 @@ export const PLANO_12_SEMANAS: SemanaPlano[] = [
   ),
 ];
 
+/**
+ * Plano completo: blocos médicos + Conhecimentos Básicos (src/data/planoBasicas.ts, ids "sNN-kNN").
+ * As básicas entram antes do bloco do dia 6; o agendador as espalha pelos dias úteis.
+ */
+export const PLANO_12_SEMANAS: SemanaPlano[] = SEMANAS_BASE.map((s) => {
+  const sabado = s.blocos.filter((bl) => bl.sabado);
+  const resto = s.blocos.filter((bl) => !bl.sabado);
+  return { ...s, blocos: [...resto, ...basicasDaSemana(s.semana), ...sabado] };
+});
+
 /* ---------------------------- utilitários ---------------------------- */
 
 export const TOTAL_SEMANAS = PLANO_12_SEMANAS.length;
@@ -1018,10 +1031,12 @@ export function getSemana(n: number): SemanaPlano | undefined {
   return PLANO_12_SEMANAS.find((s) => s.semana === n);
 }
 
-export function blocosDaTrilha(semanaN: number, trilha: Trilha): BlocoSemana[] {
-  return getSemana(semanaN)?.blocos.filter((bl) => bl.trilhas.includes(trilha)) ?? [];
+/** Blocos da semana para a trilha (com seleção de básicas por edital/orçamento — ver selecaoBlocos.ts). */
+export function blocosDaTrilha(semanaN: number, trilha: Trilha, op: OpcoesSelecao = {}): BlocoSemana[] {
+  const s = getSemana(semanaN);
+  return s ? selecionarBlocos(s.blocos, trilha, op) : [];
 }
 
-export function minutosDaSemana(semanaN: number, trilha: Trilha): number {
-  return blocosDaTrilha(semanaN, trilha).reduce((acc, bl) => acc + bl.minutos, 0);
+export function minutosDaSemana(semanaN: number, trilha: Trilha, op: OpcoesSelecao = {}): number {
+  return blocosDaTrilha(semanaN, trilha, op).reduce((acc, bl) => acc + bl.minutos, 0);
 }

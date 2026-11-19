@@ -1,15 +1,16 @@
 import { describe, expect, it } from 'vitest';
 import { PLANO_12_SEMANAS, blocosDaTrilha, minutosDaSemana } from '@/data/plano12Semanas';
+import { capacidadeSemanal } from '@/data/selecaoBlocos';
 import { TRILHAS, TIPOS_PLANTAO } from '@/data/types';
 import { addDays } from '../dates';
 import { criarItemRevisao } from '../spacedRepetition';
 import {
   blocosDoSlot,
-  CAPACIDADE_SEMANA_COMPRIMIDA,
   distribuirSemana,
   filaDeRedistribuicao,
   mapearSemanas,
   montarAgenda,
+  ORCAMENTO_MAX,
   ORCAMENTO_PLANTAO,
   progressoPorSemana,
   type ConfigAgenda,
@@ -34,12 +35,14 @@ describe('dados do plano', () => {
     expect(new Set(ids).size).toBe(ids.length);
     expect(PLANO_12_SEMANAS.every((s) => s.blocos.every((b) => b.trilhas.length > 0 && b.minutos > 0))).toBe(true);
   });
-  it('toda semana tem conteúdo para todas as trilhas e carga plausível', () => {
+  it('toda semana tem conteúdo para todas as trilhas e carga plausível (210 e 360 min/dia)', () => {
     for (const s of PLANO_12_SEMANAS) {
       for (const t of TRILHAS) {
-        const min = minutosDaSemana(s.semana, t);
-        expect(min).toBeGreaterThanOrEqual(s.semana === 12 ? 300 : 500);
-        expect(min).toBeLessThanOrEqual(7 * 240);
+        for (const orcamentoMin of [210, 360]) {
+          const min = minutosDaSemana(s.semana, t, { orcamentoMin });
+          expect(min).toBeGreaterThanOrEqual(s.semana === 12 ? 300 : 500);
+          expect(min).toBeLessThanOrEqual(7 * ORCAMENTO_MAX);
+        }
       }
     }
   });
@@ -59,18 +62,98 @@ describe('distribuição semanal', () => {
     const cargas = dias.slice(0, 5).map((d) => d.reduce((a, b) => a + b.minutos, 0));
     expect(Math.max(...cargas) - Math.min(...cargas)).toBeLessThanOrEqual(150);
   });
-  it('preserva a ordem pedagógica', () => {
+  it('preserva a ordem pedagógica dos blocos médicos (as básicas entram depois, no dia mais leve)', () => {
     const blocos = PLANO_12_SEMANAS[0]!.blocos.filter((b) => b.trilhas.includes('generalista') && !b.sabado);
-    expect(distribuirSemana(blocos).flat().map((b) => b.id)).toEqual(blocos.map((b) => b.id));
+    const fixos = blocos.filter((b) => !b.nivel);
+    expect(distribuirSemana(blocos).flat().filter((b) => !b.nivel).map((b) => b.id)).toEqual(fixos.map((b) => b.id));
+    // Os blocos médicos ficam nos mesmos dias com ou sem básicas.
+    const comBasicas = distribuirSemana(blocos).map((d) => d.filter((b) => !b.nivel).map((b) => b.id));
+    expect(comBasicas).toEqual(distribuirSemana(fixos).map((d) => d.map((b) => b.id)));
   });
-  it('em todas as semanas e trilhas, os dias 1–5 diferem no máximo 150 min', () => {
+  it('em todas as semanas e trilhas, os dias 1–5 diferem no máximo 150 min e a média cabe em 6 h', () => {
     for (const s of PLANO_12_SEMANAS) {
       for (const t of TRILHAS) {
-        const dias = distribuirSemana(blocosDaTrilha(s.semana, t));
-        const cargas = dias.slice(0, 5).map((d) => d.reduce((a, b) => a + b.minutos, 0));
-        expect(Math.max(...cargas) - Math.min(...cargas), `semana ${s.semana} · ${t}`).toBeLessThanOrEqual(150);
+        for (const orcamentoMin of [210, 360]) {
+          const dias = distribuirSemana(blocosDaTrilha(s.semana, t, { orcamentoMin }));
+          const cargas = dias.slice(0, 5).map((d) => d.reduce((a, b) => a + b.minutos, 0));
+          expect(Math.max(...cargas) - Math.min(...cargas), `semana ${s.semana} · ${t} · ${orcamentoMin}`).toBeLessThanOrEqual(150);
+          expect(cargas.reduce((a, b) => a + b, 0) / 5, `semana ${s.semana} · ${t} · ${orcamentoMin}`).toBeLessThanOrEqual(ORCAMENTO_MAX);
+        }
       }
     }
+  });
+  it('básicas: evita a mesma disciplina duas vezes no dia e o dia 1 começa pelo diagnóstico', () => {
+    const dias = distribuirSemana(blocosDaTrilha(1, 'generalista', { orcamentoMin: 360 }));
+    expect(dias[0]![0]!.tipo).toBe('diagnostico');
+    for (const d of dias.slice(0, 5)) {
+      const flex = d.filter((b) => b.nivel).map((b) => b.disciplinaId);
+      const repetidas = flex.filter((x, i) => flex.indexOf(x) !== i);
+      // Português tem 3 blocos na semana 1: com 5 dias, nenhuma disciplina precisa se repetir.
+      expect(repetidas).toEqual([]);
+    }
+  });
+});
+
+describe('Conhecimentos Básicos no plano', () => {
+  const flex = (semana: number, t: (typeof TRILHAS)[number], op = {}) => blocosDaTrilha(semana, t, op).filter((b) => b.nivel);
+
+  it('toda semana tem básicas de núcleo para todas as trilhas', () => {
+    for (const s of PLANO_12_SEMANAS) {
+      for (const t of TRILHAS) {
+        expect(flex(s.semana, t).some((b) => b.nivel === 'nucleo'), `semana ${s.semana} · ${t}`).toBe(true);
+      }
+    }
+  });
+
+  it('orçamento maior traz complemento; orçamento mínimo fica só no núcleo (Generalista)', () => {
+    const pouco = flex(1, 'generalista', { orcamentoMin: 180 });
+    const muito = flex(1, 'generalista', { orcamentoMin: 360 });
+    expect(pouco.every((b) => b.nivel === 'nucleo')).toBe(true);
+    expect(muito.some((b) => b.nivel === 'complemento')).toBe(true);
+    expect(muito.length).toBeGreaterThan(pouco.length);
+  });
+
+  it('reforço: padrão só na trilha Clínico; com edital, só se o perfil pedir', () => {
+    expect(flex(1, 'clinico', { orcamentoMin: 360 }).some((b) => b.nivel === 'reforco')).toBe(true);
+    expect(flex(1, 'generalista', { orcamentoMin: 360 }).some((b) => b.nivel === 'reforco')).toBe(false);
+    const perfil = { disciplinas: ['lingua-portuguesa', 'matematica', 'nocoes-informatica'], reforco: true };
+    expect(flex(1, 'pericia', { orcamentoMin: 360, perfil }).some((b) => b.nivel === 'reforco')).toBe(true);
+  });
+
+  it('com edital-alvo entram só as disciplinas do edital (ignorando a trilha)', () => {
+    const perfil = { disciplinas: ['lingua-portuguesa', 'matematica'], reforco: false };
+    const blocos = flex(4, 'pericia', { orcamentoMin: 360, perfil });
+    expect(new Set(blocos.map((b) => b.disciplinaId))).toEqual(new Set(['lingua-portuguesa', 'matematica', 'basicas']));
+    // Matemática não é da trilha Perícia, mas está no edital.
+    expect(blocos.some((b) => b.disciplinaId === 'matematica')).toBe(true);
+  });
+
+  it('as trilhas recebem as disciplinas típicas dos seus editais', () => {
+    const per = new Set(flex(4, 'pericia', { orcamentoMin: 360 }).map((b) => b.disciplinaId));
+    expect(per.has('etica-publica')).toBe(true);
+    expect(per.has('matematica')).toBe(false);
+    const cli = new Set(flex(4, 'clinico', { orcamentoMin: 360 }).map((b) => b.disciplinaId));
+    expect(cli.has('matematica')).toBe(true);
+    expect(cli.has('criminalistica')).toBe(false);
+    const leg = new Set(flex(4, 'legista', { orcamentoMin: 360 }).map((b) => b.disciplinaId));
+    expect(leg.has('criminalistica')).toBe(true);
+  });
+
+  it('básicas não vão para a fila de redistribuição', () => {
+    const c = cfg({ orcamentoMin: 360 });
+    const fila = filaDeRedistribuicao(c, {}, addDays(INICIO, 6));
+    expect(fila.length).toBeGreaterThan(0);
+    expect(fila.some((b) => b.nivel)).toBe(false);
+  });
+
+  it('a agenda muda com o perfil de básicas (cache isolado por perfil e orçamento)', () => {
+    const dia = addDays(INICIO, 1);
+    const ids = (c: ConfigAgenda) => montarAgenda(dia, c, vazio).tarefas.map((t) => t.id).join(',');
+    const semEdital = ids(cfg({ orcamentoMin: 360 }));
+    const soPortugues = ids(cfg({ orcamentoMin: 360, basicas: { disciplinas: ['lingua-portuguesa'], reforco: false } }));
+    const orcamentoMenor = ids(cfg({ orcamentoMin: 180 }));
+    expect(soPortugues).not.toBe(semEdital);
+    expect(orcamentoMenor).not.toBe(semEdital);
   });
 });
 
@@ -106,7 +189,9 @@ describe('agenda do dia', () => {
     const dia1 = montarAgenda(INICIO, cfg(), vazio);
     const naoFeitos = dia1.tarefas.filter((t) => t.origem === 'plano').map((t) => t.blocoId!);
     const fila = filaDeRedistribuicao(cfg(), {}, addDays(INICIO, 1));
-    expect(fila.map((b) => b.id)).toEqual(naoFeitos.filter((id) => !PLANO_12_SEMANAS[0]!.blocos.find((b) => b.id === id)?.sabado));
+    const bloco = (id: string) => PLANO_12_SEMANAS[0]!.blocos.find((b) => b.id === id);
+    // Blocos do dia 6 e de básicas não se acumulam.
+    expect(fila.map((b) => b.id)).toEqual(naoFeitos.filter((id) => !bloco(id)?.sabado && !bloco(id)?.nivel));
     const dia2 = montarAgenda(addDays(INICIO, 1), cfg(), vazio);
     const redistribuidas = dia2.tarefas.filter((t) => t.origem === 'redistribuida');
     expect(redistribuidas.length).toBeGreaterThan(0);
@@ -119,9 +204,11 @@ describe('agenda do dia', () => {
     const concluidos = Object.fromEntries(dia1.tarefas.filter((t) => t.blocoId).map((t) => [t.blocoId!, { data: INICIO, plantao: false }]));
     expect(filaDeRedistribuicao(cfg(), concluidos, addDays(INICIO, 1))).toEqual([]);
   });
-  it('plantão empurra a teoria do dia para a fila', () => {
+  it('plantão empurra a teoria médica do dia para a fila', () => {
     const dia = addDays(INICIO, 1);
-    const padrao = montarAgenda(dia, cfg(), vazio).tarefas.filter((t) => t.origem === 'plano' && t.tipo === 'teoria');
+    const ehBasica = (id: string | null) => !!PLANO_12_SEMANAS[0]!.blocos.find((b) => b.id === id)?.nivel;
+    const padrao = montarAgenda(dia, cfg(), vazio).tarefas.filter((t) => t.origem === 'plano' && t.tipo === 'teoria' && !ehBasica(t.blocoId));
+    expect(padrao.length).toBeGreaterThan(0);
     const fila = filaDeRedistribuicao(cfg({ diasPlantao: [dia] }), {}, addDays(dia, 1)).map((b) => b.id);
     for (const t of padrao) expect(fila).toContain(t.blocoId);
   });
@@ -159,11 +246,15 @@ describe('compressão por prova-alvo', () => {
   it('semana que espreme várias semanas respeita a capacidade semanal e cobre todas elas', () => {
     const m = mapearSemanas(INICIO, addDays(INICIO, 5 * 7 - 1)); // 5 semanas → 1 slot com as semanas 1–8
     expect(m.slots[0]?.semanas).toEqual([1, 2, 3, 4, 5, 6, 7, 8]);
-    const blocos = blocosDoSlot(m.slots[0]!, 'generalista');
-    const semSabado = blocos.filter((b) => !b.sabado);
-    expect(semSabado.reduce((a, b) => a + b.minutos, 0)).toBeLessThanOrEqual(CAPACIDADE_SEMANA_COMPRIMIDA);
-    expect(new Set(semSabado.map((b) => b.semana)).size).toBe(8);
-    expect(blocos.filter((b) => b.sabado)).toHaveLength(1);
+    for (const orcamentoMin of [210, 360]) {
+      const blocos = blocosDoSlot(m.slots[0]!, 'generalista', { orcamentoMin });
+      const semSabado = blocos.filter((b) => !b.sabado);
+      expect(semSabado.reduce((a, b) => a + b.minutos, 0)).toBeLessThanOrEqual(capacidadeSemanal(orcamentoMin));
+      expect(new Set(semSabado.filter((b) => !b.nivel).map((b) => b.semana)).size).toBe(8);
+      // As básicas de núcleo têm reserva própria e não somem na compressão.
+      expect(semSabado.some((b) => b.nivel === 'nucleo')).toBe(true);
+      expect(blocos.filter((b) => b.sabado)).toHaveLength(1);
+    }
   });
   it('prova em 3 semanas: só a reta final', () => {
     const m = mapearSemanas(INICIO, addDays(INICIO, 20));

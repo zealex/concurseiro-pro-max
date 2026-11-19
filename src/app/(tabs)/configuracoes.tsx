@@ -12,6 +12,7 @@ import { useRadarStore } from '@/store/useRadarStore';
 import { useSettingsStore, type PreferenciaTema } from '@/store/useSettingsStore';
 import { formatBR, parseBR } from '@/utils/dates';
 import { horasMinutos } from '@/utils/format';
+import { OPCOES_ORCAMENTO } from '@/utils/scheduler';
 
 export default function Configuracoes() {
   const toast = useToast();
@@ -71,7 +72,7 @@ export default function Configuracoes() {
             }}
           />
           <Label className="mb-1 mt-3">Orçamento do Dia Padrão</Label>
-          <Segmented valor={String(s.orcamentoMin)} onChange={(v) => s.setOrcamento(Number(v))} opcoes={[180, 210, 240].map((n) => ({ valor: String(n), rotulo: horasMinutos(n) }))} />
+          <Segmented rolavel valor={String(s.orcamentoMin)} onChange={(v) => s.setOrcamento(Number(v))} opcoes={OPCOES_ORCAMENTO.map((n) => ({ valor: String(n), rotulo: horasMinutos(n) }))} />
           <View className="mt-3">
             <Seletor rotulo="Banca-alvo (padrão nos registros)" valor={s.bancaAlvo || null} onChange={s.setBancaAlvo} opcoes={NOMES_BANCAS.map((b) => ({ valor: b, rotulo: b }))} placeholder="Nenhuma" />
           </View>
