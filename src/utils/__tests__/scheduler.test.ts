@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { PLANO_12_SEMANAS, minutosDaSemana } from '@/data/plano12Semanas';
+import { PLANO_12_SEMANAS, blocosDaTrilha, minutosDaSemana } from '@/data/plano12Semanas';
 import { TRILHAS, TIPOS_PLANTAO } from '@/data/types';
 import { addDays } from '../dates';
 import { criarItemRevisao } from '../spacedRepetition';
@@ -62,6 +62,15 @@ describe('distribuição semanal', () => {
   it('preserva a ordem pedagógica', () => {
     const blocos = PLANO_12_SEMANAS[0]!.blocos.filter((b) => b.trilhas.includes('generalista') && !b.sabado);
     expect(distribuirSemana(blocos).flat().map((b) => b.id)).toEqual(blocos.map((b) => b.id));
+  });
+  it('em todas as semanas e trilhas, os dias 1–5 diferem no máximo 150 min', () => {
+    for (const s of PLANO_12_SEMANAS) {
+      for (const t of TRILHAS) {
+        const dias = distribuirSemana(blocosDaTrilha(s.semana, t));
+        const cargas = dias.slice(0, 5).map((d) => d.reduce((a, b) => a + b.minutos, 0));
+        expect(Math.max(...cargas) - Math.min(...cargas), `semana ${s.semana} · ${t}`).toBeLessThanOrEqual(150);
+      }
+    }
   });
 });
 

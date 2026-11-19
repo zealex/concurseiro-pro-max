@@ -14,6 +14,7 @@
     "scrape": "tsx scripts/scrape-concursos-sul.ts",
     "scrape:dry": "tsx scripts/scrape-concursos-sul.ts --dry-run",
     "docs:plano": "tsx scripts/gerar-plano-md.ts",
+    "edital": "tsx scripts/ler-edital.ts",
     "icons": "node scripts/generate-icons.mjs",
     "build:web": "expo export -p web && workbox generateSW workbox-config.cjs && node scripts/postbuild-web.mjs",
     "preview:web": "npx serve dist -s -l 4173",
@@ -25,6 +26,7 @@
     "sharp": "^0.35.5",
     "tsx": "^4.23.15",
     "typescript": "~6.0.3",
+    "unpdf": "^2.2.1",
     "vitest": "^5.1.1",
     "workbox-cli": "^7.4.1"
   },

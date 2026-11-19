@@ -33,3 +33,6 @@ Thumbs.db
 
 # Claude Code (configurações locais)
 .claude/settings.local.json
+
+# Cache do leitor de editais (PDFs baixados e texto extraído)
+.cache/

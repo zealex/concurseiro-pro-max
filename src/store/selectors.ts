@@ -3,7 +3,7 @@ import type { AgendaDia } from '@/domain/types';
 import { mesclarComOverlay, type ConcursoView } from '@/shared/concursos/overlay';
 import { addDays, diffDays, todayKey, type DateKey } from '@/utils/dates';
 import { ofensiva, minutosNaSemana, placar, pontosFracos, porEixo, type PontoFraco } from '@/utils/metrics';
-import { montarAgenda, TOTAL_SEMANAS_PLANO } from '@/utils/scheduler';
+import { montarAgenda, TOTAL_SEMANAS_PLANO, type ConfigAgenda } from '@/utils/scheduler';
 import { revisoesDevidas } from '@/utils/spacedRepetition';
 import { useCronogramaStore } from './useCronogramaStore';
 import { useFocusStore } from './useFocusStore';
@@ -29,23 +29,36 @@ export function usePontosFracos(): PontoFraco[] {
   return useMemo(() => pontosFracos(sessoes), [sessoes]);
 }
 
-export function useAgenda(data: DateKey): AgendaDia {
+/**
+ * Configuração da agenda montada a partir das preferências — fonte única para a agenda do dia
+ * e para a visão das 12 semanas. Cada campo é selecionado separadamente (referências estáveis)
+ * e o objeto só muda quando algum deles muda.
+ */
+export function useConfigAgenda(): ConfigAgenda {
   const trilha = useSettingsStore((s) => s.trilha);
   const dataInicio = useSettingsStore((s) => s.dataInicio);
   const orcamentoMin = useSettingsStore((s) => s.orcamentoMin);
   const diasPlantao = useSettingsStore((s) => s.diasPlantao);
   const provaAlvo = useSettingsStore((s) => s.provaAlvo);
+  return useMemo(
+    () => ({ trilha, dataInicio, orcamentoMin, diasPlantao, provaAlvo: provaAlvo?.data ?? null }),
+    [trilha, dataInicio, orcamentoMin, diasPlantao, provaAlvo],
+  );
+}
+
+export function useAgenda(data: DateKey): AgendaDia {
+  const config = useConfigAgenda();
   const concluidos = useCronogramaStore((s) => s.concluidos);
   const revisoes = useQuestoesStore((s) => s.revisoes);
   const fracos = usePontosFracos();
   return useMemo(
     () =>
-      montarAgenda(
-        data,
-        { trilha, dataInicio, orcamentoMin, diasPlantao, provaAlvo: provaAlvo?.data ?? null },
-        { concluidos, revisoes, piorTema: fracos[0] ? { temaId: fracos[0].temaId, nome: fracos[0].nome } : null },
-      ),
-    [data, trilha, dataInicio, orcamentoMin, diasPlantao, provaAlvo, concluidos, revisoes, fracos],
+      montarAgenda(data, config, {
+        concluidos,
+        revisoes,
+        piorTema: fracos[0] ? { temaId: fracos[0].temaId, nome: fracos[0].nome } : null,
+      }),
+    [data, config, concluidos, revisoes, fracos],
   );
 }
 

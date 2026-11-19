@@ -11,7 +11,7 @@ import { radarPadrao, useRadarStore } from '@/store/useRadarStore';
 import { settingsPadrao, useSettingsStore } from '@/store/useSettingsStore';
 import { armazenamento } from '@/services/storage/repository';
 import { todayKey } from '@/utils/dates';
-import { migrarCronograma, migrarQuestoes, migrarSettings } from '@/store/migracoes';
+import { prepararImportacao } from '@/store/importacao';
 
 /** Backup portátil (.json) de todo o progresso local. */
 export { validarBackup, type Backup };
@@ -41,13 +41,7 @@ export function montarBackup(): Backup {
 /** Substitui o estado local pelo do backup (campos ausentes voltam ao padrão). */
 export function aplicarBackup(b: Backup): void {
   // Backups de versões anteriores passam pelas mesmas migrações do armazenamento local.
-  const v = b.schemaVersion;
-  const d = {
-    ...b.data,
-    settings: b.data.settings ? migrarSettings(b.data.settings, v) : undefined,
-    questoes: b.data.questoes ? migrarQuestoes(b.data.questoes, v) : undefined,
-    cronograma: b.data.cronograma ? migrarCronograma(b.data.cronograma, v) : undefined,
-  };
+  const d = prepararImportacao(b);
   useSettingsStore.setState({ ...settingsPadrao(), ...(d.settings ?? {}) });
   useCronogramaStore.setState({ ...cronogramaPadrao(), ...(d.cronograma ?? {}) });
   useQuestoesStore.setState({ ...questoesPadrao(), ...(d.questoes ?? {}) });

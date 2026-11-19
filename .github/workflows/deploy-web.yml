@@ -40,6 +40,12 @@ jobs:
       - name: Instalar dependências
         run: npm ci --no-audit --no-fund
 
+      - name: Verificar tipos (TypeScript)
+        run: npm run typecheck
+
+      - name: Testes (lógica + conteúdo)
+        run: npm test
+
       - name: Build web + PWA
         env:
           # Site de projeto do GitHub Pages fica em /<nome-do-repositório>

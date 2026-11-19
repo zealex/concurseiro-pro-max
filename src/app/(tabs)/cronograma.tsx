@@ -6,7 +6,7 @@ import { Button, Callout, Card, IconButton, Muted, ProgressBar, Row, Screen, Sec
 import { MESOCICLOS, getSemana } from '@/data/plano12Semanas';
 import { TIPO_BLOCO_LABEL, TRILHA_LABEL, TRILHAS, type Trilha } from '@/data/types';
 import type { TarefaAgenda } from '@/domain/types';
-import { useAgenda, useHoje } from '@/store/selectors';
+import { useAgenda, useConfigAgenda, useHoje } from '@/store/selectors';
 import { useCronogramaStore } from '@/store/useCronogramaStore';
 import { useSettingsStore } from '@/store/useSettingsStore';
 import { COR_TIPO_BLOCO, useCores } from '@/theme/cores';
@@ -37,15 +37,11 @@ export default function Cronograma() {
   const togglePlantao = useSettingsStore((s) => s.togglePlantao);
   const dataInicio = useSettingsStore((s) => s.dataInicio);
   const provaAlvo = useSettingsStore((s) => s.provaAlvo);
-  const diasPlantao = useSettingsStore((s) => s.diasPlantao);
   const concluidos = useCronogramaStore((s) => s.concluidos);
   const toast = useToast();
   const cores = useCores();
 
-  const config = useMemo(
-    () => ({ trilha, dataInicio, orcamentoMin: orcamento, diasPlantao, provaAlvo: provaAlvo?.data ?? null }),
-    [trilha, dataInicio, orcamento, diasPlantao, provaAlvo],
-  );
+  const config = useConfigAgenda();
   const semanas = useMemo(() => progressoPorSemana(config, concluidos), [config, concluidos]);
   const semanaPlano = agenda.semanasPlano.length ? getSemana(agenda.semanasPlano[agenda.semanasPlano.length - 1] ?? 1) : undefined;
 
