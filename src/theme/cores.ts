@@ -67,7 +67,10 @@ export const TAG_CLASSES: Record<CorTag, string> = {
   red: 'bg-tag-red dark:bg-tag-red-dark',
 };
 
-export const COR_EIXO = { clinica: 'green', pericia: 'blue', legal: 'purple', tronco: 'yellow' } as const satisfies Record<Eixo, CorTag>;
+export const COR_EIXO = { clinica: 'green', pericia: 'blue', legal: 'purple', tronco: 'yellow', basicos: 'orange' } as const satisfies Record<
+  Eixo,
+  CorTag
+>;
 export const COR_UF = { PR: 'yellow', SC: 'blue', RS: 'red' } as const satisfies Record<string, CorTag>;
 export const COR_STATUS = {
   radar: 'gray',

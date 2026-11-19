@@ -23,6 +23,7 @@ export function TemaPicker({ valor, onChange }: { valor: SelecaoTema; onChange: 
       <Label className="mb-1">Eixo</Label>
       <View className="mb-3">
         <Segmented<Eixo>
+          rolavel
           valor={valor.eixo}
           onChange={(eixo) => onChange(selecaoInicial(eixo))}
           opcoes={EIXOS.map((e) => ({ valor: e, rotulo: EIXO_CURTO[e] }))}

@@ -163,7 +163,7 @@ function PaginaBibliografia() {
   return (
     <Screen emoji="📖" titulo="Bibliografia" descricao="As bancas cobram literalmente classificações e sinais dos autores de referência.">
       <Voltar />
-      {EIXOS.map((eixo) => (
+      {EIXOS.filter((eixo) => BIBLIOGRAFIA.some((l) => l.eixo === eixo)).map((eixo) => (
         <Section key={eixo} titulo={EIXO_LABEL[eixo]}>
           {BIBLIOGRAFIA.filter((l) => l.eixo === eixo).map((l) => (
             <Card key={l.id} className="mb-2">

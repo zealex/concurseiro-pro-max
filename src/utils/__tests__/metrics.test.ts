@@ -24,10 +24,11 @@ describe('placar', () => {
     expect(placar([s({ total: 10, acertos: 7 }), s({ total: 30, acertos: 21 })])).toEqual({ total: 40, acertos: 28, pct: 0.7 });
     expect(placar([]).pct).toBeNull();
   });
-  it('por eixo sempre devolve os quatro eixos', () => {
-    const r = porEixo([s({ eixo: 'legal', total: 20, acertos: 10 })]);
-    expect(Object.keys(r).sort()).toEqual(['clinica', 'legal', 'pericia', 'tronco']);
+  it('por eixo sempre devolve os cinco eixos (inclusive Básicas)', () => {
+    const r = porEixo([s({ eixo: 'legal', total: 20, acertos: 10 }), s({ eixo: 'basicos', total: 10, acertos: 9 })]);
+    expect(Object.keys(r).sort()).toEqual(['basicos', 'clinica', 'legal', 'pericia', 'tronco']);
     expect(r.legal.pct).toBe(0.5);
+    expect(r.basicos.pct).toBe(0.9);
     expect(r.pericia.total).toBe(0);
     expect(r.clinica.total).toBe(0);
     expect(r.tronco.pct).toBeNull();

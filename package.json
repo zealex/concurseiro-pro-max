@@ -15,6 +15,7 @@
     "scrape:dry": "tsx scripts/scrape-concursos-sul.ts --dry-run",
     "docs:plano": "tsx scripts/gerar-plano-md.ts",
     "edital": "tsx scripts/ler-edital.ts",
+    "conteudo:validar": "tsx scripts/validar-conteudo.ts",
     "icons": "node scripts/generate-icons.mjs",
     "build:web": "expo export -p web && workbox generateSW workbox-config.cjs && node scripts/postbuild-web.mjs",
     "preview:web": "npx serve dist -s -l 4173",

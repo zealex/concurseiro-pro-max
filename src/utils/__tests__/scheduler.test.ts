@@ -87,9 +87,9 @@ describe('agenda do dia', () => {
   });
   it('filtra por trilha', () => {
     const leg = montarAgenda(INICIO, cfg({ trilha: 'legista' }), vazio);
-    expect(leg.tarefas.every((t) => t.eixo === 'legal' || t.eixo === 'tronco')).toBe(true);
+    expect(leg.tarefas.every((t) => t.eixo === 'legal' || t.eixo === 'tronco' || t.eixo === 'basicos')).toBe(true);
     const cli = montarAgenda(addDays(INICIO, 1), cfg({ trilha: 'clinico' }), vazio);
-    expect(cli.tarefas.every((t) => t.eixo === 'clinica' || t.eixo === 'tronco')).toBe(true);
+    expect(cli.tarefas.every((t) => t.eixo === 'clinica' || t.eixo === 'tronco' || t.eixo === 'basicos')).toBe(true);
     const per = montarAgenda(addDays(INICIO, 1), cfg({ trilha: 'pericia' }), vazio);
     expect(per.tarefas.every((t) => t.eixo !== 'legal')).toBe(true);
   });

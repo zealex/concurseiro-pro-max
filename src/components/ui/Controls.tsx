@@ -94,12 +94,15 @@ export function Segmented<T extends string>({
   opcoes,
   valor,
   onChange,
+  rolavel = false,
 }: {
   opcoes: { valor: T; rotulo: string }[];
   valor: T;
   onChange: (v: T) => void;
+  /** Rolagem horizontal quando as opções não cabem na largura (ex.: 5 eixos no celular). */
+  rolavel?: boolean;
 }) {
-  return (
+  const grupo = (
     <View className="flex-row self-start rounded-notion bg-side p-0.5 dark:bg-side-dark">
       {opcoes.map((o) => {
         const ativo = o.valor === valor;
@@ -119,6 +122,12 @@ export function Segmented<T extends string>({
         );
       })}
     </View>
+  );
+  if (!rolavel) return grupo;
+  return (
+    <ScrollView horizontal showsHorizontalScrollIndicator={false} keyboardShouldPersistTaps="handled">
+      {grupo}
+    </ScrollView>
   );
 }
 
