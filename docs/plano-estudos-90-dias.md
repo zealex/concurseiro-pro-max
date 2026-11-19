@@ -506,7 +506,7 @@ _Dominar nexo causal/NTEP, doenças relacionadas ao trabalho, perícia em saúde
 
 **Bancas-foco:** CEBRASPE, FGV · **Meta de questões:** 250
 
-**Carga planejada:** G 19h15→23h20 · P 18h40→18h40 · L 17h35→17h35 · C 15h45→15h45
+**Carga planejada:** G 19h15→23h45 · P 19h05→19h05 · L 18h→18h · C 15h45→15h45
 
 | Bloco | Eixo | Tipo | Min | Trilhas | Conteúdo |
 |---|---|---|---|---|---|
@@ -553,6 +553,7 @@ _Dominar nexo causal/NTEP, doenças relacionadas ao trabalho, perícia em saúde
 | Discursiva: Critérios de correção e gestão do tempo | Complemento | Teoria | 30 | G L |
 | Atualidades: Brasil e o mundo | Reforço | Teoria | 20 | G C |
 | Penal e Processo Penal: Leis penais especiais: drogas, armas, trânsito e execução penal (noções) | Complemento | Teoria | 30 | G L |
+| Ética e transparência: Direitos do usuário do serviço público e ouvidoria (Lei 13.460/2017) | Complemento | Teoria | 25 | G P L |
 
 #### Semana 8 — Ética pericial, telemedicina, trauma no pronto atendimento, revisão integrada e Simulado 2
 

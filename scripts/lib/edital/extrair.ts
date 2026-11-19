@@ -125,6 +125,23 @@ export function ocrPdf(pdf: string): ResultadoExtracao {
   }
 }
 
+/**
+ * Renderiza páginas do PDF como PNG (para tabelas que não viram texto ou fontes sem mapeamento).
+ * Devolve os caminhos das imagens geradas.
+ */
+export function paginasComoImagem(pdf: string, ini: number, fim: number, prefixo: string, dpi = 110): string[] {
+  const ppm = localizarExecutavel('pdftoppm');
+  if (!ppm) throw new Error('pdftoppm não encontrado. Instale: winget install -e --id oschwartz10612.Poppler');
+  const r = spawnSync(ppm, ['-r', String(dpi), '-png', '-f', String(ini), '-l', String(fim), pdf, prefixo], { maxBuffer: 64 * 1024 * 1024 });
+  if (r.status !== 0) throw new Error(`pdftoppm falhou: ${r.stderr?.toString().slice(0, 300)}`);
+  const dir = resolve(prefixo, '..');
+  const base = prefixo.split(/[\\/]/).pop()!;
+  return readdirSync(dir)
+    .filter((f) => f.startsWith(`${base}-`) && f.endsWith('.png'))
+    .map((f) => join(dir, f))
+    .sort();
+}
+
 export const DIR_CACHE = resolve(__dirname, '..', '..', '..', '.cache', 'editais');
 
 export function chaveCache(origem: string): string {

@@ -438,6 +438,7 @@ export const DISCIPLINAS: Disciplina[] = [
       { id: 'etp-lai', nome: 'Lei de Acesso à Informação (Lei 12.527/2011)' },
       { id: 'etp-lgpd', nome: 'LGPD (Lei 13.709/2018) e dados pessoais de saúde' },
       { id: 'etp-assedio', nome: 'Prevenção e enfrentamento do assédio na administração pública' },
+      { id: 'etp-usuario', nome: 'Direitos do usuário do serviço público e ouvidoria (Lei 13.460/2017)' },
     ],
   },
   {

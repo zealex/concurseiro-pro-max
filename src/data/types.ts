@@ -214,6 +214,8 @@ export interface Banca {
   regiao: string;
   estilo: string;
   comoTreinar: string;
+  /** Como a banca cobra os Conhecimentos Básicos (tirado de editais lidos). */
+  basicas?: string;
   sul: boolean;
 }
 

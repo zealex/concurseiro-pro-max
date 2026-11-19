@@ -313,6 +313,7 @@ export const BASICAS_POR_SEMANA: BlocoBasico[][] = [
     estudo('s07-k14', C, 'red-criterios', 30),
     estudo('s07-k15', R, 'cg-mundo', 20),
     estudo('s07-k16', C, 'dp-leis-especiais', 30),
+    estudo('s07-k17', C, 'etp-usuario', 25),
   ],
   /* -------- Semana 8 -------- */
   [

@@ -8,13 +8,14 @@
  *   npm run edital -- <url> --paginas 10-14                  # imprime só essas páginas
  *   npm run edital -- <url> --json                           # saída para automação
  *   npm run edital -- <url> --motor unpdf                    # outro extrator (às vezes alinha melhor tabelas)
+ *   npm run edital -- <url> --imagens 12-13                  # páginas como PNG (tabelas que não viram texto)
  *   Outras: --sem-layout, --ocr (PDF escaneado; = --motor ocr), --forcar (baixa de novo)
  *
  * O PDF baixado e o texto extraído ficam em .cache/editais/ (fora do git).
  */
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { DIR_CACHE, chaveCache, extrairTextoPdf, obterPdf, type Motor } from './lib/edital/extrair';
+import { DIR_CACHE, chaveCache, extrairTextoPdf, obterPdf, paginasComoImagem, type Motor } from './lib/edital/extrair';
 import {
   buscar,
   contarPaginas,
@@ -33,13 +34,14 @@ interface Opcoes {
   secao?: string;
   quadro: boolean;
   paginas?: string;
+  imagens?: string;
   json: boolean;
   layout: boolean;
   motor?: Motor;
   forcar: boolean;
 }
 
-const FLAGS_COM_VALOR = new Set(['grep', 'contexto', 'secao', 'paginas', 'motor']);
+const FLAGS_COM_VALOR = new Set(['grep', 'contexto', 'secao', 'paginas', 'motor', 'imagens']);
 const MOTORES: readonly Motor[] = ['pdftotext', 'unpdf', 'ocr'];
 
 function lerOpcoes(argv: string[]): Opcoes {
@@ -74,6 +76,7 @@ function lerOpcoes(argv: string[]): Opcoes {
     secao: valores.secao,
     quadro: marcadas.has('quadro'),
     paginas: valores.paginas,
+    imagens: valores.imagens,
     json: marcadas.has('json'),
     layout: !marcadas.has('sem-layout'),
     motor,
@@ -102,6 +105,16 @@ function fmt(l: LinhaEdital): string {
 async function main(): Promise<void> {
   const op = lerOpcoes(process.argv.slice(2));
   const pdf = await obterPdf(op.origem, { forcar: op.forcar });
+
+  if (op.imagens) {
+    const m = op.imagens.match(/^(\d+)(?:-(\d+))?$/);
+    if (!m) throw new Error('Use --imagens 12 ou --imagens 12-14');
+    mkdirSync(DIR_CACHE, { recursive: true });
+    const arquivos = paginasComoImagem(pdf, Number(m[1]), Number(m[2] ?? m[1]), join(DIR_CACHE, `${chaveCache(op.origem)}-p`));
+    console.log(`🖼️  ${arquivos.length} página(s) renderizada(s):`);
+    for (const a of arquivos) console.log(`   ${a}`);
+    return;
+  }
   const { texto: bruto, motor, executavel } = await extrairTextoPdf(pdf, { layout: op.layout, forcarMotor: op.motor });
 
   mkdirSync(DIR_CACHE, { recursive: true });
