@@ -6,8 +6,8 @@ import { TarefaItem } from '@/components/agenda/TarefaItem';
 import { Button, Callout, Card, H2, Label, Muted, ProgressBar, Row, Screen, SeloNovo, Section, StatTile, Tag, Txt } from '@/components/ui';
 import { getCheatSheet } from '@/data/cheatSheets';
 import { getChecklist } from '@/data/checklistsLeiSeca';
-import { EIXO_LABEL, TRILHA_LABEL, type Eixo } from '@/data/types';
-import { CATEGORIA_LABEL } from '@/shared/concursos/schema';
+import { EIXO_LABEL, EIXOS, TRILHA_LABEL } from '@/data/types';
+import { CATEGORIA_CURTA } from '@/shared/concursos/schema';
 import { useAgenda, useConcursos, useContagem, useHoje, useMetricas, usePontosFracos } from '@/store/selectors';
 import { useSettingsStore } from '@/store/useSettingsStore';
 import { COR_CATEGORIA, COR_EIXO, COR_UF, useCores } from '@/theme/cores';
@@ -15,7 +15,6 @@ import { formatBR, formatLongo } from '@/utils/dates';
 import { horasMinutos } from '@/utils/format';
 import { formatPct } from '@/utils/metrics';
 
-const EIXOS: Eixo[] = ['trabalho', 'legal', 'tronco'];
 
 export default function Dashboard() {
   const router = useRouter();
@@ -29,7 +28,11 @@ export default function Dashboard() {
   const togglePlantao = useSettingsStore((s) => s.togglePlantao);
   const concursos = useConcursos();
   const ultimos = useMemo(
-    () => [...concursos].filter((c) => !c.manual && !c.arquivado).sort((a, b) => b.firstSeenAt.localeCompare(a.firstSeenAt)).slice(0, 5),
+    () =>
+      [...concursos]
+        .filter((c) => !c.manual && !c.arquivado && c.acesso === 'generalista')
+        .sort((a, b) => b.firstSeenAt.localeCompare(a.firstSeenAt))
+        .slice(0, 5),
     [concursos],
   );
   const progressoDia = agenda.minutosPlanejados ? agenda.minutosConcluidos / agenda.minutosPlanejados : 0;
@@ -164,7 +167,7 @@ export default function Dashboard() {
           </Section>
 
           <Section
-            titulo="📡 Últimos editais no Sul"
+            titulo="📡 Últimos editais para generalista no Sul"
             acao={<Button pequeno variante="fantasma" titulo="Radar" icone={RadarIcon} onPress={() => router.push('/radar')} />}
           >
             <Card className="p-0">
@@ -180,7 +183,7 @@ export default function Dashboard() {
                     <Row className="mb-1 gap-1.5">
                       {c.isNew ? <SeloNovo /> : null}
                       <Tag texto={c.uf} cor={COR_UF[c.uf]} />
-                      <Tag texto={CATEGORIA_LABEL[c.categoria]} cor={COR_CATEGORIA[c.categoria]} />
+                      <Tag texto={CATEGORIA_CURTA[c.categoria]} cor={COR_CATEGORIA[c.categoria]} />
                     </Row>
                     <Txt numberOfLines={1} className="font-medium">
                       {c.cidade} — {c.orgao}

@@ -5,7 +5,9 @@ import type { Subcategoria, TagCargo } from './schema';
  * Classificador de vagas médicas.
  * 1. Exclusões (profissões não médicas que contêm "médic", "perito", "plantonista"...).
  * 2. Inclusões (médico/a, medicina, legista, perito médico, especialidades médicas).
- * 3. Tag: medico-legista > medicina-do-trabalho > medicina-geral-especialidades.
+ * 3. Tag: medico-legista > pericia-medica > medicina-do-trabalho > medicina-geral-especialidades.
+ * 4. Acesso: vagas que o generalista (sem RQE) pode disputar × vagas que exigem especialidade
+ *    (ver acessoDe em schema.ts). Médico do Trabalho exige especialização (NR-04 remete ao CFM).
  */
 
 const EXCLUSOES = [
@@ -62,19 +64,27 @@ const ESPECIALIDADES = [
   'reumatologista', 'urologista', 'radiologista', 'geriatra', 'hematologista', 'oncologista', 'intensivista',
   'mastologista', 'proctologista', 'coloproctologista', 'angiologista', 'cirurgiao geral', 'cirurgiao vascular',
   'cirurgiao pediatrico', 'cirurgiao plastico', 'cirurgiao toracico', 'cirurgiao cardiovascular',
-  'nutrologo', 'homeopata', 'patologista', 'medico de familia', 'medicina de familia', 'emergencista',
+  'nutrologo', 'homeopata', 'patologista', 'medicina de familia', 'familia e comunidade', 'emergencista',
   'hepatologista', 'alergista', 'imunologista', 'fisiatra', 'ultrassonografista', 'ecografista',
   'endoscopista', 'cancerologista', 'psiquiatra infantil', 'hebiatra',
 ];
+/**
+ * Áreas que, no formato "Médico (Área)" (ex.: GHC), são especialidades com residência reconhecidas pelo CFM.
+ * Só para classificar: não entram na extração de cargos de texto livre (gerariam falsos cargos).
+ */
+const RE_AREA_ESPECIALIDADE = /medicina de emergencia|medicina intensiva|medicina da dor|anestesiologia|medicina do adolescente|terapia intensiva/;
 const RE_ESPECIALIDADE = new RegExp(`\\b(${ESPECIALIDADES.map((e) => e.replace(/ /g, '\\s+')).join('|')})s?\\b`);
 
 const RE_MEDICO = /\bmedic[oa]s?\b|\bmedicina\b/;
 const RE_LEGISTA = /\blegista\b|perito medico[- ]?legista|perito oficial medico|medicina legal|\biml\b/;
-const RE_PERITO_MEDICO = /\bperito medico\b|\bperita medica\b|\bperitos medicos\b/;
-const RE_PREVIDENCIARIO = /perito medico (federal|previdenciario)|pericia medica federal/;
+const RE_PERITO_MEDICO = /\bperit[oa]s? medic[oa]s?\b|\bmedic[oa]s? perit[oa]s?\b/;
+/** Perícia médica não criminal: INSS/Perícia Médica Federal, RPPS, juntas médicas, auditoria. */
+const RE_PERICIA = /pericia medica|\bperit[oa]s? medic[oa]s?\b|\bmedic[oa]s? perit[oa]s?\b|junta medica|\bmedic[oa]s? auditor(es|a|as)?\b|auditoria medica/;
 const RE_TRABALHO = /medic[oa]s? do trabalho|medicina do trabalho|saude ocupacional|medicina ocupacional|medic[oa]s? ocupacional|medic[oa]s? do trabalhador/;
 const RE_CLINICO_ESF =
-  /clinic[oa] geral|clinica medica|medic[oa]s? clinic[oa]|generalista|\besf\b|estrategia (de )?saude da familia|saude da familia|\bpsf\b|plantonista|plantao|\bubs\b|atencao (basica|primaria)|pronto[- ]atendimento|pronto[- ]socorro|\bupa\b|urgencia|emergencia|\bsamu\b|\bmedic[oa]s?\s*(i{1,3}|iv|20 ?h|40 ?h|20 horas|40 horas|\d+ horas)?\s*$/;
+  /clinic[oa] geral|clinica medica|medic[oa]s? clinic[oa]|generalista|\besf\b|estrategia (de )?saude da familia|saude da familia|\bpsf\b|plantonista|plantao|\bubs\b|atencao (basica|primaria)|pronto[- ]atendimento|pronto[- ]socorro|\bupa\b|urgencia|emergencia|\bsamu\b|medic[oa]s? (de|da) familia|\bmedic[oa]s?\s*(i{1,3}|iv|20 ?h|40 ?h|20 horas|40 horas|\d+ horas)?\s*$/;
+/** Nome que deixa explícito o cargo generalista mesmo citando uma área ("Clínico Geral — Saúde Mental"). */
+const RE_GENERALISTA_EXPLICITO = /clinic[oa] geral|generalista|\besf\b|\bpsf\b|saude da familia|atencao (basica|primaria)/;
 
 /** A vaga exige graduação em Medicina? */
 export function isCargoMedico(nome: string): boolean {
@@ -94,9 +104,13 @@ export interface Classificacao {
 /** Classifica uma vaga já reconhecida como médica. */
 export function classificarCargo(nome: string): Classificacao {
   const n = normalizar(nome);
-  if (RE_PREVIDENCIARIO.test(n)) return { tag: 'medicina-do-trabalho', subcategoria: null };
-  if (RE_LEGISTA.test(n) || RE_PERITO_MEDICO.test(n)) return { tag: 'medico-legista', subcategoria: null };
+  if (RE_LEGISTA.test(n)) return { tag: 'medico-legista', subcategoria: null };
+  if (RE_PERICIA.test(n)) return { tag: 'pericia-medica', subcategoria: null };
   if (RE_TRABALHO.test(n)) return { tag: 'medicina-do-trabalho', subcategoria: null };
+  // "Médico Plantonista Pediatra" é vaga de especialista; "Clínico Geral" nunca é.
+  if ((RE_ESPECIALIDADE.test(n) || RE_AREA_ESPECIALIDADE.test(n)) && !RE_GENERALISTA_EXPLICITO.test(n)) {
+    return { tag: 'medicina-geral-especialidades', subcategoria: 'especialidades' };
+  }
   if (RE_CLINICO_ESF.test(n) || /^medic[oa]s?$/.test(n)) {
     return { tag: 'medicina-geral-especialidades', subcategoria: 'clinico-esf-plantonista' };
   }
@@ -116,7 +130,7 @@ export function textoMencionaMedicina(texto: string): boolean {
     .replace(/medicina veterinaria/g, ' ')
     .replace(/fisic[oa]s? medic[oa]s?/g, ' ')
     .replace(/(tecnic[oa]s?|auxiliar(es)?|assistentes?) (de |em )?(consultorio )?medic[oa]s?/g, ' ');
-  return /\bmedic[oa]s?\b|\bmedicina\b|\blegista\b|perito medico/.test(n) || RE_ESPECIALIDADE.test(n);
+  return /\bmedic[oa]s?\b|\bmedicina\b|\blegista\b|perito medico|pericia medica/.test(n) || RE_ESPECIALIDADE.test(n);
 }
 
 /**
@@ -132,9 +146,23 @@ export function tituloIndicaVagaMedica(titulo: string): boolean {
 /** Prioridade entre tags quando um registro agrega cargos de tags diferentes. */
 export const PRIORIDADE_TAG: Record<TagCargo, number> = {
   'medico-legista': 0,
-  'medicina-do-trabalho': 1,
-  'medicina-geral-especialidades': 2,
+  'pericia-medica': 1,
+  'medicina-do-trabalho': 2,
+  'medicina-geral-especialidades': 3,
 };
+
+const RE_ORGAO_PERICIA_CRIMINAL = /policia (cientifica|civil)|\bigp\b|instituto[- ]geral de pericias|\biml\b|instituto medico[- ]legal|pericia oficial|superintendencia de policia tecnico/;
+
+/**
+ * "Perito Médico" num órgão de perícia criminal (Polícia Científica, IGP, IML) é o médico-legista;
+ * nos demais órgãos (INSS, institutos de previdência, prefeituras) é perícia médica administrativa.
+ */
+export function ajustarTagPorOrgao<T extends { tag: TagCargo; subcategoria: Subcategoria | null }>(cargo: T, orgao: string): T {
+  if (cargo.tag === 'pericia-medica' && RE_ORGAO_PERICIA_CRIMINAL.test(normalizar(orgao))) {
+    return { ...cargo, tag: 'medico-legista', subcategoria: null };
+  }
+  return cargo;
+}
 
 /**
  * Extrai nomes de cargos médicos de linhas de texto livre (itens de lista, células, frases).

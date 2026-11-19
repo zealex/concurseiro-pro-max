@@ -9,20 +9,42 @@ export const UFS = ['PR', 'SC', 'RS'] as const;
 export type UF = (typeof UFS)[number];
 export const UF_NOME: Record<UF, string> = { PR: 'Paraná', SC: 'Santa Catarina', RS: 'Rio Grande do Sul' };
 
-export const TAGS = ['medicina-do-trabalho', 'medico-legista', 'medicina-geral-especialidades'] as const;
+/**
+ * Tag do grupo de cargo. Faz parte do id do registro (ver id.ts), então novos valores só são acrescentados.
+ * pericia-medica = Perito Médico Federal/INSS, peritos de regimes próprios, juntas médicas e auditoria.
+ */
+export const TAGS = ['medicina-do-trabalho', 'medico-legista', 'pericia-medica', 'medicina-geral-especialidades'] as const;
 export type TagCargo = (typeof TAGS)[number];
 
 export const SUBCATEGORIAS = ['clinico-esf-plantonista', 'especialidades'] as const;
 export type Subcategoria = (typeof SUBCATEGORIAS)[number];
 
-/** As 4 categorias exibidas nos filtros do app. */
-export const CATEGORIAS = ['medicina-do-trabalho', 'medico-legista', 'clinico-esf-plantonista', 'especialidades'] as const;
+/** As 5 categorias exibidas nos filtros do app — as três primeiras aceitam o médico generalista. */
+export const CATEGORIAS = ['clinico-esf-plantonista', 'pericia-medica', 'medico-legista', 'medicina-do-trabalho', 'especialidades'] as const;
 export type Categoria = (typeof CATEGORIAS)[number];
 export const CATEGORIA_LABEL: Record<Categoria, string> = {
-  'medicina-do-trabalho': 'Medicina do Trabalho',
-  'medico-legista': 'Médico Legista / Perito',
-  'clinico-esf-plantonista': 'Médico Clínico / ESF / Plantonista',
-  especialidades: 'Outras Especialidades Médicas',
+  'clinico-esf-plantonista': 'Clínico Geral / ESF / Plantonista',
+  'pericia-medica': 'Perícia Médica (INSS / RPPS)',
+  'medico-legista': 'Médico Legista (Polícia Científica / IGP)',
+  'medicina-do-trabalho': 'Medicina do Trabalho (exige especialização)',
+  especialidades: 'Especialidades (exige residência/RQE)',
+};
+
+/** Rótulo curto para tags (tabela, cards, Dashboard). */
+export const CATEGORIA_CURTA: Record<Categoria, string> = {
+  'clinico-esf-plantonista': 'Clínico / ESF / Plantão',
+  'pericia-medica': 'Perícia Médica',
+  'medico-legista': 'Médico Legista',
+  'medicina-do-trabalho': 'Med. do Trabalho',
+  especialidades: 'Especialidade',
+};
+
+/** Quem pode disputar a vaga: o generalista recém-formado (graduação + CRM) ou só o especialista. */
+export const ACESSOS = ['generalista', 'especialista'] as const;
+export type Acesso = (typeof ACESSOS)[number];
+export const ACESSO_LABEL: Record<Acesso, string> = {
+  generalista: 'Para generalista',
+  especialista: 'Exige especialidade',
 };
 
 export const FONTES = ['pci', 'concursos-no-brasil', 'fundatec', 'fepese', 'curadoria', 'manual'] as const;
@@ -103,11 +125,22 @@ export const FeedSchema = z.object({
 });
 export type Feed = z.infer<typeof FeedSchema>;
 
-/** Categoria de filtro (4 opções da UI) a partir de tag + subcategoria. */
+/** Categoria de filtro (5 opções da UI) a partir de tag + subcategoria. */
 export function categoriaDe(c: { tag: TagCargo; subcategoria: Subcategoria | null }): Categoria {
   if (c.tag === 'medicina-do-trabalho') return 'medicina-do-trabalho';
   if (c.tag === 'medico-legista') return 'medico-legista';
+  if (c.tag === 'pericia-medica') return 'pericia-medica';
   return c.subcategoria === 'especialidades' ? 'especialidades' : 'clinico-esf-plantonista';
+}
+
+/**
+ * Acesso a partir da categoria. Legista e perícia exigem, em regra, só graduação + CRM;
+ * clínico/ESF/plantonista também. Médico do Trabalho exige especialização (NR-04 remete ao CFM)
+ * e as demais especialidades exigem residência ou título. Sempre confirme no edital.
+ */
+export function acessoDe(c: { tag: TagCargo; subcategoria: Subcategoria | null }): Acesso {
+  const cat = categoriaDe(c);
+  return cat === 'medicina-do-trabalho' || cat === 'especialidades' ? 'especialista' : 'generalista';
 }
 
 /**

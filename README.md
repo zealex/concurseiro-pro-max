@@ -1,12 +1,12 @@
 # Concurseiro Pro Max 🩺
 
-Preparação intensiva de **90 dias** para concursos médicos — **Medicina do Trabalho**, **Médico Legista / Perito Médico-Legista** e editais médicos municipais/estaduais da **Região Sul** — em um app universal (iOS, Android e navegador/PWA) no estilo Notion, com um **robô gratuito** que rastreia concursos médicos em PR, SC e RS a cada 12 horas.
+Preparação intensiva de **90 dias** para o **médico generalista / recém-formado** (graduação + CRM, sem residência) que vai prestar os concursos que não exigem especialidade — **Perito Médico Federal (INSS)** e peritos de regimes próprios, **Perito Médico-Legista** (Polícia Científica/IGP) e **Clínico Geral / ESF / Plantonista** — com Medicina Legal, perícia, previdência e saúde do trabalhador como eixos centrais. App universal (iOS, Android e navegador/PWA) no estilo Notion, com um **robô gratuito** que rastreia concursos médicos em PR, SC e RS a cada 12 horas, destacando as vagas abertas ao generalista (as de especialidade continuam no Radar).
 
 | Entrega | Onde está |
 |---|---|
 | Guia de cursinhos, bibliografia, bancas e fontes oficiais | [docs/guia-cursinhos-bibliografia-e-fontes.md](docs/guia-cursinhos-bibliografia-e-fontes.md) |
-| Plano periodizado de 12 semanas (4 trilhas, Modo Plantão, revisões) | [docs/plano-estudos-90-dias.md](docs/plano-estudos-90-dias.md) |
-| Conteúdo tipado usado pelo app (plano, checklists de NRs/leis, cheat sheets) | [src/data/](src/data/) |
+| Plano periodizado de 12 semanas (trilhas Generalista, Perícia, Legista e Clínico; Modo Plantão; revisões) | [docs/plano-estudos-90-dias.md](docs/plano-estudos-90-dias.md) |
+| Conteúdo tipado usado pelo app (plano, carreiras do generalista, checklists de leis/NRs, cheat sheets) | [src/data/](src/data/) |
 | App universal (Expo + Expo Router + NativeWind) | [src/app/](src/app/) |
 | Robô do Radar Sul + base de concursos | [scripts/scrape-concursos-sul.ts](scripts/scrape-concursos-sul.ts) · [public/data/concursos-sul.json](public/data/concursos-sul.json) |
 | Automação (a cada 12 h) e publicação web | [.github/workflows/](.github/workflows/) |
@@ -42,7 +42,7 @@ Depois de instalado, o app abre em janela própria e funciona sem internet (o Ra
 
 ## 3. Ativar o robô automático do Radar Sul (grátis, via GitHub)
 
-O robô (`scripts/scrape-concursos-sul.ts`) varre PCI Concursos (Sul + Nacional com lotação no Sul), Concursos no Brasil (PR/SC/RS), FUNDATEC e FEPESE; filtra vagas que exigem Medicina; classifica em `medicina-do-trabalho`, `medico-legista` ou `medicina-geral-especialidades`; deduplica; e grava `public/data/concursos-sul.json`.
+O robô (`scripts/scrape-concursos-sul.ts`) varre PCI Concursos (Sul + Nacional com lotação no Sul), Concursos no Brasil (PR/SC/RS), FUNDATEC e FEPESE; filtra vagas que exigem Medicina; classifica em `pericia-medica`, `medico-legista`, `medicina-do-trabalho` ou `medicina-geral-especialidades` (clínico/ESF × especialidades) e marca se a vaga **aceita o generalista** ou **exige especialidade**; deduplica; e grava `public/data/concursos-sul.json`.
 
 ### 3.1 Subir o projeto
 
@@ -136,11 +136,11 @@ Antes de publicar em loja, troque o identificador `br.com.concurseiropromax.app`
 
 ## 7. Como o app funciona (resumo)
 
-- **Dashboard de Prontidão:** contagem regressiva (90 dias ou a prova escolhida no Radar), questões, % de acerto global e por eixo, horas líquidas da semana, ofensiva, os 3 temas abaixo de 70% e os últimos editais do Sul.
+- **Dashboard de Prontidão:** contagem regressiva (90 dias ou a prova escolhida no Radar), questões, % de acerto global e nos quatro eixos (Perícia, Medicina Legal, Clínica, SUS/Ética), horas líquidas da semana, ofensiva, os 3 temas abaixo de 70% e os últimos editais do Sul **abertos ao generalista**.
 - **Cronograma:** checklist diário gerado do plano de 12 semanas para a trilha escolhida; botão **Modo Plantão** (45–60 min); blocos não feitos são **redistribuídos** nos próximos dias (até +1 h/dia); se a prova-alvo estiver perto, o plano é **comprimido** automaticamente.
-- **Radar Sul:** tabela (desktop) ou lista (celular) e **Kanban** (*Novo/Radar → Analisando → Inscrito → Prova Agendada → Finalizado*), filtros por estado, cidade/órgão, categoria, banca e status, selo **NOVO** (7 dias), **Definir como Prova-Alvo** (com desfazer) e cadastro manual.
+- **Radar Sul:** abre em **"Para generalista"** (perícia, legista, clínico/ESF) com um toque para **Todos** ou **Especialidades**; tabela (desktop) ou lista (celular) e **Kanban** (*Novo/Radar → Analisando → Inscrito → Prova Agendada → Finalizado*), filtros por estado, cidade/órgão, categoria (Clínico/ESF, Perícia Médica, Médico Legista, Medicina do Trabalho, Especialidades), banca e status, selo **NOVO** (7 dias), **Definir como Prova-Alvo** (com desfazer) e cadastro manual.
 - **Questões:** registro rápido de baterias/simulados, desempenho por disciplina e banca, **revisões D1/D7/D15/D30** e **Caderno de Erros**.
-- **Biblioteca:** cursinhos, bibliografia, bancas, fontes oficiais, filtros de bancos de questões, **checklists interativos** (NRs 01, 04, 05, 06, 07, 09, 15, 16, 17, 32; Lei 8.213; Decreto 3.048; CLT 154–201; CPP 158–184; CP 121–129; SUS) e **cheat sheets** (cronotanatognose, PAF, asfixias, indicadores biológicos, lesão corporal, prazos de NRs).
+- **Biblioteca:** **Concursos para o generalista** (requisitos, prova e trilha de cada carreira), cursinhos, bibliografia, bancas, fontes oficiais, filtros de bancos de questões, **checklists interativos** (Lei 8.213 — benefícios e acidente; Lei 8.742 — BPC; Lei 8.112 — saúde do servidor; Decreto 3.048; CLT 154–201; NRs 01, 04, 05, 06, 07, 09, 15, 16, 17, 32; CPP 158–184; CP 121–129; SUS) e **cheat sheets** (perícia previdenciária, nexo/NTEP/CAT, urgências do plantão, cronotanatognose, PAF, asfixias, indicadores biológicos, lesão corporal, prazos de NRs).
 - **Timer de Foco:** Pomodoro por timestamp (não perde tempo ao trocar de aba) vinculado à disciplina.
 - **Backup:** Configurações → Exportar/Importar progresso (`.json`).
 

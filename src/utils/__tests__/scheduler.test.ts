@@ -17,7 +17,7 @@ import {
 
 const INICIO = '2026-11-16';
 const cfg = (p: Partial<ConfigAgenda> = {}): ConfigAgenda => ({
-  trilha: 'hibrida',
+  trilha: 'generalista',
   dataInicio: INICIO,
   orcamentoMin: 210,
   diasPlantao: [],
@@ -51,7 +51,7 @@ describe('dados do plano', () => {
 
 describe('distribuição semanal', () => {
   it('dias 1–5 equilibrados, dia 6 só com blocos de sábado, dia 7 livre', () => {
-    const blocos = PLANO_12_SEMANAS[1]!.blocos.filter((b) => b.trilhas.includes('hibrida'));
+    const blocos = PLANO_12_SEMANAS[1]!.blocos.filter((b) => b.trilhas.includes('generalista'));
     const dias = distribuirSemana(blocos);
     expect(dias.flat()).toHaveLength(blocos.length);
     expect(dias[5]!.every((b) => b.sabado)).toBe(true);
@@ -60,7 +60,7 @@ describe('distribuição semanal', () => {
     expect(Math.max(...cargas) - Math.min(...cargas)).toBeLessThanOrEqual(150);
   });
   it('preserva a ordem pedagógica', () => {
-    const blocos = PLANO_12_SEMANAS[0]!.blocos.filter((b) => b.trilhas.includes('hibrida') && !b.sabado);
+    const blocos = PLANO_12_SEMANAS[0]!.blocos.filter((b) => b.trilhas.includes('generalista') && !b.sabado);
     expect(distribuirSemana(blocos).flat().map((b) => b.id)).toEqual(blocos.map((b) => b.id));
   });
 });
@@ -78,13 +78,15 @@ describe('agenda do dia', () => {
   });
   it('filtra por trilha', () => {
     const leg = montarAgenda(INICIO, cfg({ trilha: 'legista' }), vazio);
-    expect(leg.tarefas.every((t) => t.eixo !== 'trabalho')).toBe(true);
-    const mun = montarAgenda(addDays(INICIO, 1), cfg({ trilha: 'municipal' }), vazio);
-    expect(mun.tarefas.every((t) => t.eixo === 'tronco')).toBe(true);
+    expect(leg.tarefas.every((t) => t.eixo === 'legal' || t.eixo === 'tronco')).toBe(true);
+    const cli = montarAgenda(addDays(INICIO, 1), cfg({ trilha: 'clinico' }), vazio);
+    expect(cli.tarefas.every((t) => t.eixo === 'clinica' || t.eixo === 'tronco')).toBe(true);
+    const per = montarAgenda(addDays(INICIO, 1), cfg({ trilha: 'pericia' }), vazio);
+    expect(per.tarefas.every((t) => t.eixo !== 'legal')).toBe(true);
   });
   it('Modo Plantão: teto de 60 min, só tipos curtos e revisões primeiro', () => {
     const dia = addDays(INICIO, 2);
-    const rev = criarItemRevisao({ id: 'r', origem: 'teoria', refId: 'x', temaId: 'nr07', eixo: 'trabalho', titulo: 'NR-07', data: addDays(dia, -1), agoraIso: '' });
+    const rev = criarItemRevisao({ id: 'r', origem: 'teoria', refId: 'x', temaId: 'nr07', eixo: 'pericia', titulo: 'NR-07', data: addDays(dia, -1), agoraIso: '' });
     const a = montarAgenda(dia, cfg({ diasPlantao: [dia] }), { concluidos: {}, revisoes: [rev] });
     expect(a.modo).toBe('plantao');
     expect(a.minutosPlanejados).toBeLessThanOrEqual(ORCAMENTO_PLANTAO);
@@ -148,7 +150,7 @@ describe('compressão por prova-alvo', () => {
   it('semana que espreme várias semanas respeita a capacidade semanal e cobre todas elas', () => {
     const m = mapearSemanas(INICIO, addDays(INICIO, 5 * 7 - 1)); // 5 semanas → 1 slot com as semanas 1–8
     expect(m.slots[0]?.semanas).toEqual([1, 2, 3, 4, 5, 6, 7, 8]);
-    const blocos = blocosDoSlot(m.slots[0]!, 'hibrida');
+    const blocos = blocosDoSlot(m.slots[0]!, 'generalista');
     const semSabado = blocos.filter((b) => !b.sabado);
     expect(semSabado.reduce((a, b) => a + b.minutos, 0)).toBeLessThanOrEqual(CAPACIDADE_SEMANA_COMPRIMIDA);
     expect(new Set(semSabado.map((b) => b.semana)).size).toBe(8);
@@ -162,7 +164,7 @@ describe('compressão por prova-alvo', () => {
     const c = cfg({ provaAlvo: addDays(INICIO, 8 * 7 - 1) });
     const p = progressoPorSemana(c, {});
     expect(p).toHaveLength(8);
-    const completo = PLANO_12_SEMANAS[0]!.blocos.filter((b) => b.trilhas.includes('hibrida')).length + PLANO_12_SEMANAS[1]!.blocos.filter((b) => b.trilhas.includes('hibrida')).length;
+    const completo = PLANO_12_SEMANAS[0]!.blocos.filter((b) => b.trilhas.includes('generalista')).length + PLANO_12_SEMANAS[1]!.blocos.filter((b) => b.trilhas.includes('generalista')).length;
     expect(p[0]!.total).toBeLessThan(completo);
   });
 });

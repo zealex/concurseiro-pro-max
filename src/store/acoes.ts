@@ -100,8 +100,9 @@ export function registrarErro(dados: Omit<ErroCaderno, 'id' | 'criadoEm' | 'reso
 /** Trilha sugerida pela categoria do cargo. */
 export function trilhaParaConcurso(c: Pick<ConcursoView, 'tag'>): Trilha {
   if (c.tag === 'medico-legista') return 'legista';
-  if (c.tag === 'medicina-do-trabalho') return 'trabalho';
-  return 'municipal';
+  // Medicina do Trabalho exige especialização; o conteúdo mais próximo para o generalista é o da perícia.
+  if (c.tag === 'pericia-medica' || c.tag === 'medicina-do-trabalho') return 'pericia';
+  return 'clinico';
 }
 
 export interface EstadoAnteriorProva {

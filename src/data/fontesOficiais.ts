@@ -1,7 +1,28 @@
 import type { FiltroBancoQuestoes, FonteOficial } from './types';
 
-/** Espelho estruturado das Seções 9 e 10 do guia. */
+/** Espelho estruturado das Seções 10 e 11 do guia. */
 export const FONTES_OFICIAIS: FonteOficial[] = [
+  {
+    id: 'pmf-2024',
+    nome: 'Concurso Perito Médico Federal 2024 (Cebraspe / MPS)',
+    url: 'https://www.cebraspe.org.br/concursos/mps_24',
+    oQueTem: 'Edital nº 2/2024 com o conteúdo programático completo, provas e gabaritos do último concurso de Perito Médico Federal.',
+    comoUsar: 'Baixe a prova e o gabarito: são 120 itens Certo/Errado para treinar o estilo na Semana 1 e nos simulados.',
+  },
+  {
+    id: 'lei-8742',
+    nome: 'Lei 8.742/93 — LOAS (Planalto, compilada)',
+    url: 'https://www.planalto.gov.br/ccivil_03/leis/l8742compilado.htm',
+    oQueTem: 'BPC (Arts. 20 a 21-A): renda, família, impedimento de longo prazo, avaliação médica e social.',
+    comoUsar: 'Leia o Art. 20 inteiro com o checklist "Lei 8.742/93" aberto.',
+  },
+  {
+    id: 'lei-8112',
+    nome: 'Lei 8.112/90 — Estatuto do servidor federal (Planalto)',
+    url: 'https://www.planalto.gov.br/ccivil_03/leis/l8112cons.htm',
+    oQueTem: 'Licenças de saúde, junta médica, acidente em serviço, readaptação e aposentadoria por invalidez.',
+    comoUsar: 'Arts. 24, 83, 186, 188, 202–206 e 211–214; compare com o estatuto do seu estado ou município.',
+  },
   {
     id: 'nrs',
     nome: 'NRs vigentes — Ministério do Trabalho e Emprego',
@@ -20,8 +41,8 @@ export const FONTES_OFICIAIS: FonteOficial[] = [
     id: 'lei-8213',
     nome: 'Lei 8.213/91 (Planalto, compilada)',
     url: 'https://www.planalto.gov.br/ccivil_03/leis/l8213cons.htm',
-    oQueTem: 'Acidente do trabalho, CAT, NTEP, benefícios.',
-    comoUsar: 'Leia Arts. 19–23, 26, 59–60, 86 e 118.',
+    oQueTem: 'Benefícios por incapacidade, carência, acidente do trabalho, CAT, NTEP.',
+    comoUsar: 'Leia Arts. 15, 19–27-A, 42–45, 59–62, 86, 101, 118 e 151.',
   },
   {
     id: 'decreto-3048',
@@ -83,8 +104,8 @@ export const FONTES_OFICIAIS: FonteOficial[] = [
     id: 'anamt',
     nome: 'ANAMT',
     url: 'https://www.anamt.org.br/portal/',
-    oQueTem: 'Diretrizes, notas técnicas e edital da prova de título.',
-    comoUsar: 'Consulta pontual.',
+    oQueTem: 'Diretrizes, notas técnicas e edital da prova de título (caminho para o cargo de Médico do Trabalho).',
+    comoUsar: 'Consulta pontual; o título não é exigido para perícia, legista ou clínico.',
   },
 ];
 
@@ -94,13 +115,13 @@ export const FILTROS_BANCOS: FiltroBancoQuestoes[] = [
     url: 'https://www.qconcursos.com',
     passos: [
       'Questões → Filtrar.',
-      'Disciplina: "Medicina Legal" (legista) ou "Medicina do Trabalho"/"Segurança e Saúde no Trabalho" (trabalho); SUS: "Saúde Pública"/"Legislação do SUS".',
+      'Disciplina: "Medicina Legal" (legista); "Perícia Médica", "Direito Previdenciário" e "Medicina do Trabalho" (perícia); "Medicina"/"Clínica Médica" (clínico); "Saúde Pública"/"Legislação do SUS" (todos).',
       'Assunto: apenas os da semana do cronograma (ex.: Tanatologia Forense, NR-07).',
-      'Banca: a do edital-alvo; sem edital, FUNDATEC, FEPESE, Objetiva, FURB, NC-UFPR, FAUEL + IBFC ou AOCP.',
-      'Cargo: contém "Médico do Trabalho", "Médico Legista" ou "Perito Médico".',
+      'Banca: a do edital-alvo; sem edital, CEBRASPE para perícia e FUNDATEC, FEPESE, Objetiva, FURB, NC-UFPR, FAUEL para legista e clínico.',
+      'Cargo: contém "Perito Médico", "Médico Legista", "Médico Clínico"/"Clínico Geral" ou "Médico ESF"; órgão INSS/MPS para o Perito Médico Federal.',
       'Ano: últimos 5–6 anos (normas mudaram em 2020–2022).',
       'Excluir anuladas e desatualizadas.',
-      'Salvar o filtro com o nome da semana (ex.: "S03 – PAF + NR-15").',
+      'Salvar o filtro com o nome da semana (ex.: "S03 – PAF + BPC").',
     ],
   },
   {

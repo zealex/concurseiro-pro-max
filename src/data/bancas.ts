@@ -1,6 +1,6 @@
 import type { Banca } from './types';
 
-/** Espelho estruturado da Seção 4 do guia. Confirme sempre a banca no edital do concurso-alvo. */
+/** Espelho estruturado da Seção 5 do guia. Confirme sempre a banca no edital do concurso-alvo. */
 export const BANCAS: Banca[] = [
   {
     id: 'fundatec',
@@ -53,7 +53,7 @@ export const BANCAS: Banca[] = [
   {
     id: 'cebraspe',
     nome: 'CEBRASPE',
-    regiao: 'Nacional (polícias, órgãos federais)',
+    regiao: 'Nacional (polícias, órgãos federais; banca do Perito Médico Federal 2024)',
     estilo: 'Certo/Errado (em muitos editais um erro anula um acerto) ou múltipla escolha; troca de uma palavra muda o gabarito.',
     comoTreinar: 'Não chutar: marcar só com convicção; atenção a generalizações ("sempre", "nunca", "apenas").',
     sul: false,

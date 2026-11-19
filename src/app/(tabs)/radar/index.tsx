@@ -3,10 +3,10 @@ import { Plus, RefreshCw } from 'lucide-react-native';
 import { useMemo, useState } from 'react';
 import { Pressable, ScrollView, Text, View } from 'react-native';
 import { ConcursoCard, StatusBotao } from '@/components/radar/ConcursoCard';
-import { aplicarFiltros, bancasDisponiveis, FILTROS_PADRAO, type FiltrosRadar } from '@/components/radar/filtros';
+import { aplicarFiltros, bancasDisponiveis, contarPorAcesso, FILTROS_PADRAO, type FiltrosRadar } from '@/components/radar/filtros';
 import { Button, Callout, Campo, Chip, EmptyState, Muted, Row, Screen, Segmented, Seletor, SeloNovo, Tag, Txt, useDesktop, useToast } from '@/components/ui';
 import { STATUS_LABEL, STATUS_PESSOAL, type ConcursoView } from '@/shared/concursos/overlay';
-import { CATEGORIA_LABEL, CATEGORIAS, UF_NOME, UFS, type Categoria } from '@/shared/concursos/schema';
+import { ACESSO_LABEL, CATEGORIA_CURTA, CATEGORIAS, UF_NOME, UFS, type Categoria } from '@/shared/concursos/schema';
 import { sincronizarRadar } from '@/services/concursosTrackerService';
 import { useConcursos, useHoje } from '@/store/selectors';
 import { useRadarStore } from '@/store/useRadarStore';
@@ -33,6 +33,7 @@ export default function RadarSul() {
 
   const lista = useMemo(() => aplicarFiltros(todos, f, hoje), [todos, f, hoje]);
   const bancas = useMemo(() => bancasDisponiveis(todos), [todos]);
+  const porAcesso = useMemo(() => contarPorAcesso(todos), [todos]);
   const novos = todos.filter((c) => c.isNew).length;
 
   const atualizar = async () => {
@@ -46,7 +47,7 @@ export default function RadarSul() {
     <Screen
       emoji="📡"
       titulo="Radar Sul — Concursos Médicos"
-      descricao="Concursos e processos seletivos que exigem Medicina em qualquer cidade ou órgão de PR, SC e RS. Atualizado automaticamente a cada 12 h."
+      descricao="Concursos e processos seletivos médicos de PR, SC e RS — em destaque os que o generalista (graduação + CRM) pode disputar: perícia, legista e clínico. Atualizado automaticamente a cada 12 h."
       larga
       onRefresh={atualizar}
       atualizando={sincronizando}
@@ -70,6 +71,17 @@ export default function RadarSul() {
       ) : null}
 
       {/* Filtros */}
+      <View className="mb-3">
+        <Segmented<FiltrosRadar['acesso']>
+          valor={f.acesso}
+          onChange={(v) => set('acesso', v)}
+          opcoes={[
+            { valor: 'generalista', rotulo: `${ACESSO_LABEL.generalista} (${porAcesso.generalista})` },
+            { valor: 'todos', rotulo: `Todos (${porAcesso.todos})` },
+            { valor: 'especialista', rotulo: `Especialidades (${porAcesso.especialista})` },
+          ]}
+        />
+      </View>
       <View className="mb-1 flex-row flex-wrap">
         <Chip texto="Todos os estados" ativo={f.uf === 'todos'} onPress={() => set('uf', 'todos')} />
         {UFS.map((uf) => (
@@ -79,7 +91,7 @@ export default function RadarSul() {
       <View className="mb-1 flex-row flex-wrap">
         <Chip texto="Todas as categorias" ativo={f.categoria === 'todas'} onPress={() => set('categoria', 'todas')} />
         {CATEGORIAS.map((c: Categoria) => (
-          <Chip key={c} texto={CATEGORIA_LABEL[c]} ativo={f.categoria === c} cor={COR_CATEGORIA[c]} onPress={() => set('categoria', f.categoria === c ? 'todas' : c)} />
+          <Chip key={c} texto={CATEGORIA_CURTA[c]} ativo={f.categoria === c} cor={COR_CATEGORIA[c]} onPress={() => set('categoria', f.categoria === c ? 'todas' : c)} />
         ))}
       </View>
       <View className="gap-x-3 md:flex-row">
@@ -120,7 +132,11 @@ export default function RadarSul() {
         <EmptyState
           emoji="🔎"
           titulo="Nenhum concurso com esses filtros"
-          texto="Limpe os filtros, atualize o Radar ou cadastre manualmente um edital municipal que você encontrou."
+          texto={
+            f.acesso === 'generalista'
+              ? 'Nenhuma vaga para generalista com esses filtros. Veja "Todos", limpe os filtros ou cadastre manualmente um edital que você encontrou.'
+              : 'Limpe os filtros, atualize o Radar ou cadastre manualmente um edital que você encontrou.'
+          }
           acao={<Button titulo="Cadastrar edital" icone={Plus} onPress={() => router.push('/radar/novo')} />}
         />
       ) : visao === 'kanban' ? (
@@ -180,7 +196,8 @@ function Tabela({ lista }: { lista: ConcursoView[] }) {
               <Muted>{c.cidade}</Muted>
             </View>
             <View style={{ width: 220 }} className="px-3 py-2">
-              <Tag texto={CATEGORIA_LABEL[c.categoria]} cor={COR_CATEGORIA[c.categoria]} />
+              <Tag texto={CATEGORIA_CURTA[c.categoria]} cor={COR_CATEGORIA[c.categoria]} />
+              {c.acesso === 'especialista' ? <Muted className="mt-1">{ACESSO_LABEL.especialista}</Muted> : null}
             </View>
             <View style={{ width: 260 }} className="px-3 py-2">
               <Text numberOfLines={3} className="text-[13px] text-ink dark:text-ink-dark">

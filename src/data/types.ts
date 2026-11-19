@@ -1,25 +1,49 @@
 /**
  * Tipos do conteúdo pedagógico embarcado.
  * Sem dependências de React Native: usado pelo app, pelos testes e pelos scripts.
+ *
+ * Público-alvo: médico generalista / recém-formado (sem RQE) que presta concursos
+ * nas áreas periciais — Perícia Médica (INSS/RPPS), Medicina Legal (Polícia Científica/IGP)
+ * e Saúde do Trabalhador — e, como porta de entrada, editais de Clínico Geral/ESF/Plantonista.
  */
 
-export type Eixo = 'trabalho' | 'legal' | 'tronco';
+/** clinica = Clínica Médica e Urgência · pericia = Perícia Médica, Previdência e Saúde do Trabalhador · legal = Medicina Legal · tronco = SUS, Ética e Básicas. */
+export type Eixo = 'clinica' | 'pericia' | 'legal' | 'tronco';
 
-export type Trilha = 'hibrida' | 'trabalho' | 'legista' | 'municipal';
+export const EIXOS: readonly Eixo[] = ['clinica', 'pericia', 'legal', 'tronco'] as const;
 
-export const TRILHAS: readonly Trilha[] = ['hibrida', 'trabalho', 'legista', 'municipal'] as const;
+export type Trilha = 'generalista' | 'pericia' | 'legista' | 'clinico';
+
+export const TRILHAS: readonly Trilha[] = ['generalista', 'pericia', 'legista', 'clinico'] as const;
 
 export const TRILHA_LABEL: Record<Trilha, string> = {
-  hibrida: 'Trilha Híbrida (Med. Trabalho + Legista)',
-  trabalho: 'Foco Exclusivo: Medicina do Trabalho',
-  legista: 'Foco Exclusivo: Médico Legista',
-  municipal: 'Foco Edital Municipal / Clínico',
+  generalista: 'Generalista Completo (Perícia + Legal + Clínica)',
+  pericia: 'Foco: Perícia Médica (INSS / RPPS)',
+  legista: 'Foco: Médico Legista (Polícia Científica / IGP)',
+  clinico: 'Foco: Clínico Geral / ESF / Plantonista',
+};
+
+/** Rótulo curto (tabelas e chips). */
+export const TRILHA_CURTA: Record<Trilha, string> = {
+  generalista: 'Generalista',
+  pericia: 'Perícia',
+  legista: 'Legista',
+  clinico: 'Clínico',
+};
+
+/** Rótulo curto (seletores compactos). */
+export const EIXO_CURTO: Record<Eixo, string> = {
+  clinica: 'Clínica',
+  pericia: 'Perícia',
+  legal: 'Med. Legal',
+  tronco: 'SUS/Ética',
 };
 
 export const EIXO_LABEL: Record<Eixo, string> = {
-  trabalho: 'Medicina do Trabalho',
+  clinica: 'Clínica Médica e Urgência',
+  pericia: 'Perícia, Previdência e Trabalho',
   legal: 'Medicina Legal',
-  tronco: 'Tronco Comum',
+  tronco: 'SUS, Ética e Básicas',
 };
 
 export interface Tema {
@@ -145,7 +169,7 @@ export interface CheatSheet {
 export interface Cursinho {
   id: string;
   nome: string;
-  carreiras: ('trabalho' | 'legista' | 'tronco' | 'clinica')[];
+  carreiras: ('pericia' | 'legista' | 'clinica' | 'tronco')[];
   formato: string;
   pontosFortes: string[];
   limitacoes: string[];

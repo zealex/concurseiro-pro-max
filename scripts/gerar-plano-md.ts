@@ -13,7 +13,7 @@ const ARQUIVO = resolve(__dirname, '..', 'docs', 'plano-estudos-90-dias.md');
 const INICIO = '<!-- PLANO:INICIO -->';
 const FIM = '<!-- PLANO:FIM -->';
 
-const TRILHA_CURTA: Record<Trilha, string> = { hibrida: 'H', trabalho: 'T', legista: 'L', municipal: 'M' };
+const TRILHA_CURTA: Record<Trilha, string> = { generalista: 'G', pericia: 'P', legista: 'L', clinico: 'C' };
 
 function horas(min: number): string {
   const h = Math.floor(min / 60);
@@ -23,7 +23,7 @@ function horas(min: number): string {
 
 function gerar(): string {
   const out: string[] = [];
-  out.push('Legenda das trilhas: **H** Híbrida · **T** Só Medicina do Trabalho · **L** Só Legista · **M** Municipal/Clínico. ★ = bloco essencial (mantido na compressão).');
+  out.push('Legenda das trilhas: **G** Generalista Completo · **P** Perícia Médica (INSS/RPPS) · **L** Médico Legista · **C** Clínico Geral/ESF/Plantonista. ★ = bloco essencial (mantido na compressão).');
   out.push('');
   for (const meso of MESOCICLOS) {
     out.push(`### ${meso.titulo}`);

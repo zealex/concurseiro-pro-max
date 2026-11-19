@@ -6,7 +6,7 @@ import { selecaoInicial, TemaPicker, type SelecaoTema } from '@/components/quest
 import { Button, Callout, Campo, Card, EmptyState, IconButton, Muted, ProgressBar, Row, Screen, Section, Segmented, Seletor, StatTile, Tag, Txt, useToast } from '@/components/ui';
 import { getDisciplina, getTema } from '@/data/eixos';
 import { NOMES_BANCAS } from '@/data/bancas';
-import { EIXO_LABEL } from '@/data/types';
+import { EIXO_LABEL, EIXOS } from '@/data/types';
 import { registrarSessao } from '@/store/acoes';
 import { useHoje, useMetricas, usePontosFracos } from '@/store/selectors';
 import { useQuestoesStore } from '@/store/useQuestoesStore';
@@ -114,7 +114,7 @@ export default function CentralQuestoes() {
           <View className="mb-6 flex-row flex-wrap gap-3">
             <StatTile rotulo="Questões" valor={String(m.global.total)} />
             <StatTile rotulo="Acerto global" valor={formatPct(m.global.pct)} />
-            {(['trabalho', 'legal', 'tronco'] as const).map((e) => (
+            {EIXOS.map((e) => (
               <StatTile key={e} rotulo={EIXO_LABEL[e]} valor={formatPct(m.eixos[e].pct)} detalhe={`${m.eixos[e].total} questões`} />
             ))}
           </View>

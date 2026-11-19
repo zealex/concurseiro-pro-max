@@ -4,12 +4,13 @@ import type { ReactNode } from 'react';
 import { Linking, Pressable, Text, View } from 'react-native';
 import { Button, Callout, Card, Checkbox, DataTable, EmptyState, H3, Label, Muted, Row, Screen, Section, Tag, Toggle, Txt } from '@/components/ui';
 import { BANCAS } from '@/data/bancas';
+import { CARREIRAS_GENERALISTA } from '@/data/carreiras';
 import { getCheatSheet } from '@/data/cheatSheets';
 import { getChecklist, totalItens } from '@/data/checklistsLeiSeca';
 import { BIBLIOGRAFIA, CURSINHOS } from '@/data/cursinhos';
 import { FILTROS_BANCOS, FONTES_OFICIAIS } from '@/data/fontesOficiais';
 import { MESOCICLOS, PLANO_12_SEMANAS, minutosDaSemana } from '@/data/plano12Semanas';
-import { EIXO_LABEL, TRILHA_LABEL, TRILHAS } from '@/data/types';
+import { EIXO_LABEL, EIXOS, TRILHA_CURTA, TRILHA_LABEL, TRILHAS } from '@/data/types';
 import { useHoje } from '@/store/selectors';
 import { useChecklistStore } from '@/store/useChecklistStore';
 import { COR_EIXO, useCores } from '@/theme/cores';
@@ -53,6 +54,7 @@ export default function PaginaBiblioteca() {
   if (s.startsWith('cheat-')) return <PaginaCheat id={s.slice('cheat-'.length)} />;
 
   const paginas: Record<string, () => ReactNode> = {
+    'concursos-generalista': PaginaCarreiras,
     cursinhos: PaginaCursinhos,
     bibliografia: PaginaBibliografia,
     bancas: PaginaBancas,
@@ -72,13 +74,58 @@ export default function PaginaBiblioteca() {
   return <Pagina />;
 }
 
+function PaginaCarreiras() {
+  return (
+    <Screen
+      emoji="🩺"
+      titulo="Concursos para o generalista"
+      descricao="O que o médico recém-formado (graduação + CRM, sem residência) pode prestar nas áreas de perícia, Medicina Legal e clínica — e qual trilha do plano usar."
+    >
+      <Voltar />
+      <Callout emoji="🎯" tom="azul">
+        <Txt className="font-semibold">Estratégia do app</Txt>
+        <Muted>A trilha Generalista Completo prepara para as três portas ao mesmo tempo. Quando um edital sair, defina-o como prova-alvo no Radar: o foco muda sozinho para Perícia, Legista ou Clínico.</Muted>
+      </Callout>
+      {CARREIRAS_GENERALISTA.map((c) => (
+        <Toggle
+          key={c.id}
+          inicialAberto={c.acessivel && c.id !== 'perito-rpps'}
+          titulo={
+            <Row className="flex-wrap gap-2">
+              <Txt className="font-semibold">{c.cargo}</Txt>
+              {c.acessivel ? <Tag texto="Aceita generalista" cor="green" /> : <Tag texto="Exige especialização" cor="orange" />}
+            </Row>
+          }
+          subtitulo={c.orgaos}
+        >
+          <Label className="mt-1">Requisito</Label>
+          <Txt className="text-[14px]">{c.requisito}</Txt>
+          <Label className="mt-2">Prova</Label>
+          <Txt className="text-[14px]">{c.prova}</Txt>
+          <Label className="mt-2">O que cai</Label>
+          {c.conteudo.map((p) => (
+            <Txt key={p} className="text-[14px]">
+              • {p}
+            </Txt>
+          ))}
+          <Callout emoji="🗓️">{c.historico}</Callout>
+          <Muted>Trilha do plano: {TRILHA_LABEL[c.trilha]}</Muted>
+        </Toggle>
+      ))}
+      <Callout emoji="⚠️" tom="amarelo">
+        <Txt>Requisitos mudam entre editais. Antes de se inscrever, confirme no edital oficial a exigência de especialização, CNH, idade e etapas físicas.</Txt>
+      </Callout>
+    </Screen>
+  );
+}
+
 function PaginaCursinhos() {
   return (
     <Screen emoji="🎓" titulo="Cursinhos e kit para 90 dias" descricao="Preços mudam toda semana; o guia mostra como avaliar custo-benefício para uma janela de 90 dias.">
       <Voltar />
       <Callout emoji="🧰" tom="azul">
         <Txt className="font-semibold">Kit recomendado</Txt>
-        <Muted>1 curso principal (pacote do edital-alvo ou assinatura curta) + lei seca/NRs oficiais + 1 banco de questões com filtros + França/Hércules por consulta + materiais gratuitos do MS.</Muted>
+        <Muted>1 curso principal (pacote do edital-alvo ou assinatura curta) + lei seca oficial (Lei 8.213, LOAS, Lei 8.112, NRs, CPP/CP) + 1 banco de questões com filtros + manuais de perícia do INSS + França/Hércules por consulta + protocolos gratuitos do MS.</Muted>
         <Muted className="mt-1">Regra de ouro: se uma ferramenta não aparece no cronograma desta semana, você não precisa dela agora.</Muted>
       </Callout>
       {CURSINHOS.map((c) => (
@@ -116,7 +163,7 @@ function PaginaBibliografia() {
   return (
     <Screen emoji="📖" titulo="Bibliografia" descricao="As bancas cobram literalmente classificações e sinais dos autores de referência.">
       <Voltar />
-      {(['legal', 'trabalho', 'tronco'] as const).map((eixo) => (
+      {EIXOS.map((eixo) => (
         <Section key={eixo} titulo={EIXO_LABEL[eixo]}>
           {BIBLIOGRAFIA.filter((l) => l.eixo === eixo).map((l) => (
             <Card key={l.id} className="mb-2">
@@ -162,6 +209,9 @@ function PaginaBancas() {
       </Section>
       <Callout emoji="🪤" tom="amarelo">
         <Txt className="font-semibold">Pegadinhas recorrentes</Txt>
+        <Muted>• Perícia: doença ≠ incapacidade; o que define direito e preexistência é a DII, não a DID.</Muted>
+        <Muted>• Lei 8.213: carência de 12 contribuições, dispensada em acidente de qualquer natureza e nas doenças do Art. 151.</Muted>
+        <Muted>• BPC: impedimento de longo prazo = mínimo de 2 anos; renda per capita ≤ 1/4 do salário-mínimo; sem 13º.</Muted>
         <Muted>• NR-07: retorno ≥ 30 dias; demissional até 10 dias; dispensa &lt; 135 d (GR 1–2) / &lt; 90 d (GR 3–4).</Muted>
         <Muted>• NR-15 × NR-16: 10/20/40% × 30%, sem cumulação.</Muted>
         <Muted>• Lei 8.213: doença profissional × do trabalho e as exclusões do §1º do Art. 20.</Muted>
@@ -236,7 +286,7 @@ function PaginaPlano() {
         {PLANO_12_SEMANAS.map((sem) => (
           <Toggle key={sem.semana} titulo={`Semana ${sem.semana} — ${sem.titulo}`} subtitulo={`Meta: ${sem.metaQuestoes} questões · ${sem.bancasFoco.join(', ')}`}>
             <Txt className="mb-2 text-[14px]">{sem.objetivo}</Txt>
-            <Muted className="mb-2">Carga: {TRILHAS.map((t) => `${TRILHA_LABEL[t].split(':').pop()?.trim()} ${horasMinutos(minutosDaSemana(sem.semana, t))}`).join(' · ')}</Muted>
+            <Muted className="mb-2">Carga: {TRILHAS.map((t) => `${TRILHA_CURTA[t]} ${horasMinutos(minutosDaSemana(sem.semana, t))}`).join(' · ')}</Muted>
             {sem.blocos.map((b) => (
               <Row key={b.id} className="mb-1 items-start">
                 <Text className="mr-1.5 text-[13px]">{b.essencial ? '★' : '·'}</Text>

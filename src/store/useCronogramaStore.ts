@@ -4,6 +4,7 @@ import type { ConclusaoBloco } from '@/domain/types';
 import { STORE_KEYS } from '@/services/storage/keys';
 import { zustandStorage } from '@/services/storage/zustandAdapter';
 import type { DateKey } from '@/utils/dates';
+import { migrarCronograma, VERSAO_CRONOGRAMA } from './migracoes';
 
 export interface CronogramaData {
   /** Tarefas concluídas: id do bloco (ou id sintético) → quando. */
@@ -47,7 +48,8 @@ export const useCronogramaStore = create<CronogramaState>()(
     {
       name: STORE_KEYS.cronograma,
       storage: zustandStorage,
-      version: 1,
+      version: VERSAO_CRONOGRAMA,
+      migrate: (persistido, versao) => migrarCronograma(persistido, versao) as unknown as CronogramaState,
       partialize: ({ concluidos, notas, diasAtivos }) => ({ concluidos, notas, diasAtivos }),
     },
   ),

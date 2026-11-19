@@ -6,6 +6,7 @@ import { STORE_KEYS } from '@/services/storage/keys';
 import { zustandStorage } from '@/services/storage/zustandAdapter';
 import { todayKey, type DateKey } from '@/utils/dates';
 import { ORCAMENTO_MAX, ORCAMENTO_MIN } from '@/utils/scheduler';
+import { migrarSettings, VERSAO_SETTINGS } from './migracoes';
 
 export type PreferenciaTema = 'sistema' | 'claro' | 'escuro';
 
@@ -32,7 +33,7 @@ interface SettingsState extends SettingsData {
 }
 
 export const settingsPadrao = (): SettingsData => ({
-  trilha: 'hibrida',
+  trilha: 'generalista',
   dataInicio: todayKey(),
   orcamentoMin: 210,
   diasPlantao: [],
@@ -61,7 +62,8 @@ export const useSettingsStore = create<SettingsState>()(
     {
       name: STORE_KEYS.settings,
       storage: zustandStorage,
-      version: 1,
+      version: VERSAO_SETTINGS,
+      migrate: (persistido, versao) => migrarSettings(persistido, versao) as unknown as SettingsState,
       partialize: ({ trilha, dataInicio, orcamentoMin, diasPlantao, provaAlvo, feedUrl, tema, bancaAlvo }) => ({
         trilha,
         dataInicio,

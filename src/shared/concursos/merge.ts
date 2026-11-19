@@ -1,5 +1,5 @@
 import { chaveCargo, normalizar } from './normalize';
-import { PRIORIDADE_TAG } from './classify';
+import { ajustarTagPorOrgao, classificarCargo, PRIORIDADE_TAG } from './classify';
 import type { Cargo, Concurso, Fonte } from './schema';
 
 export const DIAS_NOVO = 7;
@@ -171,9 +171,31 @@ export function mesclarFeed(existentes: Concurso[], coletados: Concurso[], agora
   }
   return ordenar(
     [...mapa.values()]
+      .map(reclassificarCargos)
       .filter((c) => !deveSerPodado(c, agora, op))
       .map((c) => ({ ...c, isNew: isNovo(c.firstSeenAt, agora) })),
   );
+}
+
+/**
+ * Reaplica o classificador atual aos cargos coletados (as regras evoluem entre execuções) e descarta
+ * os que pertencem a outro grupo — o registro daquele grupo existe separadamente. Manuais e curadoria não mudam.
+ */
+export function reclassificarCargos(c: Concurso): Concurso {
+  if (c.fonte === 'manual' || c.fonte === 'curadoria') return c;
+  const cargos = c.cargos
+    .map((x) => ajustarTagPorOrgao({ ...x, ...classificarCargo(x.nome) }, c.orgao))
+    .filter((x) => x.tag === c.tag);
+  if (!cargos.length) return c;
+  const subcategoria =
+    c.tag === 'medicina-geral-especialidades'
+      ? cargos.some((x) => x.subcategoria === 'clinico-esf-plantonista')
+        ? 'clinico-esf-plantonista'
+        : 'especialidades'
+      : null;
+  const removeu = cargos.length !== c.cargos.length;
+  const vagasTotal = removeu && cargos.every((x) => x.vagas !== null) ? cargos.reduce((a, x) => a + (x.vagas ?? 0), 0) : c.vagasTotal;
+  return { ...c, cargos, subcategoria, vagasTotal };
 }
 
 /** Novos primeiro, depois por data de descoberta (mais recente primeiro), depois por prioridade de tag. */

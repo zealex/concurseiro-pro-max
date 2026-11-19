@@ -5,6 +5,7 @@ import { STORE_KEYS } from '@/services/storage/keys';
 import { zustandStorage } from '@/services/storage/zustandAdapter';
 import type { DateKey } from '@/utils/dates';
 import { concluirRevisao, type ResultadoRevisao } from '@/utils/spacedRepetition';
+import { migrarQuestoes, VERSAO_QUESTOES } from './migracoes';
 
 export interface QuestoesData {
   sessoes: SessaoQuestoes[];
@@ -51,7 +52,8 @@ export const useQuestoesStore = create<QuestoesState>()(
     {
       name: STORE_KEYS.questoes,
       storage: zustandStorage,
-      version: 1,
+      version: VERSAO_QUESTOES,
+      migrate: (persistido, versao) => migrarQuestoes(persistido, versao) as unknown as QuestoesState,
       partialize: ({ sessoes, erros, revisoes }) => ({ sessoes, erros, revisoes }),
     },
   ),

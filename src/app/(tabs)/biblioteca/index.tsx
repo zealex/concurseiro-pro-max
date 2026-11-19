@@ -9,11 +9,12 @@ import { useChecklistStore } from '@/store/useChecklistStore';
 import { useCores } from '@/theme/cores';
 
 const PAGINAS = [
+  { slug: 'concursos-generalista', emoji: '🩺', titulo: 'Concursos para o generalista', desc: 'Perito Médico Federal, legista, perito de RPPS e clínico: requisitos, prova e trilha.' },
   { slug: 'plano', emoji: '🗺️', titulo: 'Plano de 90 dias', desc: 'Mesociclos, perfis de carga, Modo Plantão e regras de revisão.' },
-  { slug: 'cursinhos', emoji: '🎓', titulo: 'Cursinhos e kit para 90 dias', desc: 'Comparativo e custo-benefício por carreira.' },
-  { slug: 'bibliografia', emoji: '📖', titulo: 'Bibliografia', desc: 'França, Hércules, René Mendes e materiais gratuitos do MS.' },
+  { slug: 'cursinhos', emoji: '🎓', titulo: 'Cursinhos e kit para 90 dias', desc: 'Comparativo e custo-benefício para o generalista.' },
+  { slug: 'bibliografia', emoji: '📖', titulo: 'Bibliografia', desc: 'Manuais de perícia do INSS, França, Hércules, Duncan e materiais gratuitos do MS.' },
   { slug: 'bancas', emoji: '🏛️', titulo: 'Perfil das bancas', desc: 'FUNDATEC, FEPESE, Objetiva, FURB, NC-UFPR, FAUEL e nacionais.' },
-  { slug: 'fontes', emoji: '🔗', titulo: 'Fontes oficiais gratuitas', desc: 'gov.br/MTE, Planalto, Fundacentro, RENAST, CFM, ANAMT.' },
+  { slug: 'fontes', emoji: '🔗', titulo: 'Fontes oficiais gratuitas', desc: 'gov.br (Previdência, INSS, MTE), Planalto, CFM, Fundacentro, RENAST.' },
   { slug: 'filtros', emoji: '🔎', titulo: 'Filtros nos bancos de questões', desc: 'Qconcursos, TEC, Estratégia/Gran Questões passo a passo.' },
 ] as const;
 

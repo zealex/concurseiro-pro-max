@@ -4,7 +4,7 @@ import { useMemo, useState } from 'react';
 import { Linking, Pressable, Text, TextInput, View } from 'react-native';
 import { StatusBotao } from '@/components/radar/ConcursoCard';
 import { Button, Callout, Campo, Card, EmptyState, Label, Muted, Row, Screen, Section, SeloNovo, Sheet, Tag, Txt, useToast } from '@/components/ui';
-import { CATEGORIA_LABEL, FONTE_LABEL, UF_NOME } from '@/shared/concursos/schema';
+import { ACESSO_LABEL, CATEGORIA_LABEL, FONTE_LABEL, UF_NOME } from '@/shared/concursos/schema';
 import { definirProvaAlvo, restaurarProvaAlvo, trilhaParaConcurso } from '@/store/acoes';
 import { useConcursos, useHoje } from '@/store/selectors';
 import { useRadarStore } from '@/store/useRadarStore';
@@ -83,6 +83,7 @@ export default function DetalheConcurso() {
         {c.arquivado ? <Tag texto="Arquivado (saiu do feed)" /> : null}
         <Tag texto={c.uf} cor={COR_UF[c.uf]} />
         <Tag texto={CATEGORIA_LABEL[c.categoria]} cor={COR_CATEGORIA[c.categoria]} />
+        <Tag texto={ACESSO_LABEL[c.acesso]} cor={c.acesso === 'generalista' ? 'green' : 'gray'} />
         <Tag texto={c.tipo === 'concurso' ? 'Concurso público' : 'Processo seletivo'} />
         <StatusBotao concurso={c} />
       </Row>

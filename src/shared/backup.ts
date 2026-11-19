@@ -2,7 +2,8 @@ import { z } from 'zod';
 
 /** Formato do arquivo de backup (.json) — puro, testável fora do app. */
 export const BACKUP_APP = 'concurseiro-pro-max';
-export const BACKUP_VERSAO = 1;
+/** 2 = foco no generalista (novos eixos/trilhas). Backups v1 são migrados na importação. */
+export const BACKUP_VERSAO = 2;
 
 const objeto = z.record(z.string(), z.unknown());
 

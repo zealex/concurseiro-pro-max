@@ -1,5 +1,5 @@
 import { isNovo, ordenar } from './merge';
-import { categoriaDe, type Categoria, type Concurso } from './schema';
+import { acessoDe, categoriaDe, type Acesso, type Categoria, type Concurso } from './schema';
 
 /** Status pessoal do usuário em cada concurso (colunas do Kanban). */
 export const STATUS_PESSOAL = ['radar', 'analisando', 'inscrito', 'prova-agendada', 'finalizado'] as const;
@@ -23,6 +23,8 @@ export interface ConcursoView extends Concurso {
   status: StatusPessoal;
   notas: string;
   categoria: Categoria;
+  /** O generalista (graduação + CRM) pode disputar alguma vaga deste registro? */
+  acesso: Acesso;
   /** Saiu do feed remoto mas o usuário tinha status pessoal — mantido localmente. */
   arquivado: boolean;
   manual: boolean;
@@ -54,6 +56,7 @@ export function mesclarComOverlay(params: {
       status: o?.status ?? 'radar',
       notas: o?.notas ?? '',
       categoria: categoriaDe(c),
+      acesso: acessoDe(c),
       arquivado,
       manual,
     };

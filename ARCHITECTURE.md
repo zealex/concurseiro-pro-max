@@ -1,6 +1,6 @@
 # Arquitetura — Concurseiro Pro Max
 
-Ecossistema de preparação de 90 dias para concursos médicos (Medicina do Trabalho, Médico Legista e editais médicos municipais/estaduais da Região Sul), composto por três camadas que compartilham uma única base de código TypeScript.
+Ecossistema de preparação de 90 dias para o médico generalista / recém-formado que presta concursos sem exigência de especialidade (Perito Médico Federal e peritos de regimes próprios, Perito Médico-Legista, Clínico Geral/ESF na Região Sul), composto por três camadas que compartilham uma única base de código TypeScript.
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────────┐
@@ -82,7 +82,9 @@ Zustand store ──persist──▶ zustandAdapter (StateStorage)
 
 O layout raiz só renderiza as telas depois que todas as stores terminam a hidratação, evitando "piscar" estado vazio.
 
-**Backup**: `backupService` serializa todas as stores em `{ app, schemaVersion, exportedAt, data }`. Importação valida com zod e pede confirmação antes de sobrescrever.
+**Backup**: `backupService` serializa todas as stores em `{ app, schemaVersion, exportedAt, data }`. Importação valida com zod, aplica as mesmas migrações das stores a backups de versões anteriores e pede confirmação antes de sobrescrever.
+
+**Migrações**: `src/store/migracoes.ts` (funções puras, testadas). Settings, questões e cronograma estão na versão 2: trilhas antigas viram as novas (híbrida → generalista, trabalho → perícia, municipal → clínico), eixo e disciplina das questões são recalculados pelo tema e o cronograma descarta as marcações do plano anterior, preservando a ofensiva.
 
 ### Lógica de domínio (pura)
 
@@ -105,7 +107,8 @@ GitHub Actions (cron 0 */12 * * * + workflow_dispatch)
        │    ├─ Concursos no Brasil  /concursos/{pr,sc,rs}/  (+ detalhe para itens suspeitos de saúde)
        │    ├─ FUNDATEC  (lista de inscrições abertas → enriquecimento: banca, prazo, link oficial)
        │    └─ FEPESE    (destaques de concursos → enriquecimento: banca, link oficial)
-       ├─ classify.ts   → é vaga médica? tag: medico-legista | medicina-do-trabalho | medicina-geral-especialidades
+       ├─ classify.ts   → é vaga médica? tag: medico-legista | pericia-medica | medicina-do-trabalho | medicina-geral-especialidades
+       │                  ("Perito Médico" em Polícia Científica/IGP → legista; acesso generalista × especialista em schema.ts)
        ├─ geo.ts        → UF ∈ {PR, SC, RS}? cidade validada contra 1.191 municípios do IBGE
        ├─ id.ts         → slug(uf-cidade-orgao-cargoChave-ano)
        ├─ merge.ts      → preserva firstSeenAt, atualiza lastSeenAt, isNew (≤ 7 dias), poda encerrados
@@ -141,6 +144,12 @@ mergeWithOverlay(feed, overlay, manuais)
 - `npm run build:web` = `expo export -p web` → `workbox generateSW` (precache do app + NetworkFirst para o feed) → cópia de `index.html` para `404.html` (rotas profundas no GitHub Pages).
 - `deploy-web.yml` publica no GitHub Pages; `app.config.ts` aplica `EXPO_BASE_URL` (subcaminho do repositório).
 
+## Conteúdo e trilhas
+
+- **Eixos** (`src/data/types.ts`): `pericia` (Perícia, Previdência e Trabalho), `legal` (Medicina Legal), `clinica` (Clínica Médica e Urgência), `tronco` (SUS, Ética e Básicas).
+- **Trilhas**: `generalista` (padrão, todos os eixos), `pericia` (perícia + clínica + tronco), `legista` (legal + tronco), `clinico` (clínica + tronco). Blocos de aprofundamento são exclusivos de uma trilha.
+- **Carreiras do generalista** (`src/data/carreiras.ts`): requisito, prova e trilha de cada cargo, com base no edital do Perito Médico Federal 2024 e nos editais recentes de legista no Sul.
+
 ## Testes
 
 Vitest cobre a lógica pura: revisão espaçada, agenda (trilhas, Plantão, redistribuição, compressão), métricas, classificador/geo, id/merge do Radar, parsers com fixtures reais e validação de backup. A UI é validada por `tsc --noEmit` e pelo build web (`expo export`).
@@ -154,3 +163,5 @@ Vitest cobre a lógica pura: revisão espaçada, agenda (trilhas, Plantão, redi
 | Vitest só para lógica pura | evita conflito de transformadores Babel/NativeWind | componentes não têm teste de renderização |
 | SPA em vez de estático | estado 100% local, sem SSR | SEO irrelevante para app pessoal |
 | Um registro por concurso × grupo de cargo | id estável mesmo se o texto da listagem mudar | prefeitura com Médico ESF e Médico do Trabalho gera dois cards |
+| Acesso (generalista × especialista) derivado da categoria, não gravado no feed | feeds antigos continuam válidos e a regra muda sem reprocessar | "Médico Auditor" ou perito de RPPS que exija especialização aparece como generalista — o card manda conferir o edital |
+| Migrações versionadas das stores (v1 → v2) | trilhas/eixos renomeados sem perder questões e revisões | marcações do cronograma antigo são descartadas (o plano foi reescrito) |

@@ -1,5 +1,5 @@
 import { getDisciplina, getTema } from '@/data/eixos';
-import type { Eixo } from '@/data/types';
+import { EIXOS, type Eixo } from '@/data/types';
 import type { SessaoFoco, SessaoQuestoes } from '@/domain/types';
 import { addDays, diffDays, startOfIsoWeek, type DateKey } from './dates';
 
@@ -34,7 +34,7 @@ function agrupar<K extends string>(sessoes: SessaoQuestoes[], chave: (s: SessaoQ
 export function porEixo(sessoes: SessaoQuestoes[]): Record<Eixo, Placar> {
   const vazio: Placar = { total: 0, acertos: 0, pct: null };
   const g: Partial<Record<Eixo, Placar>> = agrupar(sessoes, (s) => s.eixo);
-  return { trabalho: g.trabalho ?? vazio, legal: g.legal ?? vazio, tronco: g.tronco ?? vazio };
+  return Object.fromEntries(EIXOS.map((e) => [e, g[e] ?? vazio])) as Record<Eixo, Placar>;
 }
 
 export function porDisciplina(sessoes: SessaoQuestoes[]): { disciplinaId: string; nome: string; eixo: Eixo; placar: Placar }[] {

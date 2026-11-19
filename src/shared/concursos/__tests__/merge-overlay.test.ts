@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { deduplicar, deveSerPodado, isNovo, mesclarFeed, precisaReescrever } from '../merge';
+import { deduplicar, deveSerPodado, isNovo, mesclarFeed, precisaReescrever, reclassificarCargos } from '../merge';
 import { mesclarComOverlay, atualizarConhecidos, type Overlay } from '../overlay';
 import { ConcursoSchema, parseFeedTolerante, type Concurso } from '../schema';
 
@@ -139,5 +139,24 @@ describe('parseFeedTolerante', () => {
   it('rejeita estrutura inválida', () => {
     expect(parseFeedTolerante({ foo: 1 })).toBeNull();
     expect(parseFeedTolerante(null)).toBeNull();
+  });
+});
+
+describe('reclassificarCargos (regras novas aplicadas ao feed antigo)', () => {
+  const cargo = (nome: string, tag: Concurso['tag'], subcategoria: Concurso['subcategoria']) => ({ nome, tag, subcategoria, vagas: null, cadastroReserva: false, remuneracao: null, cargaHoraria: null });
+  it('remove do registro de clínico o cargo que agora pertence à perícia', () => {
+    const r = reclassificarCargos(
+      concurso({ id: 'pr-x', cargos: [cargo('Médico Clínico Geral', 'medicina-geral-especialidades', 'clinico-esf-plantonista'), cargo('Médico Auditor', 'medicina-geral-especialidades', 'especialidades')] }),
+    );
+    expect(r.cargos.map((c) => c.nome)).toEqual(['Médico Clínico Geral']);
+    expect(r.subcategoria).toBe('clinico-esf-plantonista');
+  });
+  it('registro só com especialidades passa a "especialidades"', () => {
+    const r = reclassificarCargos(concurso({ id: 'rs-ghc', cargos: [cargo('Médico (Medicina de Emergência: UPA)', 'medicina-geral-especialidades', 'clinico-esf-plantonista'), cargo('Médico (Dermatologia)', 'medicina-geral-especialidades', 'especialidades')] }));
+    expect(r.subcategoria).toBe('especialidades');
+  });
+  it('cadastro manual não é alterado', () => {
+    const c = concurso({ id: 'manual-1', fonte: 'manual', cargos: [cargo('Médico Auditor', 'medicina-geral-especialidades', 'especialidades')] });
+    expect(reclassificarCargos(c)).toBe(c);
   });
 });

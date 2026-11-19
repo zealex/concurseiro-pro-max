@@ -1,6 +1,6 @@
 import { View } from 'react-native';
 import { disciplinasDoEixo, getDisciplina } from '@/data/eixos';
-import { EIXO_LABEL, type Eixo } from '@/data/types';
+import { EIXO_CURTO, EIXOS, type Eixo } from '@/data/types';
 import { Segmented, Seletor } from '../ui/Controls';
 import { Label } from '../ui/primitives';
 
@@ -10,7 +10,7 @@ export interface SelecaoTema {
   temaId: string | null;
 }
 
-export function selecaoInicial(eixo: Eixo = 'trabalho'): SelecaoTema {
+export function selecaoInicial(eixo: Eixo = 'pericia'): SelecaoTema {
   return { eixo, disciplinaId: disciplinasDoEixo(eixo)[0]?.id ?? '', temaId: null };
 }
 
@@ -25,7 +25,7 @@ export function TemaPicker({ valor, onChange }: { valor: SelecaoTema; onChange: 
         <Segmented<Eixo>
           valor={valor.eixo}
           onChange={(eixo) => onChange(selecaoInicial(eixo))}
-          opcoes={(['trabalho', 'legal', 'tronco'] as Eixo[]).map((e) => ({ valor: e, rotulo: EIXO_LABEL[e] }))}
+          opcoes={EIXOS.map((e) => ({ valor: e, rotulo: EIXO_CURTO[e] }))}
         />
       </View>
       <Seletor

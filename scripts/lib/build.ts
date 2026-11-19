@@ -2,6 +2,7 @@
  * Converte itens brutos (listagem + detalhe) em registros Concurso, um por grupo de cargo (tag).
  */
 import {
+  ajustarTagPorOrgao,
   classificarCargo,
   isCargoMedico,
   PRIORIDADE_TAG,
@@ -29,7 +30,13 @@ function cargosDaListagem(cargosTexto: string): Cargo[] {
 function cargoGenerico(texto: string): Cargo {
   const { tag, subcategoria } = classificarCargo(texto);
   const nome =
-    tag === 'medico-legista' ? 'Perito Médico-Legista (ver edital)' : tag === 'medicina-do-trabalho' ? 'Médico do Trabalho (ver edital)' : 'Médico (ver edital)';
+    tag === 'medico-legista'
+      ? 'Perito Médico-Legista (ver edital)'
+      : tag === 'pericia-medica'
+        ? 'Perito Médico (ver edital)'
+        : tag === 'medicina-do-trabalho'
+          ? 'Médico do Trabalho (ver edital)'
+          : 'Médico (ver edital)';
   return { nome, tag, subcategoria, vagas: null, cadastroReserva: false, remuneracao: null, cargaHoraria: null };
 }
 
@@ -69,6 +76,8 @@ export function construirConcursos(p: {
     cargos = [cargoGenerico(`${item.titulo} ${detalhe?.titulo ?? ''}`)];
   }
   if (!cargos.length) return [];
+  // "Perito Médico" da Polícia Científica/IGP é o legista.
+  cargos = cargos.map((c) => ajustarTagPorOrgao(c, item.orgao));
 
   const textoDetalhe = detalhe?.texto ?? '';
   const inscDetalhe = detalhe ? extrairInscricoes(textoDetalhe, referencia) : { inicio: null, fim: null };

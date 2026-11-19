@@ -15,7 +15,7 @@ export const CHECKLISTS: ChecklistNorma[] = [
     id: 'nr-01',
     sigla: 'NR-01',
     titulo: 'Disposições Gerais e Gerenciamento de Riscos Ocupacionais',
-    eixo: 'trabalho',
+    eixo: 'pericia',
     origem: 'Portaria SEPRT 6.730/2020; riscos psicossociais: Portaria MTE 1.419/2024 (vigência 26/05/2026 — Portaria MTE 765/2025)',
     url: NR_URL,
     secoes: [
@@ -52,7 +52,7 @@ export const CHECKLISTS: ChecklistNorma[] = [
     id: 'nr-04',
     sigla: 'NR-04',
     titulo: 'Serviços Especializados em Segurança e Medicina do Trabalho (SESMT)',
-    eixo: 'trabalho',
+    eixo: 'pericia',
     origem: 'Portaria MTP 2.318/2022',
     url: NR_URL,
     secoes: [
@@ -72,7 +72,7 @@ export const CHECKLISTS: ChecklistNorma[] = [
     id: 'nr-05',
     sigla: 'NR-05',
     titulo: 'Comissão Interna de Prevenção de Acidentes e de Assédio (CIPA)',
-    eixo: 'trabalho',
+    eixo: 'pericia',
     origem: 'Portaria SEPRT 422/2021; Lei 14.457/2022',
     url: NR_URL,
     secoes: [
@@ -94,7 +94,7 @@ export const CHECKLISTS: ChecklistNorma[] = [
     id: 'nr-06',
     sigla: 'NR-06',
     titulo: 'Equipamento de Proteção Individual (EPI)',
-    eixo: 'trabalho',
+    eixo: 'pericia',
     origem: 'Portaria MTP 2.175/2022',
     url: NR_URL,
     secoes: [
@@ -114,7 +114,7 @@ export const CHECKLISTS: ChecklistNorma[] = [
     id: 'nr-07',
     sigla: 'NR-07',
     titulo: 'Programa de Controle Médico de Saúde Ocupacional (PCMSO)',
-    eixo: 'trabalho',
+    eixo: 'pericia',
     origem: 'Portaria SEPRT 6.734/2020 (vigência 2022); Anexos atualizados pela Portaria MTP 567/2022',
     url: NR_URL,
     secoes: [
@@ -160,7 +160,7 @@ export const CHECKLISTS: ChecklistNorma[] = [
     id: 'nr-09',
     sigla: 'NR-09',
     titulo: 'Avaliação e Controle das Exposições Ocupacionais a Agentes Físicos, Químicos e Biológicos',
-    eixo: 'trabalho',
+    eixo: 'pericia',
     origem: 'Portaria SEPRT 6.735/2020',
     url: NR_URL,
     secoes: [
@@ -179,7 +179,7 @@ export const CHECKLISTS: ChecklistNorma[] = [
     id: 'nr-15',
     sigla: 'NR-15',
     titulo: 'Atividades e Operações Insalubres',
-    eixo: 'trabalho',
+    eixo: 'pericia',
     origem: 'Portaria MTb 3.214/1978 e alterações',
     url: NR_URL,
     secoes: [
@@ -211,7 +211,7 @@ export const CHECKLISTS: ChecklistNorma[] = [
     id: 'nr-16',
     sigla: 'NR-16',
     titulo: 'Atividades e Operações Perigosas',
-    eixo: 'trabalho',
+    eixo: 'pericia',
     origem: 'Portaria MTb 3.214/1978 e alterações',
     url: NR_URL,
     secoes: [
@@ -230,7 +230,7 @@ export const CHECKLISTS: ChecklistNorma[] = [
     id: 'nr-17',
     sigla: 'NR-17',
     titulo: 'Ergonomia',
-    eixo: 'trabalho',
+    eixo: 'pericia',
     origem: 'Portaria MTP 423/2021',
     url: NR_URL,
     secoes: [
@@ -250,7 +250,7 @@ export const CHECKLISTS: ChecklistNorma[] = [
     id: 'nr-32',
     sigla: 'NR-32',
     titulo: 'Segurança e Saúde no Trabalho em Serviços de Saúde',
-    eixo: 'trabalho',
+    eixo: 'pericia',
     origem: 'Portaria MTE 485/2005 e alterações (inclusive Portaria MTE 1.748/2011 — perfurocortantes)',
     url: NR_URL,
     secoes: [
@@ -277,8 +277,8 @@ export const CHECKLISTS: ChecklistNorma[] = [
   {
     id: 'lei-8213',
     sigla: 'Lei 8.213/91',
-    titulo: 'Planos de Benefícios da Previdência Social — acidente do trabalho',
-    eixo: 'trabalho',
+    titulo: 'Planos de Benefícios — incapacidade, perícia e acidente do trabalho',
+    eixo: 'pericia',
     origem: 'Lei 8.213/1991 (texto compilado)',
     url: 'https://www.planalto.gov.br/ccivil_03/leis/l8213cons.htm',
     secoes: [
@@ -295,12 +295,21 @@ export const CHECKLISTS: ChecklistNorma[] = [
         ],
       },
       {
-        titulo: 'Benefícios',
+        titulo: 'Benefícios por incapacidade (o núcleo da perícia do INSS)',
         itens: [
-          { id: 'l8213-59', referencia: 'Arts. 59–60', texto: 'Auxílio por incapacidade temporária: incapacidade por mais de 15 dias consecutivos; a empresa paga os primeiros 15 dias.' },
-          { id: 'l8213-86', referencia: 'Art. 86', texto: 'Auxílio-acidente: indenização de 50% do salário de benefício quando, após a consolidação das lesões, restarem sequelas que reduzam a capacidade para o trabalho habitual.' },
-          { id: 'l8213-118', referencia: 'Art. 118', texto: 'Garantia de 12 meses de manutenção do contrato após a cessação do auxílio acidentário.' },
+          { id: 'l8213-25', referencia: 'Art. 25, I', texto: 'Carência de 12 contribuições mensais para o auxílio por incapacidade temporária e a aposentadoria por incapacidade permanente.' },
+          { id: 'l8213-27a', referencia: 'Art. 27-A', texto: 'Perdida a qualidade de segurado, o novo pedido exige metade da carência (6 contribuições) a partir da nova filiação.' },
           { id: 'l8213-26', referencia: 'Art. 26', texto: 'Independem de carência: auxílio-acidente e benefícios por incapacidade decorrentes de acidente de qualquer natureza ou de doenças da lista do Art. 151.' },
+          { id: 'l8213-151', referencia: 'Art. 151', texto: 'Dispensam carência: tuberculose ativa, hanseníase, alienação mental, esclerose múltipla, hepatopatia grave, neoplasia maligna, cegueira, paralisia irreversível e incapacitante, cardiopatia grave, doença de Parkinson, espondiloartrose anquilosante, nefropatia grave, doença de Paget avançada, aids e contaminação por radiação.', dica: 'A lista do Art. 151 é quase igual à do Art. 186 da Lei 8.112 — compare as duas.' },
+          { id: 'l8213-59', referencia: 'Art. 59', texto: 'Auxílio por incapacidade temporária: incapacidade para o trabalho ou atividade habitual por mais de 15 dias consecutivos. Não é devido a quem se filiou já portador da doença, salvo se a incapacidade decorrer de progressão ou agravamento.', dica: 'Doença preexistente ≠ incapacidade preexistente: o que importa é a DII.' },
+          { id: 'l8213-60', referencia: 'Art. 60', texto: 'Empregado: a empresa paga os primeiros 15 dias; o benefício começa no 16º dia. A concessão deve fixar a data estimada de cessação; sem ela, o benefício cessa em 120 dias, salvo pedido de prorrogação.' },
+          { id: 'l8213-61', referencia: 'Art. 61', texto: 'Renda mensal do auxílio por incapacidade temporária: 91% do salário de benefício (limitada à média dos últimos 12 salários de contribuição — Art. 29, §10).' },
+          { id: 'l8213-62', referencia: 'Art. 62', texto: 'Insuscetível de recuperação para a atividade habitual → processo de reabilitação profissional; o benefício é mantido até a reabilitação ou, se não recuperável, a aposentadoria.' },
+          { id: 'l8213-42', referencia: 'Art. 42', texto: 'Aposentadoria por incapacidade permanente: segurado incapaz e insuscetível de reabilitação para atividade que lhe garanta a subsistência; doença preexistente só gera direito se a incapacidade vier de progressão ou agravamento.', dica: 'Pós-EC 103/2019: 60% da média + 2% por ano acima de 20 (H) / 15 (M) anos de contribuição; 100% se acidente do trabalho, doença profissional ou do trabalho.' },
+          { id: 'l8213-45', referencia: 'Art. 45', texto: 'Acréscimo de 25% ao aposentado por incapacidade permanente que precisa da assistência permanente de outra pessoa (situações do Anexo I do Decreto 3.048), mesmo acima do teto.' },
+          { id: 'l8213-86', referencia: 'Art. 86', texto: 'Auxílio-acidente: indenização de 50% do salário de benefício quando, após a consolidação das lesões de acidente de qualquer natureza, restarem sequelas que reduzam a capacidade para o trabalho habitual; dura até a aposentadoria.' },
+          { id: 'l8213-101', referencia: 'Art. 101', texto: 'O beneficiário por incapacidade é obrigado a se submeter a exame médico-pericial, a processo de reabilitação e a tratamento gratuito (exceto cirurgia e transfusão), sob pena de suspensão.' },
+          { id: 'l8213-118', referencia: 'Art. 118', texto: 'Garantia de 12 meses de manutenção do contrato após a cessação do auxílio acidentário.' },
         ],
       },
     ],
@@ -309,7 +318,7 @@ export const CHECKLISTS: ChecklistNorma[] = [
     id: 'decreto-3048',
     sigla: 'Decreto 3.048/99',
     titulo: 'Regulamento da Previdência Social — Anexo II e NTEP',
-    eixo: 'trabalho',
+    eixo: 'pericia',
     origem: 'Decreto 3.048/1999 (texto compilado)',
     url: 'https://www.planalto.gov.br/ccivil_03/decreto/d3048.htm',
     secoes: [
@@ -329,7 +338,7 @@ export const CHECKLISTS: ChecklistNorma[] = [
     id: 'clt-sst',
     sigla: 'CLT 154–201',
     titulo: 'CLT — Da Segurança e da Medicina do Trabalho',
-    eixo: 'trabalho',
+    eixo: 'pericia',
     origem: 'Decreto-Lei 5.452/1943, Título II, Capítulo V',
     url: 'https://www.planalto.gov.br/ccivil_03/decreto-lei/del5452.htm',
     secoes: [
@@ -348,6 +357,67 @@ export const CHECKLISTS: ChecklistNorma[] = [
           { id: 'clt-195', referencia: 'Art. 195', texto: 'Caracterização por perícia de médico do trabalho ou engenheiro de segurança do trabalho registrados no MTE.' },
           { id: 'clt-198', referencia: 'Art. 198', texto: 'Peso máximo de 60 kg para remoção individual (ressalvadas formas mecânicas).' },
           { id: 'clt-200', referencia: 'Art. 200', texto: 'Competência do MTE para estabelecer disposições complementares (base legal das NRs).' },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'lei-8742',
+    sigla: 'Lei 8.742/93',
+    titulo: 'LOAS — Benefício de Prestação Continuada (BPC) e avaliação da deficiência',
+    eixo: 'pericia',
+    origem: 'Lei 8.742/1993 (texto compilado), Lei 13.146/2015 (LBI) e Decreto 6.214/2007',
+    url: 'https://www.planalto.gov.br/ccivil_03/leis/l8742compilado.htm',
+    secoes: [
+      {
+        titulo: 'BPC (Art. 20)',
+        itens: [
+          { id: 'l8742-20', referencia: 'Art. 20, caput', texto: 'BPC: 1 salário-mínimo mensal à pessoa com deficiência e ao idoso com 65 anos ou mais que comprovem não ter meios de prover a própria manutenção nem de tê-la provida pela família.', dica: 'Benefício assistencial: independe de contribuição.' },
+          { id: 'l8742-20-2', referencia: 'Art. 20, §2º', texto: 'Pessoa com deficiência: impedimento de longo prazo de natureza física, mental, intelectual ou sensorial que, em interação com uma ou mais barreiras, pode obstruir a participação plena e efetiva na sociedade em igualdade de condições.', dica: 'Conceito idêntico ao do Art. 2º da LBI (modelo biopsicossocial).' },
+          { id: 'l8742-20-10', referencia: 'Art. 20, §10', texto: 'Impedimento de longo prazo: produz efeitos pelo prazo mínimo de 2 anos.', dica: 'Número muito cobrado.' },
+          { id: 'l8742-20-3', referencia: 'Art. 20, §3º', texto: 'Critério de renda: renda mensal familiar per capita igual ou inferior a 1/4 do salário-mínimo (o regulamento pode ampliar o limite em situações definidas em lei).' },
+          { id: 'l8742-20-1', referencia: 'Art. 20, §1º', texto: 'Família: requerente, cônjuge ou companheiro, pais (ou madrasta/padrasto), irmãos solteiros, filhos e enteados solteiros e menores tutelados, desde que vivam sob o mesmo teto.' },
+          { id: 'l8742-20-6', referencia: 'Art. 20, §6º', texto: 'A concessão depende da avaliação da deficiência e do grau de impedimento, composta por avaliação médica (Perícia Médica Federal) e avaliação social (serviço social do INSS).' },
+          { id: 'l8742-20-4', referencia: 'Art. 20, §4º', texto: 'Não acumula com outro benefício da seguridade social ou de outro regime, salvo assistência médica e pensão especial de natureza indenizatória.' },
+        ],
+      },
+      {
+        titulo: 'Manutenção e regulamento',
+        itens: [
+          { id: 'l8742-21', referencia: 'Art. 21', texto: 'Revisão a cada 2 anos para avaliar a continuidade das condições que lhe deram origem.' },
+          { id: 'l8742-21a', referencia: 'Art. 21-A', texto: 'Suspensão quando a pessoa com deficiência passa a exercer atividade remunerada (inclusive como MEI); cessada a atividade, o pagamento é retomado sem nova perícia, dentro do prazo de revisão.' },
+          { id: 'd6214-23', referencia: 'Decreto 6.214/2007', texto: 'O BPC é intransferível: não gera pensão por morte nem abono anual (13º).' },
+          { id: 'lbi-2', referencia: 'LBI (Lei 13.146/2015), Art. 2º, §1º', texto: 'Avaliação biopsicossocial da deficiência, por equipe multiprofissional e interdisciplinar: impedimentos nas funções e estruturas do corpo, fatores socioambientais, psicológicos e pessoais, limitação no desempenho de atividades e restrição de participação.' },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'lei-8112-saude',
+    sigla: 'Lei 8.112/90',
+    titulo: 'Servidor público federal — licenças de saúde, junta médica e aposentadoria',
+    eixo: 'pericia',
+    origem: 'Lei 8.112/1990 (texto compilado); modelo seguido por muitos regimes próprios estaduais e municipais',
+    url: 'https://www.planalto.gov.br/ccivil_03/leis/l8112cons.htm',
+    secoes: [
+      {
+        titulo: 'Licença para tratamento de saúde',
+        itens: [
+          { id: 'l8112-202', referencia: 'Art. 202', texto: 'Licença para tratamento de saúde, a pedido ou de ofício, com base em perícia médica, sem prejuízo da remuneração.' },
+          { id: 'l8112-203', referencia: 'Art. 203', texto: 'Concedida por perícia oficial; a licença que exceder 120 dias no período de 12 meses (a contar do primeiro dia de afastamento) exige avaliação por junta médica oficial.', dica: '120 dias → junta médica.' },
+          { id: 'l8112-204', referencia: 'Art. 204', texto: 'Licença inferior a 15 dias, dentro de 1 ano, pode ser dispensada de perícia oficial, na forma do regulamento (Decreto 7.003/2009).' },
+          { id: 'l8112-205', referencia: 'Art. 205', texto: 'Atestado e laudo da junta não mencionam o nome ou a natureza da doença, salvo lesões de acidente em serviço, doença profissional ou doenças do Art. 186, §1º.' },
+          { id: 'l8112-206', referencia: 'Arts. 206 e 206-A', texto: 'Inspeção médica quando houver indícios de lesão orgânica ou funcional; exames médicos periódicos do servidor.' },
+          { id: 'l8112-83', referencia: 'Art. 83', texto: 'Licença por motivo de doença em pessoa da família, condicionada à comprovação por perícia médica oficial.' },
+        ],
+      },
+      {
+        titulo: 'Acidente em serviço, readaptação e aposentadoria',
+        itens: [
+          { id: 'l8112-212', referencia: 'Arts. 211–214', texto: 'Acidente em serviço: dano físico ou mental relacionado, mediata ou imediatamente, às atribuições do cargo; equipara-se a agressão não provocada no exercício do cargo e o acidente no percurso residência–trabalho; prova em até 10 dias, prorrogáveis.' },
+          { id: 'l8112-24', referencia: 'Art. 24', texto: 'Readaptação: investidura em cargo de atribuições compatíveis com a limitação sofrida, verificada em inspeção médica; se incapaz para o serviço público, será aposentado.' },
+          { id: 'l8112-188', referencia: 'Art. 188, §§1º e 2º', texto: 'A aposentadoria por invalidez é precedida de licença para tratamento de saúde por até 24 meses; expirado o prazo sem condições de reassumir ou ser readaptado, o servidor é aposentado.' },
+          { id: 'l8112-186', referencia: 'Art. 186, §1º', texto: 'Doenças graves (proventos integrais no regime da lei): tuberculose ativa, alienação mental, esclerose múltipla, neoplasia maligna, cegueira posterior ao ingresso, hanseníase, cardiopatia grave, Parkinson, paralisia irreversível e incapacitante, espondiloartrose anquilosante, nefropatia grave, Paget avançado e aids.', dica: 'Após a EC 103/2019, o cálculo dos proventos segue as regras da emenda e do regime próprio; a lista continua cobrada.' },
         ],
       },
     ],

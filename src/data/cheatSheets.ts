@@ -148,7 +148,7 @@ export const CHEAT_SHEETS: CheatSheet[] = [
   {
     id: 'ibe',
     titulo: 'Indicadores biológicos de exposição (NR-07, Anexo I)',
-    eixo: 'trabalho',
+    eixo: 'pericia',
     resumo:
       'Quadro 1 = IBE/EE (exposição excessiva; sem significado diagnóstico). Quadro 2 = IBE/SC (significado clínico; indica disfunção/efeito). Valores transcritos da Portaria MTP 567/2022 — confira no texto oficial antes de usar profissionalmente.',
     tabelas: [
@@ -251,8 +251,8 @@ export const CHEAT_SHEETS: CheatSheet[] = [
   {
     id: 'nr-prazos',
     titulo: 'NRs e legislação — prazos e percentuais',
-    eixo: 'trabalho',
-    resumo: 'Os números que mais derrubam candidatos em Medicina do Trabalho, reunidos numa tabela de leitura rápida.',
+    eixo: 'pericia',
+    resumo: 'Os números de saúde do trabalhador e de previdência que mais derrubam candidatos em provas periciais, reunidos numa tabela de leitura rápida.',
     tabelas: [
       {
         colunas: ['Assunto', 'Número', 'Fonte'],
@@ -289,6 +289,153 @@ export const CHEAT_SHEETS: CheatSheet[] = [
       'Demissional: 10 dias; dispensa: 135/90 dias — não confundir os números.',
     ],
     fontes: ['NRs vigentes (gov.br/MTE)', 'Lei 8.213/91', 'Decreto 3.048/99', 'CLT', 'CPP'],
+  },
+  {
+    id: 'beneficios-incapacidade',
+    titulo: 'Perícia previdenciária — conceitos, benefícios e carência',
+    eixo: 'pericia',
+    resumo:
+      'O perito avalia INCAPACIDADE, não doença. A pergunta de toda perícia é: existe incapacidade para a atividade habitual? Desde quando (DII)? É temporária ou permanente? Há possibilidade de reabilitação? A resposta define o benefício.',
+    tabelas: [
+      {
+        titulo: 'Conceitos que a banca cobra',
+        colunas: ['Termo', 'Significado', 'Por que importa'],
+        linhas: [
+          ['DID', 'Data do início da doença', 'Doença anterior à filiação não impede o benefício'],
+          ['DII', 'Data do início da incapacidade', 'Define direito, carência e qualidade de segurado; incapacidade anterior à filiação = preexistente'],
+          ['DCB', 'Data de cessação do benefício (estimada na concessão)', 'Sem DCB fixada, cessa em 120 dias (Lei 8.213 Art. 60, §9º), salvo prorrogação'],
+          ['Temporária × permanente', 'Há ou não prognóstico de recuperação em prazo previsível', 'Auxílio por incapacidade temporária × aposentadoria por incapacidade permanente'],
+          ['Parcial × total', 'Impede parte ou todas as tarefas', 'Incapacidade parcial para a atividade habitual pode levar a reabilitação'],
+          ['Uniprofissional × multiprofissional × omniprofissional', 'Incapaz para a atividade habitual / para várias / para qualquer atividade', 'Aposentadoria exige incapacidade para atividade que garanta a subsistência e insuscetibilidade de reabilitação'],
+          ['Redução da capacidade', 'Sequela consolidada que exige mais esforço ou limita a atividade habitual', 'Base do auxílio-acidente (indenizatório)'],
+        ],
+      },
+      {
+        titulo: 'Benefícios por incapacidade e assistenciais',
+        colunas: ['Benefício (espécie)', 'Quando', 'Carência', 'Valor', 'Fonte'],
+        linhas: [
+          ['Auxílio por incapacidade temporária — previdenciário (B31) / acidentário (B91)', 'Incapacidade > 15 dias consecutivos para a atividade habitual', '12 contribuições; dispensada em acidente de qualquer natureza e doenças do Art. 151', '91% do salário de benefício', 'Lei 8.213 Arts. 59–63'],
+          ['Aposentadoria por incapacidade permanente (B32 / B92)', 'Incapaz e insuscetível de reabilitação', 'Igual ao anterior', '60% da média + 2% por ano acima de 20 (H) / 15 (M) anos; 100% se acidentária', 'Lei 8.213 Art. 42; EC 103/2019'],
+          ['Acréscimo de 25% (grande invalidez)', 'Aposentado que precisa de assistência permanente de outra pessoa', '—', '+25%, mesmo acima do teto', 'Lei 8.213 Art. 45; Decreto 3.048 Anexo I'],
+          ['Auxílio-acidente (B36 / B94)', 'Sequela consolidada que reduz a capacidade para o trabalho habitual', 'Isento', '50% do salário de benefício, até a aposentadoria', 'Lei 8.213 Art. 86'],
+          ['BPC/LOAS — pessoa com deficiência (B87) / idoso (B88)', 'Impedimento de longo prazo (≥ 2 anos) ou 65+ anos e renda per capita ≤ 1/4 do salário-mínimo', 'Sem contribuição', '1 salário-mínimo; sem 13º nem pensão', 'Lei 8.742 Art. 20'],
+        ],
+        nota: 'B91 (acidentário) garante 12 meses de estabilidade (Art. 118) e mantém os depósitos do FGTS durante o afastamento.',
+      },
+      {
+        titulo: 'Servidor público (Lei 8.112 — modelo de muitos RPPS)',
+        colunas: ['Situação', 'Regra'],
+        linhas: [
+          ['Licença para tratamento de saúde', 'Perícia oficial; acima de 120 dias em 12 meses → junta médica oficial'],
+          ['Atestados curtos', 'Licença inferior a 15 dias no ano pode dispensar perícia, conforme regulamento'],
+          ['Antes da aposentadoria por invalidez', 'Licença para tratamento de saúde por até 24 meses'],
+          ['Incapaz para o cargo, apto para outro', 'Readaptação (Art. 24)'],
+        ],
+      },
+    ],
+    pegadinhas: [
+      'Doença preexistente não impede benefício se a incapacidade surgiu por progressão ou agravamento após a filiação.',
+      'O empregado recebe da empresa os primeiros 15 dias; o INSS paga a partir do 16º.',
+      'Auxílio-acidente é indenização: não exige incapacidade atual, e sim redução da capacidade por sequela.',
+      'BPC é assistencial: não exige contribuição, mas exige critério de renda e avaliação biopsicossocial (médica + social).',
+    ],
+    fontes: ['Lei 8.213/91', 'EC 103/2019', 'Lei 8.742/93', 'Lei 8.112/90', 'Manual Técnico de Perícia Médica Previdenciária (INSS, Resolução 637/2018)'],
+  },
+  {
+    id: 'nexo-cat',
+    titulo: 'Nexo causal, NTEP e CAT',
+    eixo: 'pericia',
+    resumo:
+      'Caracterizar uma doença como relacionada ao trabalho muda tudo: espécie acidentária (B91), estabilidade, FGTS e responsabilidade do empregador. A perícia usa três vias de nexo técnico e uma metodologia clínica-epidemiológica.',
+    tabelas: [
+      {
+        titulo: 'Tipos de nexo técnico (perícia do INSS)',
+        colunas: ['Nexo', 'Base', 'Exemplo'],
+        linhas: [
+          ['Profissional ou do trabalho', 'Agente × doença nas Listas A e B do Anexo II do Decreto 3.048', 'Silicose em trabalhador exposto a sílica'],
+          ['NTEP (epidemiológico)', 'CNAE da empresa × CID do agravo na Lista C (Art. 21-A da Lei 8.213)', 'Transtorno de humor em atividade com associação estatística'],
+          ['Individual', 'Circunstâncias específicas do caso, caracterizadas pela perícia', 'Doença não listada, mas comprovadamente causada pelas condições de trabalho'],
+        ],
+        nota: 'O NTEP é presunção relativa: a empresa pode pedir sua não aplicação com provas.',
+      },
+      {
+        titulo: 'Classificação de Schilling',
+        colunas: ['Grupo', 'Papel do trabalho', 'Exemplos'],
+        linhas: [
+          ['I', 'Causa necessária', 'Intoxicação por chumbo, silicose, doenças profissionais "clássicas"'],
+          ['II', 'Fator contributivo, não necessário', 'Doença coronariana, varizes, alguns cânceres'],
+          ['III', 'Provocador de distúrbio latente ou agravador de doença estabelecida', 'Asma, dermatite de contato alérgica, transtornos mentais'],
+        ],
+      },
+      {
+        titulo: 'O que o médico deve considerar para o nexo (Res. CFM 2.183/2018)',
+        colunas: ['Elemento'],
+        linhas: [
+          ['História clínica e ocupacional (decisiva)'],
+          ['Estudo do local e da organização do trabalho'],
+          ['Dados epidemiológicos e literatura científica'],
+          ['Quadro clínico em outros trabalhadores expostos a riscos semelhantes'],
+          ['Riscos físicos, químicos, biológicos, mecânicos, estressantes e outros'],
+          ['Depoimento e experiência dos trabalhadores; conhecimentos de outras disciplinas'],
+        ],
+      },
+      {
+        titulo: 'CAT (Lei 8.213 Art. 22)',
+        colunas: ['Item', 'Regra'],
+        linhas: [
+          ['Quem emite', 'A empresa (no eSocial, evento S-2210)'],
+          ['Prazo', 'Até o 1º dia útil seguinte ao acidente; em caso de morte, imediatamente'],
+          ['Na omissão da empresa', 'Podem emitir o acidentado, dependentes, sindicato, médico assistente ou autoridade pública — sem prazo'],
+          ['Tipos', 'Inicial, reabertura e comunicação de óbito'],
+        ],
+      },
+    ],
+    pegadinhas: [
+      'Doença degenerativa, inerente a grupo etário, que não incapacita ou endêmica não é doença do trabalho (Art. 20, §1º) — salvo exposição pela natureza do trabalho no caso da endêmica.',
+      'Concausa também caracteriza acidente do trabalho (Art. 21, I).',
+      'Qualquer médico pode emitir a CAT quando a empresa se omite; isso não depende de ser médico do trabalho.',
+    ],
+    fontes: ['Lei 8.213/91 Arts. 19–23', 'Decreto 3.048/99 Art. 337 e Anexo II', 'Resolução CFM 2.183/2018'],
+  },
+  {
+    id: 'urgencias',
+    titulo: 'Urgências do plantão — números que caem',
+    eixo: 'clinica',
+    resumo:
+      'Os números de urgência são os mais cobrados em editais de Clínico Geral/Plantonista e aparecem também em provas de perícia. Decore a tabela e treine a sequência de decisões.',
+    tabelas: [
+      {
+        titulo: 'Parada cardiorrespiratória (adulto)',
+        colunas: ['Item', 'Conduta'],
+        linhas: [
+          ['Compressões', '100–120/min, 5–6 cm, retorno completo do tórax, mínimo de interrupções'],
+          ['Relação', '30:2 sem via aérea avançada; com via aérea avançada, 1 ventilação a cada 6 s, sem pausar compressões'],
+          ['Ritmos chocáveis (FV/TV sem pulso)', 'Choque o quanto antes (bifásico 120–200 J conforme o aparelho; monofásico 360 J) e RCP por 2 min'],
+          ['Adrenalina', '1 mg IV/IO a cada 3–5 min (ritmo não chocável: o quanto antes; chocável: após o 2º choque)'],
+          ['Antiarrítmico (FV/TV refratária)', 'Amiodarona 300 mg, depois 150 mg — ou lidocaína 1–1,5 mg/kg'],
+          ['Causas reversíveis', '5H (hipovolemia, hipóxia, H⁺, hipo/hipercalemia, hipotermia) e 5T (pneumotórax hipertensivo, tamponamento, toxinas, trombose pulmonar e coronária)'],
+        ],
+      },
+      {
+        titulo: 'Outras urgências',
+        colunas: ['Quadro', 'Número-chave'],
+        linhas: [
+          ['Anafilaxia', 'Adrenalina IM 0,01 mg/kg da solução 1 mg/mL (máx. 0,5 mg no adulto), no vasto lateral da coxa; repetir em 5–15 min'],
+          ['Sepse / choque séptico', 'Lactato, hemoculturas e antibiótico em até 1 h; cristaloide 30 mL/kg se hipotensão ou lactato ≥ 4 mmol/L; noradrenalina para PAM ≥ 65 mmHg'],
+          ['IAM com supra de ST', 'ECG em até 10 min; angioplastia primária (porta-balão ≤ 90 min) ou trombólise (porta-agulha ≤ 30 min) se a angioplastia não for possível em tempo; AAS mastigado'],
+          ['AVC isquêmico', 'TC sem contraste; trombólise IV até 4,5 h do início dos sintomas (PA < 185/110 mmHg); trombectomia em casos selecionados'],
+          ['Pneumonia (CURB-65)', 'Confusão, ureia > 50 mg/dL, FR ≥ 30, PAS < 90 ou PAD ≤ 60, idade ≥ 65: 0–1 ambulatório; 2 internação; ≥ 3 grave'],
+          ['Escala de Glasgow', '3 a 15 (ocular 4, verbal 5, motora 6); ≤ 8 indica via aérea definitiva'],
+          ['Hipoglicemia', '< 70 mg/dL; consciente: 15 g de carboidrato oral e reavaliar em 15 min; inconsciente: glicose hipertônica IV ou glucagon 1 mg IM'],
+        ],
+      },
+    ],
+    pegadinhas: [
+      'Assistolia e AESP não são chocáveis: RCP + adrenalina e busca das causas reversíveis.',
+      'Na anafilaxia, adrenalina é IM e é a primeira droga — anti-histamínico e corticoide são adjuvantes.',
+      'Na sepse, não atrase o antibiótico esperando exames.',
+    ],
+    fontes: ['Diretrizes da American Heart Association para RCP e ACE', 'Surviving Sepsis Campaign 2021', 'Diretrizes da SBC (SCA) e do Ministério da Saúde (AVC)'],
   },
 ];
 

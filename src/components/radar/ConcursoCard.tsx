@@ -3,7 +3,7 @@ import { Archive, Calendar, MapPin } from 'lucide-react-native';
 import { useState } from 'react';
 import { Pressable, Text, View } from 'react-native';
 import { STATUS_LABEL, STATUS_PESSOAL, type ConcursoView, type StatusPessoal } from '@/shared/concursos/overlay';
-import { CATEGORIA_LABEL } from '@/shared/concursos/schema';
+import { ACESSO_LABEL, CATEGORIA_CURTA } from '@/shared/concursos/schema';
 import { useRadarStore } from '@/store/useRadarStore';
 import { COR_CATEGORIA, COR_STATUS, COR_UF, useCores } from '@/theme/cores';
 import { formatBR } from '@/utils/dates';
@@ -56,7 +56,8 @@ export function ConcursoCard({ concurso: c, compacto = false }: { concurso: Conc
         {c.arquivado ? <Tag texto="Arquivado" /> : null}
         {c.manual ? <Tag texto="Manual" cor="brown" /> : null}
         <Tag texto={c.uf} cor={COR_UF[c.uf]} />
-        <Tag texto={CATEGORIA_LABEL[c.categoria]} cor={COR_CATEGORIA[c.categoria]} />
+        <Tag texto={CATEGORIA_CURTA[c.categoria]} cor={COR_CATEGORIA[c.categoria]} />
+        {c.acesso === 'especialista' ? <Tag texto={ACESSO_LABEL.especialista} /> : null}
       </Row>
       <Txt numberOfLines={2} className="font-semibold">
         {c.orgao}

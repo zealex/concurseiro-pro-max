@@ -12,6 +12,7 @@ import { gerarId } from '@/utils/id';
 const TAG_DA_CATEGORIA = {
   'medicina-do-trabalho': { tag: 'medicina-do-trabalho', subcategoria: null },
   'medico-legista': { tag: 'medico-legista', subcategoria: null },
+  'pericia-medica': { tag: 'pericia-medica', subcategoria: null },
   'clinico-esf-plantonista': { tag: 'medicina-geral-especialidades', subcategoria: 'clinico-esf-plantonista' },
   especialidades: { tag: 'medicina-geral-especialidades', subcategoria: 'especialidades' },
 } as const;

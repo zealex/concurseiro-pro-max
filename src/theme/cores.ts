@@ -66,7 +66,7 @@ export const TAG_CLASSES: Record<CorTag, string> = {
   red: 'bg-tag-red dark:bg-tag-red-dark',
 };
 
-export const COR_EIXO = { trabalho: 'blue', legal: 'purple', tronco: 'green' } as const satisfies Record<string, CorTag>;
+export const COR_EIXO = { clinica: 'green', pericia: 'blue', legal: 'purple', tronco: 'yellow' } as const satisfies Record<string, CorTag>;
 export const COR_UF = { PR: 'yellow', SC: 'blue', RS: 'red' } as const satisfies Record<string, CorTag>;
 export const COR_STATUS = {
   radar: 'gray',
@@ -76,9 +76,10 @@ export const COR_STATUS = {
   finalizado: 'green',
 } as const satisfies Record<string, CorTag>;
 export const COR_CATEGORIA = {
-  'medicina-do-trabalho': 'blue',
-  'medico-legista': 'purple',
   'clinico-esf-plantonista': 'green',
+  'pericia-medica': 'blue',
+  'medico-legista': 'purple',
+  'medicina-do-trabalho': 'orange',
   especialidades: 'pink',
 } as const satisfies Record<string, CorTag>;
 export const COR_TIPO_BLOCO = {
