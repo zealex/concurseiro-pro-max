@@ -14,6 +14,7 @@ import type { BancoConteudo } from '../types';
  */
 export const CARREGADORES: Record<string, () => Promise<{ default: BancoConteudo }>> = {
   matematica: () => import('./bancos/matematica'),
+  'raciocinio-logico': () => import('./bancos/raciocinio-logico'),
 };
 
 const cache = new Map<string, Promise<BancoConteudo>>();
