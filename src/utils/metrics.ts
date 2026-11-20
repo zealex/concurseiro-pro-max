@@ -117,11 +117,23 @@ export function diasAteProva(hoje: DateKey, prova: DateKey): number {
   return diffDays(hoje, prova);
 }
 
+/**
+ * Um ponto por simulado. O simulado do app vira várias sessões (uma por tema) com o mesmo `lote`,
+ * que são somadas; simulados registrados à mão (sem lote) contam um a um.
+ */
 export function evolucaoSimulados(sessoes: SessaoQuestoes[]): { data: DateKey; pct: number; total: number }[] {
-  return sessoes
-    .filter((s) => s.tipo === 'simulado' && s.total > 0)
-    .sort((a, b) => a.data.localeCompare(b.data))
-    .map((s) => ({ data: s.data, pct: s.acertos / s.total, total: s.total }));
+  const grupos = new Map<string, { data: DateKey; acertos: number; total: number }>();
+  for (const s of sessoes) {
+    if (s.tipo !== 'simulado' || s.total <= 0) continue;
+    const chave = s.lote ? `lote:${s.lote}` : `sessao:${s.id}`;
+    const g = grupos.get(chave);
+    if (g) {
+      g.acertos += Math.min(s.acertos, s.total);
+      g.total += s.total;
+      if (s.data < g.data) g.data = s.data;
+    } else grupos.set(chave, { data: s.data, acertos: Math.min(s.acertos, s.total), total: s.total });
+  }
+  return [...grupos.values()].sort((a, b) => a.data.localeCompare(b.data)).map((g) => ({ data: g.data, pct: g.acertos / g.total, total: g.total }));
 }
 
 export function formatPct(p: number | null): string {

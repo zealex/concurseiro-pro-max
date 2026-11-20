@@ -5,11 +5,12 @@ import { STORE_KEYS } from '@/services/storage/keys';
 import { zustandStorage } from '@/services/storage/zustandAdapter';
 import type { DateKey } from '@/utils/dates';
 import { NOVOS_POR_DIA_PADRAO, responderCartao, type EstadoCartao, type RespostaCartao } from '@/utils/flashcards';
-import type { FiltroTreino, HistoricoQuestao } from '@/utils/treino';
+import { simuladoValidoOuNulo, type SimuladoAtivo } from '@/utils/simulado';
+import type { FiltroTreino, HistoricoQuestao, RespostaTreino } from '@/utils/treino';
 
 /**
  * Treino interno: histórico por questão (totais, não um log — o armazenamento web é limitado),
- * estado dos flashcards (caixas de Leitner) e preferências do treino.
+ * estado dos flashcards (caixas de Leitner), preferências do treino e o simulado em andamento.
  */
 
 export interface PrefsTreino {
@@ -20,23 +21,30 @@ export interface PrefsTreino {
   filtro: FiltroTreino;
 }
 
+export type { SimuladoAtivo };
+
 export interface TreinoData {
   questoes: Record<string, HistoricoQuestao>;
   cartoes: Record<string, EstadoCartao>;
   prefs: PrefsTreino;
+  simuladoAtivo: SimuladoAtivo | null;
 }
 
 interface TreinoState extends TreinoData {
   registrarRespostas: (respostas: { id: string; certa: boolean }[], hoje: DateKey) => void;
   responderCartao: (id: string, resposta: RespostaCartao, hoje: DateKey) => void;
   setPrefs: (p: Partial<PrefsTreino>) => void;
+  iniciarSimulado: (s: SimuladoAtivo) => void;
+  responderSimulado: (questaoId: string, r: RespostaTreino) => void;
+  irParaQuestao: (indice: number) => void;
+  encerrarSimulado: () => void;
 }
 
 export const VERSAO_TREINO = 1;
 
 export const prefsPadrao = (): PrefsTreino => ({ novosPorDia: NOVOS_POR_DIA_PADRAO, quantidade: 10, modo: 'estudo', formato: 'todos', filtro: 'todas' });
 
-export const treinoPadrao = (): TreinoData => ({ questoes: {}, cartoes: {}, prefs: prefsPadrao() });
+export const treinoPadrao = (): TreinoData => ({ questoes: {}, cartoes: {}, prefs: prefsPadrao(), simuladoAtivo: null });
 
 export const useTreinoStore = create<TreinoState>()(
   persist(
@@ -53,6 +61,11 @@ export const useTreinoStore = create<TreinoState>()(
         }),
       responderCartao: (id, resposta, hoje) => set((st) => ({ cartoes: { ...st.cartoes, [id]: responderCartao(st.cartoes[id], resposta, hoje) } })),
       setPrefs: (p) => set((st) => ({ prefs: { ...st.prefs, ...p } })),
+      iniciarSimulado: (s) => set({ simuladoAtivo: s }),
+      responderSimulado: (questaoId, r) =>
+        set((st) => (st.simuladoAtivo ? { simuladoAtivo: { ...st.simuladoAtivo, respostas: { ...st.simuladoAtivo.respostas, [questaoId]: r } } } : {})),
+      irParaQuestao: (indice) => set((st) => (st.simuladoAtivo ? { simuladoAtivo: { ...st.simuladoAtivo, indice } } : {})),
+      encerrarSimulado: () => set({ simuladoAtivo: null }),
     }),
     {
       name: STORE_KEYS.treino,
@@ -60,9 +73,9 @@ export const useTreinoStore = create<TreinoState>()(
       version: VERSAO_TREINO,
       merge: (persistido, atual) => {
         const p = (persistido ?? {}) as Partial<TreinoData>;
-        return { ...atual, ...p, prefs: { ...prefsPadrao(), ...(p.prefs ?? {}) } };
+        return { ...atual, ...p, prefs: { ...prefsPadrao(), ...(p.prefs ?? {}) }, simuladoAtivo: simuladoValidoOuNulo(p.simuladoAtivo) };
       },
-      partialize: ({ questoes, cartoes, prefs }) => ({ questoes, cartoes, prefs }),
+      partialize: ({ questoes, cartoes, prefs, simuladoAtivo }) => ({ questoes, cartoes, prefs, simuladoAtivo }),
     },
   ),
 );

@@ -24,6 +24,9 @@ function somenteDados<T extends object>(estado: T): Record<string, unknown> {
 export function montarBackup(): Backup {
   const radar = somenteDados(useRadarStore.getState());
   delete radar.sincronizando;
+  // O simulado em andamento é efêmero (cronômetro): não vai para o backup.
+  const treino = somenteDados(useTreinoStore.getState());
+  delete treino.simuladoAtivo;
   return {
     app: BACKUP_APP,
     schemaVersion: BACKUP_VERSAO,
@@ -35,7 +38,7 @@ export function montarBackup(): Backup {
       radar,
       checklist: somenteDados(useChecklistStore.getState()),
       focus: somenteDados(useFocusStore.getState()),
-      treino: somenteDados(useTreinoStore.getState()),
+      treino,
     },
   };
 }
@@ -51,7 +54,7 @@ export function aplicarBackup(b: Backup): void {
   useChecklistStore.setState({ ...checklistPadrao(), ...(d.checklist ?? {}) });
   useFocusStore.setState({ ...focusPadrao(), ...(d.focus ?? {}) });
   const treino = (d.treino ?? {}) as Partial<ReturnType<typeof treinoPadrao>>;
-  useTreinoStore.setState({ ...treinoPadrao(), ...treino, prefs: { ...treinoPadrao().prefs, ...(treino.prefs ?? {}) } });
+  useTreinoStore.setState({ ...treinoPadrao(), ...treino, prefs: { ...treinoPadrao().prefs, ...(treino.prefs ?? {}) }, simuladoAtivo: null });
 }
 
 /** Volta tudo ao estado inicial (memória + armazenamento local). */

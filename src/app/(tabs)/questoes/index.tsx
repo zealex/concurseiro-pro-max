@@ -1,5 +1,5 @@
 import { useRouter } from 'expo-router';
-import { BookX, Layers, RotateCcw, Target, Trash2 } from 'lucide-react-native';
+import { BookX, Layers, RotateCcw, Target, Timer, Trash2 } from 'lucide-react-native';
 import { useMemo, useState } from 'react';
 import { Text, View } from 'react-native';
 import { selecaoInicial, TemaPicker, type SelecaoTema } from '@/components/questoes/TemaPicker';
@@ -28,6 +28,7 @@ export default function CentralQuestoes() {
   const bancaAlvo = useSettingsStore((s) => s.bancaAlvo);
   const estadosCartoes = useTreinoStore((s) => s.cartoes);
   const cartoesHoje = useMemo(() => contarVencidos(estadosCartoes, hoje), [estadosCartoes, hoje]);
+  const simuladoAtivo = useTreinoStore((s) => s.simuladoAtivo !== null);
 
   const [tipo, setTipo] = useState<'bateria' | 'simulado'>('bateria');
   const [sel, setSel] = useState<SelecaoTema>(selecaoInicial());
@@ -80,6 +81,7 @@ export default function CentralQuestoes() {
       acoes={
         <>
           <Button variante="primario" icone={Target} titulo="Treinar no app" onPress={() => router.push('/questoes/treino')} />
+          <Button icone={Timer} titulo={simuladoAtivo ? 'Simulado em andamento' : 'Simulado'} onPress={() => router.push('/questoes/simulado')} />
           <Button icone={Layers} titulo={`Flashcards${cartoesHoje ? ` (${cartoesHoje} hoje)` : ''}`} onPress={() => router.push('/questoes/flashcards')} />
           <Button icone={RotateCcw} titulo={`Revisões (${m.revisoesHoje} hoje)`} onPress={() => router.push('/questoes/revisoes')} />
           <Button icone={BookX} titulo={`Caderno de Erros (${m.errosPendentes})`} onPress={() => router.push('/questoes/erros')} />

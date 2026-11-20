@@ -12,7 +12,9 @@ import type { BancoConteudo } from '../types';
  *   `const banco: BancoConteudo = { … }; export default banco;`
  * e acrescente uma linha abaixo.
  */
-export const CARREGADORES: Record<string, () => Promise<{ default: BancoConteudo }>> = {};
+export const CARREGADORES: Record<string, () => Promise<{ default: BancoConteudo }>> = {
+  matematica: () => import('./bancos/matematica'),
+};
 
 const cache = new Map<string, Promise<BancoConteudo>>();
 

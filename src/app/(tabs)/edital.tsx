@@ -29,16 +29,10 @@ import { TRILHA_LABEL, type ModeloEdital, type TipoFase } from '@/data/types';
 import { EditalAlvoSchema, type EditalAlvo } from '@/shared/edital';
 import { useProjecaoEdital } from '@/store/selectors';
 import { useSettingsStore } from '@/store/useSettingsStore';
-import type { CorTag } from '@/theme/cores';
-import { divisaoDeTempo, editalDoModelo, fatiaBasicas, LIMIAR_REFORCO, pontosDoItem, pontosMaximos, totalQuestoes, type StatusMinimo } from '@/utils/edital';
+import { STATUS_MINIMO } from '@/components/edital/status';
+import { divisaoDeTempo, editalDoModelo, fatiaBasicas, LIMIAR_REFORCO, pontosDoItem, pontosMaximos, totalQuestoes } from '@/utils/edital';
 
-const STATUS: Record<StatusMinimo, { texto: string; cor: CorTag }> = {
-  ok: { texto: 'Folga', cor: 'green' },
-  atencao: { texto: 'No limite', cor: 'yellow' },
-  abaixo: { texto: 'Abaixo do mínimo', cor: 'red' },
-  'sem-dados': { texto: 'Sem dados', cor: 'gray' },
-  'sem-minimo': { texto: 'Sem mínimo', cor: 'gray' },
-};
+const STATUS = STATUS_MINIMO;
 
 const FASE: Record<TipoFase, string> = {
   objetiva: '📝 Prova objetiva',
@@ -241,6 +235,7 @@ export default function MeuEdital() {
       descricao={edital.nome}
       acoes={
         <>
+          <Button pequeno variante="primario" titulo="🧪 Fazer simulado" onPress={() => router.push('/questoes/simulado')} />
           <Button pequeno icone={Pencil} titulo={editando ? 'Fechar edição' : 'Editar números'} onPress={() => setEditando((v) => !v)} />
           <Button pequeno titulo="Trocar edital" onPress={() => setTrocando(true)} />
           <Button
