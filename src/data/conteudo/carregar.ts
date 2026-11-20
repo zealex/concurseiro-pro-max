@@ -14,6 +14,7 @@ import type { BancoConteudo } from '../types';
  */
 export const CARREGADORES: Record<string, () => Promise<{ default: BancoConteudo }>> = {
   'lingua-portuguesa': () => import('./bancos/lingua-portuguesa'),
+  'lingua-inglesa': () => import('./bancos/lingua-inglesa'),
   matematica: () => import('./bancos/matematica'),
   'raciocinio-logico': () => import('./bancos/raciocinio-logico'),
   'nocoes-informatica': () => import('./bancos/nocoes-informatica'),
