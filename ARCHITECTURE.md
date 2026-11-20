@@ -7,9 +7,11 @@ Ecossistema de preparação de 90 dias para o médico generalista / recém-forma
 │ 1. CONTEÚDO (inteligência pedagógica)                                        │
 │    docs/*.md  ──(versão legível)──  src/data/*.ts (dados tipados, ids estáveis)│
 │    eixos · plano 12 semanas · checklists lei seca/NRs · cheat sheets ·        │
-│    cursinhos · bancas · fontes oficiais                                       │
+│    cursinhos · bancas · fontes oficiais · editais · guias das fases           │
+│    src/data/conteudo/bancos/<disciplina> (resumos, questões, flashcards)      │
 └───────────────┬──────────────────────────────────────────────────────────────┘
-                │ import estático (embarcado no bundle, funciona offline)
+                │ import estático (leve) · import() sob demanda (bancos)
+                │ tudo no precache do service worker → funciona offline
 ┌───────────────▼──────────────────────────────────────────────────────────────┐
 │ 2. APP UNIVERSAL (Expo + Expo Router + RN Web + NativeWind)                   │
 │    src/app (rotas) → src/components (UI estilo Notion)                        │
@@ -47,7 +49,9 @@ Ecossistema de preparação de 90 dias para o médico generalista / recém-forma
 | `/cronograma` | Cronograma interativo (12 semanas, trilha, Modo Plantão) |
 | `/radar`, `/radar/[id]`, `/radar/novo` | Radar Sul (tabela/kanban), detalhe, cadastro manual |
 | `/questoes`, `/questoes/revisoes`, `/questoes/erros` | Central de questões, revisões D1/D7/D15/D30, caderno de erros |
-| `/biblioteca`, `/biblioteca/[slug]` | Wiki estratégica embarcada |
+| `/questoes/treino`, `/questoes/flashcards`, `/questoes/simulado` | Treino com questões comentadas, flashcards (Leitner), simulado no formato do edital |
+| `/edital` | Meu Edital: composição da prova-alvo, nota projetada, risco de eliminação (sidebar; fora da barra mobile) |
+| `/biblioteca`, `/biblioteca/[slug]` | Wiki estratégica embarcada; `disciplina-<id>`, `resumo-<temaId>`, `guia-<id>`, `editais`, `checklist-<id>`, `cheat-<id>` |
 | `/foco` | Timer Pomodoro |
 | `/configuracoes` | Prova-alvo, plano, feed, tema, backup JSON |
 
@@ -73,7 +77,8 @@ Zustand store ──persist──▶ zustandAdapter (StateStorage)
 
 | Store | Chave | Conteúdo |
 |---|---|---|
-| `settings` | `cpm:v1:settings` | trilha, data de início, orçamento diário, dias em Modo Plantão, prova-alvo, URL do feed, tema |
+| `settings` | `cpm:v1:settings` | trilha, data de início, orçamento diário (180–360 min), dias em Modo Plantão, prova-alvo, **edital-alvo** (validado por zod), URL do feed, tema |
+| `treino` | `cpm:v1:treino` | totais por questão do Treino (não um log), caixas dos flashcards, preferências, simulado em andamento (fora do backup) |
 | `cronograma` | `cpm:v1:cronograma` | blocos concluídos (por id), notas por bloco, histórico de atividade |
 | `questoes` | `cpm:v1:questoes` | sessões de questões/simulados, caderno de erros, itens de revisão espaçada |
 | `radar` | `cpm:v1:radar` | último feed válido, overlay do usuário (status/notas), concursos manuais, última sincronização |
@@ -84,7 +89,7 @@ O layout raiz só renderiza as telas depois que todas as stores terminam a hidra
 
 **Backup**: `backupService` serializa todas as stores em `{ app, schemaVersion, exportedAt, data }`. Importação valida com zod, aplica as mesmas migrações das stores a backups de versões anteriores e pede confirmação antes de sobrescrever.
 
-**Migrações**: `src/store/migracoes.ts` (funções puras, testadas). Settings, questões e cronograma estão na versão 2: trilhas antigas viram as novas (híbrida → generalista, trabalho → perícia, municipal → clínico), eixo e disciplina das questões são recalculados pelo tema e o cronograma descarta as marcações do plano anterior, preservando a ofensiva.
+**Migrações**: `src/store/migracoes.ts` (funções puras, testadas). v2: trilhas antigas viram as novas (híbrida → generalista, trabalho → perícia, municipal → clínico), eixo e disciplina das questões são recalculados pelo tema e o cronograma descarta as marcações do plano anterior, preservando a ofensiva. v3 (questões): com o eixo `basicos`, sessões, erros e revisões têm eixo/disciplina recalculados pelo tema (idempotente). A importação de backup usa uma tabela de versões (`src/store/importacao.ts`: backup v1–v4 → versão de cada store) e as mesmas migrações.
 
 ### Lógica de domínio (pura)
 
@@ -95,7 +100,10 @@ O layout raiz só renderiza as telas depois que todas as stores terminam a hidra
   3. Blocos de dias anteriores não concluídos entram como **Redistribuídas** no próximo Dia Padrão (teto +60 min/dia).
   4. **Modo Plantão** (45–60 min): só questões rápidas, lei seca/NR e revisões devidas; a teoria do dia vai para a fila de redistribuição.
   5. **Compressão**: se a prova-alvo cai antes de 12 semanas, as 4 últimas semanas viram o mesociclo 3 e as anteriores recebem apenas os blocos `essencial` das semanas 1–8, em proporção.
-- `utils/metrics.ts` — acurácia por eixo/disciplina/banca/tema, pontos fracos (< 70% com ≥ 10 questões), horas líquidas da semana, ofensiva (streak), contagem regressiva.
+- `utils/metrics.ts` — acurácia por eixo/disciplina/banca/tema, pontos fracos (< 70% com ≥ 10 questões), horas líquidas da semana, ofensiva (streak), contagem regressiva, evolução dos simulados (sessões do mesmo `lote` somadas).
+- `data/selecaoBlocos.ts` — quais blocos de básicas entram na semana: núcleo sempre; complemento e reforço (este só se as básicas valem ≥ 50% do edital) enquanto couberem em 5 × orçamento diário. Com edital-alvo, entram as disciplinas do edital; sem ele, as da trilha. A distribuição tem duas passadas: blocos médicos como antes; básicas no dia útil com menos básicas, evitando repetir disciplina.
+- `utils/edital.ts` — pontos por item/prova, fatia das básicas, perfil para o cronograma, nota projetada (Certo/Errado líquido: acerto − penalidade × erro), status de cada mínimo (folga, no limite < 115%, abaixo) e divisão de tempo.
+- `utils/treino.ts` / `utils/flashcards.ts` / `utils/simulado.ts` — seleção por rodízio de temas (inéditas primeiro, texto-base junto), correção com penalidade; caixas de Leitner 1/3/7/15/30 dias com limite diário de novos; montagem do simulado item a item (formato da prova primeiro) e correção na escala do edital, com itens sem banco estimados pelo histórico.
 
 ## Camada 3 — Pipeline do Radar Sul
 
@@ -146,13 +154,15 @@ mergeWithOverlay(feed, overlay, manuais)
 
 ## Conteúdo e trilhas
 
-- **Eixos** (`src/data/types.ts`): `pericia` (Perícia, Previdência e Trabalho), `legal` (Medicina Legal), `clinica` (Clínica Médica e Urgência), `tronco` (SUS, Ética e Básicas).
+- **Eixos** (`src/data/types.ts`): `pericia` (Perícia, Previdência e Trabalho), `legal` (Medicina Legal, inclui Criminalística), `clinica` (Clínica Médica e Urgência), `tronco` (SUS, Epidemiologia e Ética Médica), `basicos` (Conhecimentos Básicos e Gerais: Português, Matemática, RLM, Inglês, Informática, Constitucional, Administrativo, Penal, Servidor, Ética/LAI/LGPD, Legislação geral, Regionais do Sul, Atualidades, Redação).
+- **Bancos de conteúdo** (`src/data/conteudo/`): um banco por disciplina (`bancos/<id>/index.ts` → `BancoConteudo`), acessado só por `carregar.ts` com `import()` de caminho literal. Na web, o Metro gera um arquivo por banco, baixado quando a disciplina é aberta e incluído no precache do service worker. Um teste barra imports estáticos de `bancos/`. `validar.ts` (usado por teste e por `npm run conteudo:validar`) confere ids, temas, alternativas, gabarito equilibrado, `verificar()` das contas, `fundamento` em disciplinas de lei e cobertura mínima por tema. O conteúdo é escrito por um autor e conferido por um revisor independente (regras em `docs/guia-de-conteudo.md`).
+- **Editais** (`src/data/editais.ts`): composição real de 15 provas lidas no PDF com `npm run edital` (`scripts/ler-edital.ts` + `scripts/lib/edital/`, funções puras testadas com fixture).
 - **Trilhas**: `generalista` (padrão, todos os eixos), `pericia` (perícia + clínica + tronco), `legista` (legal + tronco), `clinico` (clínica + tronco). Blocos de aprofundamento são exclusivos de uma trilha.
 - **Carreiras do generalista** (`src/data/carreiras.ts`): requisito, prova e trilha de cada cargo, com base no edital do Perito Médico Federal 2024 e nos editais recentes de legista no Sul.
 
 ## Testes
 
-Vitest cobre a lógica pura: revisão espaçada, agenda (trilhas, Plantão, redistribuição, compressão), métricas, classificador/geo, id/merge do Radar, parsers com fixtures reais e validação de backup. A UI é validada por `tsc --noEmit` e pelo build web (`expo export`).
+Vitest cobre a lógica pura: revisão espaçada, agenda (trilhas, Plantão, redistribuição, compressão, básicas por perfil e orçamento, ids legados congelados), métricas, edital e nota projetada, treino, flashcards, simulado, bancos de conteúdo (validador em todos os bancos registrados), migrações v1→v3, importação de backup v1–v4, classificador/geo, id/merge do Radar, parsers com fixtures reais e o leitor de editais. O CI (`deploy-web.yml`) roda `typecheck` e testes antes do build. A UI é validada por `tsc --noEmit`, pelo build web (`expo export`) e por roteiros no navegador.
 
 ## Decisões e trade-offs
 
@@ -164,4 +174,7 @@ Vitest cobre a lógica pura: revisão espaçada, agenda (trilhas, Plantão, redi
 | SPA em vez de estático | estado 100% local, sem SSR | SEO irrelevante para app pessoal |
 | Um registro por concurso × grupo de cargo | id estável mesmo se o texto da listagem mudar | prefeitura com Médico ESF e Médico do Trabalho gera dois cards |
 | Acesso (generalista × especialista) derivado da categoria, não gravado no feed | feeds antigos continuam válidos e a regra muda sem reprocessar | "Médico Auditor" ou perito de RPPS que exija especialização aparece como generalista — o card manda conferir o edital |
+| Bancos de conteúdo por `import()` em vez de JSON remoto | offline desde a instalação (precache), tipado e testado no CI, sem servidor | conteúdo novo exige nova versão do app |
+| Questões autorais "no estilo" das bancas | sem risco de direito autoral; comentário e fundamento próprios | volume menor que um banco comercial — o app ensina a combinar com Qconcursos/TEC |
+| Histórico do Treino como totais por questão | cabe no limite de ~5 MB do armazenamento web | não há replay de cada tentativa |
 | Migrações versionadas das stores (v1 → v2) | trilhas/eixos renomeados sem perder questões e revisões | marcações do cronograma antigo são descartadas (o plano foi reescrito) |

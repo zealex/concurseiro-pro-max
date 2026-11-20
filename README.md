@@ -2,11 +2,15 @@
 
 Preparação intensiva de **90 dias** para o **médico generalista / recém-formado** (graduação + CRM, sem residência) que vai prestar os concursos que não exigem especialidade — **Perito Médico Federal (INSS)** e peritos de regimes próprios, **Perito Médico-Legista** (Polícia Científica/IGP) e **Clínico Geral / ESF / Plantonista** — com Medicina Legal, perícia, previdência e saúde do trabalhador como eixos centrais. App universal (iOS, Android e navegador/PWA) no estilo Notion, com um **robô gratuito** que rastreia concursos médicos em PR, SC e RS a cada 12 horas, destacando as vagas abertas ao generalista (as de especialidade continuam no Radar).
 
+Além da parte médica, o app cobre os **Conhecimentos Básicos e Gerais** que decidem (e eliminam) nos concursos: Língua Portuguesa, Matemática, Raciocínio Lógico, Informática, Inglês, Direito Constitucional, Administrativo e Penal, regime do servidor, Ética/LAI/LGPD, legislação geral, regionais do Sul, atualidades e redação. Cada disciplina tem resumos, questões autorais comentadas no estilo das bancas e flashcards; o **Meu Edital** pesa o plano pela prova real (em prefeituras, as básicas chegam a 60–75% dos pontos) e o **Simulado** reproduz o formato do edital, com a penalidade do Certo/Errado e os mínimos de cada disciplina.
+
 | Entrega | Onde está |
 |---|---|
 | Guia de cursinhos, bibliografia, bancas e fontes oficiais | [docs/guia-cursinhos-bibliografia-e-fontes.md](docs/guia-cursinhos-bibliografia-e-fontes.md) |
 | Plano periodizado de 12 semanas (trilhas Generalista, Perícia, Legista e Clínico; Modo Plantão; revisões) | [docs/plano-estudos-90-dias.md](docs/plano-estudos-90-dias.md) |
-| Conteúdo tipado usado pelo app (plano, carreiras do generalista, checklists de leis/NRs, cheat sheets) | [src/data/](src/data/) |
+| Conteúdo tipado usado pelo app (plano, carreiras do generalista, checklists de leis/NRs, cheat sheets, editais, guias das fases) | [src/data/](src/data/) |
+| Bancos das básicas (resumos, questões comentadas, flashcards), carregados sob demanda | [src/data/conteudo/bancos/](src/data/conteudo/bancos/) · regras: [docs/guia-de-conteudo.md](docs/guia-de-conteudo.md) |
+| Composição real de 15 editais (questões, pesos, mínimos, fases) | [docs/editais-referencia.md](docs/editais-referencia.md) · [src/data/editais.ts](src/data/editais.ts) |
 | App universal (Expo + Expo Router + NativeWind) | [src/app/](src/app/) |
 | Robô do Radar Sul + base de concursos | [scripts/scrape-concursos-sul.ts](scripts/scrape-concursos-sul.ts) · [public/data/concursos-sul.json](public/data/concursos-sul.json) |
 | Automação (a cada 12 h) e publicação web | [.github/workflows/](.github/workflows/) |
@@ -126,23 +130,26 @@ Antes de publicar em loja, troque o identificador `br.com.concurseiropromax.app`
 | Comando | O que faz |
 |---|---|
 | `npm run web` / `npm start` | Servidor de desenvolvimento (web / QR code para celular) |
-| `npm test` | Testes (revisão espaçada, agenda, métricas, classificador, deduplicação, parsers com HTML real, backup) |
+| `npm test` | Testes (revisão espaçada, agenda, métricas, edital/nota projetada, simulado, treino, flashcards, bancos de conteúdo, migrações, classificador, deduplicação, parsers com HTML real, leitor de editais, backup) |
 | `npm run typecheck` | TypeScript estrito (`tsc --noEmit`) |
 | `npm run build:web` | Build web + PWA em `dist/` |
 | `npm run scrape` / `npm run scrape:dry` | Robô do Radar Sul |
 | `npm run docs:plano` | Regera o detalhamento semanal de `docs/plano-estudos-90-dias.md` a partir de `src/data/plano12Semanas.ts` |
+| `npm run conteudo:validar` | Valida os bancos de conteúdo (gabaritos equilibrados, `verificar()` das contas, `fundamento` nas questões de lei, cobertura por tema); `-- --arquivo <banco>/index.ts` valida um banco ainda não registrado |
+| `npm run edital -- <url\|pdf> [--grep re] [--secao "CONTEÚDO PROGRAMÁTICO"] [--quadro] [--paginas a-b] [--imagens a-b]` | Lê o PDF de um edital (pdftotext/Poppler, com `unpdf` como alternativa) e extrai seções, quadro de provas e páginas como imagem |
 | `npm run icons` | Regera ícones do app e do PWA |
 | `npm run doctor` | Verifica compatibilidade das dependências com o SDK do Expo |
 
 ## 7. Como o app funciona (resumo)
 
-- **Dashboard de Prontidão:** contagem regressiva (90 dias ou a prova escolhida no Radar), questões, % de acerto global e nos quatro eixos (Perícia, Medicina Legal, Clínica, SUS/Ética), horas líquidas da semana, ofensiva, os 3 temas abaixo de 70% e os últimos editais do Sul **abertos ao generalista**.
-- **Cronograma:** checklist diário gerado do plano de 12 semanas para a trilha escolhida; botão **Modo Plantão** (45–60 min); blocos não feitos são **redistribuídos** nos próximos dias (até +1 h/dia); se a prova-alvo estiver perto, o plano é **comprimido** automaticamente.
+- **Dashboard de Prontidão:** contagem regressiva (90 dias ou a prova escolhida no Radar), questões, % de acerto global e nos cinco eixos (Perícia, Medicina Legal, Clínica, SUS/Ética, Conhecimentos Básicos), atalho para o Meu Edital, horas líquidas da semana, ofensiva, os 3 temas abaixo de 70% e os últimos editais do Sul **abertos ao generalista**.
+- **Cronograma:** checklist diário gerado do plano de 12 semanas para a trilha escolhida, com **básicas todos os dias** (núcleo, complemento e reforço conforme o edital-alvo) e orçamento diário de **3 h a 6 h**; botão **Modo Plantão** (45–60 min); blocos não feitos são **redistribuídos** nos próximos dias (até +1 h/dia); se a prova-alvo estiver perto, o plano é **comprimido** automaticamente; tarefa **Flashcards do dia** quando há cartões vencidos.
+- **Meu Edital:** escolha um dos editais de referência (ou monte o seu) com questões, pesos, mínimos e fases. O app mostra o peso das básicas, a divisão de tempo, a **nota projetada** com o seu desempenho e o **risco de eliminação** por disciplina, e ajusta o cronograma.
 - **Radar Sul:** abre em **"Para generalista"** (perícia, legista, clínico/ESF) com um toque para **Todos** ou **Especialidades**; tabela (desktop) ou lista (celular) e **Kanban** (*Novo/Radar → Analisando → Inscrito → Prova Agendada → Finalizado*), filtros por estado, cidade/órgão, categoria (Clínico/ESF, Perícia Médica, Médico Legista, Medicina do Trabalho, Especialidades), banca e status, selo **NOVO** (7 dias), **Definir como Prova-Alvo** (com desfazer) e cadastro manual.
-- **Questões:** registro rápido de baterias/simulados, desempenho por disciplina e banca, **revisões D1/D7/D15/D30** e **Caderno de Erros**.
-- **Biblioteca:** **Concursos para o generalista** (requisitos, prova e trilha de cada carreira), cursinhos, bibliografia, bancas, fontes oficiais, filtros de bancos de questões, **checklists interativos** (Lei 8.213 — benefícios e acidente; Lei 8.742 — BPC; Lei 8.112 — saúde do servidor; Decreto 3.048; CLT 154–201; NRs 01, 04, 05, 06, 07, 09, 15, 16, 17, 32; CPP 158–184; CP 121–129; SUS) e **cheat sheets** (perícia previdenciária, nexo/NTEP/CAT, urgências do plantão, cronotanatognose, PAF, asfixias, indicadores biológicos, lesão corporal, prazos de NRs).
+- **Questões:** **Treino** com questões autorais comentadas (modo estudo com correção na hora ou modo prova com cronômetro), **Flashcards** com caixas de Leitner (1/3/7/15/30 dias), **Simulado** no formato do edital (tempo proporcional, Certo/Errado com −0,5, resultado por prova com mínimos), registro rápido de baterias feitas em outros bancos, desempenho por disciplina e banca, **revisões D1/D7/D15/D30** e **Caderno de Erros**.
+- **Biblioteca:** **Conhecimentos Básicos** (página por disciplina com resumos por tema, treino e flashcards), **Guias das fases** (estratégia de prova, recursos, discursiva/laudo, títulos, TAF, psicológica, investigação social, posse), **Editais de referência**, **Concursos para o generalista** (requisitos, prova e trilha de cada carreira), cursinhos, bibliografia, bancas, fontes oficiais, filtros de bancos de questões, **checklists interativos** (Lei 8.213 — benefícios e acidente; Lei 8.742 — BPC; Lei 8.112 — saúde do servidor; Decreto 3.048; CLT 154–201; NRs 01, 04, 05, 06, 07, 09, 15, 16, 17, 32; CPP 158–184; CP 121–129; SUS) e **cheat sheets** (perícia previdenciária, nexo/NTEP/CAT, urgências do plantão, cronotanatognose, PAF, asfixias, indicadores biológicos, lesão corporal, prazos de NRs).
 - **Timer de Foco:** Pomodoro por timestamp (não perde tempo ao trocar de aba) vinculado à disciplina.
-- **Backup:** Configurações → Exportar/Importar progresso (`.json`).
+- **Backup:** Configurações → Exportar/Importar progresso (`.json`), incluindo o histórico do Treino e dos flashcards; backups de versões anteriores continuam importáveis.
 
 ## 8. Privacidade
 

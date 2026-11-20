@@ -425,17 +425,45 @@ A clínica é a matéria que o recém-formado já domina melhor — o trabalho a
 - **CEM — Cap. IX (sigilo)**: Art. 73 (salvo motivo justo, dever legal ou consentimento por escrito); Art. 76 (vedado revelar informações confidenciais do exame de trabalhadores, inclusive a pedido da empresa, salvo risco à saúde dos empregados ou da comunidade); Art. 77 (seguradoras).
 - **CEM — Cap. XI (auditoria e perícia)**: vedado assinar laudo sem ter examinado pessoalmente (Art. 92); ser perito do próprio paciente, de familiar ou de pessoa com relação capaz de influir (Art. 93); intervir em atos de outro médico ou opinar diante do examinado (Art. 94); periciar em dependências de delegacias, unidades militares, casas de detenção e presídios (Art. 95); remuneração vinculada a glosa ou sucesso da causa (Art. 96); modificar tratamento do assistente salvo urgência (Art. 97); atuar sem absoluta isenção (Art. 98).
 
-### 11.3 Estratégia de sobrevivência nas básicas
+### 11.3 Conhecimentos Básicos: o peso real
 
-| Disciplina | Meta | Como |
+Os editais lidos no PDF (detalhes em [editais-referencia.md](editais-referencia.md)) mostram que as básicas **não são acessórias**:
+
+| Tipo de prova | Exemplo | Peso das básicas |
 |---|---|---|
-| Português | Não zerar; buscar a nota mínima com folga | Concordância, regência, crase, pontuação e interpretação; 20 questões/semana da banca-alvo |
-| Raciocínio Lógico | Garantir as fáceis | Proposições, equivalências (contrapositiva, De Morgan), porcentagem, regra de três |
-| Informática | Garantir as fáceis | Atalhos, segurança (phishing, malware), nuvem; somente se o edital cobrar |
-| Dir. Administrativo / Constitucional | Princípios e servidores | LIMPE, atos administrativos, agentes públicos, Lei 8.112 (Perito Médico Federal) ou estatuto do município/estado do edital |
-| Ética no serviço público | Garantir as fáceis (Perito Médico Federal) | Decreto 1.171/94, Decreto 6.029/2007, Lei 12.813/2013, LAI e LGPD |
+| Prefeitura (FUNDATEC) | Médico Clínico Geral, 2025–2026: Português, Legislação, Informática e RLM | ≈ 60–67% das questões |
+| Prefeitura (Objetiva) | Médico ESF 2026: Português, Matemática/RLM, Conhecimentos Gerais e Legislação | ≈ 75% das questões |
+| Perito Médico Federal (Cebraspe) | P1 com 50 itens de Português, Ética, Constitucional, Administrativo e Informática, mínimo de 10 pontos; erro = −0,5 | 50 de 120 itens, com mínimo próprio |
+| Perícia oficial (IBFC, IGP, PF) | Português, Direito Penal/Processual, RLM/raciocínio científico, Informática, Inglês (PF) | grande, com mínimo por bloco |
 
-Regra: as básicas recebem no máximo **15–20%** do tempo e entram como blocos curtos de questões. Ao sair o edital, verifique se há **nota mínima por disciplina** — se houver, a sobrevivência nas básicas vira prioridade.
+Por isso o app trata as básicas como o 5º eixo (**Conhecimentos Básicos e Gerais**), com estudo todos os dias, em vez de blocos esporádicos:
+
+- **Núcleo** (sempre): Português, RLM/Matemática, Informática, Legislação/servidor.
+- **Complemento**: Constitucional, Administrativo, Ética/LAI/LGPD, regionais, atualidades.
+- **Reforço**: entra quando as básicas valem **≥ 50%** dos pontos do edital-alvo.
+
+O tempo diário vai de 3 h a 6 h, e a seleção corta primeiro o reforço quando o orçamento é menor.
+
+| Disciplina | Meta | Como (no app) |
+|---|---|---|
+| Português | Folga sobre o mínimo; interpretação é o bloco que mais pesa | Resumos por tema + Treino com textos-base + 20–30 questões/semana da banca-alvo |
+| Matemática / RLM | Garantir porcentagem, regra de três, proposições e equivalências | Resumos com exemplos resolvidos; questões de cálculo conferidas por `verificar()` |
+| Informática | Garantir atalhos, Excel (funções), segurança e nuvem | Resumos com a versão do software; flashcards de atalhos |
+| Legislação / servidor | Ler a lei seca do edital (estatuto e Lei Orgânica do município, Lei 8.112 no federal) | Resumo de método + checklists de lei seca |
+| Constitucional / Administrativo / Ética | Princípios, art. 5º, arts. 37–41, atos, improbidade, LAI, LGPD | Questões com `fundamento` (artigo exato) |
+
+Regra: monte o **Meu Edital** assim que o edital sair. Ele mostra a fatia das básicas, a nota projetada e o **risco de eliminação** por disciplina; o mínimo por disciplina vira prioridade quando estiver "no limite" ou "abaixo".
+
+### 11.4 Bibliografia e fontes das básicas
+
+| Disciplina | Referência |
+|---|---|
+| Português | *Manual de Redação da Presidência da República*, 3ª ed. (2018) — gratuito no gov.br; VOLP (ABL); Acordo Ortográfico (Decreto 6.583/2008); gramáticas de referência (Bechara; Cunha & Cintra) |
+| Matemática / RLM | Material do próprio app + questões da banca-alvo (não há "lei seca"; o que conta é volume de exercícios) |
+| Informática | Suporte oficial da Microsoft (Windows 11, Microsoft 365), ajuda do LibreOffice, *Cartilha de Segurança para Internet* (CERT.br), portal do SEI (gov.br) |
+| Direito | Texto compilado no Planalto: CF/88, Lei 8.112, Lei 8.429 (com a Lei 14.230/2021), Lei 9.784, Lei 14.133, CP e CPP, Lei 13.869 |
+| Ética, LAI e LGPD | Decreto 1.171/1994, Decreto 6.029/2007, Lei 12.813/2013, Lei 12.527/2011, Lei 13.709/2018 (Planalto) e guias da ANPD |
+| Regionais e atualidades | IBGE Cidades, sites oficiais dos governos de PR, SC e RS, Agência Brasil, Agências Senado/Câmara |
 
 ---
 
@@ -482,6 +510,15 @@ Regra: as básicas recebem no máximo **15–20%** do tempo e entram como blocos
 1. Filtre por **concurso-alvo** (quando houver) — os filtros por edital puxam questões da mesma banca e cargo.
 2. Ative **apenas questões comentadas por professor** nos temas novos; desative nos de revisão (ganha velocidade).
 3. Exporte/registre o resultado de cada bateria no app (eixo, tema, banca, total, acertos).
+
+### 13.4 Filtros para as básicas
+
+1. **Disciplina**: "Língua Portuguesa", "Matemática", "Raciocínio Lógico", "Noções de Informática", "Direito Administrativo", "Direito Constitucional", "Ética no Serviço Público", "Legislação" (estatutos), "Conhecimentos Gerais/Atualidades".
+2. **Banca**: a do edital-alvo — nas básicas o estilo da banca pesa mais que o cargo.
+3. **Cargo/escolaridade**: em vez de "Médico", filtre por **nível superior** (as questões de básicas costumam ser as mesmas para todos os cargos de nível superior do concurso).
+4. **Órgão**: prefeituras da mesma banca no mesmo estado (FUNDATEC/RS, FEPESE/SC, etc.) — os estatutos e as leis orgânicas mudam, o estilo não.
+5. **Ano**: Informática e Legislação só dos últimos 3–4 anos (versões de software e leis mudam); Português e RLM aceitam anos anteriores.
+6. Registre no app com a **disciplina** marcada: o desempenho alimenta a nota projetada do Meu Edital.
 
 ### 13.4 Regras de uso
 
