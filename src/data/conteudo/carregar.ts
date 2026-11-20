@@ -18,6 +18,7 @@ export const CARREGADORES: Record<string, () => Promise<{ default: BancoConteudo
   matematica: () => import('./bancos/matematica'),
   'raciocinio-logico': () => import('./bancos/raciocinio-logico'),
   'nocoes-informatica': () => import('./bancos/nocoes-informatica'),
+  'direito-constitucional': () => import('./bancos/direito-constitucional'),
 };
 
 const cache = new Map<string, Promise<BancoConteudo>>();
