@@ -1,5 +1,5 @@
 import { useLocalSearchParams, useRouter } from 'expo-router';
-import { ArrowLeft, ExternalLink, Target, Trash2 } from 'lucide-react-native';
+import { ArrowLeft, ClipboardList, ExternalLink, Target, Trash2 } from 'lucide-react-native';
 import { useMemo, useState } from 'react';
 import { Linking, Pressable, Text, TextInput, View } from 'react-native';
 import { StatusBotao } from '@/components/radar/ConcursoCard';
@@ -25,6 +25,18 @@ function Propriedade({ rotulo, valor }: { rotulo: string; valor: string }) {
 
 function abrir(url: string) {
   void Linking.openURL(url).catch(() => {});
+}
+
+/** Página do município no IBGE Cidades (história, população, economia — base de "Conhecimentos Gerais"). */
+function urlIbgeCidades(uf: string, cidade: string): string {
+  const slug = cidade
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .toLowerCase()
+    .replace(/['’]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+  return `https://cidades.ibge.gov.br/brasil/${uf.toLowerCase()}/${slug}/panorama`;
 }
 
 export default function DetalheConcurso() {
@@ -92,6 +104,10 @@ export default function DetalheConcurso() {
         <Button variante={ehAlvo ? 'secundario' : 'primario'} icone={Target} titulo={ehAlvo ? 'Prova-alvo atual ✓' : 'Definir como Prova-Alvo'} onPress={clicarAlvo} />
         {c.editalUrl ? <Button icone={ExternalLink} titulo="Edital / notícia" onPress={() => abrir(c.editalUrl!)} /> : null}
         {c.inscricaoUrl ? <Button icone={ExternalLink} titulo="Página da banca" onPress={() => abrir(c.inscricaoUrl!)} /> : null}
+        <Button icone={ClipboardList} titulo="Montar meu edital" onPress={() => router.push(`/edital?banca=${encodeURIComponent(c.banca ?? '')}`)} />
+        {/prefeitura|munic[ií]pio/i.test(c.orgao) ? (
+          <Button icone={ExternalLink} titulo="Município no IBGE Cidades" onPress={() => abrir(urlIbgeCidades(c.uf, c.cidade))} />
+        ) : null}
       </View>
 
       <Card className="mb-5">

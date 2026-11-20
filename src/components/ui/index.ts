@@ -5,3 +5,4 @@ export { Callout, Campo, Checkbox, EmptyState, ProgressBar, Segmented, Seletor, 
 export * from './Toast';
 export * from './Screen';
 export * from './DataTable';
+export * from './LinkExterno';

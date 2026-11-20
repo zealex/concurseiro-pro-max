@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import type { AgendaDia } from '@/domain/types';
 import { mesclarComOverlay, type ConcursoView } from '@/shared/concursos/overlay';
 import { addDays, diffDays, todayKey, type DateKey } from '@/utils/dates';
+import { desempenhoPorDisciplina, perfilBasicas, projetarNota, type MapaDesempenho, type ProjecaoEdital } from '@/utils/edital';
 import { ofensiva, minutosNaSemana, placar, pontosFracos, porEixo, type PontoFraco } from '@/utils/metrics';
 import { montarAgenda, TOTAL_SEMANAS_PLANO, type ConfigAgenda } from '@/utils/scheduler';
 import { revisoesDevidas } from '@/utils/spacedRepetition';
@@ -40,10 +41,27 @@ export function useConfigAgenda(): ConfigAgenda {
   const orcamentoMin = useSettingsStore((s) => s.orcamentoMin);
   const diasPlantao = useSettingsStore((s) => s.diasPlantao);
   const provaAlvo = useSettingsStore((s) => s.provaAlvo);
+  // Seleciona a referência estável do edital e deriva o perfil com useMemo (um seletor que cria
+  // objeto novo a cada chamada faria o zustand v5 re-renderizar em loop).
+  const editalAlvo = useSettingsStore((s) => s.editalAlvo);
+  const basicas = useMemo(() => perfilBasicas(editalAlvo), [editalAlvo]);
   return useMemo(
-    () => ({ trilha, dataInicio, orcamentoMin, diasPlantao, provaAlvo: provaAlvo?.data ?? null }),
-    [trilha, dataInicio, orcamentoMin, diasPlantao, provaAlvo],
+    () => ({ trilha, dataInicio, orcamentoMin, diasPlantao, provaAlvo: provaAlvo?.data ?? null, basicas }),
+    [trilha, dataInicio, orcamentoMin, diasPlantao, provaAlvo, basicas],
   );
+}
+
+/** Desempenho por disciplina (todas as sessões) — base da nota projetada do Meu Edital. */
+export function useDesempenhoPorDisciplina(): MapaDesempenho {
+  const sessoes = useQuestoesStore((s) => s.sessoes);
+  return useMemo(() => desempenhoPorDisciplina(sessoes), [sessoes]);
+}
+
+/** Projeção da nota no edital-alvo (null sem edital). */
+export function useProjecaoEdital(): ProjecaoEdital | null {
+  const edital = useSettingsStore((s) => s.editalAlvo);
+  const desempenho = useDesempenhoPorDisciplina();
+  return useMemo(() => (edital ? projetarNota(edital, desempenho) : null), [edital, desempenho]);
 }
 
 export function useAgenda(data: DateKey): AgendaDia {

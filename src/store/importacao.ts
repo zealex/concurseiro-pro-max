@@ -1,4 +1,5 @@
 import { BACKUP_VERSAO, type Backup } from '@/shared/backup';
+import { editalValidoOuNulo } from '@/shared/edital';
 import { migrarCronograma, migrarQuestoes, migrarSettings } from './migracoes';
 
 /**
@@ -26,9 +27,12 @@ export function versoesDoBackup(schemaVersion: number): VersoesStores {
 
 export function prepararImportacao(b: Backup): DadosBackup {
   const v = versoesDoBackup(b.schemaVersion);
+  const settings = b.data.settings ? migrarSettings(b.data.settings, v.settings) : undefined;
+  // Edital-alvo malformado no arquivo vira null (o app segue sem edital).
+  if (settings && 'editalAlvo' in settings) settings.editalAlvo = editalValidoOuNulo(settings.editalAlvo);
   return {
     ...b.data,
-    settings: b.data.settings ? migrarSettings(b.data.settings, v.settings) : undefined,
+    settings,
     questoes: b.data.questoes ? migrarQuestoes(b.data.questoes, v.questoes) : undefined,
     cronograma: b.data.cronograma ? migrarCronograma(b.data.cronograma, v.cronograma) : undefined,
   };

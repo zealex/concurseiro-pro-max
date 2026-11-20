@@ -1,3 +1,4 @@
+import { useRouter } from 'expo-router';
 import { ChevronLeft, ChevronRight, Zap } from 'lucide-react-native';
 import { useMemo, useState } from 'react';
 import { Pressable, Text, View } from 'react-native';
@@ -27,6 +28,8 @@ const GRUPOS: { titulo: string; filtro: (t: TarefaAgenda) => boolean }[] = [
 ];
 
 export default function Cronograma() {
+  const router = useRouter();
+  const editalAlvo = useSettingsStore((s) => s.editalAlvo);
   const hoje = useHoje();
   const [data, setData] = useState(hoje);
   const agenda = useAgenda(data);
@@ -64,6 +67,11 @@ export default function Cronograma() {
               toast(`Foco alterado: ${TRILHA_LABEL[t]}`);
             }}
           />
+          <Pressable onPress={() => router.push('/edital')} accessibilityRole="link" className="-mt-1 mb-3 self-start">
+            <Muted>
+              {editalAlvo ? `📋 Básicas pesadas pelo edital: ${editalAlvo.nome} (trocar)` : '📋 Escolha seu edital para o cronograma pesar as básicas certas →'}
+            </Muted>
+          </Pressable>
 
           {/* Navegação de dia + Modo Plantão */}
           <Card className="mb-4">

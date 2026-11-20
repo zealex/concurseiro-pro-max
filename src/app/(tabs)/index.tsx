@@ -8,7 +8,8 @@ import { getCheatSheet } from '@/data/cheatSheets';
 import { getChecklist } from '@/data/checklistsLeiSeca';
 import { EIXO_LABEL, EIXOS, TRILHA_LABEL } from '@/data/types';
 import { CATEGORIA_CURTA } from '@/shared/concursos/schema';
-import { useAgenda, useConcursos, useContagem, useHoje, useMetricas, usePontosFracos } from '@/store/selectors';
+import { useAgenda, useConcursos, useContagem, useHoje, useMetricas, usePontosFracos, useProjecaoEdital } from '@/store/selectors';
+import { fatiaBasicas } from '@/utils/edital';
 import { useSettingsStore } from '@/store/useSettingsStore';
 import { COR_CATEGORIA, COR_EIXO, COR_UF, useCores } from '@/theme/cores';
 import { formatBR, formatLongo } from '@/utils/dates';
@@ -26,6 +27,8 @@ export default function Dashboard() {
   const agenda = useAgenda(hoje);
   const trilha = useSettingsStore((s) => s.trilha);
   const togglePlantao = useSettingsStore((s) => s.togglePlantao);
+  const edital = useSettingsStore((s) => s.editalAlvo);
+  const projecao = useProjecaoEdital();
   const concursos = useConcursos();
   const ultimos = useMemo(
     () =>
@@ -130,6 +133,40 @@ export default function Dashboard() {
 
         {/* Coluna lateral */}
         <View className="lg:w-[380px]">
+          <Section titulo="📋 Meu Edital" acao={<Button pequeno variante="fantasma" titulo={edital ? 'Abrir' : 'Escolher'} onPress={() => router.push('/edital')} />}>
+            {edital && projecao ? (
+              <Pressable onPress={() => router.push('/edital')} accessibilityRole="button">
+                <Card>
+                  <Txt numberOfLines={2} className="font-medium">
+                    {edital.nome}
+                  </Txt>
+                  <Muted>Básicas = {Math.round(fatiaBasicas(edital) * 100)}% dos pontos</Muted>
+                  {projecao.cobertura > 0 ? (
+                    <>
+                      <Row className="mt-2 items-center justify-between">
+                        <Txt>Nota projetada</Txt>
+                        <Txt className="font-semibold">
+                          {projecao.pontos === null ? '—' : projecao.pontos.toLocaleString('pt-BR', { maximumFractionDigits: 1 })} / {projecao.maximo.toLocaleString('pt-BR', { maximumFractionDigits: 2 })}
+                        </Txt>
+                      </Row>
+                      {projecao.riscoEliminacao ? (
+                        <Text className="mt-1 text-[13px] text-red-600 dark:text-red-400">🚨 Risco de eliminação por nota mínima — veja as disciplinas em vermelho.</Text>
+                      ) : (
+                        <Muted className="mt-1">Mínimos do edital atendidos com o desempenho atual.</Muted>
+                      )}
+                    </>
+                  ) : (
+                    <Muted className="mt-2">Registre questões com a disciplina marcada para ver a nota projetada.</Muted>
+                  )}
+                </Card>
+              </Pressable>
+            ) : (
+              <Callout emoji="🎯">
+                <Txt>Escolha o edital do seu concurso: o cronograma passa a pesar as básicas certas e o app projeta sua nota e o risco de eliminação.</Txt>
+              </Callout>
+            )}
+          </Section>
+
           <Section titulo="⚠️ Radar de pontos fracos">
             {fracos.length ? (
               fracos.map((p) => (

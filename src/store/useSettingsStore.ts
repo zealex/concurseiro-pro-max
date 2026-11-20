@@ -2,6 +2,7 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import type { Trilha } from '@/data/types';
 import type { ProvaAlvo } from '@/domain/types';
+import { editalValidoOuNulo, type EditalAlvo } from '@/shared/edital';
 import { STORE_KEYS } from '@/services/storage/keys';
 import { zustandStorage } from '@/services/storage/zustandAdapter';
 import { todayKey, type DateKey } from '@/utils/dates';
@@ -19,6 +20,8 @@ export interface SettingsData {
   feedUrl: string;
   tema: PreferenciaTema;
   bancaAlvo: string;
+  /** Composição da prova-alvo ("Meu Edital"); pesa as básicas no cronograma e projeta a nota. */
+  editalAlvo: EditalAlvo | null;
 }
 
 interface SettingsState extends SettingsData {
@@ -30,6 +33,8 @@ interface SettingsState extends SettingsData {
   setFeedUrl: (url: string) => void;
   setTema: (t: PreferenciaTema) => void;
   setBancaAlvo: (b: string) => void;
+  /** Grava o edital-alvo (inválido vira null). */
+  setEditalAlvo: (e: EditalAlvo | null) => void;
 }
 
 export const settingsPadrao = (): SettingsData => ({
@@ -41,6 +46,7 @@ export const settingsPadrao = (): SettingsData => ({
   feedUrl: '',
   tema: 'sistema',
   bancaAlvo: '',
+  editalAlvo: null,
 });
 
 export const useSettingsStore = create<SettingsState>()(
@@ -58,13 +64,19 @@ export const useSettingsStore = create<SettingsState>()(
       setFeedUrl: (feedUrl) => set({ feedUrl: feedUrl.trim() }),
       setTema: (tema) => set({ tema }),
       setBancaAlvo: (bancaAlvo) => set({ bancaAlvo }),
+      setEditalAlvo: (e) => set({ editalAlvo: editalValidoOuNulo(e) }),
     }),
     {
       name: STORE_KEYS.settings,
       storage: zustandStorage,
       version: VERSAO_SETTINGS,
       migrate: (persistido, versao) => migrarSettings(persistido, versao) as unknown as SettingsState,
-      partialize: ({ trilha, dataInicio, orcamentoMin, diasPlantao, provaAlvo, feedUrl, tema, bancaAlvo }) => ({
+      // Um edital salvo corrompido não pode quebrar a agenda: valida na reidratação.
+      merge: (persistido, atual) => {
+        const p = (persistido ?? {}) as Partial<SettingsData>;
+        return { ...atual, ...p, editalAlvo: editalValidoOuNulo(p.editalAlvo) };
+      },
+      partialize: ({ trilha, dataInicio, orcamentoMin, diasPlantao, provaAlvo, feedUrl, tema, bancaAlvo, editalAlvo }) => ({
         trilha,
         dataInicio,
         orcamentoMin,
@@ -73,6 +85,7 @@ export const useSettingsStore = create<SettingsState>()(
         feedUrl,
         tema,
         bancaAlvo,
+        editalAlvo,
       }),
     },
   ),

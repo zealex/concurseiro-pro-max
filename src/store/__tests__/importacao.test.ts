@@ -51,6 +51,21 @@ describe('prepararImportacao', () => {
     expect(VERSOES_STORES[BACKUP_VERSAO]).toEqual({ settings: VERSAO_SETTINGS, questoes: VERSAO_QUESTOES, cronograma: VERSAO_CRONOGRAMA });
   });
 
+  it('edital-alvo malformado no backup vira null; válido é mantido', () => {
+    const ruim = prepararImportacao(backup(BACKUP_VERSAO, { settings: { trilha: 'clinico', editalAlvo: { nome: 'quebrado' } } }));
+    expect(ruim.settings?.editalAlvo).toBeNull();
+    const edital = {
+      baseId: null,
+      nome: 'Meu edital',
+      banca: 'X',
+      provas: [{ id: 'p', nome: 'Prova', formato: 'multipla', itens: [{ rotulo: 'Português', disciplinaIds: ['lingua-portuguesa'], questoes: 10, peso: 1 }] }],
+      minimoTotal: null,
+      fases: [],
+    };
+    const ok = prepararImportacao(backup(BACKUP_VERSAO, { settings: { editalAlvo: edital } }));
+    expect(ok.settings?.editalAlvo).toEqual(edital);
+  });
+
   it('stores ausentes continuam ausentes (a tela aplica os padrões)', () => {
     const d = prepararImportacao(backup(2, {}));
     expect(d.settings).toBeUndefined();

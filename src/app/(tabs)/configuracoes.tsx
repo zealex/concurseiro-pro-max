@@ -1,4 +1,5 @@
 import Constants from 'expo-constants';
+import { useRouter } from 'expo-router';
 import { Download, RefreshCw, Upload } from 'lucide-react-native';
 import { useState } from 'react';
 import { View } from 'react-native';
@@ -15,6 +16,7 @@ import { horasMinutos } from '@/utils/format';
 import { OPCOES_ORCAMENTO } from '@/utils/scheduler';
 
 export default function Configuracoes() {
+  const router = useRouter();
   const toast = useToast();
   const s = useSettingsStore();
   const sincronizando = useRadarStore((r) => r.sincronizando);
@@ -101,6 +103,17 @@ export default function Configuracoes() {
               />
             ) : null}
           </Row>
+        </Card>
+      </Section>
+
+      <Section titulo="Meu Edital">
+        <Card>
+          <Muted className="mb-2">
+            {s.editalAlvo
+              ? `Edital-alvo: ${s.editalAlvo.nome}. O cronograma pesa as básicas deste edital e o Dashboard projeta sua nota.`
+              : 'Sem edital-alvo: as básicas seguem o padrão da trilha. Escolha o edital do seu concurso para o app pesar as disciplinas certas.'}
+          </Muted>
+          <Button titulo={s.editalAlvo ? 'Abrir Meu Edital' : 'Escolher edital'} onPress={() => router.push('/edital')} className="self-start" />
         </Card>
       </Section>
 

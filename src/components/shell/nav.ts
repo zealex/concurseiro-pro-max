@@ -1,7 +1,7 @@
-import { BookOpen, CalendarCheck, LayoutDashboard, ListChecks, Radar, Settings, Timer, type LucideIcon } from 'lucide-react-native';
+import { BookOpen, CalendarCheck, ClipboardList, LayoutDashboard, ListChecks, Radar, Settings, Timer, type LucideIcon } from 'lucide-react-native';
 
 export interface ItemNav {
-  rota: '/' | '/cronograma' | '/radar' | '/questoes' | '/biblioteca' | '/foco' | '/configuracoes';
+  rota: '/' | '/cronograma' | '/radar' | '/questoes' | '/biblioteca' | '/edital' | '/foco' | '/configuracoes';
   nome: string;
   rotulo: string;
   emoji: string;
@@ -16,6 +16,7 @@ export const NAV: ItemNav[] = [
   { rota: '/radar', nome: 'radar', rotulo: 'Radar Sul', emoji: '📡', icone: Radar, aba: true },
   { rota: '/questoes', nome: 'questoes', rotulo: 'Questões', emoji: '🎯', icone: ListChecks, aba: true },
   { rota: '/biblioteca', nome: 'biblioteca', rotulo: 'Biblioteca', emoji: '📚', icone: BookOpen, aba: true },
+  { rota: '/edital', nome: 'edital', rotulo: 'Meu Edital', emoji: '📋', icone: ClipboardList, aba: false },
   { rota: '/foco', nome: 'foco', rotulo: 'Timer de Foco', emoji: '⏱️', icone: Timer, aba: false },
   { rota: '/configuracoes', nome: 'configuracoes', rotulo: 'Configurações', emoji: '⚙️', icone: Settings, aba: false },
 ];
