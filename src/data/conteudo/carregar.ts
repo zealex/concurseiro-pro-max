@@ -13,8 +13,10 @@ import type { BancoConteudo } from '../types';
  * e acrescente uma linha abaixo.
  */
 export const CARREGADORES: Record<string, () => Promise<{ default: BancoConteudo }>> = {
+  'lingua-portuguesa': () => import('./bancos/lingua-portuguesa'),
   matematica: () => import('./bancos/matematica'),
   'raciocinio-logico': () => import('./bancos/raciocinio-logico'),
+  'nocoes-informatica': () => import('./bancos/nocoes-informatica'),
 };
 
 const cache = new Map<string, Promise<BancoConteudo>>();
