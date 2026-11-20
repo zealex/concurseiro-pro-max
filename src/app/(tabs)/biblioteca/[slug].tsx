@@ -3,6 +3,9 @@ import { ArrowLeft, ExternalLink } from 'lucide-react-native';
 import type { ReactNode } from 'react';
 import { Linking, Pressable, Text, View } from 'react-native';
 import { Button, Callout, Card, Checkbox, DataTable, EmptyState, H3, Label, Muted, Row, Screen, Section, Tag, Toggle, Txt } from '@/components/ui';
+import { PaginaDisciplina } from '@/components/biblioteca/PaginaDisciplina';
+import { PaginaEditais } from '@/components/biblioteca/PaginaEditais';
+import { PaginaResumo } from '@/components/biblioteca/PaginaResumo';
 import { BANCAS } from '@/data/bancas';
 import { CARREIRAS_GENERALISTA } from '@/data/carreiras';
 import { getCheatSheet } from '@/data/cheatSheets';
@@ -52,8 +55,11 @@ export default function PaginaBiblioteca() {
 
   if (s.startsWith('checklist-')) return <PaginaChecklist id={s.slice('checklist-'.length)} />;
   if (s.startsWith('cheat-')) return <PaginaCheat id={s.slice('cheat-'.length)} />;
+  if (s.startsWith('disciplina-')) return <PaginaDisciplina disciplinaId={s.slice('disciplina-'.length)} />;
+  if (s.startsWith('resumo-')) return <PaginaResumo temaId={s.slice('resumo-'.length)} />;
 
   const paginas: Record<string, () => ReactNode> = {
+    editais: PaginaEditais,
     'concursos-generalista': PaginaCarreiras,
     cursinhos: PaginaCursinhos,
     bibliografia: PaginaBibliografia,
@@ -194,6 +200,7 @@ function PaginaBancas() {
             <Muted>{b.regiao}</Muted>
             <Txt className="mt-1 text-[14px]">{b.estilo}</Txt>
             <Muted className="mt-1">Como treinar: {b.comoTreinar}</Muted>
+            {b.basicas ? <Muted className="mt-1">📚 Básicas: {b.basicas}</Muted> : null}
           </Card>
         ))}
       </Section>
@@ -204,6 +211,7 @@ function PaginaBancas() {
             <Muted>{b.regiao}</Muted>
             <Txt className="mt-1 text-[14px]">{b.estilo}</Txt>
             <Muted className="mt-1">Como treinar: {b.comoTreinar}</Muted>
+            {b.basicas ? <Muted className="mt-1">📚 Básicas: {b.basicas}</Muted> : null}
           </Card>
         ))}
       </Section>

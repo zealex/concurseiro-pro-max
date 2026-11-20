@@ -8,6 +8,7 @@ export const STORE_KEYS = {
   radar: 'radar',
   checklist: 'checklist',
   focus: 'focus',
+  treino: 'treino',
 } as const;
 
 export type StoreKey = keyof typeof STORE_KEYS;

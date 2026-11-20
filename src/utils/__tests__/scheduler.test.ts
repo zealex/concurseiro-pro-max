@@ -221,6 +221,16 @@ describe('agenda do dia', () => {
     expect(ada?.titulo).toContain('Projéteis');
     expect(a.minutosPlanejados).toBeLessThanOrEqual(240);
   });
+  it('flashcards vencidos viram a tarefa "Flashcards do dia" (10 min no plantão)', () => {
+    const dia = addDays(INICIO, 2);
+    const normal = montarAgenda(dia, cfg(), { ...vazio, flashcardsDevidos: 40 });
+    const fla = normal.tarefas.find((t) => t.id === `fla:${dia}`);
+    expect(fla?.minutos).toBe(20);
+    expect(fla?.eixo).toBe('basicos');
+    const plantao = montarAgenda(dia, cfg({ diasPlantao: [dia] }), { ...vazio, flashcardsDevidos: 40 });
+    expect(plantao.tarefas.find((t) => t.id === `fla:${dia}`)?.minutos).toBe(10);
+    expect(montarAgenda(dia, cfg(), vazio).tarefas.some((t) => t.id.startsWith('fla:'))).toBe(false);
+  });
   it('dia 7 traz revisão semanal + caderno de erros', () => {
     const a = montarAgenda(addDays(INICIO, 6), cfg(), vazio);
     expect(a.diaDaSemana).toBe(7);

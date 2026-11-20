@@ -9,6 +9,7 @@ import { focusPadrao, useFocusStore } from '@/store/useFocusStore';
 import { questoesPadrao, useQuestoesStore } from '@/store/useQuestoesStore';
 import { radarPadrao, useRadarStore } from '@/store/useRadarStore';
 import { settingsPadrao, useSettingsStore } from '@/store/useSettingsStore';
+import { treinoPadrao, useTreinoStore } from '@/store/useTreinoStore';
 import { armazenamento } from '@/services/storage/repository';
 import { todayKey } from '@/utils/dates';
 import { prepararImportacao } from '@/store/importacao';
@@ -34,6 +35,7 @@ export function montarBackup(): Backup {
       radar,
       checklist: somenteDados(useChecklistStore.getState()),
       focus: somenteDados(useFocusStore.getState()),
+      treino: somenteDados(useTreinoStore.getState()),
     },
   };
 }
@@ -48,6 +50,8 @@ export function aplicarBackup(b: Backup): void {
   useRadarStore.setState({ ...radarPadrao(), ...(d.radar ?? {}), sincronizando: false });
   useChecklistStore.setState({ ...checklistPadrao(), ...(d.checklist ?? {}) });
   useFocusStore.setState({ ...focusPadrao(), ...(d.focus ?? {}) });
+  const treino = (d.treino ?? {}) as Partial<ReturnType<typeof treinoPadrao>>;
+  useTreinoStore.setState({ ...treinoPadrao(), ...treino, prefs: { ...treinoPadrao().prefs, ...(treino.prefs ?? {}) } });
 }
 
 /** Volta tudo ao estado inicial (memória + armazenamento local). */

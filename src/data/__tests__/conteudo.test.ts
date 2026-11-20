@@ -1,11 +1,30 @@
 import { describe, expect, it } from 'vitest';
-import { getCheatSheet } from '../cheatSheets';
-import { getChecklist } from '../checklistsLeiSeca';
+import { resolverRef } from '../biblioteca';
+import { CHEAT_SHEETS } from '../cheatSheets';
+import { CHECKLISTS } from '../checklistsLeiSeca';
 import { DISCIPLINAS, getTema } from '../eixos';
 import { PLANO_12_SEMANAS } from '../plano12Semanas';
 import { EIXOS, TRILHAS } from '../types';
 
-const existeNaBiblioteca = (id: string) => !!getChecklist(id) || !!getCheatSheet(id);
+const existeNaBiblioteca = (id: string) => resolverRef(id) !== null;
+
+describe('biblioteca', () => {
+  it('ids únicos entre checklists, cheat sheets e itens de checklist', () => {
+    const ids = [...CHECKLISTS.map((c) => c.id), ...CHEAT_SHEETS.map((c) => c.id)];
+    expect(new Set(ids).size).toBe(ids.length);
+    const itens = CHECKLISTS.flatMap((c) => c.secoes.flatMap((s) => s.itens.map((i) => i.id)));
+    expect(new Set(itens).size).toBe(itens.length);
+  });
+
+  it('resolve refs de checklist, cheat sheet, resumo e disciplina', () => {
+    expect(resolverRef('nr-07')?.rota).toBe('/biblioteca/checklist-nr-07');
+    expect(resolverRef('paf')?.rota).toBe('/biblioteca/cheat-paf');
+    expect(resolverRef('resumo:lp-crase')?.rota).toBe('/biblioteca/resumo-lp-crase');
+    expect(resolverRef('disciplina:matematica')?.rota).toBe('/biblioteca/disciplina-matematica');
+    expect(resolverRef('resumo:nao-existe')).toBeNull();
+    expect(resolverRef('lixo')).toBeNull();
+  });
+});
 
 describe('integridade do conteúdo', () => {
   it('ids de temas são únicos e todo eixo tem disciplinas', () => {

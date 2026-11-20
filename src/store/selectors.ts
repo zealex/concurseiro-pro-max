@@ -11,6 +11,8 @@ import { useFocusStore } from './useFocusStore';
 import { useQuestoesStore } from './useQuestoesStore';
 import { useRadarStore } from './useRadarStore';
 import { useSettingsStore } from './useSettingsStore';
+import { useTreinoStore } from './useTreinoStore';
+import { contarVencidos } from '@/utils/flashcards';
 
 /** Data de hoje, atualizada sozinha na virada do dia. */
 export function useHoje(): DateKey {
@@ -68,15 +70,18 @@ export function useAgenda(data: DateKey): AgendaDia {
   const config = useConfigAgenda();
   const concluidos = useCronogramaStore((s) => s.concluidos);
   const revisoes = useQuestoesStore((s) => s.revisoes);
+  const cartoes = useTreinoStore((s) => s.cartoes);
   const fracos = usePontosFracos();
+  const flashcardsDevidos = useMemo(() => contarVencidos(cartoes, data), [cartoes, data]);
   return useMemo(
     () =>
       montarAgenda(data, config, {
         concluidos,
         revisoes,
         piorTema: fracos[0] ? { temaId: fracos[0].temaId, nome: fracos[0].nome } : null,
+        flashcardsDevidos,
       }),
-    [data, config, concluidos, revisoes, fracos],
+    [data, config, concluidos, revisoes, fracos, flashcardsDevidos],
   );
 }
 

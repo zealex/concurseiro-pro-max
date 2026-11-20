@@ -4,8 +4,10 @@ import { useMemo } from 'react';
 import { Pressable, Text, View } from 'react-native';
 import { TarefaItem } from '@/components/agenda/TarefaItem';
 import { Button, Callout, Card, H2, Label, Muted, ProgressBar, Row, Screen, SeloNovo, Section, StatTile, Tag, Txt } from '@/components/ui';
-import { getCheatSheet } from '@/data/cheatSheets';
-import { getChecklist } from '@/data/checklistsLeiSeca';
+import { rotaTreino } from '@/components/biblioteca/comum';
+import { resolverRef } from '@/data/biblioteca';
+import { temBanco } from '@/data/conteudo/carregar';
+import { getTema } from '@/data/eixos';
 import { EIXO_LABEL, EIXOS, TRILHA_LABEL } from '@/data/types';
 import { CATEGORIA_CURTA } from '@/shared/concursos/schema';
 import { useAgenda, useConcursos, useContagem, useHoje, useMetricas, usePontosFracos, useProjecaoEdital } from '@/store/selectors';
@@ -180,18 +182,13 @@ export default function Dashboard() {
                   </Muted>
                   <View className="mt-2 flex-row flex-wrap gap-2">
                     {p.refs.map((r) => {
-                      const ck = getChecklist(r);
-                      const cs = getCheatSheet(r);
-                      if (!ck && !cs) return null;
-                      return (
-                        <Button
-                          key={r}
-                          pequeno
-                          titulo={ck ? `☑️ ${ck.sigla}` : `📄 ${cs?.titulo ?? ''}`}
-                          onPress={() => router.push(`/biblioteca/${ck ? `checklist-${r}` : `cheat-${r}`}`)}
-                        />
-                      );
+                      const ref = resolverRef(r);
+                      return ref ? <Button key={r} pequeno titulo={ref.rotulo} onPress={() => router.push(ref.rota)} /> : null;
                     })}
+                    {(() => {
+                      const d = getTema(p.temaId)?.disciplina.id;
+                      return d && temBanco(d) ? <Button pequeno variante="primario" titulo="🎯 Treinar no app" onPress={() => router.push(rotaTreino(d, [p.temaId]))} /> : null;
+                    })()}
                     <Button pequeno variante="fantasma" titulo="Registrar bateria" onPress={() => router.push('/questoes')} />
                   </View>
                 </Card>

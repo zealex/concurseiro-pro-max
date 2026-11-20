@@ -2,9 +2,12 @@ import { useRouter } from 'expo-router';
 import { ChevronDown, ChevronRight, StickyNote } from 'lucide-react-native';
 import { useState } from 'react';
 import { Pressable, Text, TextInput, View } from 'react-native';
-import { getCheatSheet } from '@/data/cheatSheets';
-import { getChecklist } from '@/data/checklistsLeiSeca';
+import { resolverRef, rotaResumo, type RefBiblioteca } from '@/data/biblioteca';
+import { temBanco } from '@/data/conteudo/carregar';
+import { TEMAS_MISTOS } from '@/data/conteudo/validar';
+import { getTema } from '@/data/eixos';
 import { EIXO_LABEL, TIPO_BLOCO_LABEL } from '@/data/types';
+import { rotaTreino } from '../biblioteca/comum';
 import type { ModoDia, TarefaAgenda } from '@/domain/types';
 import { concluirTarefa, desfazerTarefa } from '@/store/acoes';
 import { useCronogramaStore } from '@/store/useCronogramaStore';
@@ -37,15 +40,14 @@ export function TarefaItem({ tarefa, data, modo, compacto = false }: { tarefa: T
     else desfazerTarefa(tarefa);
   };
 
-  const refs = tarefa.refs
-    .map((id) => {
-      const c = getChecklist(id);
-      if (c) return { id, rotulo: `☑️ ${c.sigla}`, slug: `checklist-${id}` };
-      const s = getCheatSheet(id);
-      if (s) return { id, rotulo: `📄 ${s.titulo}`, slug: `cheat-${id}` };
-      return null;
-    })
-    .filter((r): r is { id: string; rotulo: string; slug: string } => r !== null);
+  const refs = tarefa.refs.map(resolverRef).filter((r): r is RefBiblioteca => r !== null);
+  // Conteúdo interno (resumo + treino) dos temas da tarefa que já têm banco no app.
+  const temasComBanco = tarefa.temaIds.filter((t) => {
+    const d = getTema(t)?.disciplina.id;
+    return !!d && temBanco(d);
+  });
+  const disciplinaTreino = temasComBanco[0] ? getTema(temasComBanco[0])?.disciplina.id : undefined;
+  const temaResumo = temasComBanco.find((t) => !TEMAS_MISTOS.has(t));
 
   return (
     <View className={`border-b border-line py-2 dark:border-line-dark ${tarefa.concluida ? 'opacity-60' : ''}`}>
@@ -72,10 +74,24 @@ export function TarefaItem({ tarefa, data, modo, compacto = false }: { tarefa: T
       {aberto ? (
         <View className="ml-7 mt-2">
           <Txt className="text-[14px] text-ink-soft dark:text-ink-dark-soft">{tarefa.descricao}</Txt>
-          {refs.length ? (
+          {tarefa.id.startsWith('fla:') ? (
+            <View className="mt-2 flex-row">
+              <Button pequeno variante="primario" titulo="🗂️ Abrir flashcards" onPress={() => router.push('/questoes/flashcards')} />
+            </View>
+          ) : null}
+          {refs.length || disciplinaTreino ? (
             <View className="mt-2 flex-row flex-wrap gap-2">
+              {temaResumo ? <Button pequeno variante="secundario" titulo="📘 Resumo" onPress={() => router.push(rotaResumo(temaResumo))} /> : null}
+              {disciplinaTreino ? (
+                <Button
+                  pequeno
+                  variante="primario"
+                  titulo="🎯 Treinar no app"
+                  onPress={() => router.push(rotaTreino(disciplinaTreino, temasComBanco.filter((t) => getTema(t)?.disciplina.id === disciplinaTreino)))}
+                />
+              ) : null}
               {refs.map((r) => (
-                <Button key={r.id} pequeno variante="secundario" titulo={r.rotulo} onPress={() => router.push(`/biblioteca/${r.slug}`)} />
+                <Button key={r.id} pequeno variante="secundario" titulo={r.rotulo} onPress={() => router.push(r.rota)} />
               ))}
             </View>
           ) : null}

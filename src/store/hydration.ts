@@ -5,8 +5,9 @@ import { useFocusStore } from './useFocusStore';
 import { useQuestoesStore } from './useQuestoesStore';
 import { useRadarStore } from './useRadarStore';
 import { useSettingsStore } from './useSettingsStore';
+import { useTreinoStore } from './useTreinoStore';
 
-const STORES = [useSettingsStore, useCronogramaStore, useQuestoesStore, useRadarStore, useChecklistStore, useFocusStore];
+const STORES = [useSettingsStore, useCronogramaStore, useQuestoesStore, useRadarStore, useChecklistStore, useFocusStore, useTreinoStore];
 
 function todasHidratadas(): boolean {
   return STORES.every((s) => s.persist.hasHydrated());

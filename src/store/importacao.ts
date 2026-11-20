@@ -19,6 +19,8 @@ export const VERSOES_STORES: Record<number, VersoesStores> = {
   1: { settings: 1, questoes: 1, cronograma: 1 },
   2: { settings: 2, questoes: 2, cronograma: 2 },
   3: { settings: 2, questoes: 3, cronograma: 2 },
+  // 4: inclui o store "treino" (v1, sem migração); os demais não mudaram.
+  4: { settings: 2, questoes: 3, cronograma: 2 },
 };
 
 export function versoesDoBackup(schemaVersion: number): VersoesStores {

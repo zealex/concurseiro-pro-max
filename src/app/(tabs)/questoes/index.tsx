@@ -1,5 +1,5 @@
 import { useRouter } from 'expo-router';
-import { BookX, RotateCcw, Trash2 } from 'lucide-react-native';
+import { BookX, Layers, RotateCcw, Target, Trash2 } from 'lucide-react-native';
 import { useMemo, useState } from 'react';
 import { Text, View } from 'react-native';
 import { selecaoInicial, TemaPicker, type SelecaoTema } from '@/components/questoes/TemaPicker';
@@ -11,6 +11,8 @@ import { registrarSessao } from '@/store/acoes';
 import { useHoje, useMetricas, usePontosFracos } from '@/store/selectors';
 import { useQuestoesStore } from '@/store/useQuestoesStore';
 import { useSettingsStore } from '@/store/useSettingsStore';
+import { useTreinoStore } from '@/store/useTreinoStore';
+import { contarVencidos } from '@/utils/flashcards';
 import { COR_EIXO } from '@/theme/cores';
 import { formatBR, parseBR } from '@/utils/dates';
 import { evolucaoSimulados, formatPct, porBanca, porDisciplina } from '@/utils/metrics';
@@ -24,6 +26,8 @@ export default function CentralQuestoes() {
   const sessoes = useQuestoesStore((s) => s.sessoes);
   const removeSessao = useQuestoesStore((s) => s.removeSessao);
   const bancaAlvo = useSettingsStore((s) => s.bancaAlvo);
+  const estadosCartoes = useTreinoStore((s) => s.cartoes);
+  const cartoesHoje = useMemo(() => contarVencidos(estadosCartoes, hoje), [estadosCartoes, hoje]);
 
   const [tipo, setTipo] = useState<'bateria' | 'simulado'>('bateria');
   const [sel, setSel] = useState<SelecaoTema>(selecaoInicial());
@@ -71,10 +75,12 @@ export default function CentralQuestoes() {
     <Screen
       emoji="🎯"
       titulo="Central de Questões & Simulados"
-      descricao="Registre baterias e simulados; o app calcula seu desempenho por disciplina e banca e agenda as revisões."
+      descricao="Treine com as questões comentadas do app, revise flashcards e registre baterias feitas em outros bancos; o app calcula seu desempenho e agenda as revisões."
       larga
       acoes={
         <>
+          <Button variante="primario" icone={Target} titulo="Treinar no app" onPress={() => router.push('/questoes/treino')} />
+          <Button icone={Layers} titulo={`Flashcards${cartoesHoje ? ` (${cartoesHoje} hoje)` : ''}`} onPress={() => router.push('/questoes/flashcards')} />
           <Button icone={RotateCcw} titulo={`Revisões (${m.revisoesHoje} hoje)`} onPress={() => router.push('/questoes/revisoes')} />
           <Button icone={BookX} titulo={`Caderno de Erros (${m.errosPendentes})`} onPress={() => router.push('/questoes/erros')} />
         </>

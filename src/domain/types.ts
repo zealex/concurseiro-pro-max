@@ -26,6 +26,12 @@ export interface SessaoQuestoes {
   duracaoMin: number | null;
   notas: string;
   criadoEm: string;
+  /** Origem do registro: manual (formulário) ou Treino/Simulado internos. Ausente = manual. */
+  origem?: 'manual' | 'treino' | 'simulado';
+  /** Agrupa as sessões (uma por tema) de um mesmo treino/simulado. */
+  lote?: string;
+  /** Erros (≠ total − acertos quando houve itens em branco no Certo/Errado). */
+  erros?: number;
 }
 
 export interface ErroCaderno {

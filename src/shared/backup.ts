@@ -3,11 +3,12 @@ import { z } from 'zod';
 /** Formato do arquivo de backup (.json) — puro, testável fora do app. */
 export const BACKUP_APP = 'concurseiro-pro-max';
 /**
- * 1 = versão inicial · 2 = foco no generalista (novos eixos/trilhas) · 3 = eixo de Conhecimentos Básicos.
+ * 1 = versão inicial · 2 = foco no generalista (novos eixos/trilhas) · 3 = eixo de Conhecimentos Básicos ·
+ * 4 = Treino interno (histórico de questões e flashcards).
  * Backups antigos são migrados na importação (tabela de versões em src/store/importacao.ts).
  * Um app desatualizado rejeita backups de versão mais nova em vez de perder dados em silêncio.
  */
-export const BACKUP_VERSAO = 3;
+export const BACKUP_VERSAO = 4;
 
 const objeto = z.record(z.string(), z.unknown());
 
@@ -22,6 +23,7 @@ export const BackupSchema = z.object({
     radar: objeto.optional(),
     checklist: objeto.optional(),
     focus: objeto.optional(),
+    treino: objeto.optional(),
   }),
 });
 export type Backup = z.infer<typeof BackupSchema>;

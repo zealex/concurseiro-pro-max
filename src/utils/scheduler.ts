@@ -41,6 +41,8 @@ export interface ProgressoAgenda {
   revisoes: ItemRevisao[];
   /** Pior tema (pontos fracos) para a bateria adaptativa. */
   piorTema?: { temaId: string; nome: string } | null;
+  /** Flashcards vencidos até a data (gera a tarefa "Flashcards do dia"). */
+  flashcardsDevidos?: number;
 }
 
 /* ------------------------------------------------------------------ */
@@ -417,6 +419,23 @@ export function montarAgenda(data: DateKey, config: ConfigAgenda, progresso: Pro
         titulo: 'Caderno de erros',
         descricao: 'Refaça 10 itens do caderno de erros.',
         minutos: plantao ? 15 : 30,
+        concluidos,
+      }),
+    );
+  }
+
+  // 4b. Flashcards vencidos (repetição espaçada das básicas): 10–30 min; 10 min no plantão.
+  const devidos = progresso.flashcardsDevidos ?? 0;
+  if (devidos > 0) {
+    tarefas.push(
+      sintetica({
+        id: `fla:${data}`,
+        origem: 'adaptativa',
+        tipo: 'revisao',
+        eixo: 'basicos',
+        titulo: `Flashcards do dia (${devidos})`,
+        descricao: 'Cartões vencidos: Questões → Flashcards. Acertou, o cartão volta mais tarde (1 → 3 → 7 → 15 → 30 dias); errou, volta amanhã.',
+        minutos: plantao ? 10 : Math.min(30, Math.max(10, Math.round(devidos / 10) * 5)),
         concluidos,
       }),
     );
