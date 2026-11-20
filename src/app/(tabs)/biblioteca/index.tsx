@@ -5,6 +5,7 @@ import { Muted, PressableRow, ProgressBar, Screen, Section } from '@/components/
 import { DISCIPLINAS_BASICAS, EMOJI_DISCIPLINA, rotaDisciplina } from '@/data/biblioteca';
 import { temBanco } from '@/data/conteudo/carregar';
 import { CHEAT_SHEETS } from '@/data/cheatSheets';
+import { GUIAS_FASES, rotaGuia } from '@/data/guiasFases';
 import { CHECKLISTS, totalItens } from '@/data/checklistsLeiSeca';
 import { EIXO_LABEL } from '@/data/types';
 import { useChecklistStore } from '@/store/useChecklistStore';
@@ -59,6 +60,19 @@ export default function Biblioteca() {
                 <View className="flex-1">
                   <Text className="text-[15px] font-medium text-ink dark:text-ink-dark">{p.titulo}</Text>
                   <Muted>{p.desc}</Muted>
+                </View>
+                <ChevronRight size={16} color={cores.fraco} />
+              </PressableRow>
+            ))}
+          </Section>
+
+          <Section titulo="Guias das fases do concurso">
+            {GUIAS_FASES.map((g) => (
+              <PressableRow key={g.id} onPress={() => router.push(rotaGuia(g.id))} className="py-2">
+                <Text className="mr-3 text-[20px]">{g.emoji}</Text>
+                <View className="flex-1">
+                  <Text className="text-[15px] font-medium text-ink dark:text-ink-dark">{g.titulo}</Text>
+                  <Muted numberOfLines={2}>{g.resumo}</Muted>
                 </View>
                 <ChevronRight size={16} color={cores.fraco} />
               </PressableRow>

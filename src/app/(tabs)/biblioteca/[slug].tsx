@@ -5,6 +5,7 @@ import { Linking, Pressable, Text, View } from 'react-native';
 import { Button, Callout, Card, Checkbox, DataTable, EmptyState, H3, Label, Muted, Row, Screen, Section, Tag, Toggle, Txt } from '@/components/ui';
 import { PaginaDisciplina } from '@/components/biblioteca/PaginaDisciplina';
 import { PaginaEditais } from '@/components/biblioteca/PaginaEditais';
+import { PaginaGuia } from '@/components/biblioteca/PaginaGuia';
 import { PaginaResumo } from '@/components/biblioteca/PaginaResumo';
 import { BANCAS } from '@/data/bancas';
 import { CARREIRAS_GENERALISTA } from '@/data/carreiras';
@@ -57,6 +58,7 @@ export default function PaginaBiblioteca() {
   if (s.startsWith('cheat-')) return <PaginaCheat id={s.slice('cheat-'.length)} />;
   if (s.startsWith('disciplina-')) return <PaginaDisciplina disciplinaId={s.slice('disciplina-'.length)} />;
   if (s.startsWith('resumo-')) return <PaginaResumo temaId={s.slice('resumo-'.length)} />;
+  if (s.startsWith('guia-')) return <PaginaGuia id={s.slice('guia-'.length)} />;
 
   const paginas: Record<string, () => ReactNode> = {
     editais: PaginaEditais,

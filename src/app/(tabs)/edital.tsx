@@ -25,6 +25,7 @@ import {
 } from '@/components/ui';
 import { DISCIPLINAS, getDisciplina } from '@/data/eixos';
 import { EDITAIS_MODELO, getEditalModelo, modelosDaBanca } from '@/data/editais';
+import { GUIA_DA_FASE, rotaGuia } from '@/data/guiasFases';
 import { TRILHA_LABEL, type ModeloEdital, type TipoFase } from '@/data/types';
 import { EditalAlvoSchema, type EditalAlvo } from '@/shared/edital';
 import { useProjecaoEdital } from '@/store/selectors';
@@ -386,6 +387,9 @@ export default function MeuEdital() {
           {edital.fases.map((f, i) => (
             <Toggle key={`${f.tipo}-${i}`} titulo={FASE[f.tipo]} subtitulo={f.carater}>
               <Txt className="text-[14px]">{f.detalhe ?? 'Confira os detalhes no edital.'}</Txt>
+              {GUIA_DA_FASE[f.tipo] ? (
+                <Button pequeno className="mt-2 self-start" titulo="📘 Como se preparar para esta fase" onPress={() => router.push(rotaGuia(GUIA_DA_FASE[f.tipo]!))} />
+              ) : null}
             </Toggle>
           ))}
         </Section>
