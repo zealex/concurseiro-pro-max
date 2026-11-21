@@ -404,7 +404,7 @@ export const DISCIPLINAS: Disciplina[] = [
     trilhas: ['generalista', 'legista'],
     temas: [
       { id: 'dp-parte-geral', nome: 'Direito Penal: princípios, crime, excludentes e imputabilidade' },
-      { id: 'dp-crimes-adm-publica', nome: 'Crimes contra a administração pública' },
+      { id: 'dp-crimes-adm-publica', nome: 'Crimes contra a administração pública e crimes do médico' },
       { id: 'dp-leis-especiais', nome: 'Leis penais especiais: drogas, armas, trânsito e execução penal (noções)' },
       { id: 'dpp-inquerito-acao', nome: 'Inquérito policial e ação penal' },
       { id: 'dpp-prisoes', nome: 'Prisões, medidas cautelares e liberdade provisória' },
