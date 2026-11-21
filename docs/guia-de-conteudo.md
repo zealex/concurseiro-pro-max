@@ -143,21 +143,26 @@ O C/E aparece nas disciplinas que caem no Perito Médico Federal (Cebraspe).
 
 ## 7. Volumes-alvo por disciplina
 
-| Disciplina | Questões | Flashcards |
-|---|---|---|
-| Língua Portuguesa | ~170 (≈8 textos-base) | ~150 |
-| Matemática | ~110 | ~70 |
-| Raciocínio Lógico | ~80 | ~50 |
-| Noções de Informática | ~120 | ~140 |
-| Direito Constitucional | ~60 | ~60 |
-| Direito Administrativo | ~90 | ~80 |
-| Regime Jurídico do Servidor | ~60 | ~60 |
-| Ética, Transparência e LGPD | ~60 | ~70 |
-| Legislação Geral e Direitos Humanos | ~60 | ~60 |
-| História e Geografia do Sul | ~50 | ~50 |
-| Noções de Criminalística | ~40 | ~40 |
-| Conhecimentos Gerais e Atualidades | — | ~40 (datados) |
-| Redação e Prova Discursiva | — (guias e modelos) | — |
+| Disciplina | Questões (meta) | Flashcards (meta) | Publicado (nov./2026) |
+|---|---|---|---|
+| Língua Portuguesa | ~170 (≈8 textos-base) | ~150 | 177 q · 157 f · 8 textos |
+| Matemática | ~110 | ~70 | 112 q · 75 f |
+| Raciocínio Lógico | ~80 | ~50 | 87 q · 62 f |
+| Noções de Informática | ~120 | ~140 | 128 q · 145 f |
+| Língua Inglesa | ~45 (≈6 textos-base) | ~45 | 46 q · 47 f · 6 textos |
+| Direito Constitucional | ~60 | ~60 | 60 q · 60 f |
+| Direito Administrativo | ~90 | ~80 | 90 q · 80 f |
+| Direito Penal e Processual Penal | ~60 | ~60 | 60 q · 60 f |
+| Regime Jurídico do Servidor | ~60 | ~60 | 60 q · 65 f |
+| Ética, Transparência e LGPD | ~60 | ~70 | 61 q · 81 f |
+| Legislação Geral e Direitos Humanos | ~60 | ~60 | 60 q · 67 f |
+| História e Geografia do Sul | ~50 | ~50 | 50 q · 53 f |
+| Noções de Criminalística | ~40 | ~40 | 40 q · 46 f |
+| Conhecimentos Gerais e Atualidades | — | ~40 (datados) | 52 f (com `validoAte`) |
+| Redação e Prova Discursiva | — (guias e modelos) | — | 3 resumos com modelos |
+| **Total** | **~1.000** | **~1.000** | **1.031 questões · 1.050 flashcards · 118 resumos** |
+
+Todo banco passou por um autor e por um revisor independente, que resolveu os gabaritos do zero e conferiu as normas no texto vigente. Atualidades e normas recém-alteradas (ECs e leis de 2025–2026) devem ser reconferidas a cada semestre.
 
 O validador também exige uma cobertura mínima **por tema**: resumo, mais pelo menos 4 questões e 4 flashcards. A exceção são Atualidades (só flashcards) e Redação (só resumo).
 

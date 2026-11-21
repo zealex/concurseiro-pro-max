@@ -39,7 +39,10 @@ export function resolverRef(id: string): RefBiblioteca | null {
 }
 
 /** Disciplinas da seção "Conhecimentos Básicos" da Biblioteca (inclui Criminalística, do eixo legal). */
-export const DISCIPLINAS_BASICAS: Disciplina[] = DISCIPLINAS.filter((d) => (d.eixo === 'basicos' && d.id !== 'basicas') || d.id === 'criminalistica');
+export const DISCIPLINAS_BASICAS: Disciplina[] = [
+  ...DISCIPLINAS.filter((d) => d.eixo === 'basicos' && d.id !== 'basicas'),
+  ...DISCIPLINAS.filter((d) => d.id === 'criminalistica'),
+];
 
 export const EMOJI_DISCIPLINA: Record<string, string> = {
   'lingua-portuguesa': '✍️',
