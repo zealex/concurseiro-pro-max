@@ -23,6 +23,7 @@ export const CARREGADORES: Record<string, () => Promise<{ default: BancoConteudo
   'etica-publica': () => import('./bancos/etica-publica'),
   'direito-administrativo': () => import('./bancos/direito-administrativo'),
   'direito-penal': () => import('./bancos/direito-penal'),
+  criminalistica: () => import('./bancos/criminalistica'),
 };
 
 const cache = new Map<string, Promise<BancoConteudo>>();
