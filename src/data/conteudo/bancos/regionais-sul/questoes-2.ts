@@ -1,0 +1,385 @@
+import type { QuestaoTreino } from '../../../types';
+
+/* ------------------------------------------------------------------
+ * Rio Grande do Sul e método de estudo do município do edital
+ * Questões autorais. Municípios citados no tema reg-municipio são FICTÍCIOS.
+ * ------------------------------------------------------------------ */
+
+export const QUESTOES_2: QuestaoTreino[] = [
+  /* ---------- reg-rs-historia ---------- */
+  {
+    id: 'reg-rs-historia-q01',
+    temaId: 'reg-rs-historia',
+    formato: 'multipla',
+    estilo: 'fundatec',
+    dificuldade: 1,
+    enunciado: 'O dia 20 de setembro, data magna e feriado no Rio Grande do Sul, relembra:',
+    alternativas: [
+      'a chegada dos primeiros imigrantes alemães a São Leopoldo.',
+      'o início da Revolução Farroupilha, em 1835.',
+      'a assinatura da Paz de Ponche Verde.',
+      'a Campanha da Legalidade, liderada por Leonel Brizola.',
+      'a fundação de Porto Alegre pelos açorianos.',
+    ],
+    correta: 1,
+    comentario:
+      'A Constituição do RS (art. 6º, § 1º) fixa o 20 de setembro como data magna e feriado estadual. A data marca o início da Revolução Farroupilha, em 1835, com a tomada de Porto Alegre. Os alemães chegaram em 1824, a Paz de Ponche Verde é de 1845, a Legalidade de 1961, e o aniversário de Porto Alegre é em 26 de março.',
+    fundamento: 'Constituição do Estado do RS, art. 6º, § 1º (renumerado pela EC nº 83/2023)',
+  },
+  {
+    id: 'reg-rs-historia-q02',
+    temaId: 'reg-rs-historia',
+    formato: 'multipla',
+    estilo: 'objetiva',
+    dificuldade: 2,
+    enunciado: 'O conflito ocorrido entre 1893 e 1895, que opôs federalistas (maragatos) e republicanos castilhistas (pica-paus) e se estendeu a Santa Catarina e ao Paraná, é denominado:',
+    alternativas: ['Revolução Federalista.', 'Revolução Farroupilha.', 'Revolução de 1923.', 'Guerra Guaranítica.', 'Guerra do Contestado.'],
+    correta: 0,
+    comentario:
+      'A Revolução Federalista (1893–1895) opôs os maragatos de Gaspar Silveira Martins e Gumercindo Saraiva aos pica-paus de Júlio de Castilhos. O Cerco da Lapa (PR) é um de seus episódios. A Farroupilha foi contra o Império (1835–1845). Em 1923, a disputa foi entre chimangos e maragatos. A Guerra Guaranítica é do século XVIII.',
+    fundamento: 'Síntese histórica do RS (resumo do tema)',
+  },
+  {
+    id: 'reg-rs-historia-q03',
+    temaId: 'reg-rs-historia',
+    formato: 'multipla',
+    estilo: 'legalle',
+    dificuldade: 2,
+    enunciado: 'Sobre a imigração europeia no Rio Grande do Sul no século XIX, assinale a alternativa correta.',
+    alternativas: [
+      'Os italianos chegaram antes dos alemães e fixaram-se na Campanha, dedicando-se à pecuária extensiva.',
+      'Os alemães chegaram a partir de 1875 e fundaram as colônias da Serra Gaúcha, como Caxias do Sul.',
+      'Os alemães chegaram a partir de 1824, em São Leopoldo, e os italianos a partir de 1875, na Serra Gaúcha.',
+      'Os açorianos chegaram em 1824 e fundaram São Leopoldo, primeira colônia agrícola do estado.',
+      'A imigração europeia concentrou-se na metade sul do estado, em grandes propriedades de charque.',
+    ],
+    correta: 2,
+    comentario:
+      'O Atlas Socioeconômico do RS registra a imigração alemã a partir de 1824 e a italiana a partir de 1875, ambas no nordeste do estado, em pequenas propriedades. Os italianos ocuparam a Serra (Caxias do Sul, Bento Gonçalves, Garibaldi). Os açorianos chegaram antes, a partir de 1752. A metade sul ficou com as grandes estâncias e o charque.',
+    fundamento: 'Atlas Socioeconômico do RS — Ocupação do território',
+  },
+  {
+    id: 'reg-rs-historia-q04',
+    temaId: 'reg-rs-historia',
+    formato: 'multipla',
+    estilo: 'nc-ufpr',
+    dificuldade: 3,
+    enunciado:
+      'Considere as afirmativas sobre a Revolução Farroupilha:\n\n1. Iniciou-se em 1835, com a tomada de Porto Alegre pelos revoltosos.\n2. Os farrapos proclamaram a República Rio-Grandense.\n3. Terminou em 1845, com a Paz de Ponche Verde, negociada com Caxias.\n4. Foi um levante contra o governo republicano de Floriano Peixoto.\n\nAssinale a alternativa correta.',
+    alternativas: [
+      'Somente as afirmativas 1 e 4 são verdadeiras.',
+      'Somente as afirmativas 2 e 3 são verdadeiras.',
+      'Somente as afirmativas 2, 3 e 4 são verdadeiras.',
+      'Somente as afirmativas 1, 2 e 3 são verdadeiras.',
+      'As afirmativas 1, 2, 3 e 4 são verdadeiras.',
+    ],
+    correta: 3,
+    comentario:
+      'A Farroupilha (1835–1845) começou com a tomada de Porto Alegre, proclamou a República Rio-Grandense (1836) e terminou com a Paz de Ponche Verde (1845), negociada com Caxias. A afirmativa 4 está errada: o conflito foi contra o Império. O governo de Floriano é a época da Revolução Federalista (1893).',
+    fundamento: 'Síntese histórica do RS (resumo do tema)',
+  },
+  {
+    id: 'reg-rs-historia-q05',
+    temaId: 'reg-rs-historia',
+    formato: 'multipla',
+    estilo: 'fepese',
+    dificuldade: 2,
+    enunciado: 'A Campanha da Legalidade, movimento liderado em 1961 a partir de Porto Alegre pelo governador Leonel Brizola, tinha como objetivo:',
+    alternativas: [
+      'impedir a reeleição de Borges de Medeiros ao governo do estado.',
+      'levar Getúlio Vargas à Presidência da República.',
+      'proclamar uma república independente no sul do país.',
+      'resistir à transferência da capital federal para Brasília.',
+      'garantir a posse do vice-presidente João Goulart após a renúncia de Jânio Quadros.',
+    ],
+    correta: 4,
+    comentario:
+      'Com a renúncia de Jânio (1961), setores militares tentaram impedir a posse do vice João Goulart. Brizola organizou a resistência, a “Rede da Legalidade”, até se chegar à solução parlamentarista que deu posse a Jango. A reeleição de Borges foi tema de 1923, a chegada de Vargas ao poder foi em 1930, e a república independente remete à Farroupilha.',
+    fundamento: 'Síntese histórica do RS (resumo do tema)',
+  },
+  {
+    id: 'reg-rs-historia-q06',
+    temaId: 'reg-rs-historia',
+    formato: 'certo-errado',
+    estilo: 'furb',
+    dificuldade: 1,
+    enunciado: 'Os Sete Povos das Missões foram reduções jesuíticas com população indígena guarani, e as ruínas de São Miguel Arcanjo são reconhecidas como Patrimônio Mundial pela UNESCO.',
+    gabaritoCE: true,
+    comentario:
+      'Certo. As reduções jesuíticas espanholas, a partir de 1626, foram os primeiros núcleos estáveis de povoamento no RS. Os Sete Povos produziam erva-mate, couro e gado. O Tratado de Madri (1750) e a Guerra Guaranítica (1754–1756) puseram fim a esse ciclo. As ruínas de São Miguel são Patrimônio Mundial.',
+    fundamento: 'Atlas Socioeconômico do RS — Ocupação do território; UNESCO',
+  },
+  {
+    id: 'reg-rs-historia-q07',
+    temaId: 'reg-rs-historia',
+    formato: 'multipla',
+    estilo: 'ibam',
+    dificuldade: 2,
+    enunciado: 'A Revolução de 1923, no Rio Grande do Sul, opôs:',
+    alternativas: [
+      'farrapos e tropas imperiais, e terminou com a Paz de Ponche Verde.',
+      'maragatos federalistas e pica-paus castilhistas, e terminou com a vitória republicana.',
+      'os legalistas de Leonel Brizola e militares contrários à posse de João Goulart.',
+      'a Aliança Liberal de Getúlio Vargas e o governo de Washington Luís.',
+      'chimangos, ligados a Borges de Medeiros, e maragatos, ligados a Assis Brasil, e terminou com o Pacto de Pedras Altas.',
+    ],
+    correta: 4,
+    comentario:
+      'Em 1923, a oposição de Assis Brasil (maragatos) se levantou contra mais uma reeleição de Borges de Medeiros (chimangos). O Pacto de Pedras Altas (dezembro de 1923) encerrou o conflito: Borges concluiu o mandato, mas ficou impedido de nova reeleição. Farrapos × Império é 1835–1845, maragatos × pica-paus é a Federalista (1893), Brizola é a Legalidade (1961) e a Aliança Liberal é 1930.',
+    fundamento: 'UFRGS, Revista do IHGRGS e acervo NUPERGS (Pacto de Pedras Altas, 1923)',
+  },
+
+  /* ---------- reg-rs-geografia ---------- */
+  {
+    id: 'reg-rs-geografia-q01',
+    temaId: 'reg-rs-geografia',
+    formato: 'multipla',
+    estilo: 'objetiva',
+    dificuldade: 1,
+    enunciado: 'Sobre o bioma Pampa, assinalar a alternativa CORRETA.',
+    alternativas: [
+      'Ocupa o norte do Rio Grande do Sul e se estende por Santa Catarina e Paraná.',
+      'É formado predominantemente por florestas densas com araucárias.',
+      'No Brasil, ocorre somente no Rio Grande do Sul, onde recobre a metade meridional do estado.',
+      'Ocupa menos de 10% do território gaúcho.',
+      'É exclusivo do Brasil, sem continuidade em países vizinhos.',
+    ],
+    correta: 2,
+    comentario:
+      'Pelo Atlas Socioeconômico do RS, com base no IBGE, o Pampa só ocorre no Brasil dentro do RS, recobre a metade sul e cerca de 68,8% do estado (193.836 km²) e se estende ao Uruguai e à Argentina. É um bioma de campos, e não de florestas. O norte gaúcho, como SC e PR, é Mata Atlântica.',
+    fundamento: 'Atlas Socioeconômico do RS — Biomas (IBGE, 2019)',
+  },
+  {
+    id: 'reg-rs-geografia-q02',
+    temaId: 'reg-rs-geografia',
+    formato: 'multipla',
+    estilo: 'fundatec',
+    dificuldade: 2,
+    enunciado: 'A unidade de relevo gaúcha formada por rochas sedimentares, com terrenos de baixa altitude que formam um extenso corredor no centro do estado, é:',
+    alternativas: ['o Planalto Meridional.', 'o Escudo Sul-Rio-Grandense.', 'a Planície Costeira.', 'a Cuesta do Haedo.', 'a Depressão Central.'],
+    correta: 4,
+    comentario:
+      'O Atlas do RS descreve a Depressão Central como um corredor baixo de rochas sedimentares no centro do estado. O Planalto Meridional é basáltico (norte). O Escudo Sul-Rio-Grandense é cristalino, pré-cambriano e não passa de 600 m. A Planície Costeira é arenosa e recente. A Cuesta do Haedo fica no extremo oeste.',
+    fundamento: 'Atlas Socioeconômico do RS — Hipsometria e unidades geomorfológicas',
+  },
+  {
+    id: 'reg-rs-geografia-q03',
+    temaId: 'reg-rs-geografia',
+    formato: 'multipla',
+    estilo: 'fepese',
+    dificuldade: 3,
+    enunciado: 'Assinale a alternativa correta sobre os pontos culminantes do Sul do Brasil.',
+    alternativas: [
+      'O ponto mais alto do RS é o Monte Negro, com 1.398 m, em São José dos Ausentes; o ponto mais alto da Região Sul é o Pico Paraná, no PR.',
+      'O ponto mais alto da Região Sul é o Monte Negro, no RS, com cerca de 1.877 m.',
+      'O ponto mais alto do RS fica no Escudo Sul-Rio-Grandense, nas Serras de Sudeste.',
+      'O Pico Paraná, ponto mais alto do Sul, fica na Serra Geral catarinense.',
+      'O ponto mais alto do RS é o Pico Paraná, na divisa com Santa Catarina.',
+    ],
+    correta: 0,
+    comentario:
+      'O Atlas do RS indica o Monte Negro (1.398 m), em São José dos Ausentes, no nordeste do Planalto Meridional. O IAT-PR indica o Pico Paraná (1.877 m), na Serra do Mar paranaense, como o mais alto do Sul. O Escudo não passa de 600 m. As demais alternativas trocam picos, estados ou altitudes.',
+    fundamento: 'Atlas Socioeconômico do RS — Hipsometria; IAT-PR (Pico Paraná)',
+  },
+  {
+    id: 'reg-rs-geografia-q04',
+    temaId: 'reg-rs-geografia',
+    formato: 'multipla',
+    estilo: 'furb',
+    dificuldade: 2,
+    enunciado: 'O Rio Grande do Sul é o maior produtor brasileiro de um grão cultivado sobretudo em lavouras irrigadas do sul e do sudoeste do estado, em municípios como Uruguaiana, Itaqui e Santa Vitória do Palmar. Esse grão é:',
+    alternativas: ['o trigo.', 'o milho.', 'o feijão.', 'o arroz.', 'a soja.'],
+    correta: 3,
+    comentario:
+      'Pela Pesquisa Agrícola Municipal do IBGE, citada no Atlas do RS, o estado é o maior produtor de arroz em casca do país, com média superior a 7,6 milhões de toneladas em 2023–2025. A lavoura é irrigada e fica na metade sul. A soja e o trigo predominam no planalto norte, e não dependem de irrigação por inundação.',
+    fundamento: 'Atlas Socioeconômico do RS — Arroz (IBGE/PAM)',
+  },
+  {
+    id: 'reg-rs-geografia-q05',
+    temaId: 'reg-rs-geografia',
+    formato: 'multipla',
+    estilo: 'nc-ufpr',
+    dificuldade: 3,
+    enunciado: 'Com base em dados do IBGE (área e Censo 2022), assinale a alternativa INCORRETA sobre o Rio Grande do Sul.',
+    alternativas: [
+      'É o estado de maior área territorial da Região Sul.',
+      'É o estado mais populoso da Região Sul.',
+      'Tem a menor densidade demográfica da Região Sul.',
+      'Tem 497 municípios, o maior número entre os três estados do Sul.',
+      'Sua capital, Porto Alegre, é também o município mais populoso do estado.',
+    ],
+    correta: 1,
+    comentario:
+      'É incorreta a B: no Censo 2022, o PR (11.444.380) superou o RS (10.882.965). As demais estão corretas: o RS tem a maior área (281.707 km²), a menor densidade (38,63 hab./km²) e 497 municípios, e Porto Alegre (1.332.845 hab.) é a maior cidade gaúcha.',
+    fundamento: 'IBGE, Censo 2022 (SIDRA, tabelas 4709 e 4714)',
+  },
+  {
+    id: 'reg-rs-geografia-q06',
+    temaId: 'reg-rs-geografia',
+    formato: 'certo-errado',
+    estilo: 'legalle',
+    dificuldade: 1,
+    enunciado: 'O Rio Grande do Sul é o único estado brasileiro que faz fronteira com o Uruguai.',
+    gabaritoCE: true,
+    comentario:
+      'Certo. O RS faz fronteira com o Uruguai (sul) e a Argentina (oeste) e faz divisa só com Santa Catarina. Nenhum outro estado brasileiro faz fronteira com o Uruguai. No Sul, quem faz fronteira com o Paraguai é o Paraná.',
+    fundamento: 'Atlas Socioeconômico do RS — Características gerais',
+  },
+  {
+    id: 'reg-rs-geografia-q07',
+    temaId: 'reg-rs-geografia',
+    formato: 'multipla',
+    estilo: 'ibam',
+    dificuldade: 2,
+    enunciado: 'Segundo o Atlas Socioeconômico do RS, a região hidrográfica gaúcha mais densamente povoada, com grande concentração industrial e urbana, é a:',
+    alternativas: [
+      'Região Hidrográfica da Bacia do Guaíba.',
+      'Região Hidrográfica da Bacia do Rio Uruguai.',
+      'Região Hidrográfica das Bacias Litorâneas.',
+      'Região Hidrográfica da Bacia do Rio Paraná.',
+      'Região Hidrográfica da Bacia do Rio Iguaçu.',
+    ],
+    correta: 0,
+    comentario:
+      'O Atlas do RS agrupa as bacias em três regiões: Uruguai, Guaíba e Litorâneas. A do Guaíba (Jacuí, Taquari, Caí, Sinos, Gravataí) é a mais densamente povoada e industrializada, pois inclui a Região Metropolitana de Porto Alegre. A do Uruguai tem uso agropecuário e agroindustrial, e a Litorânea, agropecuário e industrial. Paraná e Iguaçu não drenam o RS.',
+    fundamento: 'Atlas Socioeconômico do RS — Regiões e bacias hidrográficas',
+  },
+
+  /* ---------- reg-municipio ---------- */
+  {
+    id: 'reg-municipio-q01',
+    temaId: 'reg-municipio',
+    formato: 'multipla',
+    estilo: 'objetiva',
+    dificuldade: 1,
+    enunciado: 'Um candidato quer conferir a população do município do edital no Censo 2022, a área territorial oficial e o PIB per capita. A fonte mais adequada é:',
+    alternativas: [
+      'a Lei Orgânica do Município.',
+      'o Diário Oficial da União.',
+      'a página da Câmara de Vereadores.',
+      'o regimento interno da prefeitura.',
+      'o IBGE Cidades (cidades.ibge.gov.br), no painel do município.',
+    ],
+    correta: 4,
+    comentario:
+      'O IBGE Cidades reúne, no Panorama de cada município, a população do Censo 2022, a estimativa mais recente, a área, a densidade, o PIB per capita e outros indicadores, sempre com o ano. A Lei Orgânica e a Câmara servem para símbolos e organização política. O DOU e o regimento interno não trazem esses dados.',
+    fundamento: 'IBGE Cidades (cidades.ibge.gov.br)',
+  },
+  {
+    id: 'reg-municipio-q02',
+    temaId: 'reg-municipio',
+    formato: 'multipla',
+    estilo: 'fundatec',
+    dificuldade: 2,
+    enunciado:
+      'Leia o texto sobre um município FICTÍCIO:\n\n“Linha Bonita foi criada pela Lei Estadual nº 9.876, de 20 de março de 1992, com área desmembrada de Rio Claro do Sul. A instalação, com a posse do primeiro prefeito e dos vereadores, ocorreu em 1º de janeiro de 1993.”\n\nSegundo o texto, a data da criação legal do município é:',
+    alternativas: ['1º de janeiro de 1993.', '20 de março de 1993.', '1º de janeiro de 1992.', '20 de março de 1992.', 'a data da fundação de Rio Claro do Sul.'],
+    correta: 3,
+    comentario:
+      'A criação legal é a data da lei estadual: 20/03/1992. O dia 1º/01/1993 é a instalação, a posse das primeiras autoridades. As bancas trocam uma pela outra, e por isso o fichamento deve registrar as duas. As alternativas B e C misturam o dia de uma com o ano da outra. A data do município-mãe não tem relação.',
+    fundamento: 'Método de estudo (resumo do tema); CF/88, art. 18, § 4º',
+  },
+  {
+    id: 'reg-municipio-q03',
+    temaId: 'reg-municipio',
+    formato: 'multipla',
+    estilo: 'fepese',
+    dificuldade: 2,
+    enunciado: 'De acordo com a Constituição Federal (art. 18, § 4º), a criação de um município depende de:',
+    alternativas: [
+      'lei estadual, dentro do período determinado por lei complementar federal, consulta prévia por plebiscito às populações envolvidas e Estudo de Viabilidade Municipal.',
+      'decreto do governador, após aprovação da Câmara de Vereadores do município de origem.',
+      'lei federal ordinária, após parecer do IBGE sobre os limites territoriais.',
+      'resolução da Assembleia Legislativa, dispensado o plebiscito quando a população for inferior a 10 mil habitantes.',
+      'lei orgânica do novo município, aprovada por referendo popular.',
+    ],
+    correta: 0,
+    comentario:
+      'O art. 18, § 4º, da CF exige lei estadual, dentro do período fixado por lei complementar federal, plebiscito prévio com as populações dos municípios envolvidos e Estudos de Viabilidade Municipal. Por isso, a data oficial de criação está numa lei estadual. Decreto, lei federal ou resolução não criam município, e não há dispensa de plebiscito.',
+    fundamento: 'CF/88, art. 18, § 4º',
+  },
+  {
+    id: 'reg-municipio-q04',
+    temaId: 'reg-municipio',
+    formato: 'multipla',
+    estilo: 'ibam',
+    dificuldade: 3,
+    enunciado:
+      'Município FICTÍCIO: “Vale Verde faz limite ao norte com Serra Alta, a leste com Porto Novo, ao sul com Campina do Sul e a oeste com Rio Fundo. Boa Esperança faz limite com Porto Novo, mas não com Vale Verde.”\n\nAssinale a alternativa que apresenta apenas municípios limítrofes de Vale Verde.',
+    alternativas: [
+      'Serra Alta, Porto Novo e Boa Esperança.',
+      'Boa Esperança, Campina do Sul e Rio Fundo.',
+      'Serra Alta, Campina do Sul e Rio Fundo.',
+      'Porto Novo, Boa Esperança e Serra Alta.',
+      'Rio Fundo, Boa Esperança e Campina do Sul.',
+    ],
+    correta: 2,
+    comentario:
+      'Só a C traz três vizinhos diretos (norte, sul e oeste). As demais incluem Boa Esperança, que é vizinha do vizinho (Porto Novo), e não de Vale Verde. É a pegadinha típica das questões de limites: a banca põe um município próximo, da mesma região, que não faz divisa.',
+    fundamento: 'Método de estudo (resumo do tema): municípios limítrofes',
+  },
+  {
+    id: 'reg-municipio-q05',
+    temaId: 'reg-municipio',
+    formato: 'multipla',
+    estilo: 'legalle',
+    dificuldade: 2,
+    enunciado: 'A norma que organiza o município, funciona como sua “constituição” e costuma tratar dos símbolos municipais, votada pela Câmara de Vereadores, é:',
+    alternativas: ['o Plano Diretor.', 'a Lei Orgânica do Município.', 'a Lei de Diretrizes Orçamentárias.', 'o Código Tributário Municipal.', 'a lei estadual de criação do município.'],
+    correta: 1,
+    comentario:
+      'A Lei Orgânica é a lei maior do município, votada em dois turnos e aprovada por dois terços da Câmara (CF, art. 29), e costuma definir os símbolos e a organização dos Poderes. O Plano Diretor trata da política urbana. A LDO e o Código Tributário tratam de finanças. A lei estadual cria o município, mas não o organiza.',
+    fundamento: 'CF/88, art. 29, caput',
+  },
+  {
+    id: 'reg-municipio-q06',
+    temaId: 'reg-municipio',
+    formato: 'multipla',
+    estilo: 'furb',
+    dificuldade: 1,
+    enunciado: 'Sobre a população do município no Censo 2022 e a estimativa populacional mais recente, ambas divulgadas pelo IBGE, é correto afirmar que:',
+    alternativas: [
+      'são o mesmo número, apenas atualizado a cada ano.',
+      'são números diferentes: o censo é uma contagem com data de referência em 2022, e a estimativa é calculada a cada ano.',
+      'diferem apenas porque a estimativa exclui a população rural.',
+      'a estimativa substitui o censo e passa a ser o único dado oficial do município.',
+      'o censo é feito pela prefeitura, e a estimativa, pelo IBGE.',
+    ],
+    correta: 1,
+    comentario:
+      'O Censo 2022 é uma contagem da população, com data de referência em 2022. A estimativa é calculada todo ano pelo IBGE, a partir do censo. São números diferentes, e o enunciado costuma dizer qual quer. A estimativa inclui a população rural, não anula o censo, e os dois dados são do IBGE. Anote ambos com o ano.',
+    fundamento: 'IBGE Cidades (Panorama: população no último censo × população estimada)',
+  },
+  {
+    id: 'reg-municipio-q07',
+    temaId: 'reg-municipio',
+    formato: 'certo-errado',
+    estilo: 'nc-ufpr',
+    dificuldade: 3,
+    enunciado:
+      'Município FICTÍCIO: no IBGE Cidades, “Nova Aurora” aparece com 15.000 habitantes no Censo 2022 e 15.600 na estimativa de 2025.\n\nItem: “Segundo o Censo 2022, Nova Aurora tinha 15.600 habitantes.”',
+    gabaritoCE: false,
+    comentario:
+      'Errado. 15.600 é a estimativa de 2025. Pelo Censo 2022, o município tinha 15.000 habitantes. O item mantém a fonte correta (Censo 2022) e troca só o número. Por isso o fichamento deve ter cada dado ao lado de sua fonte e ano.',
+    fundamento: 'Método de estudo (resumo do tema): ano de referência do dado',
+  },
+  {
+    id: 'reg-municipio-q08',
+    temaId: 'reg-municipio',
+    formato: 'multipla',
+    estilo: 'objetiva',
+    dificuldade: 1,
+    enunciado: 'Assinalar a alternativa que apresenta a prática mais adequada no fichamento do município do edital.',
+    alternativas: [
+      'Registrar apenas a estimativa populacional mais recente e descartar o dado do Censo.',
+      'Anotar os números sem o ano, para memorizá-los com mais facilidade.',
+      'Registrar, ao lado de cada número, a fonte e o ano de referência, como “IBGE, Censo 2022”.',
+      'Anotar apenas a data de instalação, porque a data da lei de criação não costuma ser cobrada.',
+      'Dispensar a conferência do prefeito em exercício, porque o dado não muda até a prova.',
+    ],
+    correta: 2,
+    comentario:
+      'Dados populacionais, econômicos e políticos mudam. Registrar fonte e ano evita confundir censo com estimativa e ajuda a reconhecer o número que a banca usou. Descartar o censo ou omitir o ano favorece a troca de dados. As bancas cobram tanto a lei de criação quanto a instalação, e prefeito e vereadores mudam a cada eleição.',
+    fundamento: 'Método de estudo (resumo do tema)',
+  },
+];
