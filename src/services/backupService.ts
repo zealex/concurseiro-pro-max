@@ -12,7 +12,6 @@ import { settingsPadrao, useSettingsStore } from '@/store/useSettingsStore';
 import { treinoPadrao, useTreinoStore } from '@/store/useTreinoStore';
 import { aguardarEscritas } from '@/services/storage/escopo';
 import { todayKey } from '@/utils/dates';
-import { limparEscopoAtual } from '@/store/escopoStores';
 import { prepararImportacao } from '@/store/importacao';
 
 /** Backup portátil (.json) de todo o progresso local. */
@@ -58,13 +57,14 @@ export function aplicarBackup(b: Backup): void {
   useTreinoStore.setState({ ...treinoPadrao(), ...treino, prefs: { ...treinoPadrao().prefs, ...(treino.prefs ?? {}) }, simuladoAtivo: null });
 }
 
-/** Volta tudo ao estado inicial (memória + armazenamento local) — só do escopo (usuário) atual. */
+/**
+ * Volta o progresso ao estado inicial (só da conta/escopo atual). Com conta, os valores-padrão sobem
+ * na próxima sincronização e substituem o progresso na nuvem (o servidor guarda uma cópia no
+ * histórico). O estado da sincronização não é apagado — senão a nuvem devolveria os dados.
+ */
 export async function resetarTudo(): Promise<void> {
   aplicarBackup({ app: BACKUP_APP, schemaVersion: BACKUP_VERSAO, exportedAt: new Date().toISOString(), data: {} });
   await aguardarEscritas();
-  await limparEscopoAtual();
-  // Regrava os padrões para que a próxima abertura não dependa de estado em memória.
-  aplicarBackup({ app: BACKUP_APP, schemaVersion: BACKUP_VERSAO, exportedAt: new Date().toISOString(), data: {} });
 }
 
 export function nomeDoArquivo(): string {

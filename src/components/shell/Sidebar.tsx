@@ -7,6 +7,7 @@ import { useCores } from '@/theme/cores';
 import { formatBR } from '@/utils/dates';
 import { Label, Muted } from '../ui/primitives';
 import { NAV, rotaAtiva } from './nav';
+import { IndicadorSync } from '@/components/conta/IndicadorSync';
 
 /** Barra lateral fixa no estilo Notion (telas ≥ 768 px). */
 export function Sidebar() {
@@ -81,6 +82,7 @@ export function Sidebar() {
           <Label className="mb-1">Foco ativo</Label>
           <Muted>{TRILHA_LABEL[trilha]}</Muted>
           {novos > 0 ? <Muted className="mt-3">📡 {novos} {novos === 1 ? 'edital novo' : 'editais novos'} no Sul (7 dias)</Muted> : null}
+          <IndicadorSync className="mt-3" />
         </View>
       </ScrollView>
     </View>

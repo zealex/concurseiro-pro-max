@@ -1,6 +1,8 @@
 import { WEB_URL } from '@/config';
 import { chamarApi, ErroSessao } from '@/services/api/http';
 import { abrirArmazenamentoDaConta, fecharArmazenamento, useEstadoArmazenamento } from '@/store/hydration';
+import type { StoreSync } from '@/sync/contrato';
+import { desligarSync } from '@/sync/controle';
 import { authClient, PLATAFORMA_NATIVA } from './cliente';
 import { adotarDadosDoAparelho, salvarConta, useConta, type Conta, type ContaUsuario } from './conta';
 
@@ -136,13 +138,17 @@ export async function usarSemConta(): Promise<void> {
 }
 
 /**
- * Sair. O progresso desta conta continua guardado no aparelho (separado de outras contas) até a
- * sincronização com a nuvem garantir uma cópia no servidor.
+ * Sair. Antes, envia o que estiver pendente. Se tudo chegou à nuvem, os dados da conta saem deste
+ * aparelho (voltam ao entrar de novo); se algo ficou pendente (sem internet), continuam guardados
+ * aqui, separados de outras contas, e sobem no próximo login.
  */
-export async function sair(): Promise<void> {
-  if (useConta.getState().conta?.modo === 'usuario') await authClient.signOut().catch(() => undefined);
-  await fecharArmazenamento();
+export async function sair(): Promise<{ pendentes: StoreSync[] }> {
+  const conta = useConta.getState().conta;
+  const { pendentes } = conta?.modo === 'usuario' ? await desligarSync({ flush: true }) : { pendentes: [] as StoreSync[] };
+  if (conta?.modo === 'usuario') await authClient.signOut().catch(() => undefined);
+  await fecharArmazenamento({ apagar: conta?.modo === 'usuario' && pendentes.length === 0 });
   await salvarConta(null);
+  return { pendentes };
 }
 
 /** Confere a sessão no servidor sem bloquear o app. Sem internet, não muda nada. */

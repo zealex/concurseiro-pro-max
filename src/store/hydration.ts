@@ -78,8 +78,16 @@ export function abrirArmazenamentoDaConta(conta: Conta): Promise<void> {
   return abrir(escopoDaConta(conta));
 }
 
+let antesDeFechar: (() => Promise<unknown>) | null = null;
+
+/** Registra o que precisa rodar antes de fechar um escopo (a sincronização envia o pendente). */
+export function registrarAntesDeFechar(fn: () => Promise<unknown>): void {
+  antesDeFechar = fn;
+}
+
 /** Ao sair: fecha o progresso aberto (com `apagar`, remove do aparelho) e volta à tela de login. */
 export async function fecharArmazenamento(op: { apagar?: boolean } = {}): Promise<void> {
+  await antesDeFechar?.().catch((e) => console.warn('[armazenamento] antes de fechar', e));
   await fecharEscopoStores(op);
   escopoAberto = null;
   definir({ fase: 'sem-conta', mensagem: null });

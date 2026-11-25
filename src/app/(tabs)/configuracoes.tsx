@@ -166,7 +166,7 @@ export default function Configuracoes() {
             <Button icone={Upload} titulo="Importar progresso" onPress={importar} />
           </Row>
           <View className="mt-4">
-            <Button variante="perigo" titulo="Apagar todos os dados locais" onPress={() => setConfirmarApagar(true)} />
+            <Button variante="perigo" titulo="Apagar meu progresso" onPress={() => setConfirmarApagar(true)} />
           </View>
         </Card>
       </Section>
@@ -195,8 +195,8 @@ export default function Configuracoes() {
         />
       </Sheet>
 
-      <Sheet visivel={confirmarApagar} onFechar={() => setConfirmarApagar(false)} titulo="Apagar todos os dados?">
-        <Muted className="mb-3">Remove progresso, questões, revisões, notas e status do Radar deste dispositivo. Exporte um backup antes se quiser guardar.</Muted>
+      <Sheet visivel={confirmarApagar} onFechar={() => setConfirmarApagar(false)} titulo="Apagar todo o seu progresso?">
+        <Muted className="mb-3">Remove progresso, questões, revisões, notas e status do Radar. Com conta, apaga também na nuvem e nos seus outros aparelhos (o servidor guarda uma cópia de segurança por um tempo). Exporte um backup antes se quiser guardar.</Muted>
         <Button
           variante="perigo"
           titulo="Apagar definitivamente"

@@ -10,9 +10,11 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Button } from '@/components/ui/Button';
 import { ToastProvider } from '@/components/ui/Toast';
 import { validarSessaoEmSegundoPlano } from '@/services/auth/acoes';
+import { useConta } from '@/services/auth/conta';
 import { inicializarRadar, sincronizarRadar } from '@/services/concursosTrackerService';
 import { iniciarArmazenamento, tentarAbrirDeNovo, useEstadoArmazenamento, usarEstaAba } from '@/store/hydration';
 import { useSettingsStore } from '@/store/useSettingsStore';
+import { desligarSync, ligarSync } from '@/sync/controle';
 import { useCores } from '@/theme/cores';
 
 function TelaCentral({ children }: { children: React.ReactNode }) {
@@ -21,6 +23,8 @@ function TelaCentral({ children }: { children: React.ReactNode }) {
 
 export default function RootLayout() {
   const { fase, mensagem, abaAtiva } = useEstadoArmazenamento();
+  const idConta = useConta((c) => (c.conta?.modo === 'usuario' ? c.conta.userId : null));
+  const sessaoExpirada = useConta((c) => c.sessaoExpirada);
   const tema = useSettingsStore((s) => s.tema);
   const sistema = useSistemaColorScheme();
   const { colorScheme, setColorScheme } = useColorScheme();
@@ -42,6 +46,12 @@ export default function RootLayout() {
     void sincronizarRadar();
     void validarSessaoEmSegundoPlano();
   }, [fase]);
+
+  // Sincronização com a nuvem: só com conta, progresso aberto, sessão válida e nesta aba.
+  useEffect(() => {
+    if (fase === 'pronto' && idConta && !sessaoExpirada && abaAtiva) void ligarSync();
+    else void desligarSync({ flush: false });
+  }, [fase, idConta, sessaoExpirada, abaAtiva]);
 
   const navTema = colorScheme === 'dark' ? DarkTheme : DefaultTheme;
 
