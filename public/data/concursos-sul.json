@@ -1,20 +1,20 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-25T07:40:28.712Z",
+  "generatedAt": "2026-11-25T21:21:11.574Z",
   "escopo": "Concursos e processos seletivos que exigem graduação em Medicina, com lotação em PR, SC ou RS",
   "sources": [
     {
       "nome": "PCI Concursos",
       "ok": true,
-      "itens": 169,
-      "medicos": 36,
+      "itens": 183,
+      "medicos": 42,
       "erro": null
     },
     {
       "nome": "Concursos no Brasil",
       "ok": true,
-      "itens": 152,
-      "medicos": 24,
+      "itens": 164,
+      "medicos": 25,
       "erro": null
     },
     {
@@ -33,6 +33,453 @@
     }
   ],
   "concursos": [
+    {
+      "id": "sc-chapeco-prefeitura-medicina-do-trabalho-2026",
+      "titulo": "Município de Chapecó - SC abre concurso com 91 vagas e salários de até R$ 25.599,11",
+      "orgao": "Prefeitura de Chapecó",
+      "cidade": "Chapecó",
+      "uf": "SC",
+      "tipo": "concurso",
+      "tag": "medicina-do-trabalho",
+      "subcategoria": null,
+      "cargos": [
+        {
+          "nome": "Médico do Trabalho",
+          "tag": "medicina-do-trabalho",
+          "subcategoria": null,
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        }
+      ],
+      "vagasTotal": null,
+      "remuneracaoMax": 25599.11,
+      "cargaHoraria": null,
+      "banca": null,
+      "inscricoes": {
+        "inicio": "2026-12-07",
+        "fim": "2027-01-07"
+      },
+      "dataProva": "2027-02-14",
+      "editalUrl": "https://www.pciconcursos.com.br/noticias/municipio-de-chapeco-sc-abre-concurso-com-91-vagas-e-salarios-de-ate-25599",
+      "inscricaoUrl": null,
+      "relacionados": [],
+      "fonte": "pci",
+      "fonteUrl": "https://www.pciconcursos.com.br/noticias/municipio-de-chapeco-sc-abre-concurso-com-91-vagas-e-salarios-de-ate-25599",
+      "ano": 2026,
+      "firstSeenAt": "2026-11-25T21:21:11.574Z",
+      "lastSeenAt": "2026-11-25T21:21:11.574Z",
+      "isNew": true,
+      "observacoes": "EDITAL DE CONCURSO PÚBLICO Nº 003/2026 — disponível na página da notícia (PCI)"
+    },
+    {
+      "id": "pr-salto-do-lontra-prefeitura-medicina-geral-especialidades-2026",
+      "titulo": "Município de Salto do Lontra - PR abre concurso com salários de até R$ 20,8 mil para médicos",
+      "orgao": "Prefeitura de Salto do Lontra",
+      "cidade": "Salto do Lontra",
+      "uf": "PR",
+      "tipo": "concurso",
+      "tag": "medicina-geral-especialidades",
+      "subcategoria": "clinico-esf-plantonista",
+      "cargos": [
+        {
+          "nome": "Médico Clínico Geral",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "clinico-esf-plantonista",
+          "vagas": 1,
+          "cadastroReserva": false,
+          "remuneracao": 20845.24,
+          "cargaHoraria": "40h semanais"
+        },
+        {
+          "nome": "Médico Ginecologista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": 1,
+          "cadastroReserva": false,
+          "remuneracao": 20845.24,
+          "cargaHoraria": "40h semanais"
+        },
+        {
+          "nome": "Médico Plantonista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "clinico-esf-plantonista",
+          "vagas": 1,
+          "cadastroReserva": false,
+          "remuneracao": 20845.24,
+          "cargaHoraria": "40h semanais"
+        }
+      ],
+      "vagasTotal": 3,
+      "remuneracaoMax": 20845.24,
+      "cargaHoraria": "40h semanais",
+      "banca": "FAFIPA",
+      "inscricoes": {
+        "inicio": "2026-12-03",
+        "fim": "2026-12-28"
+      },
+      "dataProva": null,
+      "editalUrl": "https://www.pciconcursos.com.br/noticias/municipio-de-salto-do-lontra-pr-abre-concurso-com-salarios-de-ate-20-8-mil-para-medicos",
+      "inscricaoUrl": null,
+      "relacionados": [],
+      "fonte": "pci",
+      "fonteUrl": "https://www.pciconcursos.com.br/noticias/municipio-de-salto-do-lontra-pr-abre-concurso-com-salarios-de-ate-20-8-mil-para-medicos",
+      "ano": 2026,
+      "firstSeenAt": "2026-11-25T21:21:11.574Z",
+      "lastSeenAt": "2026-11-25T21:21:11.574Z",
+      "isNew": true,
+      "observacoes": "EDITAL DE ABERTURA Nº 01.001/2026 — disponível na página da notícia (PCI)"
+    },
+    {
+      "id": "rs-erechim-prefeitura-medicina-geral-especialidades-2026",
+      "titulo": "Prefeitura de Erechim abre edital para a área da Saúde no RS",
+      "orgao": "Prefeitura de Erechim",
+      "cidade": "Erechim",
+      "uf": "RS",
+      "tipo": "concurso",
+      "tag": "medicina-geral-especialidades",
+      "subcategoria": "especialidades",
+      "cargos": [
+        {
+          "nome": "Ginecologista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": 2,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": "12h semanais"
+        },
+        {
+          "nome": "Obstetra",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": 2,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": "12h semanais"
+        }
+      ],
+      "vagasTotal": 4,
+      "remuneracaoMax": null,
+      "cargaHoraria": "12h semanais",
+      "banca": null,
+      "inscricoes": {
+        "inicio": null,
+        "fim": null
+      },
+      "dataProva": null,
+      "editalUrl": "https://concursosnobrasil.com/concursos/rs/2026/11/25/prefeitura-de-erechim-promove-edital-para-area-da-saude-no-rs/",
+      "inscricaoUrl": null,
+      "relacionados": [],
+      "fonte": "concursos-no-brasil",
+      "fonteUrl": "https://concursosnobrasil.com/concursos/rs/2026/11/25/prefeitura-de-erechim-promove-edital-para-area-da-saude-no-rs/",
+      "ano": 2026,
+      "firstSeenAt": "2026-11-25T21:21:11.574Z",
+      "lastSeenAt": "2026-11-25T21:21:11.574Z",
+      "isNew": true,
+      "observacoes": null
+    },
+    {
+      "id": "rs-trindade-do-sul-prefeitura-medicina-geral-especialidades-2026",
+      "titulo": "Prefeitura de Trindade do Sul - RS abre processo seletivo para médicos com salários de até R$ 16.500,00",
+      "orgao": "Prefeitura de Trindade do Sul",
+      "cidade": "Trindade do Sul",
+      "uf": "RS",
+      "tipo": "processo-seletivo",
+      "tag": "medicina-geral-especialidades",
+      "subcategoria": "clinico-esf-plantonista",
+      "cargos": [
+        {
+          "nome": "Médico ESF II",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "clinico-esf-plantonista",
+          "vagas": 1,
+          "cadastroReserva": false,
+          "remuneracao": 16500,
+          "cargaHoraria": "40h semanais"
+        },
+        {
+          "nome": "Médico ESF III",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "clinico-esf-plantonista",
+          "vagas": 1,
+          "cadastroReserva": false,
+          "remuneracao": 16500,
+          "cargaHoraria": "40h semanais"
+        },
+        {
+          "nome": "Médico Clínico Geral",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "clinico-esf-plantonista",
+          "vagas": 1,
+          "cadastroReserva": false,
+          "remuneracao": 16500,
+          "cargaHoraria": "40h semanais"
+        }
+      ],
+      "vagasTotal": 3,
+      "remuneracaoMax": 16500,
+      "cargaHoraria": "40h semanais",
+      "banca": null,
+      "inscricoes": {
+        "inicio": "2026-11-26",
+        "fim": "2026-12-02"
+      },
+      "dataProva": null,
+      "editalUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-trindade-do-sul-rs-abre-processo-seletivo-para-medicos-com-salarios-de-ate-16500",
+      "inscricaoUrl": null,
+      "relacionados": [],
+      "fonte": "pci",
+      "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-trindade-do-sul-rs-abre-processo-seletivo-para-medicos-com-salarios-de-ate-16500",
+      "ano": 2026,
+      "firstSeenAt": "2026-11-25T21:21:11.574Z",
+      "lastSeenAt": "2026-11-25T21:21:11.574Z",
+      "isNew": true,
+      "observacoes": "EDITAL DE PROCESSO SELETIVO SIMPLIFICADO Nº 011/2026 — disponível na página da notícia (PCI)"
+    },
+    {
+      "id": "sc-chapeco-prefeitura-medicina-geral-especialidades-2026",
+      "titulo": "Município de Chapecó - SC abre concurso com 91 vagas e salários de até R$ 25.599,11",
+      "orgao": "Prefeitura de Chapecó",
+      "cidade": "Chapecó",
+      "uf": "SC",
+      "tipo": "concurso",
+      "tag": "medicina-geral-especialidades",
+      "subcategoria": "clinico-esf-plantonista",
+      "cargos": [
+        {
+          "nome": "Médico Cardiologista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Cirurgião Vascular",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Clínico Geral",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "clinico-esf-plantonista",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Dermatologista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Endocrinologista Pediátrico",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico ESF",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "clinico-esf-plantonista",
+          "vagas": 5,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Gastroenterologista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": 2,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Ginecologista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Infectologista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Neurologista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Neuropediatra",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Ortopedista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Otorrinolaringologista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Pediatra",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Pneumologista Infantil",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Proctologista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Psiquiatra",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Reumatologista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Urologista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        }
+      ],
+      "vagasTotal": null,
+      "remuneracaoMax": 25599.11,
+      "cargaHoraria": null,
+      "banca": null,
+      "inscricoes": {
+        "inicio": "2026-12-07",
+        "fim": "2027-01-07"
+      },
+      "dataProva": "2027-02-14",
+      "editalUrl": "https://www.pciconcursos.com.br/noticias/municipio-de-chapeco-sc-abre-concurso-com-91-vagas-e-salarios-de-ate-25599",
+      "inscricaoUrl": null,
+      "relacionados": [],
+      "fonte": "pci",
+      "fonteUrl": "https://www.pciconcursos.com.br/noticias/municipio-de-chapeco-sc-abre-concurso-com-91-vagas-e-salarios-de-ate-25599",
+      "ano": 2026,
+      "firstSeenAt": "2026-11-25T21:21:11.574Z",
+      "lastSeenAt": "2026-11-25T21:21:11.574Z",
+      "isNew": true,
+      "observacoes": "EDITAL DE CONCURSO PÚBLICO Nº 003/2026 — disponível na página da notícia (PCI)"
+    },
+    {
+      "id": "sc-nova-itaberaba-prefeitura-medicina-geral-especialidades-2026",
+      "titulo": "Prefeitura de Nova Itaberaba - SC abre processo seletivo com 4 vagas e cadastro de reserva",
+      "orgao": "Prefeitura de Nova Itaberaba",
+      "cidade": "Nova Itaberaba",
+      "uf": "SC",
+      "tipo": "processo-seletivo",
+      "tag": "medicina-geral-especialidades",
+      "subcategoria": "clinico-esf-plantonista",
+      "cargos": [
+        {
+          "nome": "Médico Clínico Geral",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "clinico-esf-plantonista",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        }
+      ],
+      "vagasTotal": null,
+      "remuneracaoMax": 25482.65,
+      "cargaHoraria": null,
+      "banca": null,
+      "inscricoes": {
+        "inicio": "2026-11-24",
+        "fim": "2026-12-07"
+      },
+      "dataProva": "2026-12-20",
+      "editalUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-nova-itaberaba-sc-abre-processo-seletivo-com-4-vagas-e-cadastro-de-reserva",
+      "inscricaoUrl": null,
+      "relacionados": [],
+      "fonte": "pci",
+      "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-nova-itaberaba-sc-abre-processo-seletivo-com-4-vagas-e-cadastro-de-reserva",
+      "ano": 2026,
+      "firstSeenAt": "2026-11-25T21:21:11.574Z",
+      "lastSeenAt": "2026-11-25T21:21:11.574Z",
+      "isNew": true,
+      "observacoes": "EDITAL DO PROCESSO SELETIVO SIMPLIFICADO Nº 021/2026 — disponível na página da notícia (PCI)"
+    },
     {
       "id": "rs-passo-fundo-uffs-medicina-geral-especialidades-2026",
       "titulo": "UFFS - RS abre seleção para professor de Medicina no campus de Passo Fundo",
@@ -69,7 +516,7 @@
       "fonteUrl": "https://www.pciconcursos.com.br/noticias/uffs-rs-abre-selecao-para-professor-de-medicina-no-campus-de-passo-fundo",
       "ano": 2026,
       "firstSeenAt": "2026-11-24T22:05:37.069Z",
-      "lastSeenAt": "2026-11-25T07:40:28.712Z",
+      "lastSeenAt": "2026-11-25T21:21:11.574Z",
       "isNew": true,
       "observacoes": "EDITAL Nº 457/2026 — disponível na página da notícia (PCI)"
     },
@@ -109,7 +556,7 @@
       "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-palmitos-sc-abre-processo-seletivo-com-salarios-de-ate-26258",
       "ano": 2026,
       "firstSeenAt": "2026-11-22T19:14:53.661Z",
-      "lastSeenAt": "2026-11-25T07:40:28.712Z",
+      "lastSeenAt": "2026-11-25T21:21:11.574Z",
       "isNew": true,
       "observacoes": "EDITAL DE PROCESSO SELETIVO SIMPLIFICADO Nº 001/2026 — disponível na página da notícia (PCI)"
     },
@@ -243,7 +690,7 @@
       "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-itaiopolis-sc-abre-processo-seletivo-para-cadastro-reserva-em-diversas-areas",
       "ano": 2026,
       "firstSeenAt": "2026-11-20T19:47:29.618Z",
-      "lastSeenAt": "2026-11-25T07:40:28.712Z",
+      "lastSeenAt": "2026-11-25T21:21:11.574Z",
       "isNew": true,
       "observacoes": "EDITAL Nº 002/2026 — disponível na página da notícia (PCI)"
     },
@@ -283,7 +730,7 @@
       "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-lebon-regis-sc-abre-selecoes-com-85-vagas-e-salarios-de-ate-24-4-mil",
       "ano": 2026,
       "firstSeenAt": "2026-11-20T19:47:29.618Z",
-      "lastSeenAt": "2026-11-25T07:40:28.712Z",
+      "lastSeenAt": "2026-11-25T21:21:11.574Z",
       "isNew": true,
       "observacoes": "EDITAL DE PROCESSO SELETIVO Nº 05/2026 — disponível na página da notícia (PCI) · EDITAL DE PROCESSO SELETIVO Nº 06/2026 — disponível na página da notícia (PCI)"
     },
@@ -323,7 +770,7 @@
       "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-chapadao-do-lageado-sc-abre-processo-seletivo-com-salarios-de-ate-21291",
       "ano": 2026,
       "firstSeenAt": "2026-11-19T20:13:22.578Z",
-      "lastSeenAt": "2026-11-25T07:40:28.712Z",
+      "lastSeenAt": "2026-11-25T21:21:11.574Z",
       "isNew": true,
       "observacoes": "EDITAL DE PROCESSO SELETIVO SIMPLIFICADO Nº 07/2026 — disponível na página da notícia (PCI)"
     },
@@ -363,7 +810,7 @@
       "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-major-gercino-sc-abre-processo-seletivo-com-salarios-de-ate-13301",
       "ano": 2026,
       "firstSeenAt": "2026-11-19T20:13:22.578Z",
-      "lastSeenAt": "2026-11-25T07:40:28.712Z",
+      "lastSeenAt": "2026-11-25T21:21:11.574Z",
       "isNew": true,
       "observacoes": "EDITAL DE ABERTURA Nº 01/2026 — disponível na página da notícia (PCI)"
     },
@@ -457,7 +904,7 @@
       "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-e-fundacao-cultural-de-sao-bento-do-sul-sc-abrem-processo-seletivo-com-salarios-de-ate-20795",
       "ano": 2026,
       "firstSeenAt": "2026-11-19T20:13:22.578Z",
-      "lastSeenAt": "2026-11-25T07:40:28.712Z",
+      "lastSeenAt": "2026-11-25T21:21:11.574Z",
       "isNew": true,
       "observacoes": "EDITAL 005/2026 — disponível na página da notícia (PCI)"
     },
@@ -591,7 +1038,7 @@
       "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-e-fundacao-cultural-de-navegantes-sc-abrem-selecoes-com-salarios-de-ate-19199",
       "ano": 2026,
       "firstSeenAt": "2026-11-19T04:24:10.897Z",
-      "lastSeenAt": "2026-11-25T07:40:28.712Z",
+      "lastSeenAt": "2026-11-25T21:21:11.574Z",
       "isNew": true,
       "observacoes": "EDITAL Nº 0172/2026 — disponível na página da notícia (PCI) · EDITAL Nº 0180/2026 — disponível na página da notícia (PCI) · ERRATA Nº 01 - EDITAL Nº 0172/2026 — disponível na página da notícia (PCI) · EDITAL RETIFICADO Nº 0172/2026 — disponível na página da notícia (PCI)"
     },
@@ -658,7 +1105,7 @@
       "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-palmital-pr-abre-concurso-publico-com-salarios-de-ate-22836",
       "ano": 2026,
       "firstSeenAt": "2026-11-19T04:24:10.897Z",
-      "lastSeenAt": "2026-11-25T07:40:28.712Z",
+      "lastSeenAt": "2026-11-25T21:21:11.574Z",
       "isNew": true,
       "observacoes": "EDITAL DE ABERTURA Nº 01/2026 — disponível na página da notícia (PCI)"
     },
@@ -707,7 +1154,7 @@
       "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-e-camara-de-coronel-freitas-sc-anunciam-processo-seletivo-para-diversos-cargos",
       "ano": 2026,
       "firstSeenAt": "2026-11-19T04:24:10.897Z",
-      "lastSeenAt": "2026-11-25T07:40:28.712Z",
+      "lastSeenAt": "2026-11-25T21:21:11.574Z",
       "isNew": true,
       "observacoes": "EDITAL DE PROCESSO SELETIVO 15/2026 — disponível na página da notícia (PCI)"
     },
@@ -797,7 +1244,7 @@
       "ano": 2026,
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
       "lastSeenAt": "2026-11-24T22:05:37.069Z",
-      "isNew": true,
+      "isNew": false,
       "observacoes": "EDITAL DE ABERTURA - CONCURSO PÚBLICO Nº 01/2026 — disponível na página da notícia (PCI) · EDITAL Nº 04/2026 RETIFICAÇÃO E ADENDO DO EDITAL DE ABERTURA — disponível na página da notícia (PCI) · EDITAL Nº 03/2026 RETIFICAÇÃO E ADENDO AO EDITAL DE ABERTURA — disponível na página da notícia (PCI)"
     },
     {
@@ -841,8 +1288,8 @@
       "fonteUrl": "https://www.pciconcursos.com.br/noticias/fundacao-hospitalar-getulio-vargas-rs-abre-processo-seletivo-para-medicos",
       "ano": 2026,
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
-      "lastSeenAt": "2026-11-25T07:40:28.712Z",
-      "isNew": true,
+      "lastSeenAt": "2026-11-25T21:21:11.574Z",
+      "isNew": false,
       "observacoes": "EDITAL DE ABERTURA Nº 341/2026 - PROCESSO SELETIVO SIMPLIFICADO Nº 007/2026 — disponível na página da notícia (PCI)"
     },
     {
@@ -886,8 +1333,8 @@
       "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-fraiburgo-sc-abre-processo-seletivo-para-cadastro-de-reserva",
       "ano": 2026,
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
-      "lastSeenAt": "2026-11-25T07:40:28.712Z",
-      "isNew": true,
+      "lastSeenAt": "2026-11-25T21:21:11.574Z",
+      "isNew": false,
       "observacoes": "EDITAL Nº 0027/2026 — disponível na página da notícia (PCI)"
     },
     {
@@ -931,8 +1378,8 @@
       "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-quedas-do-iguacu-pr-retifica-edital-de-concurso-publico",
       "ano": 2026,
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
-      "lastSeenAt": "2026-11-25T07:40:28.712Z",
-      "isNew": true,
+      "lastSeenAt": "2026-11-25T21:21:11.574Z",
+      "isNew": false,
       "observacoes": "EDITAL Nº 030/2026 - CONCURSO PÚBLICO Nº 001/2026 — disponível na página da notícia (PCI) · EDITAL Nº 030/2026 RETIFICADO - CONCURSO PÚBLICO Nº 001/2026 — disponível na página da notícia (PCI) · RETIFICAÇÃO — disponível na página da notícia (PCI)"
     },
     {
@@ -976,8 +1423,8 @@
       "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-umuarama-pr-abre-concurso-publico-para-medicos-generalistas",
       "ano": 2026,
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
-      "lastSeenAt": "2026-11-25T07:40:28.712Z",
-      "isNew": true,
+      "lastSeenAt": "2026-11-25T21:21:11.574Z",
+      "isNew": false,
       "observacoes": "EDITAL DE ABERTURA Nº 130/2026 — disponível na página da notícia (PCI)"
     },
     {
@@ -1039,8 +1486,8 @@
       "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-antonio-prado-rs-abre-concurso-publico-com-salarios-de-ate-10352",
       "ano": 2026,
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
-      "lastSeenAt": "2026-11-25T07:40:28.712Z",
-      "isNew": true,
+      "lastSeenAt": "2026-11-25T21:21:11.574Z",
+      "isNew": false,
       "observacoes": "EDITAL Nº 070/2026 — disponível na página da notícia (PCI)"
     },
     {
@@ -1191,8 +1638,8 @@
       "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-caxias-do-sul-rs-divulga-editais-de-concurso-publico",
       "ano": 2026,
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
-      "lastSeenAt": "2026-11-25T07:40:28.712Z",
-      "isNew": true,
+      "lastSeenAt": "2026-11-25T21:21:11.574Z",
+      "isNew": false,
       "observacoes": "EDITAL DE CONCURSO Nº 02/2026 — disponível na página da notícia (PCI) · EDITAL DE CONCURSO Nº 03/2026 — disponível na página da notícia (PCI)"
     },
     {
@@ -1313,7 +1760,7 @@
       "ano": 2026,
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
       "lastSeenAt": "2026-11-24T22:05:37.069Z",
-      "isNew": true,
+      "isNew": false,
       "observacoes": "EDITAL DE ABERTURA - CONCURSO PÚBLICO Nº 01/2026 — disponível na página da notícia (PCI) · EDITAL Nº 04/2026 RETIFICAÇÃO E ADENDO DO EDITAL DE ABERTURA — disponível na página da notícia (PCI) · EDITAL Nº 03/2026 RETIFICAÇÃO E ADENDO AO EDITAL DE ABERTURA — disponível na página da notícia (PCI)"
     },
     {
@@ -1362,7 +1809,7 @@
       "ano": 2026,
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
       "lastSeenAt": "2026-11-23T23:36:18.218Z",
-      "isNew": true,
+      "isNew": false,
       "observacoes": "EDITAL DE CONCURSO PÚBLICO Nº 01/2026 — disponível na página da notícia (PCI)"
     },
     {
@@ -1407,7 +1854,7 @@
       "ano": 2026,
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
       "lastSeenAt": "2026-11-19T20:13:22.578Z",
-      "isNew": true,
+      "isNew": false,
       "observacoes": "EDITAL 01 — disponível na página da notícia (PCI)"
     },
     {
@@ -1474,7 +1921,7 @@
       "ano": 2026,
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
       "lastSeenAt": "2026-11-19T20:13:22.578Z",
-      "isNew": true,
+      "isNew": false,
       "observacoes": "EDITAL DE ABERTURA - CONCURSO PÚBLICO Nº 01/2026 — disponível na página da notícia (PCI)"
     },
     {
@@ -1528,7 +1975,7 @@
       "ano": 2026,
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
       "lastSeenAt": "2026-11-23T23:36:18.218Z",
-      "isNew": true,
+      "isNew": false,
       "observacoes": "EDITAL DE CONCURSO PÚBLICO Nº 01/202 — disponível na página da notícia (PCI)"
     },
     {
@@ -1567,8 +2014,8 @@
       "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-piratini-rs-abre-concurso-publico-com-salarios-de-ate-7462",
       "ano": 2026,
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
-      "lastSeenAt": "2026-11-25T07:40:28.712Z",
-      "isNew": true,
+      "lastSeenAt": "2026-11-25T21:21:11.574Z",
+      "isNew": false,
       "observacoes": "EDITAL Nº 001/2026 — disponível na página da notícia (PCI)"
     },
     {
@@ -1918,8 +2365,8 @@
       "fonteUrl": "https://www.pciconcursos.com.br/noticias/grupo-hospitalar-conceicao-rs-abre-concurso-para-cadastro-de-reserva-em-diversas-areas",
       "ano": 2026,
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
-      "lastSeenAt": "2026-11-25T07:40:28.712Z",
-      "isNew": true,
+      "lastSeenAt": "2026-11-25T21:21:11.574Z",
+      "isNew": false,
       "observacoes": "EDITAL Nº 3 — disponível na página da notícia (PCI)"
     },
     {
@@ -2269,8 +2716,8 @@
       "fonteUrl": "https://www.pciconcursos.com.br/noticias/fundacao-hospitalar-getulio-vargas-rs-abre-processo-seletivo-para-medicos",
       "ano": 2026,
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
-      "lastSeenAt": "2026-11-25T07:40:28.712Z",
-      "isNew": true,
+      "lastSeenAt": "2026-11-25T21:21:11.574Z",
+      "isNew": false,
       "observacoes": "EDITAL DE ABERTURA Nº 341/2026 - PROCESSO SELETIVO SIMPLIFICADO Nº 007/2026 — disponível na página da notícia (PCI)"
     },
     {
@@ -2333,7 +2780,7 @@
       "ano": 2026,
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
       "lastSeenAt": "2026-11-18T18:07:01.379Z",
-      "isNew": true,
+      "isNew": false,
       "observacoes": "EDITAL Nº 001/2026 — disponível na página da notícia (PCI)"
     },
     {
@@ -2377,8 +2824,8 @@
       "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-agronomica-sc-abre-concurso-publico-com-salarios-de-ate-19660",
       "ano": 2026,
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
-      "lastSeenAt": "2026-11-25T07:40:28.712Z",
-      "isNew": true,
+      "lastSeenAt": "2026-11-25T21:21:11.574Z",
+      "isNew": false,
       "observacoes": "EDITAL 01/2026 — disponível na página da notícia (PCI)"
     },
     {
@@ -2435,8 +2882,8 @@
       "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-ararangua-sc-abre-processos-seletivos-para-diferentes-areas",
       "ano": 2026,
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
-      "lastSeenAt": "2026-11-25T07:40:28.712Z",
-      "isNew": true,
+      "lastSeenAt": "2026-11-25T21:21:11.574Z",
+      "isNew": false,
       "observacoes": "EDITAL DE PROCESSO SELETIVO SIMPLIFICADO 004/2026 EDUCAÇÃO — disponível na página da notícia (PCI) · EDITAL DE PROCESSO SELETIVO SIMPLIFICADO 003/2026 ADMINISTRAÇÃO — disponível na página da notícia (PCI)"
     },
     {
@@ -2481,7 +2928,7 @@
       "ano": 2026,
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
       "lastSeenAt": "2026-11-23T23:36:18.218Z",
-      "isNew": true,
+      "isNew": false,
       "observacoes": "EDITAL DE CONCURSO PÚBLICO Nº 01/2026 — disponível na página da notícia (PCI)"
     },
     {
@@ -2551,8 +2998,8 @@
       "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-curitibanos-sc-abre-selecoes-com-salarios-de-ate-26193",
       "ano": 2026,
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
-      "lastSeenAt": "2026-11-25T07:40:28.712Z",
-      "isNew": true,
+      "lastSeenAt": "2026-11-25T21:21:11.574Z",
+      "isNew": false,
       "observacoes": "EDITAL DE ABERTURA Nº 09/2026 — disponível na página da notícia (PCI) · EDITAL DE ABERTURA Nº 08/2026 — disponível na página da notícia (PCI)"
     },
     {
@@ -2589,13 +3036,17 @@
       "cargaHoraria": null,
       "banca": "Fênix Instituto",
       "inscricoes": {
-        "inicio": "2026-11-07",
+        "inicio": "2026-11-25",
         "fim": "2026-11-07"
       },
       "dataProva": "2026-12-13",
       "editalUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-faxinal-dos-guedes-sc-suspende-concurso-e-processo-seletivo",
       "inscricaoUrl": null,
       "relacionados": [
+        {
+          "rotulo": "Também em pci",
+          "url": "https://www.pciconcursos.com.br/noticias/prefeitura-de-faxinal-dos-guedes-sc-abre-concurso-e-processo-seletivo-com-12-vagas-imediatas"
+        },
         {
           "rotulo": "Também em concursos-no-brasil",
           "url": "https://concursosnobrasil.com/concursos/sc/2026/11/09/concurso-prefeitura-de-faxinal-dos-guedes-sc-paga-ate-r-7-454/"
@@ -2609,8 +3060,8 @@
       "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-faxinal-dos-guedes-sc-suspende-concurso-e-processo-seletivo",
       "ano": 2026,
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
-      "lastSeenAt": "2026-11-25T07:40:28.712Z",
-      "isNew": true,
+      "lastSeenAt": "2026-11-25T21:21:11.574Z",
+      "isNew": false,
       "observacoes": "EDITAL DE CONCURSO PÚBLICO Nº 01/2026 — disponível na página da notícia (PCI) · EDITAL DE PROCESSO SELETIVO Nº 002/2026 — disponível na página da notícia (PCI) · DECRETO Nº 456/2026 — disponível na página da notícia (PCI)"
     },
     {
@@ -2690,8 +3141,8 @@
       "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-fraiburgo-sc-abre-processo-seletivo-para-cadastro-de-reserva",
       "ano": 2026,
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
-      "lastSeenAt": "2026-11-25T07:40:28.712Z",
-      "isNew": true,
+      "lastSeenAt": "2026-11-25T21:21:11.574Z",
+      "isNew": false,
       "observacoes": "EDITAL Nº 0027/2026 — disponível na página da notícia (PCI)"
     },
     {
@@ -2735,8 +3186,8 @@
       "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-guaruja-do-sul-sc-abre-concurso-e-selecoes-com-salarios-de-ate-30-7-mil",
       "ano": 2026,
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
-      "lastSeenAt": "2026-11-25T07:40:28.712Z",
-      "isNew": true,
+      "lastSeenAt": "2026-11-25T21:21:11.574Z",
+      "isNew": false,
       "observacoes": "EDITAL DE CONCURSO PÚBLICO Nº 001/2026 — disponível na página da notícia (PCI) · EDITAL DE PROCESSO SELETIVO Nº 001/2026 — disponível na página da notícia (PCI) · EDITAL DE PROCESSO SELETIVO Nº 002/2026 — disponível na página da notícia (PCI)"
     },
     {
@@ -2798,8 +3249,8 @@
       "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-ibirama-sc-abre-concurso-publico-com-salarios-de-ate-20364",
       "ano": 2026,
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
-      "lastSeenAt": "2026-11-25T07:40:28.712Z",
-      "isNew": true,
+      "lastSeenAt": "2026-11-25T21:21:11.574Z",
+      "isNew": false,
       "observacoes": "EDITAL Nº 01/2026 — disponível na página da notícia (PCI)"
     },
     {
@@ -2843,8 +3294,8 @@
       "fonteUrl": "https://www.pciconcursos.com.br/noticias/ses-sc-abre-selecao-para-profissionais-de-saude-em-joinville",
       "ano": 2026,
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
-      "lastSeenAt": "2026-11-25T07:40:28.712Z",
-      "isNew": true,
+      "lastSeenAt": "2026-11-25T21:21:11.574Z",
+      "isNew": false,
       "observacoes": "EDITAL Nº 046/2026 — disponível na página da notícia (PCI)"
     },
     {
@@ -2911,7 +3362,7 @@
       "ano": 2026,
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
       "lastSeenAt": "2026-11-23T23:36:18.218Z",
-      "isNew": true,
+      "isNew": false,
       "observacoes": "EDITAL Nº 08/2026 — disponível na página da notícia (PCI)"
     },
     {
@@ -2955,8 +3406,8 @@
       "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-luzerna-sc-abre-concurso-publico-com-salarios-de-ate-14004",
       "ano": 2026,
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
-      "lastSeenAt": "2026-11-25T07:40:28.712Z",
-      "isNew": true,
+      "lastSeenAt": "2026-11-25T21:21:11.574Z",
+      "isNew": false,
       "observacoes": "EDITAL DO CONCURSO PÚBLICO Nº 001 — disponível na página da notícia (PCI)"
     },
     {
@@ -3099,8 +3550,8 @@
       "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-e-fundacao-cultural-de-navegantes-sc-abrem-selecoes-com-salarios-de-ate-19199",
       "ano": 2026,
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
-      "lastSeenAt": "2026-11-25T07:40:28.712Z",
-      "isNew": true,
+      "lastSeenAt": "2026-11-25T21:21:11.574Z",
+      "isNew": false,
       "observacoes": "EDITAL Nº 0172/2026 — disponível na página da notícia (PCI) · EDITAL Nº 0180/2026 — disponível na página da notícia (PCI) · ERRATA Nº 01 - EDITAL Nº 0172/2026 — disponível na página da notícia (PCI) · EDITAL RETIFICADO Nº 0172/2026 — disponível na página da notícia (PCI)"
     },
     {
@@ -3148,13 +3599,13 @@
       "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-nova-trento-sc-abre-tres-processos-seletivos-para-diversas-areas",
       "ano": 2026,
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
-      "lastSeenAt": "2026-11-25T07:40:28.712Z",
-      "isNew": true,
+      "lastSeenAt": "2026-11-25T21:21:11.574Z",
+      "isNew": false,
       "observacoes": "EDITAL DE PROCESSO SELETIVO PÚBLICO Nº 001/2026 — disponível na página da notícia (PCI) · EDITAL DE PROCESSO SELETIVO Nº 002/2026 - SECRETARIA DE EDUCAÇÃO — disponível na página da notícia (PCI) · EDITAL DE PROCESSO SELETIVO Nº 003/2026 DEMAIS SECRETARIAS — disponível na página da notícia (PCI) · EDITAL RETIFICADO Nº 003/2026 — disponível na página da notícia (PCI) · RETIFICAÇÃO Nº 01/2026 - PROCESSO SELETIVO PÚBLICO Nº 003/2026 — disponível na página da notícia (PCI)"
     },
     {
       "id": "sc-pouso-redondo-prefeitura-medicina-geral-especialidades-2026",
-      "titulo": "Prefeitura de Pouso Redondo - SC abre processo seletivo com salários de até R$ 21.091,49",
+      "titulo": "Prefeitura de Pouso Redondo - SC abre processo seletivo com salários de até R$ 21 mil",
       "orgao": "Prefeitura de Pouso Redondo",
       "cidade": "Pouso Redondo",
       "uf": "SC",
@@ -3178,24 +3629,28 @@
       "banca": "SC Treinamentos",
       "inscricoes": {
         "inicio": "2026-11-16",
-        "fim": "2026-11-26"
+        "fim": "2026-12-18"
       },
-      "dataProva": "2026-12-05",
-      "editalUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-pouso-redondo-sc-abre-processo-seletivo-com-salarios-de-ate-21091",
+      "dataProva": "2027-01-10",
+      "editalUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-pouso-redondo-sc-abre-processo-seletivo-com-salarios-de-ate-21-mil",
       "inscricaoUrl": null,
       "relacionados": [
         {
           "rotulo": "Também em concursos-no-brasil",
           "url": "https://concursosnobrasil.com/concursos/sc/2026/11/16/edital-prefeitura-de-pouso-redondo-sc-oferece-remuneracao-de-ate-r-21-091/"
+        },
+        {
+          "rotulo": "Também em pci",
+          "url": "https://www.pciconcursos.com.br/noticias/prefeitura-de-pouso-redondo-sc-abre-processo-seletivo-com-salarios-de-ate-21091"
         }
       ],
       "fonte": "pci",
-      "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-pouso-redondo-sc-abre-processo-seletivo-com-salarios-de-ate-21091",
+      "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-pouso-redondo-sc-abre-processo-seletivo-com-salarios-de-ate-21-mil",
       "ano": 2026,
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
-      "lastSeenAt": "2026-11-25T07:40:28.712Z",
-      "isNew": true,
-      "observacoes": "EDITAL DE PROCESSO SELETIVO SIMPLIFICADO Nº 003/2026 — disponível na página da notícia (PCI)"
+      "lastSeenAt": "2026-11-25T21:21:11.574Z",
+      "isNew": false,
+      "observacoes": "EDITAL DE PROCESSO SELETIVO SIMPLIFICADO Nº 003/2026 — disponível na página da notícia (PCI) · EDITAL DE PROCESSO SELETIVO SIMPLIFICADO Nº 003/2026 — disponível na página da notícia (PCI) · RETIFICAÇÃO Nº 01/2026 - PROCESSO SELETIVO SIMPLIFICADO Nº 003/2026 — disponível na página da notícia (PCI)"
     },
     {
       "id": "sc-praia-grande-prefeitura-medicina-geral-especialidades-2026",
@@ -3248,7 +3703,7 @@
       "ano": 2026,
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
       "lastSeenAt": "2026-11-22T19:14:53.661Z",
-      "isNew": true,
+      "isNew": false,
       "observacoes": "EDITAL DE PROCESSO SELETIVO SIMPLIFICADO 001/2026 — disponível na página da notícia (PCI) · EDITAL DE PROCESSO SELETIVO SIMPLIFICADO 002/2026 — disponível na página da notícia (PCI) · EDITAL DE PROCESSO SELETIVO SIMPLIFICADO 003/2026 — disponível na página da notícia (PCI)"
     },
     {
@@ -3311,7 +3766,7 @@
       "ano": 2026,
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
       "lastSeenAt": "2026-11-23T23:36:18.218Z",
-      "isNew": true,
+      "isNew": false,
       "observacoes": "EDITAL DE PROCESSO SELETIVO SIMPLIFICADO Nº 007/2026 — disponível na página da notícia (PCI)"
     },
     {
@@ -3363,8 +3818,8 @@
       "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-santa-terezinha-do-progresso-sc-suspende-concurso-publico-para-diversos-niveis",
       "ano": 2026,
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
-      "lastSeenAt": "2026-11-25T07:40:28.712Z",
-      "isNew": true,
+      "lastSeenAt": "2026-11-25T21:21:11.574Z",
+      "isNew": false,
       "observacoes": "EDITAL DE CONCURSO PÚBLICO DE PROVAS Nº 01/2026 — disponível na página da notícia (PCI) · SUSPENSÃO - EDITAL DE CONCURSO PÚBLICO DE PROVAS Nº 01/2026 — disponível na página da notícia (PCI)"
     },
     {
@@ -3417,8 +3872,8 @@
       "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-sao-carlos-sc-abre-processos-seletivos-para-cadastro-de-reserva",
       "ano": 2026,
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
-      "lastSeenAt": "2026-11-25T07:40:28.712Z",
-      "isNew": true,
+      "lastSeenAt": "2026-11-25T21:21:11.574Z",
+      "isNew": false,
       "observacoes": "EDITAL DO PROCESSO SELETIVO SIMPLIFICADO EDUCAÇÃO Nº 002 — disponível na página da notícia (PCI) · EDITAL DO PROCESSO SELETIVO SIMPLIFICADO CARGOS GERAIS Nº 003 — disponível na página da notícia (PCI)"
     },
     {
@@ -3462,8 +3917,8 @@
       "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-sao-miguel-do-oeste-sc-abre-selecao-para-cadastro-de-reserva-em-diversas-areas",
       "ano": 2026,
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
-      "lastSeenAt": "2026-11-25T07:40:28.712Z",
-      "isNew": true,
+      "lastSeenAt": "2026-11-25T21:21:11.574Z",
+      "isNew": false,
       "observacoes": "EDITAL DE PROCESSO SELETIVO SIMPLIFICADO Nº 006/2026 — disponível na página da notícia (PCI)"
     },
     {
@@ -3547,8 +4002,8 @@
       "fonteUrl": "https://www.pciconcursos.com.br/noticias/prefeitura-de-tijucas-sc-abre-concursos-publicos-com-salarios-de-ate-9941",
       "ano": 2026,
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
-      "lastSeenAt": "2026-11-25T07:40:28.712Z",
-      "isNew": true,
+      "lastSeenAt": "2026-11-25T21:21:11.574Z",
+      "isNew": false,
       "observacoes": "EDITAL Nº 03/2026 — disponível na página da notícia (PCI) · EDITAL Nº 04/2026 — disponível na página da notícia (PCI)"
     }
   ]
