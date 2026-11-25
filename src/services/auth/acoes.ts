@@ -25,6 +25,7 @@ const MENSAGENS: Record<string, string> = {
   PASSWORD_TOO_LONG: 'A senha pode ter no máximo 128 caracteres.',
   USER_ALREADY_EXISTS: 'Já existe uma conta com este e-mail. Entre ou use "Esqueci minha senha".',
   INVALID_TOKEN: 'Este link é inválido ou expirou. Peça um novo.',
+  SEM_RESPOSTA: 'O servidor não respondeu a tempo. Verifique sua conexão e tente de novo.',
   ACCOUNT_NOT_LINKED: 'Já existe uma conta com este e-mail. Entre com e-mail e senha (confirme o e-mail antes, se ainda não confirmou).',
 };
 
@@ -39,6 +40,14 @@ export function traduzirErro(e: ErroAuth | null | undefined): { codigo: string; 
 const falha = (e: ErroAuth | null | undefined): Resultado => ({ ok: false, ...traduzirErro(e) });
 
 const normalizarEmail = (email: string) => email.trim().toLowerCase();
+
+const PRAZO_MS = 30_000;
+const SEM_RESPOSTA = { error: { code: 'SEM_RESPOSTA', status: 0, message: 'O servidor não respondeu a tempo. Verifique sua conexão e tente de novo.' } } as const;
+
+/** Nenhuma ação de conta fica "carregando para sempre": sem resposta em 30 s, vira erro. */
+function comPrazo<T>(p: Promise<T>): Promise<T | typeof SEM_RESPOSTA> {
+  return Promise.race([p, new Promise<typeof SEM_RESPOSTA>((resolve) => setTimeout(() => resolve(SEM_RESPOSTA), PRAZO_MS))]);
+}
 
 /**
  * Com a sessão já criada no servidor: monta o retrato da conta e abre o progresso dela.
@@ -74,23 +83,25 @@ async function concluirLogin(): Promise<Resultado> {
 }
 
 export async function entrarComEmail(email: string, senha: string): Promise<Resultado> {
-  const r = await authClient.signIn.email({ email: normalizarEmail(email), password: senha });
+  const r = await comPrazo(authClient.signIn.email({ email: normalizarEmail(email), password: senha }));
   if (r.error) return falha(r.error);
   return concluirLogin();
 }
 
 export async function criarConta(nome: string, email: string, senha: string): Promise<Resultado> {
-  const r = await authClient.signUp.email({
-    name: nome.trim(),
-    email: normalizarEmail(email),
-    password: senha,
-    callbackURL: `${WEB_URL}/entrar?verificado=1`,
-  });
+  const r = await comPrazo(
+    authClient.signUp.email({
+      name: nome.trim(),
+      email: normalizarEmail(email),
+      password: senha,
+      callbackURL: `${WEB_URL}/entrar?verificado=1`,
+    }),
+  );
   return r.error ? falha(r.error) : { ok: true };
 }
 
 export async function reenviarVerificacao(email: string): Promise<Resultado> {
-  const r = await authClient.sendVerificationEmail({ email: normalizarEmail(email), callbackURL: `${WEB_URL}/entrar?verificado=1` });
+  const r = await comPrazo(authClient.sendVerificationEmail({ email: normalizarEmail(email), callbackURL: `${WEB_URL}/entrar?verificado=1` }));
   return r.error ? falha(r.error) : { ok: true };
 }
 
@@ -120,12 +131,12 @@ export async function tentarRetomarSessao(): Promise<boolean> {
 }
 
 export async function esqueciSenha(email: string): Promise<Resultado> {
-  const r = await authClient.requestPasswordReset({ email: normalizarEmail(email), redirectTo: `${WEB_URL}/redefinir-senha` });
+  const r = await comPrazo(authClient.requestPasswordReset({ email: normalizarEmail(email), redirectTo: `${WEB_URL}/redefinir-senha` }));
   return r.error ? falha(r.error) : { ok: true };
 }
 
 export async function redefinirSenha(token: string, novaSenha: string): Promise<Resultado> {
-  const r = await authClient.resetPassword({ newPassword: novaSenha, token });
+  const r = await comPrazo(authClient.resetPassword({ newPassword: novaSenha, token }));
   return r.error ? falha(r.error) : { ok: true };
 }
 
@@ -156,7 +167,7 @@ export async function sair(): Promise<{ pendentes: StoreSync[] }> {
  * Conta com senha confirma pela senha; conta só Google/Apple precisa de login recente (24 h).
  */
 export async function excluirConta(senha?: string): Promise<Resultado> {
-  const r = await authClient.deleteUser(senha ? { password: senha } : {});
+  const r = await comPrazo(authClient.deleteUser(senha ? { password: senha } : {}));
   if (r.error) {
     const e = r.error as ErroAuth;
     if (e.code === 'SESSION_EXPIRED' || e.code === 'SESSION_NOT_FRESH' || /fresh/i.test(e.message ?? '')) {

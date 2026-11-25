@@ -1,5 +1,6 @@
 import { Link, useLocalSearchParams, useRouter } from 'expo-router';
-import { useEffect, useState } from 'react';
+import * as WebBrowser from 'expo-web-browser';
+import { useEffect, useRef, useState } from 'react';
 import { ActivityIndicator, Platform, Pressable, Text, View } from 'react-native';
 import { Aviso, emailValido, TelaAuth } from '@/components/conta/TelaAuth';
 import { Button } from '@/components/ui/Button';
@@ -24,6 +25,8 @@ export default function Entrar() {
   const [erro, setErro] = useState<string | null>(params.erro ? 'Não foi possível entrar com o Google. Tente de novo.' : null);
   const [naoVerificado, setNaoVerificado] = useState(false);
   const [reenviado, setReenviado] = useState(false);
+  // Tentativa de login com Google em andamento (para poder cancelar e ignorar o resultado tardio).
+  const tentativaGoogle = useRef(0);
 
   // Web: voltando do Google ou do link de confirmação, o navegador já tem a sessão — entra direto.
   useEffect(() => {
@@ -52,10 +55,22 @@ export default function Entrar() {
   const google = async () => {
     setErro(null);
     setCarregando('google');
+    const minha = ++tentativaGoogle.current;
     const r = await entrarComGoogle();
+    if (minha !== tentativaGoogle.current) return; // cancelada pelo usuário
     // Na web a página é redirecionada; aqui só chega em caso de erro ou no app nativo.
     setCarregando(null);
     if (!r.ok) setErro(r.mensagem);
+  };
+
+  const cancelarGoogle = () => {
+    tentativaGoogle.current++;
+    try {
+      WebBrowser.dismissAuthSession();
+    } catch {
+      /* nada aberto */
+    }
+    setCarregando(null);
   };
 
   const reenviar = async () => {
@@ -125,6 +140,11 @@ export default function Entrar() {
       ) : null}
 
       <Button className="py-2.5" titulo="Entrar com Google" carregando={carregando === 'google'} disabled={ocupado} onPress={google} />
+      {carregando === 'google' && PLATAFORMA_NATIVA ? (
+        <Pressable className="mt-2 items-center py-1" onPress={cancelarGoogle}>
+          <Text className="text-[13px] text-ink-soft dark:text-ink-dark-soft">Cancelar</Text>
+        </Pressable>
+      ) : null}
 
       <View className="my-5 flex-row items-center">
         <View className="h-px flex-1 bg-line dark:bg-line-dark" />
