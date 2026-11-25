@@ -1,5 +1,5 @@
 import { criarBackendPlataforma } from './backend';
-import { chaveGlobal, chaveNoEscopo, pertenceAoEscopo, type Escopo } from './keys';
+import { chaveGlobal, chaveNoEscopo, pertenceAoEscopo, prefixoDoEscopo, type Escopo } from './keys';
 import type { BackendKV } from './tipos';
 
 /**
@@ -197,6 +197,27 @@ export async function limparEscopo(e: Escopo): Promise<void> {
   const b = await iniciarBackend();
   const alvo = (await b.chaves()).filter((k) => pertenceAoEscopo(k, e));
   if (alvo.length > 0) await b.removerVarias(alvo);
+}
+
+/**
+ * Move todas as chaves de um escopo para outro (ex.: dados de antes do login → escopo do usuário).
+ * Cada chave é gravada e conferida no destino antes de sair da origem. Não roda com nenhum dos dois
+ * escopos aberto (quem chama garante). Retorna quantas chaves foram movidas.
+ */
+export async function moverEscopo(origem: Escopo, destino: Escopo): Promise<number> {
+  await aguardarEscritas();
+  const b = await iniciarBackend();
+  const prefixo = prefixoDoEscopo(origem);
+  const chaves = (await b.chaves()).filter((k) => pertenceAoEscopo(k, origem));
+  for (const chave of chaves) {
+    const valor = await b.getItem(chave);
+    if (valor === null) continue;
+    const nova = chaveNoEscopo(destino, chave.slice(prefixo.length));
+    await b.setItem(nova, valor);
+    if ((await b.getItem(nova)) !== valor) throw new Error(`Falha ao conferir a cópia de ${chave}`);
+  }
+  if (chaves.length > 0) await b.removerVarias(chaves);
+  return chaves.length;
 }
 
 /** Lê o valor bruto de uma store em qualquer escopo (ex.: dados legados no primeiro login). */

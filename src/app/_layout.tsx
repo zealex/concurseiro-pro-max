@@ -9,6 +9,7 @@ import { ActivityIndicator, Text, View, useColorScheme as useSistemaColorScheme 
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Button } from '@/components/ui/Button';
 import { ToastProvider } from '@/components/ui/Toast';
+import { validarSessaoEmSegundoPlano } from '@/services/auth/acoes';
 import { inicializarRadar, sincronizarRadar } from '@/services/concursosTrackerService';
 import { iniciarArmazenamento, tentarAbrirDeNovo, useEstadoArmazenamento, usarEstaAba } from '@/store/hydration';
 import { useSettingsStore } from '@/store/useSettingsStore';
@@ -39,6 +40,7 @@ export default function RootLayout() {
     if (fase !== 'pronto') return;
     inicializarRadar();
     void sincronizarRadar();
+    void validarSessaoEmSegundoPlano();
   }, [fase]);
 
   const navTema = colorScheme === 'dark' ? DarkTheme : DefaultTheme;

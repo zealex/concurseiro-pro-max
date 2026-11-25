@@ -3,6 +3,7 @@ import { useRouter } from 'expo-router';
 import { Download, RefreshCw, Upload } from 'lucide-react-native';
 import { useState } from 'react';
 import { View } from 'react-native';
+import { SecaoConta } from '@/components/conta/SecaoConta';
 import { Button, Callout, Campo, Card, Label, Muted, Row, Screen, Section, Segmented, Seletor, Sheet, Txt, useToast } from '@/components/ui';
 import { NOMES_BANCAS } from '@/data/bancas';
 import { TRILHA_LABEL, TRILHAS, type Trilha } from '@/data/types';
@@ -56,7 +57,9 @@ export default function Configuracoes() {
   };
 
   return (
-    <Screen emoji="⚙️" titulo="Configurações" descricao="Plano, prova-alvo, feed do Radar, aparência e backup do seu progresso.">
+    <Screen emoji="⚙️" titulo="Configurações" descricao="Conta, plano, prova-alvo, feed do Radar, aparência e backup do seu progresso.">
+      <SecaoConta />
+
       <Section titulo="Plano de estudos">
         <Card>
           <Seletor<Trilha> rotulo="Foco ativo" valor={s.trilha} onChange={s.setTrilha} opcoes={TRILHAS.map((t) => ({ valor: t, rotulo: TRILHA_LABEL[t] }))} />

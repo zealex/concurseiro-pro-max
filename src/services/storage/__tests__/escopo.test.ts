@@ -187,3 +187,43 @@ describe('cópia única do localStorage antigo', () => {
     expect(origem.dados.get('cpm:v1:settings')).toBe('antigo');
   });
 });
+
+describe('primeiro login: adotar o progresso que já estava no aparelho', () => {
+  it('move os dados de antes das contas para a conta nova e não deixa cópia solta', async () => {
+    const { adotarDadosDoAparelho } = await import('@/services/auth/conta');
+    backend.dados.set('cpm:v1:checklist', '{"state":{"marcados":{"a":"d"}},"version":1}');
+    backend.dados.set('cpm:v1:global:conta', '{}');
+    const n = await adotarDadosDoAparelho({ modo: 'usuario', userId: 'ana', email: 'a@x', nome: '', provedores: [], atualizadoEm: '' });
+    expect(n).toBe(1);
+    expect(backend.dados.get('cpm:v1:u:ana:checklist')).toContain('"a"');
+    expect(backend.dados.has('cpm:v1:checklist')).toBe(false);
+    expect(backend.dados.has('cpm:v1:global:conta')).toBe(true);
+  });
+
+  it('o modo sem conta tem prioridade sobre os dados legados', async () => {
+    const { adotarDadosDoAparelho } = await import('@/services/auth/conta');
+    backend.dados.set('cpm:v1:local:checklist', 'LOCAL');
+    backend.dados.set('cpm:v1:checklist', 'LEGADO');
+    await adotarDadosDoAparelho({ modo: 'usuario', userId: 'ana', email: '', nome: '', provedores: [], atualizadoEm: '' });
+    expect(backend.dados.get('cpm:v1:u:ana:checklist')).toBe('LOCAL');
+    expect(backend.dados.get('cpm:v1:checklist')).toBe('LEGADO');
+  });
+
+  it('se a conta já tem progresso neste aparelho, nada é movido', async () => {
+    const { adotarDadosDoAparelho } = await import('@/services/auth/conta');
+    backend.dados.set('cpm:v1:u:ana:checklist', 'DA_CONTA');
+    backend.dados.set('cpm:v1:checklist', 'LEGADO');
+    expect(await adotarDadosDoAparelho({ modo: 'usuario', userId: 'ana', email: '', nome: '', provedores: [], atualizadoEm: '' })).toBe(0);
+    expect(backend.dados.get('cpm:v1:u:ana:checklist')).toBe('DA_CONTA');
+    expect(backend.dados.get('cpm:v1:checklist')).toBe('LEGADO');
+  });
+
+  it('o retrato da conta sobrevive a reinícios e retrato corrompido vira "sem conta"', async () => {
+    const { lerContaSalva, salvarConta } = await import('@/services/auth/conta');
+    await salvarConta({ modo: 'local', atualizadoEm: '2026-11-25T00:00:00Z' });
+    await aguardarEscritas();
+    expect(await lerContaSalva()).toEqual({ modo: 'local', atualizadoEm: '2026-11-25T00:00:00Z' });
+    backend.dados.set('cpm:v1:global:conta', '{"modo":"usuario"}');
+    expect(await lerContaSalva()).toBeNull();
+  });
+});
