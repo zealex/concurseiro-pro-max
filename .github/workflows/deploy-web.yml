@@ -1,11 +1,10 @@
 name: Publicar app web (GitHub Pages)
 
+# O GitHub Pages serve a versão LEGADA do app (sem contas), congelada na tag `pages-legado`,
+# enquanto a nova versão (com login e nuvem) é construída e hospedada na Railway.
+# Só o feed do Radar (public/data/concursos-sul.json) continua vindo de `main`, atualizado pelo robô.
+
 on:
-  push:
-    branches: [main]
-    paths-ignore:
-      - 'docs/**'
-      - '**/*.md'
   workflow_run:
     workflows: ['Atualizar Radar de Concursos Médicos (Sul)']
     types: [completed]
@@ -26,10 +25,16 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - name: Checkout (main atualizado, inclusive commits do robô)
+      - name: Checkout (versão legada congelada)
         uses: actions/checkout@v4
         with:
-          ref: main
+          ref: pages-legado
+
+      - name: Feed do Radar mais recente (de main)
+        run: |
+          git fetch --depth=1 origin main
+          git checkout FETCH_HEAD -- public/data/concursos-sul.json
+          node -e "const f=require('./public/data/concursos-sul.json');console.log('Feed:', f.concursos.length, 'concursos, gerado em', f.generatedAt)"
 
       - name: Node.js
         uses: actions/setup-node@v4

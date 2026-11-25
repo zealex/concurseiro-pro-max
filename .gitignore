@@ -36,3 +36,17 @@ Thumbs.db
 
 # Cache do leitor de editais (PDFs baixados e texto extraído)
 .cache/
+
+# Material de referência de terceiros (PDFs com direitos autorais) — nunca versionar
+QUESTÕES CONCURSO/
+
+# Análise local (graphify)
+graphify-out/
+.graphifyignore
+
+# Servidor (API) e segredos de lojas/infra
+server/.env
+server/.env.*
+!server/.env.example
+backups/
+google-service-account*.json
