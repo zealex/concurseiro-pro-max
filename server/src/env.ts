@@ -12,7 +12,7 @@ const Env = z
     API_URL: z.url(),
     /** URL pública do site, ex.: https://concurseiro.zezasultratools.uk */
     WEB_URL: z.url(),
-    /** Origens extras permitidas (separadas por vírgula), ex.: a página de transição do GitHub Pages. */
+    /** Origens extras permitidas (separadas por vírgula), ex.: um site de testes. */
     ORIGENS_EXTRAS: z.string().default(''),
     GOOGLE_CLIENT_ID: z.string().optional(),
     GOOGLE_CLIENT_SECRET: z.string().optional(),

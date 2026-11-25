@@ -12,22 +12,31 @@ Além da parte médica, o app cobre os **Conhecimentos Básicos e Gerais** que d
 | Bancos das básicas (resumos, questões comentadas, flashcards), carregados sob demanda | [src/data/conteudo/bancos/](src/data/conteudo/bancos/) · regras: [docs/guia-de-conteudo.md](docs/guia-de-conteudo.md) |
 | Composição real de 15 editais (questões, pesos, mínimos, fases) | [docs/editais-referencia.md](docs/editais-referencia.md) · [src/data/editais.ts](src/data/editais.ts) |
 | App universal (Expo + Expo Router + NativeWind) | [src/app/](src/app/) |
+| Contas e sincronização com a nuvem (API Hono + Better Auth + Postgres) | [server/](server/) · cliente: [src/sync/](src/sync/), [src/services/auth/](src/services/auth/) |
+| Infraestrutura (Railway, domínio, e-mail, Google) | [docs/infra/railway.md](docs/infra/railway.md) · [.railway/railway.ts](.railway/railway.ts) |
 | Robô do Radar Sul + base de concursos | [scripts/scrape-concursos-sul.ts](scripts/scrape-concursos-sul.ts) · [public/data/concursos-sul.json](public/data/concursos-sul.json) |
 | Automação (a cada 12 h) e publicação web | [.github/workflows/](.github/workflows/) |
 | Arquitetura e decisões | [ARCHITECTURE.md](ARCHITECTURE.md) |
 
 ---
 
-## 1. Rodar agora no navegador
+## 1. Usar e rodar o app
 
-Requisitos: **Node.js 20 ou mais novo** (recomendado: Node 24 LTS) e npm.
+**Em produção:** https://concurseiro.zezasultratools.uk — crie uma conta (e-mail e senha ou Google) e o progresso fica salvo na nuvem, igual no computador, no celular e no tablet.
+
+**Localmente** — requisitos: **Node.js 20 ou mais novo** (recomendado: Node 24 LTS) e npm. O login precisa da API; rode-a também (Postgres local; detalhes em [docs/infra/railway.md](docs/infra/railway.md#rodar-a-api-localmente)):
 
 ```bash
+# terminal 1 — API em http://localhost:3000
+cd server && cp .env.example .env   # preencha DATABASE_URL e BETTER_AUTH_SECRET
+npm install && npm run build && npm run migrate && npm run dev
+
+# terminal 2 — app em http://localhost:8081
 npm install
-npm run web          # = npx expo start --web
+EXPO_PUBLIC_API_URL=http://localhost:3000 npm run web
 ```
 
-O Expo abre o app em `http://localhost:8081`. Tudo funciona offline depois de carregado: o progresso fica salvo no próprio navegador.
+Depois de entrar, o app funciona offline: o progresso fica guardado no aparelho e é sincronizado com a nuvem quando há conexão.
 
 > Já existe uma base real de concursos embarcada (`public/data/concursos-sul.json`, gerada pelo robô em 18/11/2026), então o Radar abre com dados úteis desde o primeiro uso.
 
@@ -38,8 +47,8 @@ npm run build:web     # exporta o site + gera o service worker (offline)
 npm run preview:web   # serve a pasta dist/ em http://localhost:4173
 ```
 
-- **Chrome/Edge (Windows, Mac, Linux):** abra `http://localhost:4173` → ícone **Instalar** na barra de endereço (ou menu ⋮ → *Instalar Concurseiro Pro Max*).
-- **iPhone/iPad (Safari):** abra a URL publicada (seção 3.3) → Compartilhar → **Adicionar à Tela de Início**.
+- **Chrome/Edge (Windows, Mac, Linux):** abra https://concurseiro.zezasultratools.uk (ou `http://localhost:4173`) → ícone **Instalar** na barra de endereço (ou menu ⋮ → *Instalar Concurseiro Pro Max*).
+- **iPhone/iPad (Safari):** abra https://concurseiro.zezasultratools.uk → Compartilhar → **Adicionar à Tela de Início** (no iPhone, prefira o app nativo: o login com Google dentro de PWA instalado no iOS é instável).
 - **Android (Chrome):** menu ⋮ → **Instalar app**.
 
 Depois de instalado, o app abre em janela própria e funciona sem internet (o Radar usa a última cópia salva).
@@ -71,11 +80,11 @@ git push -u origin main
 
 > Em repositórios públicos o GitHub pausa agendamentos após 60 dias sem atividade no repositório. Os próprios commits do robô contam como atividade; se ele for pausado mesmo assim, basta reativar na aba Actions.
 
-### 3.3 (Opcional) Publicar o app no GitHub Pages
+### 3.3 Publicação do site e da API (Railway)
 
-1. **Settings → Pages → Build and deployment → Source: GitHub Actions**.
-2. O workflow **"Publicar app web (GitHub Pages)"** roda a cada push e depois de cada atualização do Radar.
-3. O app fica em `https://SEU-USUARIO.github.io/concurseiro-pro-max/` — instalável como PWA em qualquer dispositivo e já lendo o feed da mesma origem.
+O site (`concurseiro.zezasultratools.uk`) e a API (`api-concurseiro.zezasultratools.uk`) rodam na Railway e são publicados sozinhos a cada push em `main`, depois que o CI passa — inclusive a cada atualização do robô, que redeploya o site com o feed novo. Operação, variáveis e problemas comuns: [docs/infra/railway.md](docs/infra/railway.md).
+
+O GitHub Pages não é mais usado; a versão antiga do app (sem contas) está guardada na tag `pages-legado`.
 
 ### 3.4 Apontar o app para o seu feed
 
@@ -110,10 +119,11 @@ Boas práticas embutidas: respeita `robots.txt`, espera 1,5 s entre requisiçõe
 
 ## 5. Gerar o app instalável (.apk / .ipa) com EAS Build
 
+O projeto já está vinculado ao EAS (`@zealex/concurseiro-pro-max`); os endereços da API, do site e do feed vão para o build pelo `eas.json`.
+
 ```bash
 npm install -g eas-cli
-eas login                      # conta gratuita da Expo
-eas build:configure            # vincula o projeto (uma vez)
+eas login                      # conta da Expo com acesso ao projeto
 
 # Android — APK para instalar direto no aparelho
 eas build -p android --profile preview
@@ -123,7 +133,7 @@ eas build -p ios --profile preview      # distribuição interna (registre os ap
 eas build -p ios --profile production   # para TestFlight / App Store (depois: eas submit -p ios)
 ```
 
-Antes de publicar em loja, troque o identificador `br.com.concurseiropromax.app` em `app.json` (`ios.bundleIdentifier` e `android.package`) por um domínio seu.
+O identificador `br.com.concurseiropromax.app` (`app.json`: `ios.bundleIdentifier` e `android.package`) não pode mudar depois da primeira publicação em loja.
 
 ## 6. Comandos úteis
 
@@ -149,11 +159,14 @@ Antes de publicar em loja, troque o identificador `br.com.concurseiropromax.app`
 - **Questões:** **Treino** com questões autorais comentadas (modo estudo com correção na hora ou modo prova com cronômetro), **Flashcards** com caixas de Leitner (1/3/7/15/30 dias), **Simulado** no formato do edital (tempo proporcional, Certo/Errado com −0,5, resultado por prova com mínimos), registro rápido de baterias feitas em outros bancos, desempenho por disciplina e banca, **revisões D1/D7/D15/D30** e **Caderno de Erros**.
 - **Biblioteca:** **Conhecimentos Básicos** (página por disciplina com resumos por tema, treino e flashcards), **Guias das fases** (estratégia de prova, recursos, discursiva/laudo, títulos, TAF, psicológica, investigação social, posse), **Editais de referência**, **Concursos para o generalista** (requisitos, prova e trilha de cada carreira), cursinhos, bibliografia, bancas, fontes oficiais, filtros de bancos de questões, **checklists interativos** (Lei 8.213 — benefícios e acidente; Lei 8.742 — BPC; Lei 8.112 — saúde do servidor; Decreto 3.048; CLT 154–201; NRs 01, 04, 05, 06, 07, 09, 15, 16, 17, 32; CPP 158–184; CP 121–129; SUS) e **cheat sheets** (perícia previdenciária, nexo/NTEP/CAT, urgências do plantão, cronotanatognose, PAF, asfixias, indicadores biológicos, lesão corporal, prazos de NRs).
 - **Timer de Foco:** Pomodoro por timestamp (não perde tempo ao trocar de aba) vinculado à disciplina.
+- **Conta e nuvem:** login com e-mail/senha (com confirmação por e-mail) ou Google; no iPhone, também "Usar sem conta (só neste aparelho)". O progresso é sincronizado entre aparelhos (funciona offline e junta as mudanças feitas em aparelhos diferentes). Configurações → Conta mostra o estado da sincronização, permite sair, definir senha e excluir a conta.
 - **Backup:** Configurações → Exportar/Importar progresso (`.json`), incluindo o histórico do Treino e dos flashcards; backups de versões anteriores continuam importáveis.
 
 ## 8. Privacidade
 
-Não há servidor nem conta. Todo o progresso fica no dispositivo (AsyncStorage/localStorage). A única requisição de rede do app é a leitura do arquivo público de concursos.
+Com conta, o progresso de estudo e os dados da conta (nome, e-mail e, se usar, o vínculo com o Google) ficam no servidor do app, na Railway (EUA), e uma cópia fica no aparelho para uso offline. Os e-mails de confirmação e de redefinição de senha saem pelo Resend. Não há anúncios nem rastreamento. Política completa em [/privacidade](https://concurseiro.zezasultratools.uk/privacidade) e termos em [/termos](https://concurseiro.zezasultratools.uk/termos); a conta e todos os dados podem ser excluídos em Configurações ou em [/excluir-conta](https://concurseiro.zezasultratools.uk/excluir-conta), e exportados em `.json` a qualquer momento.
+
+Além da API própria, a única requisição de rede do app é a leitura do arquivo público de concursos.
 
 ## 9. Avisos
 

@@ -1,6 +1,6 @@
 # Arquitetura — Concurseiro Pro Max
 
-Ecossistema de preparação de 90 dias para o médico generalista / recém-formado que presta concursos sem exigência de especialidade (Perito Médico Federal e peritos de regimes próprios, Perito Médico-Legista, Clínico Geral/ESF na Região Sul), composto por três camadas que compartilham uma única base de código TypeScript.
+Ecossistema de preparação de 90 dias para o médico generalista / recém-formado que presta concursos sem exigência de especialidade (Perito Médico Federal e peritos de regimes próprios, Perito Médico-Legista, Clínico Geral/ESF na Região Sul), composto por três camadas que compartilham uma única base de código TypeScript, mais uma API própria para contas e sincronização (ver [Nuvem](#nuvem--contas-e-sincronização)).
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────────┐
@@ -15,8 +15,8 @@ Ecossistema de preparação de 90 dias para o médico generalista / recém-forma
 ┌───────────────▼──────────────────────────────────────────────────────────────┐
 │ 2. APP UNIVERSAL (Expo + Expo Router + RN Web + NativeWind)                   │
 │    src/app (rotas) → src/components (UI estilo Notion)                        │
-│    src/store (Zustand + persist) → src/services/storage (repositório tipado   │
-│    sobre AsyncStorage: SQLite/arquivos no nativo, localStorage na web)        │
+│    src/store (Zustand + persist) → src/services/storage (escopo por conta:    │
+│    IndexedDB na web, SQLite no nativo) ⇄ src/sync (merge 3 vias) ⇄ API        │
 │    src/utils (lógica pura: revisão espaçada, agenda, métricas)               │
 │    src/services/concursosTrackerService (feed remoto + cache + overlay)       │
 └───────────────▲──────────────────────────────────────────────────────────────┘
@@ -31,7 +31,7 @@ Ecossistema de preparação de 90 dias para o médico generalista / recém-forma
 
 ## Princípios
 
-1. **Local-first**: todo o progresso do usuário vive no dispositivo. Nada depende de servidor próprio. A única chamada de rede do app é a leitura de um JSON estático público.
+1. **Offline-first com nuvem**: o progresso vive no aparelho (o app abre e funciona sem rede) e é sincronizado com a conta do usuário quando há conexão. O servidor trata o progresso como JSON opaco por store; toda a lógica de domínio e de merge fica no app. Além da API própria, a única chamada de rede é a leitura de um JSON estático público (feed do Radar).
 2. **Uma única fonte de verdade por conceito**:
    - Esquema do concurso (`src/shared/concursos/schema.ts`, zod) é usado pelo robô **e** pelo app.
    - Ids de temas (`src/data/eixos.ts`) ligam plano, questões, revisões, pontos fracos e biblioteca.
@@ -53,7 +53,11 @@ Ecossistema de preparação de 90 dias para o médico generalista / recém-forma
 | `/edital` | Meu Edital: composição da prova-alvo, nota projetada, risco de eliminação (sidebar; fora da barra mobile) |
 | `/biblioteca`, `/biblioteca/[slug]` | Wiki estratégica embarcada; `disciplina-<id>`, `resumo-<temaId>`, `guia-<id>`, `editais`, `checklist-<id>`, `cheat-<id>` |
 | `/foco` | Timer Pomodoro |
-| `/configuracoes` | Prova-alvo, plano, feed, tema, backup JSON |
+| `/configuracoes` | Prova-alvo, plano, feed, tema, backup JSON, conta (sincronização, sair, definir senha, excluir conta) |
+| `/entrar`, `/criar-conta`, `/verificar-email`, `/esqueci-senha` | Grupo `(auth)`: login com e-mail/senha ou Google; no iOS, também "Usar sem conta" |
+| `/redefinir-senha`, `/privacidade`, `/termos`, `/excluir-conta` | Rotas públicas (abrem sem conta): link do e-mail, textos legais (LGPD), exclusão de conta exigida pelas lojas |
+
+Sem conta aberta, `src/app/(tabs)/_layout.tsx` redireciona para `/entrar`. O snapshot local da conta (não a sessão do servidor) decide isso, para o app continuar abrindo offline; só um 401 real marca a sessão como expirada (aviso no topo, dados preservados, sincronização pausada).
 
 `src/app/(tabs)/_layout.tsx` decide o "shell" pela largura da janela (`useWindowDimensions`):
 
@@ -64,30 +68,39 @@ Ecossistema de preparação de 90 dias para o médico generalista / recém-forma
 ### Persistência
 
 ```
-Zustand store ──persist──▶ zustandAdapter (StateStorage)
-                                │
-                                ▼
-                     Repository<T> (chave versionada "cpm:v1:<nome>", JSON,
-                                    migrações por versão, try/catch)
-                                │
-                                ▼
-              @react-native-async-storage/async-storage
-              (iOS/Android: armazenamento nativo · Web: localStorage)
+Zustand store (skipHydration) ──persist──▶ zustandAdapter (StateStorage)
+                                                  │
+                                                  ▼
+                      escopo.ts: chave = "cpm:v1:" + escopo + nome da store
+                      (escopo da conta aberta; leitura que falha bloqueia gravações;
+                       gravações agrupadas por chave; aba só-leitura não grava)
+                                                  │
+                                                  ▼
+                      BackendKV — Web: IndexedDB (idb-keyval, com cópia única do
+                      localStorage antigo) · iOS/Android: expo-sqlite/kv-store
 ```
 
-| Store | Chave | Conteúdo |
+| Escopo | Prefixo da chave | Uso |
 |---|---|---|
-| `settings` | `cpm:v1:settings` | trilha, data de início, orçamento diário (180–360 min), dias em Modo Plantão, prova-alvo, **edital-alvo** (validado por zod), URL do feed, tema |
-| `treino` | `cpm:v1:treino` | totais por questão do Treino (não um log), caixas dos flashcards, preferências, simulado em andamento (fora do backup) |
-| `cronograma` | `cpm:v1:cronograma` | blocos concluídos (por id), notas por bloco, histórico de atividade |
-| `questoes` | `cpm:v1:questoes` | sessões de questões/simulados, caderno de erros, itens de revisão espaçada |
-| `radar` | `cpm:v1:radar` | último feed válido, overlay do usuário (status/notas), concursos manuais, última sincronização |
-| `checklist` | `cpm:v1:checklist` | itens de lei seca/NR marcados |
-| `focus` | `cpm:v1:focus` | configuração Pomodoro, timer em andamento (timestamps), sessões |
+| conta | `cpm:v1:u:<userId>:` | progresso de cada conta (trocar de conta nunca mistura dados) |
+| sem conta (iOS) | `cpm:v1:local:` | "Usar sem conta"; ao entrar numa conta ainda vazia neste aparelho, os dados passam para ela |
+| global | `cpm:v1:global:` | snapshot da conta, sessão (fallback no nativo) |
+| sync | `cpm:v1:<escopo>sync:<store>` | `rev` e `base` (último estado combinado com o servidor) de cada store |
+| legado | `cpm:v1:<store>` | dados de antes das contas; adotados pela primeira conta que entrar no aparelho |
 
-O layout raiz só renderiza as telas depois que todas as stores terminam a hidratação, evitando "piscar" estado vazio.
+| Store | Conteúdo |
+|---|---|
+| `settings` | trilha, data de início, orçamento diário (180–360 min), dias em Modo Plantão, prova-alvo, **edital-alvo** (validado por zod), URL do feed (só no aparelho), tema |
+| `treino` | totais por questão do Treino (não um log), caixas dos flashcards, preferências, simulado em andamento (só no aparelho, fora do backup) |
+| `cronograma` | blocos concluídos (por id), notas por bloco, histórico de atividade |
+| `questoes` | sessões de questões/simulados, caderno de erros, itens de revisão espaçada |
+| `radar` | último feed válido (só no aparelho), overlay do usuário (status/notas), concursos manuais, concursos já vistos |
+| `checklist` | itens de lei seca/NR marcados |
+| `focus` | configuração Pomodoro, timer em andamento (só no aparelho), sessões |
 
-**Backup**: `backupService` serializa todas as stores em `{ app, schemaVersion, exportedAt, data }`. Importação valida com zod, aplica as mesmas migrações das stores a backups de versões anteriores e pede confirmação antes de sobrescrever.
+**Boot** (`src/store/hydration.ts`): `carregando` → `sem-conta` (vai para `/entrar`) ou `pronto` (escopo da conta aberto e as 7 stores hidratadas) ou `erro` (tela "Tentar de novo"; nada é gravado). O layout raiz só renderiza as rotas fora de `carregando`/`erro`. Trocar de conta: fecha o escopo, volta as stores ao padrão sem gravar, abre o novo escopo e reidrata. Na web, só uma aba fica ativa (`src/services/abaUnica.ts`, BroadcastChannel); as outras viram só-leitura até "Usar aqui".
+
+**Backup**: `backupService` serializa todas as stores em `{ app, schemaVersion, exportedAt, data }`. Importação valida com zod, aplica as mesmas migrações das stores a backups de versões anteriores e pede confirmação antes de sobrescrever. O mesmo formato (v4) é usado pela exportação LGPD da API (`GET /api/conta/exportar`).
 
 **Migrações**: `src/store/migracoes.ts` (funções puras, testadas). v2: trilhas antigas viram as novas (híbrida → generalista, trabalho → perícia, municipal → clínico), eixo e disciplina das questões são recalculados pelo tema e o cronograma descarta as marcações do plano anterior, preservando a ofensiva. v3 (questões): com o eixo `basicos`, sessões, erros e revisões têm eixo/disciplina recalculados pelo tema (idempotente). A importação de backup usa uma tabela de versões (`src/store/importacao.ts`: backup v1–v4 → versão de cada store) e as mesmas migrações.
 
@@ -135,7 +148,7 @@ refreshRadar()
   1. URL configurada pelo usuário  ─┐
   2. EXPO_PUBLIC_CONCURSOS_FEED_URL ─┤ primeira que responder 200 + JSON válido (zod)
   3. /data/concursos-sul.json (web)  ─┘
-  4. falhou tudo → último feed em cache (AsyncStorage)
+  4. falhou tudo → último feed em cache (store `radar`, no aparelho)
   5. sem cache → JSON embarcado no bundle (public/data/concursos-sul.json)
 
 mergeWithOverlay(feed, overlay, manuais)
@@ -145,12 +158,38 @@ mergeWithOverlay(feed, overlay, manuais)
   - isNew recalculado no dispositivo (firstSeenAt ≥ hoje − 7 dias)
 ```
 
+## Nuvem — contas e sincronização
+
+```
+App (web / Android / iOS)                         Railway (us-east)
+src/services/auth ── Better Auth client ──HTTPS──▶ api: Hono + Better Auth ──▶ Postgres
+src/sync/motor    ── /api/sync (pull/put) ──HTTPS──▶      Drizzle ORM           (user_store,
+                                                                                 histórico)
+```
+
+**API** (`server/`, autocontida: `package.json` próprio, não importa `src/`):
+
+- `ALL /api/auth/*` — Better Auth: e-mail/senha com confirmação e redefinição por e-mail (Resend), Google por redirecionamento do navegador (um único cliente OAuth "Web" serve web, Android e iOS), plugin Expo para o app nativo, exclusão de conta, sessão de 60 dias, rate limit. Cookies só do subdomínio da API (sem `crossSubDomainCookies`).
+- `POST /api/sync/pull {revs}` devolve só os documentos que mudaram; `PUT /api/sync/:store {baseRev, schemaVersion, data, deviceId}` grava por compare-and-swap no `rev` (409 `conflito` traz o documento atual). Cotas: 2 MB por documento, 10 MB por usuário. Histórico em `user_store_history` (até 20 cópias).
+- `GET /api/conta/exportar` (portabilidade, formato de backup v4) e `POST /api/conta/definir-senha` (contas criadas só com Google).
+- Middlewares: sessão, Origin permitida (CSRF), `callbackURL` só para o site/app (sem open redirect), limite de corpo.
+- O contrato (stores, limites, versão do backup) existe em `server/src/sync/contrato.ts` e `src/sync/contrato.ts`; um teste garante que são iguais.
+
+**Sincronização no app** (`src/sync/`):
+
+- Um documento por store e por usuário. Cada store guarda a `base` (último estado combinado com o servidor); conflito = **merge de 3 vias** (base, local, remoto) com regras por store em `specs.ts` — listas por id, registros, conjuntos, grupos de campos atômicos, exclusão vence edição, `posMerge` refaz cascatas (ex.: erro apagado leva junto suas revisões). Resolvedores só escolhem um lado (nunca somam), então o merge é idempotente. Campos só do aparelho (`feedUrl`, cache do feed, timer, simulado em andamento) nunca sobem.
+- `motor.ts`: reconcilia na ordem segura contra quedas (migra → mescla → aplica nas stores e espera gravar → só então salva `rev`/`base`), envia com debounce de 2,5 s (máx. 15 s), refaz o merge em 409, backoff de 2 s a 5 min sem rede, pausa em 401, bloqueia a store se o servidor tiver versão de esquema mais nova. Gatilhos (`gatilhos.ts`): mudanças nas stores, app em primeiro plano, volta da rede, a cada 3 min; ao sair da conta, envia o que falta antes.
+- Proteção: o sync só liga com o escopo aberto e as 7 stores hidratadas; uma leitura que falha deixa o app na tela de erro, sem gravar nem enviar nada — uma store "vazia por erro" nunca apaga a nuvem. No primeiro login de um aparelho (sem `base`), vale a união com a nuvem.
+
+**App nativo**: a sessão fica no SecureStore; se o cofre do sistema travar ou falhar (visto em emuladores como o BlueStacks), `armazenamentoSessao.native.ts` cai para o kv-store do SQLite depois de 6 s. Toda chamada de login tem prazo de 30 s.
+
 ## Web / PWA
 
-- `web.output: "single"` (SPA) — evita renderização no servidor, que quebraria o acesso ao `localStorage` durante a hidratação.
+- `web.output: "single"` (SPA) — evita renderização no servidor, que quebraria o acesso ao armazenamento do navegador durante a hidratação.
 - `public/index.html` customizado: `<link rel="manifest">`, `theme-color`, ícones Apple, registro do service worker.
-- `npm run build:web` = `expo export -p web` → `workbox generateSW` (precache do app + NetworkFirst para o feed) → cópia de `index.html` para `404.html` (rotas profundas no GitHub Pages).
-- `deploy-web.yml` publica no GitHub Pages; `app.config.ts` aplica `EXPO_BASE_URL` (subcaminho do repositório).
+- `npm run build:web` = `expo export -p web` → `workbox generateSW` (precache do app + NetworkFirst para o feed) → `scripts/postbuild-web.mjs`.
+- Hospedagem: serviço `web` da Railway (`infra/web/Dockerfile`: build no Node 24 → Caddy). O `Caddyfile` faz o fallback da SPA (menos `/_expo`, `/assets` e `/data`, que dão 404 de verdade), cache imutável só para arquivos com hash e `no-cache` no resto (inclusive `sw.js` e o feed). Runbook: [docs/infra/railway.md](docs/infra/railway.md).
+- O GitHub Pages não é mais usado; a versão antiga do app (sem contas) está na tag `pages-legado`.
 
 ## Conteúdo e trilhas
 
@@ -162,19 +201,23 @@ mergeWithOverlay(feed, overlay, manuais)
 
 ## Testes
 
-Vitest cobre a lógica pura: revisão espaçada, agenda (trilhas, Plantão, redistribuição, compressão, básicas por perfil e orçamento, ids legados congelados), métricas, edital e nota projetada, treino, flashcards, simulado, bancos de conteúdo (validador em todos os bancos registrados), migrações v1→v3, importação de backup v1–v4, classificador/geo, id/merge do Radar, parsers com fixtures reais e o leitor de editais. O CI (`deploy-web.yml`) roda `typecheck` e testes antes do build. A UI é validada por `tsc --noEmit`, pelo build web (`expo export`) e por roteiros no navegador.
+Vitest cobre a lógica pura: revisão espaçada, agenda (trilhas, Plantão, redistribuição, compressão, básicas por perfil e orçamento, ids legados congelados), métricas, edital e nota projetada, treino, flashcards, simulado, bancos de conteúdo (validador em todos os bancos registrados), migrações v1→v3, importação de backup v1–v4, classificador/geo, id/merge do Radar, parsers com fixtures reais e o leitor de editais. Na parte de contas: escopos do armazenamento (troca de conta sem vazamento, erro de leitura não grava), merge de 3 vias (casos por store, identidade e convergência com dados aleatórios), motor de sync contra um servidor falso com CAS (dois aparelhos offline convergem, 409, backoff, 401, versão nova bloqueia). A API (`server/test/`) roda contra PGlite (Postgres em memória): CAS, isolamento entre usuários, cotas, cascata na exclusão, exportação válida e bloqueio de redirecionamentos externos. O CI (`ci.yml`) roda tipos e testes do app e tipos, testes e build da API; a Railway só publica depois dele. A UI é validada por `tsc --noEmit`, pelo build web (`expo export`) e por roteiros no navegador e no Android.
 
 ## Decisões e trade-offs
 
 | Decisão | Motivo | Custo aceito |
 |---|---|---|
-| JSON estático + GitHub Actions em vez de backend | grátis, sem servidor, sem CORS, auditável por commit | atualização no máximo a cada 12 h |
-| AsyncStorage em vez de SQLite | funciona igual nas 3 plataformas, sem build nativo extra | volume de dados pequeno (ok para 90 dias) |
+| Feed do Radar como JSON estático + GitHub Actions (fora da API) | grátis, auditável por commit, o mesmo para todos os usuários | atualização no máximo a cada 12 h |
+| IndexedDB (web) e expo-sqlite/kv-store (nativo) em vez de localStorage/AsyncStorage | progresso + base do sync + importação passariam da cota de ~5 MB do localStorage, que falha em silêncio | um backend por plataforma (mesma interface `BackendKV`) |
+| Um documento JSON por store + merge de 3 vias no app, em vez de CRDT ou log de eventos | os tipos de domínio não mudam; servidor simples (JSON opaco + CAS); regras de conflito testáveis em Vitest | o documento inteiro sobe a cada envio (até 2 MB; normalmente dezenas de KB) |
+| Better Auth na própria API, em vez de Firebase/Supabase | dados e contas num Postgres só, sem dependência de plataforma, custo fixo da Railway | e-mails, rate limit e exclusão de conta configurados à mão |
+| Google por redirecionamento do navegador, em vez de SDK nativo | um único cliente OAuth "Web" para web, Android e iOS; sem SHA-1 nem client IDs por plataforma | abre o navegador do sistema por alguns segundos |
+| Login obrigatório (exceto "Usar sem conta" no iOS) | nuvem e vários aparelhos sem caminhos paralelos; o iOS exige uso sem conta quando o app não depende de conta (diretriz 5.1.1(v)) | quem só quer usar offline precisa criar conta (fora do iOS) |
 | Vitest só para lógica pura | evita conflito de transformadores Babel/NativeWind | componentes não têm teste de renderização |
-| SPA em vez de estático | estado 100% local, sem SSR | SEO irrelevante para app pessoal |
+| SPA em vez de estático | o estado vem do aparelho e da conta, sem SSR | SEO irrelevante para app pessoal |
 | Um registro por concurso × grupo de cargo | id estável mesmo se o texto da listagem mudar | prefeitura com Médico ESF e Médico do Trabalho gera dois cards |
 | Acesso (generalista × especialista) derivado da categoria, não gravado no feed | feeds antigos continuam válidos e a regra muda sem reprocessar | "Médico Auditor" ou perito de RPPS que exija especialização aparece como generalista — o card manda conferir o edital |
 | Bancos de conteúdo por `import()` em vez de JSON remoto | offline desde a instalação (precache), tipado e testado no CI, sem servidor | conteúdo novo exige nova versão do app |
 | Questões autorais "no estilo" das bancas | sem risco de direito autoral; comentário e fundamento próprios | volume menor que um banco comercial — o app ensina a combinar com Qconcursos/TEC |
-| Histórico do Treino como totais por questão | cabe no limite de ~5 MB do armazenamento web | não há replay de cada tentativa |
+| Histórico do Treino como totais por questão | cabe com folga na cota de 2 MB por documento da nuvem | não há replay de cada tentativa |
 | Migrações versionadas das stores (v1 → v2) | trilhas/eixos renomeados sem perder questões e revisões | marcações do cronograma antigo são descartadas (o plano foi reescrito) |
