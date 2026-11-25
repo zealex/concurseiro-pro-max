@@ -14,6 +14,7 @@ Além da parte médica, o app cobre os **Conhecimentos Básicos e Gerais** que d
 | App universal (Expo + Expo Router + NativeWind) | [src/app/](src/app/) |
 | Contas e sincronização com a nuvem (API Hono + Better Auth + Postgres) | [server/](server/) · cliente: [src/sync/](src/sync/), [src/services/auth/](src/services/auth/) |
 | Infraestrutura (Railway, domínio, e-mail, Google) | [docs/infra/railway.md](docs/infra/railway.md) · [.railway/railway.ts](.railway/railway.ts) |
+| Roteiro de publicação nas lojas (Google Play e App Store) | [docs/publicacao-lojas.md](docs/publicacao-lojas.md) |
 | Robô do Radar Sul + base de concursos | [scripts/scrape-concursos-sul.ts](scripts/scrape-concursos-sul.ts) · [public/data/concursos-sul.json](public/data/concursos-sul.json) |
 | Automação (a cada 12 h) e publicação web | [.github/workflows/](.github/workflows/) |
 | Arquitetura e decisões | [ARCHITECTURE.md](ARCHITECTURE.md) |
@@ -133,7 +134,7 @@ eas build -p ios --profile preview      # distribuição interna (registre os ap
 eas build -p ios --profile production   # para TestFlight / App Store (depois: eas submit -p ios)
 ```
 
-O identificador `br.com.concurseiropromax.app` (`app.json`: `ios.bundleIdentifier` e `android.package`) não pode mudar depois da primeira publicação em loja.
+O identificador `br.com.concurseiropromax.app` (`app.json`: `ios.bundleIdentifier` e `android.package`) não pode mudar depois da primeira publicação em loja. O passo a passo para publicar no Google Play e na App Store (contas, Sign in with Apple, fichas, teste fechado) está em [docs/publicacao-lojas.md](docs/publicacao-lojas.md).
 
 ## 6. Comandos úteis
 
