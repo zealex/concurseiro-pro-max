@@ -1,9 +1,9 @@
-name: Atualizar Radar de Concursos Médicos (Sul)
+name: Atualizar Radar de Concursos Médicos
 
 on:
   schedule:
-    # A cada 12 horas (00:00 e 12:00 UTC = 21:00 e 09:00 em Brasília)
-    - cron: '0 */12 * * *'
+    # De hora em hora, no minuto 23: horários "redondos" (00:00, 12:00) ficam horas na fila do GitHub.
+    - cron: '23 * * * *'
   workflow_dispatch:
     inputs:
       max_details:
@@ -18,10 +18,14 @@ concurrency:
   group: radar-concursos-sul
   cancel-in-progress: false
 
+env:
+  FEED: public/data/concursos-sul.json
+  FEED_PRODUCAO: https://concurseiro.zezasultratools.uk/data/concursos-sul.json
+
 jobs:
   coletar:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -35,18 +39,51 @@ jobs:
       - name: Instalar dependências
         run: npm ci --no-audit --no-fund
 
-      - name: Coletar concursos médicos de PR, SC e RS
+      - name: Coletar concursos médicos
         run: npx tsx scripts/scrape-concursos-sul.ts --max-details=${{ github.event.inputs.max_details || '120' }}
 
-      - name: Commit se houver novidades
+      # O site NÃO é republicado: o Caddy busca o feed direto no GitHub (infra/web/Caddyfile).
+      - name: Commit e push se houver novidades
+        id: commit
         run: |
-          if git diff --quiet -- public/data/concursos-sul.json; then
-            echo "Nenhuma mudança no Radar Sul."
+          if git diff --quiet -- "$FEED"; then
+            echo "Nenhuma mudança no Radar."
             exit 0
           fi
-          NOVOS=$(node -e "const f=require('./public/data/concursos-sul.json');console.log(f.concursos.filter(c=>c.isNew).length)")
+          NOVOS=$(node -e "const f=require('./$FEED');console.log(f.concursos.filter(c=>c.isNew).length)")
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add public/data/concursos-sul.json
-          git commit -m "chore(radar): atualiza concursos médicos do Sul (${NOVOS} novos nos últimos 7 dias)"
-          git push
+          git add "$FEED"
+          git commit -m "chore(radar): atualiza concursos médicos (${NOVOS} novos nos últimos 7 dias)"
+          for tentativa in 1 2 3; do
+            if git push; then
+              echo "publicado=1" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            echo "Push recusado (tentativa ${tentativa}); integrando commits novos do remoto…"
+            if ! git pull --rebase; then
+              git rebase --abort || true
+              echo "::error::Conflito ao integrar o remoto; a coleta desta execução não foi publicada."
+              exit 1
+            fi
+            sleep $((tentativa * 5))
+          done
+          echo "::error::Não foi possível publicar o feed depois de 3 tentativas."
+          exit 1
+
+      # Garante que o app recebe o que foi coletado (a CDN do GitHub guarda até 5 min).
+      - name: Conferir se o feed chegou ao site
+        if: steps.commit.outputs.publicado == '1'
+        run: |
+          ESPERADO=$(node -p "require('./$FEED').generatedAt")
+          for i in $(seq 1 20); do
+            ATUAL=$(curl -fsS -m 20 "${FEED_PRODUCAO}?verificacao=$(date +%s)" | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>{try{console.log(JSON.parse(s).generatedAt)}catch{console.log('')}})" || true)
+            if [ "$ATUAL" = "$ESPERADO" ]; then
+              echo "Feed no ar em produção (generatedAt ${ATUAL})."
+              exit 0
+            fi
+            echo "Produção ainda em '${ATUAL}' (esperado ${ESPERADO}); nova tentativa em 30 s…"
+            sleep 30
+          done
+          echo "::error::O feed novo não apareceu em ${FEED_PRODUCAO} após 10 min. Verifique o serviço web na Railway e o proxy do Caddy."
+          exit 1

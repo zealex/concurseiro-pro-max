@@ -34,6 +34,60 @@
 	}
 	header @revalidar Cache-Control "no-cache"
 
+	# Feed do Radar: vem direto do GitHub (o robô commita public/data/concursos-sul.json e o site
+	# NÃO precisa ser republicado — commits do robô não disparam deploy). Se o GitHub falhar ou
+	# demorar, serve a cópia embutida no último build. Cabeçalho X-Radar-Feed: github | local.
+	handle /data/concursos-sul.json {
+		reverse_proxy https://raw.githubusercontent.com {
+			rewrite /zealex/concurseiro-pro-max/main/public/data/concursos-sul.json
+			header_up Host {upstream_hostport}
+			header_up -Cookie
+			header_up -Authorization
+			transport http {
+				dial_timeout 4s
+				response_header_timeout 8s
+			}
+			header_down Content-Type "application/json; charset=utf-8"
+			header_down -Cache-Control
+			header_down -Expires
+			header_down -Content-Security-Policy
+			header_down -Strict-Transport-Security
+			header_down -X-Frame-Options
+			header_down -X-Content-Type-Options
+			header_down -X-XSS-Protection
+			header_down -Via
+			header_down -X-Served-By
+			header_down -X-Cache
+			header_down -X-Cache-Hits
+			header_down -X-Timer
+			header_down -X-Fastly-Request-ID
+			header_down -X-GitHub-Request-Id
+			header_down -Source-Age
+			header_down X-Radar-Feed "github"
+
+			@falhou status 4xx 5xx
+			handle_response @falhou {
+				header X-Radar-Feed "local"
+				file_server {
+					status 200
+				}
+			}
+		}
+	}
+
+	# GitHub fora do ar / timeout → cópia local, com status 200 (o app exige resp.ok).
+	handle_errors 502 503 504 {
+		@feed path /data/concursos-sul.json
+		handle @feed {
+			root * /srv
+			header Cache-Control "no-cache"
+			header X-Radar-Feed "local"
+			file_server {
+				status 200
+			}
+		}
+	}
+
 	# Arquivos com hash e o feed nunca caem no fallback da SPA: se não existem, 404 de verdade.
 	handle /_expo/* {
 		file_server

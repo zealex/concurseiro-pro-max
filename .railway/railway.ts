@@ -42,10 +42,14 @@ export default defineRailway(() => {
     build: {
       builder: 'DOCKERFILE',
       dockerfilePath: 'infra/web/Dockerfile',
-      // Só redeploya quando muda algo que entra no site (inclui o feed do robô em public/data).
+      // Só redeploya quando muda algo que entra no site. O feed do robô (public/data/**) fica DE FORA:
+      // o Caddy o busca direto no GitHub (infra/web/Caddyfile), e commits do robô (autor fora do
+      // workspace) ficavam presos em "NEEDS_APPROVAL" na Railway. Arquivo novo em public/ → listar aqui.
       watchPatterns: [
         'src/**',
-        'public/**',
+        'public/index.html',
+        'public/manifest.json',
+        'public/icons/**',
         'assets/**',
         'infra/web/**',
         'app.json',

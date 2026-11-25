@@ -7,12 +7,19 @@ import { useSettingsStore } from '@/store/useSettingsStore';
 
 /**
  * Serviço do Radar Sul.
- * Ordem de tentativa: URL do usuário → EXPO_PUBLIC_CONCURSOS_FEED_URL / app.json → /data/concursos-sul.json (web, mesma origem).
+ * Ordem de tentativa: URL do usuário → EXPO_PUBLIC_CONCURSOS_FEED_URL / app.json → /data/concursos-sul.json (web, mesma origem)
+ * → cópia no GitHub (raw). No site, /data/concursos-sul.json já é um proxy do GitHub (infra/web/Caddyfile).
  * Falhou tudo → mantém o último feed em cache (AsyncStorage). Sem cache → JSON embarcado no app.
  * Status pessoais (overlay) e concursos manuais nunca são tocados pela sincronização.
  */
 
 const TIMEOUT_MS = 8000;
+
+/**
+ * Cópia do feed direto no GitHub (repositório público). O robô commita aqui de hora em hora; serve de
+ * última tentativa quando o site estiver fora do ar.
+ */
+export const FEED_GITHUB_RAW = 'https://raw.githubusercontent.com/zealex/concurseiro-pro-max/main/public/data/concursos-sul.json';
 
 function baseUrlWeb(): string {
   const extra = (Constants.expoConfig?.extra ?? {}) as { baseUrl?: string };
@@ -26,6 +33,7 @@ export function urlsDoFeed(urlUsuario: string): string[] {
     process.env.EXPO_PUBLIC_CONCURSOS_FEED_URL ?? '',
     extra.concursosFeedUrl ?? '',
     Platform.OS === 'web' && typeof window !== 'undefined' ? `${window.location.origin}${baseUrlWeb()}/data/concursos-sul.json` : '',
+    FEED_GITHUB_RAW,
   ];
   return [...new Set(candidatas.map((u) => u.trim()).filter((u) => /^https?:\/\//.test(u)))];
 }

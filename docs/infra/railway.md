@@ -18,7 +18,8 @@ Railway · projeto "concurseiro-pro-max" (região us-east4-eqdc4a)
 
 GitHub (zealex/concurseiro-pro-max)
 ├─ ci.yml            → tipos + testes do app e da API (a Railway espera o CI passar)
-└─ update-concursos-sul.yml → robô do Radar a cada 12 h (commit em public/data → redeploy do "web")
+└─ update-concursos-sul.yml → robô do Radar de hora em hora (commit em public/data; NÃO redeploya o "web":
+                               o Caddy serve o feed direto do GitHub — ver "Feed do Radar" abaixo)
 ```
 
 | Item | Valor |
@@ -34,10 +35,23 @@ GitHub (zealex/concurseiro-pro-max)
 
 Automático: cada push em `main` que toque nos arquivos de um serviço (`watchPatterns` em `.railway/railway.ts`) faz a Railway construir e publicar esse serviço **depois** que o CI passa.
 
-- `web`: muda com `src/`, `public/` (inclusive o feed do robô), `assets/`, `infra/web/` e as configs do Expo.
+- `web`: muda com `src/`, `public/index.html`, `public/manifest.json`, `public/icons/`, `assets/`, `infra/web/` e as configs do Expo. O feed do robô (`public/data/`) **não** dispara deploy.
 - `api`: muda com `server/**`. Antes de trocar a versão, roda `node dist/migrate.js` (migrações do Drizzle); se falhar, a versão antiga continua no ar. Healthcheck em `/health`.
 
 Ver o andamento: painel da Railway, ou `railway logs -s api` / `railway logs -s web`.
+
+## Feed do Radar (`/data/concursos-sul.json`)
+
+O robô (`.github/workflows/update-concursos-sul.yml`) roda de hora em hora e commita `public/data/concursos-sul.json` em `main`. O site **não** é republicado por isso:
+
+- O Caddy (`infra/web/Caddyfile`) atende `/data/concursos-sul.json` com proxy para `raw.githubusercontent.com/zealex/concurseiro-pro-max/main/public/data/concursos-sul.json` (repositório público; CDN do GitHub guarda até 5 min).
+- Se o GitHub falhar ou demorar, serve a cópia embutida no último build. O cabeçalho `X-Radar-Feed` diz a origem: `github` ou `local`.
+- O app também tenta a URL raw do GitHub como última opção (`src/services/concursosTrackerService.ts`).
+- Depois de cada push, o workflow confere se o `generatedAt` novo já aparece em produção (até 10 min). Se não aparecer, o job falha e o GitHub avisa por e-mail.
+
+Por que não redeployar: commits do `github-actions[bot]` (autor fora do workspace) ficavam em **NEEDS_APPROVAL** na Railway, e push com `GITHUB_TOKEN` nem dispara o CI. Foi isso que deixou o edital de Chapecó (25/11/2026) fora do app por horas.
+
+Conferir: `curl -sI https://concurseiro.zezasultratools.uk/data/concursos-sul.json | grep -i x-radar-feed`.
 
 ## Infra como código (`.railway/railway.ts`)
 
@@ -99,5 +113,6 @@ Testes da API (`npm test` em `server/`) usam PGlite (Postgres em memória), sem 
 | E-mail de confirmação não chega | chave do Resend inválida ou domínio desverificado | painel do Resend → Logs / Domains |
 | "Entrar com Google" volta com erro | URI de redirecionamento diferente | Google Cloud → cliente OAuth → `https://api-concurseiro.zezasultratools.uk/api/auth/callback/google` |
 | Site não atualiza depois do push | CI falhou (a Railway espera) ou o arquivo não está nos `watchPatterns` | aba Actions do GitHub; `.railway/railway.ts` |
+| Radar sem concursos novos / job "Conferir se o feed chegou ao site" falhou | proxy do Caddy caiu para a cópia local (`X-Radar-Feed: local`) ou o robô não conseguiu dar push | `curl -sI …/data/concursos-sul.json`; logs do workflow do Radar; `railway logs -s web` |
 | Deploy da API falha no pre-deploy | migração com erro | logs do deploy no painel (ou `railway logs -s api`); a versão anterior continua no ar |
 
