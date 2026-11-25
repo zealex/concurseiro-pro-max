@@ -1,0 +1,53 @@
+# Servidor estático do site. TLS fica a cargo da Railway (o Caddy só fala HTTP na porta $PORT).
+{
+	admin off
+	auto_https off
+	servers {
+		trusted_proxies static private_ranges
+	}
+}
+
+:{$PORT:8080} {
+	root * /srv
+	encode zstd gzip
+
+	header {
+		Strict-Transport-Security "max-age=31536000"
+		X-Content-Type-Options "nosniff"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		X-Frame-Options "SAMEORIGIN"
+		Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
+		-Server
+	}
+
+	# Arquivos com hash no nome (e que existem): cache longo e imutável.
+	@hashed {
+		path /_expo/static/* /assets/*
+		file
+	}
+	header @hashed Cache-Control "public, max-age=31536000, immutable"
+
+	# Todo o resto (index.html, sw.js, manifest, feed do Radar, ícones, 404s): sempre revalidar.
+	@revalidar not {
+		path /_expo/static/* /assets/*
+		file
+	}
+	header @revalidar Cache-Control "no-cache"
+
+	# Arquivos com hash e o feed nunca caem no fallback da SPA: se não existem, 404 de verdade.
+	handle /_expo/* {
+		file_server
+	}
+	handle /assets/* {
+		file_server
+	}
+	handle /data/* {
+		file_server
+	}
+
+	# Rotas da SPA (ex.: /radar, /questoes/treino) → index.html.
+	handle {
+		try_files {path} /index.html
+		file_server
+	}
+}

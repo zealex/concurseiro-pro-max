@@ -24,6 +24,7 @@
   "devDependencies": {
     "@types/react": "^19.3.0",
     "cheerio": "^1.2.0",
+    "railway": "^3.17.0",
     "sharp": "^0.35.5",
     "tsx": "^4.23.15",
     "typescript": "~6.0.3",

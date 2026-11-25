@@ -1,0 +1,18 @@
+# Build do site (infra/web/Dockerfile) — contexto = raiz do repositório.
+node_modules
+dist
+web-build
+.expo
+.git
+.github
+.cache
+.railway
+.claude
+QUESTÕES CONCURSO
+graphify-out
+server
+docs
+scripts/__fixtures__
+*.md
+.env
+.env*.local
