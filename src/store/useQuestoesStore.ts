@@ -1,11 +1,10 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import type { ErroCaderno, ItemRevisao, SessaoQuestoes } from '@/domain/types';
-import { STORE_KEYS } from '@/services/storage/keys';
-import { zustandStorage } from '@/services/storage/zustandAdapter';
 import type { DateKey } from '@/utils/dates';
 import { concluirRevisao, type ResultadoRevisao } from '@/utils/spacedRepetition';
 import { migrarQuestoes, VERSAO_QUESTOES } from './migracoes';
+import { opcoesPersistencia } from './persistencia';
 
 export interface QuestoesData {
   sessoes: SessaoQuestoes[];
@@ -50,8 +49,7 @@ export const useQuestoesStore = create<QuestoesState>()(
         set((st) => ({ revisoes: st.revisoes.filter((r) => !(r.refId === refId && r.historico.length === 0)) })),
     }),
     {
-      name: STORE_KEYS.questoes,
-      storage: zustandStorage,
+      ...opcoesPersistencia<QuestoesState>('questoes'),
       version: VERSAO_QUESTOES,
       migrate: (persistido, versao) => migrarQuestoes(persistido, versao) as unknown as QuestoesState,
       partialize: ({ sessoes, erros, revisoes }) => ({ sessoes, erros, revisoes }),

@@ -2,8 +2,8 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { atualizarConhecidos, type Overlay, type StatusPessoal } from '@/shared/concursos/overlay';
 import type { Concurso, SourceStatus } from '@/shared/concursos/schema';
-import { STORE_KEYS } from '@/services/storage/keys';
-import { zustandStorage } from '@/services/storage/zustandAdapter';
+import { VERSAO_RADAR } from './migracoes';
+import { opcoesPersistencia } from './persistencia';
 
 export type OrigemFeed = 'remoto' | 'cache' | 'embarcado';
 
@@ -85,9 +85,8 @@ export const useRadarStore = create<RadarState>()(
         }),
     }),
     {
-      name: STORE_KEYS.radar,
-      storage: zustandStorage,
-      version: 1,
+      ...opcoesPersistencia<RadarState>('radar'),
+      version: VERSAO_RADAR,
       partialize: ({ feed, feedGeradoEm, fontes, origemFeed, urlFeed, ultimaSync, ultimoErro, overlay, manuais, conhecidos }) => ({
         feed,
         feedGeradoEm,

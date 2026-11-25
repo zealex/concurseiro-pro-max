@@ -1,8 +1,8 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { STORE_KEYS } from '@/services/storage/keys';
-import { zustandStorage } from '@/services/storage/zustandAdapter';
 import type { DateKey } from '@/utils/dates';
+import { VERSAO_CHECKLIST } from './migracoes';
+import { opcoesPersistencia } from './persistencia';
 
 export interface ChecklistData {
   /** Item de lei seca/NR marcado como lido → data. */
@@ -34,6 +34,6 @@ export const useChecklistStore = create<ChecklistState>()(
           return { marcados };
         }),
     }),
-    { name: STORE_KEYS.checklist, storage: zustandStorage, version: 1, partialize: ({ marcados }) => ({ marcados }) },
+    { ...opcoesPersistencia<ChecklistState>('checklist'), version: VERSAO_CHECKLIST, partialize: ({ marcados }) => ({ marcados }) },
   ),
 );

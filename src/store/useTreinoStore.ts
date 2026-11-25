@@ -1,12 +1,12 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import type { FormatoQuestao } from '@/data/types';
-import { STORE_KEYS } from '@/services/storage/keys';
-import { zustandStorage } from '@/services/storage/zustandAdapter';
 import type { DateKey } from '@/utils/dates';
 import { NOVOS_POR_DIA_PADRAO, responderCartao, type EstadoCartao, type RespostaCartao } from '@/utils/flashcards';
 import { simuladoValidoOuNulo, type SimuladoAtivo } from '@/utils/simulado';
 import type { FiltroTreino, HistoricoQuestao, RespostaTreino } from '@/utils/treino';
+import { VERSAO_TREINO } from './migracoes';
+import { opcoesPersistencia } from './persistencia';
 
 /**
  * Treino interno: histórico por questão (totais, não um log — o armazenamento web é limitado),
@@ -40,8 +40,6 @@ interface TreinoState extends TreinoData {
   encerrarSimulado: () => void;
 }
 
-export const VERSAO_TREINO = 1;
-
 export const prefsPadrao = (): PrefsTreino => ({ novosPorDia: NOVOS_POR_DIA_PADRAO, quantidade: 10, modo: 'estudo', formato: 'todos', filtro: 'todas' });
 
 export const treinoPadrao = (): TreinoData => ({ questoes: {}, cartoes: {}, prefs: prefsPadrao(), simuladoAtivo: null });
@@ -68,8 +66,7 @@ export const useTreinoStore = create<TreinoState>()(
       encerrarSimulado: () => set({ simuladoAtivo: null }),
     }),
     {
-      name: STORE_KEYS.treino,
-      storage: zustandStorage,
+      ...opcoesPersistencia<TreinoState>('treino'),
       version: VERSAO_TREINO,
       merge: (persistido, atual) => {
         const p = (persistido ?? {}) as Partial<TreinoData>;

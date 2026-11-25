@@ -2,10 +2,10 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import type { Eixo } from '@/data/types';
 import type { ConfigPomodoro, FaseTimer, SessaoFoco, TimerEmAndamento } from '@/domain/types';
-import { STORE_KEYS } from '@/services/storage/keys';
-import { zustandStorage } from '@/services/storage/zustandAdapter';
 import { toKey } from '@/utils/dates';
 import { gerarId } from '@/utils/id';
+import { VERSAO_FOCUS } from './migracoes';
+import { opcoesPersistencia } from './persistencia';
 
 export interface FocusData {
   config: ConfigPomodoro;
@@ -105,9 +105,8 @@ export const useFocusStore = create<FocusState>()(
       removeSessao: (id) => set((st) => ({ sessoes: st.sessoes.filter((s) => s.id !== id) })),
     }),
     {
-      name: STORE_KEYS.focus,
-      storage: zustandStorage,
-      version: 1,
+      ...opcoesPersistencia<FocusState>('focus'),
+      version: VERSAO_FOCUS,
       partialize: ({ config, timer, sessoes }) => ({ config, timer, sessoes }),
     },
   ),

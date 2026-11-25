@@ -21,6 +21,11 @@ import { EIXOS, TRILHAS, type Eixo, type Trilha } from '@/data/types';
 export const VERSAO_SETTINGS = 2;
 export const VERSAO_QUESTOES = 3;
 export const VERSAO_CRONOGRAMA = 2;
+// Stores ainda sem migração (o número precisa existir para a sincronização comparar versões).
+export const VERSAO_TREINO = 1;
+export const VERSAO_RADAR = 1;
+export const VERSAO_CHECKLIST = 1;
+export const VERSAO_FOCUS = 1;
 
 type Dados = Record<string, unknown>;
 

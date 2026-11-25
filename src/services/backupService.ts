@@ -10,8 +10,9 @@ import { questoesPadrao, useQuestoesStore } from '@/store/useQuestoesStore';
 import { radarPadrao, useRadarStore } from '@/store/useRadarStore';
 import { settingsPadrao, useSettingsStore } from '@/store/useSettingsStore';
 import { treinoPadrao, useTreinoStore } from '@/store/useTreinoStore';
-import { armazenamento } from '@/services/storage/repository';
+import { aguardarEscritas } from '@/services/storage/escopo';
 import { todayKey } from '@/utils/dates';
+import { limparEscopoAtual } from '@/store/escopoStores';
 import { prepararImportacao } from '@/store/importacao';
 
 /** Backup portátil (.json) de todo o progresso local. */
@@ -57,10 +58,11 @@ export function aplicarBackup(b: Backup): void {
   useTreinoStore.setState({ ...treinoPadrao(), ...treino, prefs: { ...treinoPadrao().prefs, ...(treino.prefs ?? {}) }, simuladoAtivo: null });
 }
 
-/** Volta tudo ao estado inicial (memória + armazenamento local). */
+/** Volta tudo ao estado inicial (memória + armazenamento local) — só do escopo (usuário) atual. */
 export async function resetarTudo(): Promise<void> {
   aplicarBackup({ app: BACKUP_APP, schemaVersion: BACKUP_VERSAO, exportedAt: new Date().toISOString(), data: {} });
-  await armazenamento.limparTudo();
+  await aguardarEscritas();
+  await limparEscopoAtual();
   // Regrava os padrões para que a próxima abertura não dependa de estado em memória.
   aplicarBackup({ app: BACKUP_APP, schemaVersion: BACKUP_VERSAO, exportedAt: new Date().toISOString(), data: {} });
 }

@@ -1,10 +1,9 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import type { ConclusaoBloco } from '@/domain/types';
-import { STORE_KEYS } from '@/services/storage/keys';
-import { zustandStorage } from '@/services/storage/zustandAdapter';
 import type { DateKey } from '@/utils/dates';
 import { migrarCronograma, VERSAO_CRONOGRAMA } from './migracoes';
+import { opcoesPersistencia } from './persistencia';
 
 export interface CronogramaData {
   /** Tarefas concluídas: id do bloco (ou id sintético) → quando. */
@@ -46,8 +45,7 @@ export const useCronogramaStore = create<CronogramaState>()(
       resetar: () => set(cronogramaPadrao()),
     }),
     {
-      name: STORE_KEYS.cronograma,
-      storage: zustandStorage,
+      ...opcoesPersistencia<CronogramaState>('cronograma'),
       version: VERSAO_CRONOGRAMA,
       migrate: (persistido, versao) => migrarCronograma(persistido, versao) as unknown as CronogramaState,
       partialize: ({ concluidos, notas, diasAtivos }) => ({ concluidos, notas, diasAtivos }),
