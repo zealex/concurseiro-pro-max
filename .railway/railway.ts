@@ -7,7 +7,7 @@
  * Segredos NUNCA entram aqui: são gravados na Railway (dashboard ou `railway variable set`)
  * e referenciados com preserve().
  */
-import { defineRailway, postgres, project, service, volume } from 'railway/iac';
+import { defineRailway, github, postgres, project, service, volume } from 'railway/iac';
 
 /** us-east (Virgínia): a região da Railway mais próxima do Brasil. */
 const REGIAO = 'us-east4-eqdc4a';
@@ -16,6 +16,9 @@ const umaReplica = { [REGIAO]: { numReplicas: 1 } };
 const WEB_DOMINIO = 'concurseiro.zezasultratools.uk';
 const WEB_URL = `https://${WEB_DOMINIO}`;
 const PORTA_WEB = '8080';
+
+/** Deploy automático a cada push em main, só depois do CI (GitHub Actions) passar. */
+const repo = github('zealex/concurseiro-pro-max', { branch: 'main', checkSuites: true });
 
 export default defineRailway(() => {
   const Postgres = postgres('Postgres', { region: REGIAO });
@@ -30,6 +33,7 @@ export default defineRailway(() => {
 
   /** Site/PWA: expo export web + Workbox, servido pelo Caddy (infra/web). */
   const web = service('web', {
+    source: repo,
     build: {
       builder: 'DOCKERFILE',
       dockerfilePath: 'infra/web/Dockerfile',
