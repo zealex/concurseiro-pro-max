@@ -53,13 +53,26 @@
             "backgroundColor": "#191919"
           }
         }
+      ],
+      "expo-secure-store",
+      "expo-web-browser",
+      "expo-sqlite",
+      [
+        "expo-notifications",
+        {
+          "color": "#2383E2"
+        }
       ]
     ],
     "experiments": {
       "typedRoutes": false
     },
     "extra": {
-      "concursosFeedUrl": ""
-    }
+      "concursosFeedUrl": "",
+      "eas": {
+        "projectId": "31158525-1c97-4dcd-af9b-941a761d5b4d"
+      }
+    },
+    "owner": "zealex"
   }
 }

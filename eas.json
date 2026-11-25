@@ -4,16 +4,27 @@
     "appVersionSource": "remote"
   },
   "build": {
+    "base": {
+      "env": {
+        "EXPO_PUBLIC_API_URL": "https://api-concurseiro.zezasultratools.uk",
+        "EXPO_PUBLIC_WEB_URL": "https://concurseiro.zezasultratools.uk",
+        "EXPO_PUBLIC_CONCURSOS_FEED_URL": "https://concurseiro.zezasultratools.uk/data/concursos-sul.json"
+      }
+    },
     "development": {
+      "extends": "base",
       "developmentClient": true,
-      "distribution": "internal"
+      "distribution": "internal",
+      "android": { "buildType": "apk" }
     },
     "preview": {
+      "extends": "base",
       "distribution": "internal",
       "android": { "buildType": "apk" },
       "ios": { "simulator": false }
     },
     "production": {
+      "extends": "base",
       "autoIncrement": true,
       "android": { "buildType": "app-bundle" }
     }
