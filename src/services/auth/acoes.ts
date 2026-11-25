@@ -151,6 +151,38 @@ export async function sair(): Promise<{ pendentes: StoreSync[] }> {
   return { pendentes };
 }
 
+/**
+ * Exclui a conta: no servidor (conta, sessões e todo o progresso na nuvem) e neste aparelho.
+ * Conta com senha confirma pela senha; conta só Google/Apple precisa de login recente (24 h).
+ */
+export async function excluirConta(senha?: string): Promise<Resultado> {
+  const r = await authClient.deleteUser(senha ? { password: senha } : {});
+  if (r.error) {
+    const e = r.error as ErroAuth;
+    if (e.code === 'SESSION_EXPIRED' || e.code === 'SESSION_NOT_FRESH' || /fresh/i.test(e.message ?? '')) {
+      return { ok: false, codigo: 'LOGIN_RECENTE', mensagem: 'Por segurança, saia e entre de novo antes de excluir a conta.' };
+    }
+    return falha(e);
+  }
+  await desligarSync({ flush: false });
+  await fecharArmazenamento({ apagar: true });
+  await salvarConta(null);
+  return { ok: true };
+}
+
+/** Contas criadas só com Google/Apple: define uma senha para entrar também com e-mail. */
+export async function definirSenha(novaSenha: string): Promise<Resultado> {
+  try {
+    await chamarApi('/api/conta/definir-senha', { corpo: { novaSenha } });
+  } catch (e) {
+    const corpo = (e as { corpo?: { mensagem?: string } }).corpo;
+    return { ok: false, codigo: 'DEFINIR_SENHA', mensagem: corpo?.mensagem ?? 'Não foi possível definir a senha. Tente de novo.' };
+  }
+  const conta = useConta.getState().conta;
+  if (conta?.modo === 'usuario' && !conta.provedores.includes('credential')) await salvarConta({ ...conta, provedores: [...conta.provedores, 'credential'] });
+  return { ok: true };
+}
+
 /** Confere a sessão no servidor sem bloquear o app. Sem internet, não muda nada. */
 export async function validarSessaoEmSegundoPlano(): Promise<void> {
   const conta = useConta.getState().conta;

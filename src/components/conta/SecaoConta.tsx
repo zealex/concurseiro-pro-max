@@ -1,14 +1,44 @@
 import { useRouter } from 'expo-router';
-import { LogIn, LogOut, RefreshCw } from 'lucide-react-native';
+import { KeyRound, LogIn, LogOut, RefreshCw, Trash2 } from 'lucide-react-native';
 import { useState } from 'react';
 import { View } from 'react-native';
 import { Button } from '@/components/ui/Button';
-import { Sheet } from '@/components/ui/Controls';
+import { Campo, Sheet } from '@/components/ui/Controls';
 import { Card, Muted, Row, Section, Txt } from '@/components/ui/primitives';
-import { sair } from '@/services/auth/acoes';
+import { definirSenha, sair } from '@/services/auth/acoes';
 import { useConta } from '@/services/auth/conta';
 import { sincronizarAgora, useStatusSync } from '@/sync/controle';
+import { FormExcluirConta } from './ExcluirConta';
 import { descricaoFase, textoUltimaSync } from './IndicadorSync';
+import { Aviso } from './TelaAuth';
+
+function FormDefinirSenha({ onConcluir }: { onConcluir: () => void }) {
+  const [senha, setSenha] = useState('');
+  const [confirmacao, setConfirmacao] = useState('');
+  const [erro, setErro] = useState<string | null>(null);
+  const [salvando, setSalvando] = useState(false);
+  const salvar = async () => {
+    setErro(null);
+    if (senha.length < 8) return setErro('A senha precisa ter pelo menos 8 caracteres.');
+    if (senha !== confirmacao) return setErro('As senhas não são iguais.');
+    setSalvando(true);
+    const r = await definirSenha(senha);
+    setSalvando(false);
+    if (r.ok) onConcluir();
+    else setErro(r.mensagem);
+  };
+  return (
+    <View>
+      <Muted className="mb-3">Com uma senha você também entra com e-mail e senha, em qualquer aparelho.</Muted>
+      {erro ? <Aviso tom="erro">{erro}</Aviso> : null}
+      <Campo rotulo="Nova senha" ajuda="Pelo menos 8 caracteres." value={senha} onChangeText={setSenha} secureTextEntry autoComplete="new-password" textContentType="newPassword" />
+      <Campo rotulo="Confirme a senha" value={confirmacao} onChangeText={setConfirmacao} secureTextEntry autoComplete="new-password" textContentType="newPassword" />
+      <Row className="justify-end">
+        <Button className="px-3 py-2" variante="primario" titulo="Salvar senha" carregando={salvando} disabled={salvando} onPress={salvar} />
+      </Row>
+    </View>
+  );
+}
 
 const NOME_PROVEDOR: Record<string, string> = { credential: 'e-mail e senha', google: 'Google', apple: 'Apple' };
 
@@ -19,6 +49,8 @@ export function SecaoConta() {
   const [confirmarSaida, setConfirmarSaida] = useState(false);
   const [saindo, setSaindo] = useState(false);
   const [sincronizando, setSincronizando] = useState(false);
+  const [excluindo, setExcluindo] = useState(false);
+  const [definindoSenha, setDefinindoSenha] = useState(false);
 
   if (!conta) return null;
 
@@ -71,6 +103,16 @@ export function SecaoConta() {
           </Row>
         </View>
       </Card>
+      <Row className="mt-2 flex-wrap gap-2">
+        {!conta.provedores.includes('credential') ? <Button className="px-3 py-1.5" icone={KeyRound} titulo="Definir uma senha" onPress={() => setDefinindoSenha(true)} /> : null}
+        <Button className="px-3 py-1.5" variante="perigo" icone={Trash2} titulo="Excluir conta" onPress={() => setExcluindo(true)} />
+      </Row>
+      <Sheet visivel={excluindo} onFechar={() => setExcluindo(false)} titulo="Excluir sua conta?">
+        <FormExcluirConta conta={conta} onCancelar={() => setExcluindo(false)} />
+      </Sheet>
+      <Sheet visivel={definindoSenha} onFechar={() => setDefinindoSenha(false)} titulo="Definir uma senha">
+        <FormDefinirSenha onConcluir={() => setDefinindoSenha(false)} />
+      </Sheet>
       <Sheet visivel={confirmarSaida} onFechar={() => setConfirmarSaida(false)} titulo="Sair da conta?">
         <Muted className="mb-4">
           {pendentes > 0 || status.fase === 'offline'

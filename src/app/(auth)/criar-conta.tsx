@@ -49,7 +49,15 @@ export default function CriarConta() {
       <Campo rotulo="Confirme a senha" value={confirmacao} onChangeText={setConfirmacao} secureTextEntry autoComplete="new-password" textContentType="newPassword" onSubmitEditing={enviar} returnKeyType="go" />
       <Button className="mt-1 py-2.5" variante="primario" titulo="Criar conta" carregando={carregando} disabled={carregando} onPress={enviar} />
       <Muted className="mt-4 text-center text-[12px] leading-4">
-        Ao criar a conta você concorda com os Termos de Uso e a Política de Privacidade do Concurseiro Pro Max.
+        Ao criar a conta você concorda com os{' '}
+        <Link href="/termos" className="text-accent">
+          Termos de Uso
+        </Link>{' '}
+        e a{' '}
+        <Link href="/privacidade" className="text-accent">
+          Política de Privacidade
+        </Link>
+        .
       </Muted>
     </TelaAuth>
   );

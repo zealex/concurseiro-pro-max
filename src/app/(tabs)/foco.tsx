@@ -10,6 +10,7 @@ import { useCronogramaStore } from '@/store/useCronogramaStore';
 import { restanteMs, useFocusStore } from '@/store/useFocusStore';
 import { formatBR } from '@/utils/dates';
 import { horasMinutos, mmss } from '@/utils/format';
+import { agendarFimDaFase, cancelarFimDaFase } from '@/services/notificacoes';
 import { feedback } from '@/utils/haptics';
 import { gerarId } from '@/utils/id';
 import { minutosNaSemana } from '@/utils/metrics';
@@ -55,6 +56,14 @@ export default function Foco() {
     }
     setTimeout(() => (encerrando.current = false), 1000);
   }, [restante, timer, concluirFase, registrarAtividade, toast]);
+
+  // Android/iOS: notificação agendada para o fim da fase (avisa mesmo com o app em segundo plano).
+  const terminaEm = timer?.terminaEm ?? null;
+  const faseTimer = timer?.fase ?? 'foco';
+  useEffect(() => {
+    if (terminaEm !== null) void agendarFimDaFase(terminaEm, faseTimer);
+    else void cancelarFimDaFase();
+  }, [terminaEm, faseTimer]);
 
   useEffect(() => {
     if (Platform.OS !== 'web' || typeof document === 'undefined') return;
