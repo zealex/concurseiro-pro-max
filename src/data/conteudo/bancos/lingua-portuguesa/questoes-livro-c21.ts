@@ -486,16 +486,6 @@ export const QUESTOES_LIVRO_C21: QuestaoTreino[] = [
     comentario: 'A resposta é a letra C. Em “é muito mais econômico você andar devagar”, “econômico” é predicativo do sujeito, que é a oração “você andar devagar”. Em “ser assaltado por mim”, “por mim” é agente da passiva, e em “em sua habilitação” a expressão é adjunto adverbial de lugar, figurado. Os erros típicos são tratar “por mim” como objeto indireto ou “econômico” como adjunto adnominal.',
   },
   {
-    id: 'lp-termos-oracao-qlivro21-35',
-    temaId: 'lp-termos-oracao',
-    formato: 'multipla',
-    dificuldade: 3,
-    enunciado: '(Cesgranrio - BNDES - Engenheiro - 2011) “...e às vezes lhe passava um recado ou uma correspondência.” “Isso existe às pampas.” Quais as locuções destacadas que encerram, respectivamente, as mesmas circunstâncias das destacadas nos trechos transcritos acima?',
-    alternativas: ['Aos poucos, ele ia percebendo que não precisava mais dela. / Nada em volta causava mais surpresa.', 'Saiu às pressas porque tinha um compromisso. / De vez em quando, é preciso repensar as estratégias.', 'Vá em frente que você encontrará o que procura. / De modo algum aceitarei a proposta feita pelo meu superior.', 'Em breve, estarei terminando de escrever minha biografia. / Trabalhou em excesso para apresentar seu projeto final.', 'A notícia chegou de súbito causando, assim, um grande impacto. / Hoje em dia, as pessoas pensam mais nelas próprias.'],
-    correta: 3,
-    comentario: 'A resposta é a letra D. “Às vezes” indica tempo, e “em breve” também indica tempo; “às pampas”, no sentido de abundância, indica modo, e “em excesso” também expressa modo. As demais alternativas combinam circunstâncias diferentes, como em A, em que “aos poucos” é modo, e não tempo, e em B, em que “às pressas” é modo para um termo que deveria ser de tempo.',
-  },
-  {
     id: 'lp-termos-oracao-qlivro21-36',
     temaId: 'lp-termos-oracao',
     formato: 'multipla',
@@ -594,5 +584,23 @@ export const QUESTOES_LIVRO_C21: QuestaoTreino[] = [
     alternativas: ['“Um PEQUENO grupo de crianças é capaz de desenvolver uma defesa natural à aids.” (adjetivo destacado: “pequeno”)', '“Um pequeno grupo de crianças é capaz de desenvolver uma defesa NATURAL à aids.” (adjetivo destacado: “natural”)', '“O sistema IMUNOLÓGICO simplesmente ignorou a presença do vírus no corpo.”', '“Sistema de defesa do corpo HUMANO.”', '“As células de defesa acabam morrendo por inflamação crônica e o sistema fica VULNERÁVEL.”'],
     correta: 4,
     comentario: 'A resposta é a letra E. Em “o sistema fica VULNERÁVEL”, o adjetivo está ligado ao verbo de ligação “fica” e qualifica o sujeito, o que caracteriza predicativo do sujeito. Nas demais, o adjetivo acompanha diretamente o nome, como em “grupo PEQUENO”, “defesa NATURAL”, “sistema IMUNOLÓGICO” e “corpo HUMANO”, o que caracteriza adjunto adnominal.',
+  },
+  {
+    id: 'lp-termos-oracao-qlivro21-46',
+    temaId: 'lp-termos-oracao',
+    formato: 'multipla',
+    dificuldade: 3,
+    enunciado:
+      '(FGV — CODESP/SP — Advogado — 2010) O ensino técnico profissionalizante de fato precisa hoje correr contra o relógio, pois, se persistir a falta de pessoal qualificado, as oportunidades acabam definitivamente perdidas “pela desistência dos potenciais empregadores”. O termo destacado no período acima exerce a função sintática de:',
+    alternativas: [
+      'adjunto adverbial',
+      'agente da passiva',
+      'complemento nominal',
+      'adjunto adnominal',
+      'objeto indireto',
+    ],
+    correta: 0,
+    comentario:
+      'A alternativa A é a correta: “pela desistência dos potenciais empregadores” indica a causa pela qual as oportunidades se perdem, e não um nome que complete outro termo, por isso é adjunto adverbial de causa. A leitura como agente da passiva é a principal armadilha, pois o verbo está no particípio “perdidas”, mas o termo expressa o motivo e não quem pratica a ação. Complemento nominal e adjunto adnominal também não servem, porque o termo modifica o verbo, e não um substantivo.',
   },
 ];

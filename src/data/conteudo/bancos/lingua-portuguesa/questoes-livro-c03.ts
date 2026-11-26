@@ -591,4 +591,40 @@ export const QUESTOES_LIVRO_C03: QuestaoTreino[] = [
     comentario:
       'A alternativa B, “Facções – senso – consenso”, é a correta. “Facções” é a grafia com ç, e o plural “facções políticas” exige essa forma; “senso”, no sentido de juízo, faz parte de “o bom senso”, enquanto “censo” é levantamento estatístico. “Consenso” significa acordo geral e se escreve com s, por isso as opções com “concenso” e “faccões” erram.',
   },
+  {
+    id: 'lp-ortografia-qlivro03-38',
+    temaId: 'lp-ortografia',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(FCC — TRE/PR — Analista Judiciário — 2012) A frase correta do ponto de vista da grafia é:',
+    alternativas: [
+      'Era grande a insidência de casos de enjoo quando era servido aquele alimento, por isso o episódio não foi tratado como exceção, atitude que garantiu o êxito das providências.',
+      'Em meio a tanta opulência da mansão leiloada, encontrou a geringonça que, tratada criativamente por ele, garantiu por anos seu apoio a entidades beneficientes.',
+      'Seus gestos desarmônicos às vezes eram mal compreendidos, mas seu jeito afável de falar, sem resquícios de mágoa, revelava sua intenção de restabelecer a paz entre os familiares.',
+      'Defendeu-se dizendo que nunca pretendeu axincalhar ninguém, mas as suas caçoadas realmente humilhavam e incitavam à malediscência.',
+      'Sempre ansiosos, desenrolaram no saguão apinhado a faixa com que brindavam os recém-formados, com os seguintes dizeres: “Viagem bastante e divirtam-se, nobres doutores”.',
+    ],
+    correta: 2,
+    comentario:
+      'A alternativa C é a correta: “desarmônicos”, “afável” e “resquícios” seguem a ortografia do padrão culto. As demais trazem erros de grafia: “insidência” deveria ser “incidência”, “beneficientes” é “beneficentes”, “axincalhar” é “achincalhar” e “malediscência” é “maledicência”. Na alternativa E, o verbo viajar pede “viajem”, e não o substantivo “viagem”.',
+  },
+  {
+    id: 'lp-ortografia-qlivro03-39',
+    temaId: 'lp-ortografia',
+    formato: 'multipla',
+    dificuldade: 3,
+    enunciado:
+      '(FGV - ALERJ - Especialista Legislativo (Registro de Debates) - 2017) Há palavras na língua portuguesa que apresentam mais de duas grafias aceitas como corretas; as formas que NÃO se encontram nesse caso são:',
+    alternativas: [
+      'bêbedo/bêbado',
+      'enfarte/enfarto',
+      'mágoa/mágua',
+      'catorze/quatorze',
+      'cociente/quociente',
+    ],
+    correta: 2,
+    comentario:
+      'A alternativa C é a resposta indicada, porque a pergunta pede a forma que NÃO se encontra no caso de palavras com mais de duas grafias aceitas. Todas as opções trazem pares de variantes aceitas pela norma, e não palavras grafadas erradas, por isso o raciocínio correto é identificar a exceção, e não a grafia incorreta. O ponto de atenção é a negativa do enunciado, que inverte a lógica habitual das questões de ortografia.',
+  },
 ];

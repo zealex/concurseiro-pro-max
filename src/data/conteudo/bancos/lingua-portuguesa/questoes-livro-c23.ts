@@ -466,17 +466,6 @@ export const QUESTOES_LIVRO_C23: QuestaoTreino[] = [
       'O item está errado: as duas orações não completam o verbo “foi” como complementos independentes, mas formam o predicativo do sujeito (“A primeira convicção política”), ligadas pelo “e”. O item confunde a função de predicativo com a de complemento verbal.',
   },
   {
-    id: 'lp-periodo-composto-qlivro23-31',
-    temaId: 'lp-periodo-composto',
-    formato: 'certo-errado',
-    dificuldade: 2,
-    enunciado:
-      '(Cespe/UnB — PC/CE — Inspetor - 2012) No trecho “É verdade que a CE vem desenvolvendo novas formas políticas”, o emprego da forma verbal singular “É” justifica-se pelo fato de essa forma verbal não ter sujeito explícito.',
-    gabaritoCE: false,
-    comentario:
-      'A forma “É” fica no singular porque o sujeito é a oração subjetiva “que a CE vem desenvolvendo novas formas políticas”, e não porque falta sujeito. A justificativa do item está errada, ainda que a concordância no singular esteja correta.',
-  },
-  {
     id: 'lp-periodo-composto-qlivro23-32',
     temaId: 'lp-periodo-composto',
     formato: 'certo-errado',

@@ -101,17 +101,6 @@ export const QUESTOES_LIVRO_C34: QuestaoTreino[] = [
       'A afirmação está incorreta. Os operadores “não apenas... mas também” são aditivos: somam dois argumentos que se reforçam, e não se excluem. A oposição do trecho está entre a arte de falar e a de escrever, e não entre os dois argumentos.',
   },
   {
-    id: 'lp-interpretacao-qlivro34-08',
-    temaId: 'lp-interpretacao',
-    formato: 'certo-errado',
-    dificuldade: 2,
-    enunciado:
-      '(FCC - MRE - Oficial de Chancelaria - 2009) (Adaptada) A afirmação abaixo está correta ou incorreta? O enunciado “aquilo que o texto nos diz já não constitui o objeto preferido de nossa atenção” contém pressuposto introduzido pelo advérbio já.',
-    gabaritoCE: true,
-    comentario:
-      'A afirmação está correta. O advérbio “já”, ao indicar que algo deixou de ser objeto de atenção, pressupõe que antes o conteúdo do texto era o foco, e esse pressuposto permanece mesmo se a frase for negada.',
-  },
-  {
     id: 'lp-interpretacao-qlivro34-09',
     temaId: 'lp-interpretacao',
     formato: 'multipla',

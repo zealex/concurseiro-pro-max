@@ -294,24 +294,6 @@ export const QUESTOES_LIVRO_C10: QuestaoTreino[] = [
       'A alternativa A é a correta: em “os dois registros”, “dois” acompanha e qualifica o substantivo “registros”, funcionando como numeral adjetivo. As demais não exercem papel adjetivo: “mais” e “bem” são advérbios que modificam outro termo, e “regido” forma a voz passiva do verbo.',
   },
   {
-    id: 'lp-nomes-qlivro10-20',
-    temaId: 'lp-nomes',
-    formato: 'multipla',
-    dificuldade: 2,
-    enunciado:
-      '(Vunesp — UNESP — Advogado — 2012) O emprego da palavra meio, como no trecho — “... em linhas de um meio-dia.” —, repete-se, com o mesmo sentido, em:',
-    alternativas: [
-      'ele encontrou na aspirina um meio de se livrar da dor de cabeça.',
-      'o poeta tomou apenas meio comprimido de aspirina e sentiu-se aliviado.',
-      'a indústria farmacêutica anda meio apurada com tanta demanda de remédios.',
-      'em meio à acirrada discussão, saiu do encontro com dor de cabeça.',
-      'as pessoas ficam meio dependentes dos efeitos químicos da medicação.',
-    ],
-    correta: 1,
-    comentario:
-      'A alternativa B é a correta: em “meio comprimido”, “meio” tem o sentido de metade, como em “meio-dia”, funcionando como numeral fracionário. As demais usam “meio” com outros sentidos: recurso, em “um meio de”; ambiente, em “meio à discussão”; e advérbio de intensidade, em “meio apurada” e “meio dependentes”.',
-  },
-  {
     id: 'lp-nomes-qlivro10-21',
     temaId: 'lp-nomes',
     formato: 'multipla',
