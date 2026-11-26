@@ -19,7 +19,7 @@ import { cronogramaPadrao, type CronogramaData } from '@/store/useCronogramaStor
 import { focusPadrao, type FocusData } from '@/store/useFocusStore';
 import { questoesPadrao, type QuestoesData } from '@/store/useQuestoesStore';
 import { radarPadrao, type RadarData } from '@/store/useRadarStore';
-import { settingsPadrao, type SettingsData } from '@/store/useSettingsStore';
+import { settingsPadrao, ufsValidas, type SettingsData } from '@/store/useSettingsStore';
 import { treinoPadrao, type TreinoData } from '@/store/useTreinoStore';
 import type { EstadoCartao } from '@/utils/flashcards';
 import type { HistoricoQuestao } from '@/utils/treino';
@@ -153,7 +153,7 @@ export function posMergeQuestoes(doc: QuestoesDoc): QuestoesDoc {
 
 // ---------- specs ----------
 
-const CAMPOS_SETTINGS = ['trilha', 'dataInicio', 'orcamentoMin', 'diasPlantao', 'provaAlvo', 'tema', 'bancaAlvo', 'editalAlvo'] as const;
+const CAMPOS_SETTINGS = ['trilha', 'dataInicio', 'orcamentoMin', 'diasPlantao', 'provaAlvo', 'tema', 'bancaAlvo', 'editalAlvo', 'ufsRadar'] as const;
 
 export const specSettings: SpecStore<SettingsDoc> = {
   store: 'settings',
@@ -167,13 +167,19 @@ export const specSettings: SpecStore<SettingsDoc> = {
     tema: { tipo: 'escalar' },
     bancaAlvo: { tipo: 'escalar' },
     editalAlvo: { tipo: 'objeto-atomico' },
+    ufsRadar: { tipo: 'conjunto', limite: 27 },
   },
   // "Definir como prova-alvo" muda os três juntos.
   grupos: [['provaAlvo', 'trilha', 'bancaAlvo']],
   locais: ['feedUrl'],
   projetar: (e) => pegar<SettingsDoc>(e, CAMPOS_SETTINGS),
   migrar: (doc, de) => ({ ...padraoSettings(), ...(migrarSettings(doc, de) as Partial<SettingsDoc>) }) as SettingsDoc,
-  posMerge: (d) => ({ ...d, diasPlantao: [...new Set(d.diasPlantao)].sort().slice(-200), editalAlvo: editalValidoOuNulo(d.editalAlvo) }),
+  posMerge: (d) => ({
+    ...d,
+    diasPlantao: [...new Set(d.diasPlantao)].sort().slice(-200),
+    editalAlvo: editalValidoOuNulo(d.editalAlvo),
+    ufsRadar: ufsValidas(d.ufsRadar),
+  }),
   // A data de início muda sozinha (padrão = hoje): não conta como "dado do usuário".
   temDados: (d) => !iguais({ ...d, dataInicio: '' }, { ...padraoSettings(), dataInicio: '' }),
   padrao: padraoSettings,

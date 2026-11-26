@@ -19,6 +19,12 @@ import type { Detalhe, ItemBanca, ItemListagem } from './sources/types';
 
 const RE_ESTADUAL = /\b(estado|estadual|governo do|policia cientifica|\bigp\b|instituto[- ]geral de pericias|\bsesa\b|secretaria de estado|tribunal|detran|\bpcp\b|\bpci\b)/;
 
+/** Data de publicação da notícia (ISO), se válida e não futura; senão, o instante da coleta. */
+export function inicioDaNoticia(publicadoEm: string | null | undefined, agora: Date): string {
+  const t = publicadoEm ? Date.parse(publicadoEm) : Number.NaN;
+  return Number.isFinite(t) && t < agora.getTime() ? new Date(t).toISOString() : agora.toISOString();
+}
+
 /** Manchete de seleção de docente/residente/estagiário que não oferece vaga de médico. */
 export function tituloDeDocencia(titulo: string): boolean {
   const n = normalizar(titulo);
@@ -144,14 +150,16 @@ export function construirConcursos(p: {
         banca,
         inscricoes,
         dataProva,
-        editalUrl: item.url,
+        editalUrl: detalhe?.editalUrl ?? item.url,
         inscricaoUrl: null,
         relacionados: [],
         fonte: item.fonte,
         fonteUrl: item.url,
         ano,
         edital: numeroEdital(`${item.titulo}\n${detalhe?.titulo ?? ''}\n${textoDetalhe}\n${detalhe?.observacoes.join('\n') ?? ''}`),
-        firstSeenAt: iso,
+        // Data da notícia, quando a fonte informa: um edital antigo encontrado agora (ex.: ao ampliar a cobertura)
+        // não ganha o selo NOVO; "novo" = publicado nos últimos 7 dias.
+        firstSeenAt: inicioDaNoticia(detalhe?.publicadoEm, agora),
         lastSeenAt: iso,
         isNew: true,
         observacoes: detalhe?.observacoes.length ? detalhe.observacoes.join(' · ') : null,

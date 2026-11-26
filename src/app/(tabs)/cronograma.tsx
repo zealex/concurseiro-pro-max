@@ -132,7 +132,7 @@ export default function Cronograma() {
           {agenda.fase === 'antes' ? (
             <Callout emoji="⏳">O plano começa em {formatBR(dataInicio)}. Você pode mudar a data de início em Configurações.</Callout>
           ) : null}
-          {agenda.fase === 'apos-prova' ? <Callout emoji="🏁">A prova-alvo já passou. Defina uma nova no Radar Sul ou em Configurações.</Callout> : null}
+          {agenda.fase === 'apos-prova' ? <Callout emoji="🏁">A prova-alvo já passou. Defina uma nova no Radar ou em Configurações.</Callout> : null}
           {agenda.fase === 'manutencao' ? (
             <Callout emoji="🛠️" tom="verde">As 12 semanas terminaram. O app segue em modo manutenção até a prova: revisões, caderno de erros e um simulado por semana.</Callout>
           ) : null}

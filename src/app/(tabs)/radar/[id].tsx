@@ -87,7 +87,7 @@ export default function DetalheConcurso() {
     <Screen emoji="🏛️" titulo={c.orgao} descricao={`${c.cidade} · ${UF_NOME[c.uf]}`}>
       <Pressable onPress={() => (router.canGoBack() ? router.back() : router.replace('/radar'))} className="mb-3 flex-row items-center self-start rounded px-1 py-1 hover:bg-hover dark:hover:bg-hover-dark">
         <ArrowLeft size={16} color={cores.suave} />
-        <Muted className="ml-1">Radar Sul</Muted>
+        <Muted className="ml-1">Radar</Muted>
       </Pressable>
 
       <Row className="mb-4 flex-wrap gap-1.5">

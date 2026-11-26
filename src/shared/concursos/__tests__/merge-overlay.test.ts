@@ -184,6 +184,22 @@ describe('unirCargos', () => {
   });
 });
 
+describe('selo NOVO pela data da notícia', () => {
+  it('edital publicado há semanas e encontrado agora não é NOVO; publicado ontem é', () => {
+    const antigo = concurso({ id: 'ba-x', uf: 'BA', cidade: 'Salvador', firstSeenAt: '2026-10-20T12:00:00.000Z' });
+    const recente = concurso({ id: 'ba-y', uf: 'BA', cidade: 'Salvador', firstSeenAt: '2026-11-17T12:00:00.000Z' });
+    const feed = mesclarFeed([], [antigo, recente], AGORA);
+    expect(feed.map((c) => [c.id, c.isNew, c.firstSeenAt])).toEqual([
+      ['ba-y', true, '2026-11-17T12:00:00.000Z'],
+      ['ba-x', false, '2026-10-20T12:00:00.000Z'],
+    ]);
+  });
+  it('data futura (fuso/erro da fonte) vira o instante da coleta', () => {
+    const futuro = concurso({ id: 'sp-z', uf: 'SP', cidade: 'Campinas', firstSeenAt: '2026-12-01T12:00:00.000Z' });
+    expect(mesclarFeed([], [futuro], AGORA)[0]?.firstSeenAt).toBe(AGORA.toISOString());
+  });
+});
+
 describe('separarPorEdital (2º certame do mesmo órgão no mesmo ano)', () => {
   const ID = 'sc-chapeco-prefeitura-medicina-geral-especialidades-2026';
   const URL_A = 'https://www.pciconcursos.com.br/noticias/chapeco-edital-1';
@@ -191,7 +207,7 @@ describe('separarPorEdital (2º certame do mesmo órgão no mesmo ano)', () => {
 
   it('edital novo de outra notícia da mesma fonte ganha id próprio e aparece como NOVO', () => {
     const antigo = concurso({ id: ID, edital: '1/2026', fonteUrl: URL_A, firstSeenAt: '2026-03-01T12:00:00.000Z' });
-    const novo = concurso({ id: ID, edital: '3/2026', fonteUrl: URL_B });
+    const novo = concurso({ id: ID, edital: '3/2026', fonteUrl: URL_B, firstSeenAt: '2026-11-17T14:24:00.000Z' });
     const ids = separarPorEdital([novo], [antigo]).map((c) => c.id);
     expect(ids).toEqual([idComEdital(ID, '3/2026')]);
     const feed = mesclarFeed([antigo], separarPorEdital([novo], [antigo]), AGORA);

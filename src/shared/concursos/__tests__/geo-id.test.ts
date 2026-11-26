@@ -1,12 +1,12 @@
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { criarGeo, type MunicipiosPorUF } from '../geo';
+import { CAPITAL, criarGeo, type MunicipiosPorUF } from '../geo';
 import { gerarIdConcurso, gerarIdManual } from '../id';
 import { chaveCargo, chaveOrgao, parseReais, parseVagas, slug, todosReais } from '../normalize';
 
 const municipios = JSON.parse(
-  readFileSync(resolve(__dirname, '../../../../scripts/data/municipios-sul.json'), 'utf8'),
+  readFileSync(resolve(__dirname, '../../../../scripts/data/municipios-brasil.json'), 'utf8'),
 ) as { municipios: MunicipiosPorUF };
 const geo = criarGeo(municipios.municipios);
 
@@ -34,12 +34,45 @@ describe('geo', () => {
   });
   it('respeita a UF', () => {
     expect(geo.cidadeNoTexto('Prefeitura de Umuarama', 'SC')).toBeNull();
-    expect(geo.ufsDoMunicipio('Cruzeiro do Sul').sort()).toEqual(['PR', 'RS']);
+    expect(geo.ufsDoMunicipio('Cruzeiro do Sul').sort()).toEqual(['AC', 'PR', 'RS']);
   });
   it('UFs mencionadas (órgãos nacionais)', () => {
     expect(geo.ufsMencionadas('Vagas no HU-UFSC e no HC-UFPR')).toEqual(['PR', 'SC']);
     expect(geo.ufsMencionadas('Lotação em Porto Alegre')).toEqual(['RS']);
-    expect(geo.ufsMencionadas('Vagas em São Paulo e Minas Gerais')).toEqual([]);
+    expect(geo.ufsMencionadas('Vagas em São Paulo e Minas Gerais')).toEqual(['SP', 'MG']);
+  });
+});
+
+describe('geo — Brasil (27 UFs)', () => {
+  it('siglas que também são palavras só valem com "/", "-" ou "("', () => {
+    expect(geo.ufsMencionadas('Aracaju/SE, Maceió - AL e Teresina (PI)')).toEqual(['SE', 'AL', 'PI']);
+    expect(geo.ufsMencionadas('AS INSCRIÇÕES SE ENCERRAM NO DIA 10 E O EDITAL AL')).toEqual([]);
+    expect(geo.ufPorSigla('Hospital em Chapecó, SC')).toBe('SC');
+  });
+  it('"para" (preposição) não é o Pará; "Vale do Paraíba" não é a Paraíba', () => {
+    expect(geo.ufsMencionadas('Edital para médicos, para todo o país')).toEqual([]);
+    expect(geo.ufsMencionadas('Vagas em Belém do Pará e no interior do Pará')).toEqual(['PA']);
+    expect(geo.ufsMencionadas('Hospital regional do Vale do Paraíba')).toEqual([]);
+    expect(geo.ufsMencionadas('Vagas em João Pessoa, na Paraíba')).toEqual(['PB']);
+  });
+  it('Mato Grosso × Mato Grosso do Sul; Brasília (sede de órgão federal) não conta como lotação', () => {
+    expect(geo.ufsMencionadas('Vagas em Mato Grosso do Sul')).toEqual(['MS']);
+    expect(geo.ufsMencionadas('Vagas em Mato Grosso')).toEqual(['MT']);
+    expect(geo.ufsMencionadas('O Ministério da Saúde, em Brasília, divulgou o edital')).toEqual([]);
+    expect(geo.ufsMencionadas('Vagas no Distrito Federal')).toEqual(['DF']);
+  });
+  it('hospitais universitários e polos', () => {
+    expect(geo.ufsMencionadas('HU-UFJF, em Juiz de Fora - MG')).toEqual(['MG']);
+    expect(geo.ufsMencionadas('Lotação no HUWC, em Fortaleza')).toEqual(['CE']);
+    expect(geo.ufsMencionadas('vagas na fortaleza do exército')).toEqual([]);
+  });
+  it('cidade e capital nas 27 UFs', () => {
+    expect(geo.cidadeNoTexto('Prefeitura de Juazeiro do Norte abre concurso', 'CE')).toBe('Juazeiro do Norte');
+    expect(geo.cidadeNoTexto('Prefeitura de Juazeiro abre concurso', 'BA')).toBe('Juazeiro');
+    expect(geo.cidadeNoTexto('Concurso em Petrolina/PE', 'PE')).toBe('Petrolina');
+    expect(geo.cidadeNoTexto('Prefeitura de Umuarama', 'SP')).toBeNull();
+    expect(CAPITAL.TO).toBe('Palmas');
+    expect(Object.keys(CAPITAL)).toHaveLength(27);
   });
 });
 
@@ -56,6 +89,10 @@ describe('normalização e ids', () => {
     expect(chaveOrgao('GHC - Grupo Hospitalar Conceição')).toBe(chaveOrgao('Grupo Hospitalar Conceição S.A'));
     expect(chaveOrgao('IMA SC')).toBe(chaveOrgao('IMA - Instituto do Meio Ambiente do Estado de Santa Catarina'));
     expect(chaveOrgao('SES')).toBe(chaveOrgao('SES - Secretaria de Estado da Saúde de Santa Catarina'));
+    // Brasil: sigla e nome de qualquer UF saem da chave; "para" (preposição) não é o Pará.
+    expect(chaveOrgao('SESAB/BA')).toBe(chaveOrgao('SESAB - Secretaria da Saúde do Estado da Bahia'));
+    expect(chaveOrgao('Hospital das Clínicas de Goiás')).toBe(chaveOrgao('Hospital das Clínicas'));
+    expect(chaveOrgao('Consórcio Intermunicipal para o Desenvolvimento da Saúde')).not.toBe(chaveOrgao('Consórcio Intermunicipal o Desenvolvimento da Saúde'));
     expect(chaveOrgao('Câmara Municipal de Ijuí')).toBe('camara');
   });
   it('chaveCargo ignora plural e acentos', () => {

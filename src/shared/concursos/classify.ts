@@ -184,7 +184,7 @@ export function extrairNomesCargosMedicos(linhaOriginal: string): string[] {
   // "Médico (Especialidade)" ou "Médico(a) [do|da|de] Palavra..." até 5 palavras.
   // "e" só conecta especialidades compostas (Ginecologista e Obstetra, Ortopedista e Traumatologista).
   const reMedico =
-    /\b(?:Perit[oa]\s+)?M[ée]dic[oa]s?(?![- ](?:[Hh]ospitalar|[Oo]dontol|[Ss]ocial|[Cc]ir[úu]rgic))(?:[- ](?:Legista|Perito))?(?:\s*\((?=[A-ZÀ-Ý])(?!CR\))[^()\n]{2,80}\)|(?:[ \t]+(?:(?:do|da|de|dos|das|em)[ \t]+|e[ \t]+(?=Obstetr|Traumatolog))?(?:[A-ZÀ-Ý][\wÀ-ÿ'-]*|ESF|PSF|UBS|UPA|SAMU|I{1,3}|IV)){0,5})/g;
+    /\b(?:Perit[oa]\s+)?M[ée]dic[oa]s?(?![- ](?:[Hh]ospitalar|[Oo]dontol|[Ss]ocial|[Cc]ir[úu]rgic))(?:[- ](?:Legista|Perito))?(?:\s*\((?=[A-ZÀ-Ý])(?!CR\))[^()\n]{2,80}\)|(?:[ \t]+(?:(?:do|da|de|dos|das|em)[ \t]+|e[ \t]+(?=Obstetr|Traumatolog))?(?:[A-ZÀ-Ý][\wÀ-ÿ'-]*|ESF|PSF|UBS|UPA|SAMU|I{1,3}|IV)){0,5}(?:[ \t]*\((?=[A-ZÀ-Ý])(?!CR\)|Cadastro|Ver\b|Vide\b)[^()\n]{2,60}\))?)/g;
   for (const m of linha.matchAll(reMedico)) {
     const idx = m.index ?? 0;
     const antes = normalizar(linhaComparavel.slice(Math.max(0, idx - 25), idx));

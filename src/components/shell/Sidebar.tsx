@@ -81,7 +81,7 @@ export function Sidebar() {
         <View className="mx-4 mt-6">
           <Label className="mb-1">Foco ativo</Label>
           <Muted>{TRILHA_LABEL[trilha]}</Muted>
-          {novos > 0 ? <Muted className="mt-3">📡 {novos} {novos === 1 ? 'edital novo' : 'editais novos'} no Sul (7 dias)</Muted> : null}
+          {novos > 0 ? <Muted className="mt-3">📡 {novos} {novos === 1 ? 'edital novo' : 'editais novos'} no Radar (7 dias)</Muted> : null}
           <IndicadorSync className="mt-3" />
         </View>
       </ScrollView>

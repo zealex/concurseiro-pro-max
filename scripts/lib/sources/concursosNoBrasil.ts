@@ -1,17 +1,15 @@
 /**
- * Concursos no Brasil — https://concursosnobrasil.com/concursos/{pr,sc,rs}/
- * Listagem em <table>: órgão (link com title da notícia) + vagas. Cargos só na notícia.
+ * Concursos no Brasil — https://concursosnobrasil.com/concursos/{uf}/ (uma página por estado, sem paginação real:
+ * /page/N repete a mesma lista). Listagem em <table>: órgão (link com title da notícia) + vagas. Cargos só na notícia.
  */
 import * as cheerio from 'cheerio';
 import { todosReais } from '../../../src/shared/concursos/normalize';
-import type { UF } from '../../../src/shared/concursos/schema';
+import { UFS, type UF } from '../../../src/shared/concursos/schema';
 import type { Detalhe, ItemListagem } from './types';
 
-export const CNB_LISTAGENS: Record<UF, string> = {
-  PR: 'https://concursosnobrasil.com/concursos/pr/',
-  SC: 'https://concursosnobrasil.com/concursos/sc/',
-  RS: 'https://concursosnobrasil.com/concursos/rs/',
-};
+export const CNB_LISTAGENS = Object.fromEntries(
+  UFS.map((uf) => [uf, `https://concursosnobrasil.com/concursos/${uf.toLowerCase()}/`]),
+) as Record<UF, string>;
 
 export function parseListagemCnb(html: string, uf: UF): ItemListagem[] {
   const $ = cheerio.load(html);

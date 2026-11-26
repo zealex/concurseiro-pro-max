@@ -137,7 +137,8 @@ export async function buscarTexto(url: string): Promise<string> {
       return decodificar(bytes, resp.headers.get('content-type'));
     } catch (e) {
       ultimoErro = e;
-      if (e instanceof Error && /HTTP 40[4]|HTTP 410/.test(e.message)) break;
+      // 404/410: não existe; 401/403: o site recusou (bloqueio) — insistir não ajuda e não é educado.
+      if (e instanceof Error && /HTTP 40[134]|HTTP 410/.test(e.message)) break;
       if (tentativa < TENTATIVAS) await espera(1000 * 2 ** tentativa);
     }
   }

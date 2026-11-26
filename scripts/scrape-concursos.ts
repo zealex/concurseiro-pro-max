@@ -1,12 +1,16 @@
 /**
- * Robô do Radar de Concursos Médicos.
+ * Robô do Radar de Concursos Médicos (todo o Brasil).
  *
- *   npx tsx scripts/scrape-concursos-sul.ts             # coleta e grava public/data/concursos-sul.json
- *   npx tsx scripts/scrape-concursos-sul.ts --dry-run   # coleta e só mostra o resumo
- *   npx tsx scripts/scrape-concursos-sul.ts --sources=pci,cnb --max-details=30
+ *   npx tsx scripts/scrape-concursos.ts             # coleta e grava public/data/concursos-sul.json
+ *   npx tsx scripts/scrape-concursos.ts --dry-run   # coleta e só mostra o resumo
+ *   npx tsx scripts/scrape-concursos.ts --sources=pci,cnb --max-details=30
  *
- * Fontes: PCI Concursos (Sul + Nacional com lotação no Sul), Concursos no Brasil (PR/SC/RS),
- * FUNDATEC e FEPESE (registros próprios quando o título cita médicos; senão, links relacionados).
+ * O feed mantém o nome histórico "concursos-sul.json": apps e PWAs já instalados leem essa URL.
+ *
+ * Fontes: PCI Concursos (5 regiões + Nacional com lotação citada na notícia), Concursos no Brasil (27 UFs),
+ * JC Concursos (inscrições abertas no Brasil), Instituto Objetiva (página oficial da banca, com a tabela de vagas),
+ * FUNDATEC e FEPESE (registros próprios quando o título cita médicos; senão, links relacionados) e Diários Oficiais
+ * dos Municípios (plataforma SIGPub, ~18 estados: o edital sai ali primeiro).
  *
  * Cobertura: toda notícia NOVA ou ALTERADA das listagens é aberta (sem pré-filtro pelo título). A memória entre
  * execuções (scripts/data/radar-estado.json, guardada no cache do GitHub Actions) evita reabrir as mesmas páginas:
@@ -22,7 +26,10 @@ import { normalizar } from '../src/shared/concursos/normalize';
 import {
   ConcursoSchema,
   parseFeedTolerante,
+  REGIAO_NOME,
+  REGIOES,
   UFS,
+  UFS_DA_REGIAO,
   type Concurso,
   type Feed,
   type SourceStatus,
@@ -46,12 +53,24 @@ import {
 import { buscarTexto } from './lib/http';
 import { FEPESE_URL, FUNDATEC_URL, parseFepese, parseFundatec } from './lib/sources/bancas';
 import { CNB_LISTAGENS, parseDetalheCnb, parseListagemCnb } from './lib/sources/concursosNoBrasil';
-import { parseDetalhePci, parseListagemPci, PCI_LISTAGENS } from './lib/sources/pci';
+import {
+  atoDeAbertura,
+  ENTIDADES_DIARIO,
+  MAX_PAGINAS_DIARIO,
+  ofereceVagaMedica,
+  parseBuscaDiario,
+  parseMateriaDiario,
+  tituloPodeSerAbertura,
+  urlBuscaDiario,
+} from './lib/sources/diarios';
+import { JC_ABERTOS, orgaoJc, parseDetalheJc, parseListagemJc, ufsDoCampoJc } from './lib/sources/jc';
+import { OBJETIVA_LISTAGENS, orgaoObjetiva, parseDetalheObjetiva, parseListagemObjetiva, partesTituloObjetiva } from './lib/sources/objetiva';
+import { parseDetalhePci, parseListagemPci, PCI_LISTAGENS, PCI_REGIOES } from './lib/sources/pci';
 import type { Detalhe, ItemBanca, ItemListagem } from './lib/sources/types';
 
 const RAIZ = resolve(__dirname, '..');
 const ARQUIVO_FEED = resolve(RAIZ, 'public', 'data', 'concursos-sul.json');
-const ARQUIVO_MUNICIPIOS = resolve(RAIZ, 'scripts', 'data', 'municipios-sul.json');
+const ARQUIVO_MUNICIPIOS = resolve(RAIZ, 'scripts', 'data', 'municipios-brasil.json');
 const ARQUIVO_CURADORIA = resolve(RAIZ, 'scripts', 'data', 'curadoria-concursos.json');
 const ARQUIVO_ESTADO = resolve(RAIZ, 'scripts', 'data', 'radar-estado.json');
 /** O feed é regravado pelo menos a cada N horas (o app avisa quando ele passa de 12 h sem atualizar). */
@@ -66,11 +85,11 @@ interface Opcoes {
 
 function lerOpcoes(argv: string[]): Opcoes {
   const arg = (nome: string) => argv.find((a) => a.startsWith(`--${nome}=`))?.split('=')[1];
-  const fontes = (arg('sources') ?? 'pci,cnb,fundatec,fepese').split(',').map((s) => s.trim());
+  const fontes = (arg('sources') ?? 'pci,cnb,fundatec,fepese,objetiva,jc,diarios').split(',').map((s) => s.trim());
   return {
     dryRun: argv.includes('--dry-run'),
     fontes: new Set(fontes),
-    maxDetalhes: Number(arg('max-details') ?? 150),
+    maxDetalhes: Number(arg('max-details') ?? 300),
   };
 }
 
@@ -187,20 +206,33 @@ const RE_ORGAO_NACIONAL = /\b(ibge|minist[ée]rio|ebserh|inss|caixa|banco do bra
 
 async function coletarPci(ctx: Contexto) {
   const resumo = novoResumo();
-  const sul = parseListagemPci(await buscarTexto(PCI_LISTAGENS.sul), ctx.agora);
-  log(`PCI Sul: ${sul.length} itens na listagem`);
+  // Todas as listagens regionais primeiro: a fila de notícias é única (alteradas e médicas na frente, em qualquer região).
+  const itens: ItemListagem[] = [];
+  let falhas = 0;
+  for (const regiao of PCI_REGIOES) {
+    try {
+      const lista = parseListagemPci(await buscarTexto(PCI_LISTAGENS[regiao]), ctx.agora);
+      log(`PCI ${regiao}: ${lista.length} itens na listagem`);
+      if (!lista.length) throw new Error('listagem vazia (o site mudou o HTML?)');
+      itens.push(...lista);
+    } catch (e) {
+      falhas++;
+      log(`  ! PCI ${regiao} indisponível: ${(e as Error).message}`);
+    }
+  }
+  if (falhas === PCI_REGIOES.length) throw new Error('todas as listagens regionais falharam');
   const concursos = await processarItens({
     rotulo: 'PCI',
-    itens: sul,
+    itens,
     ctx,
     resumo,
     elegivel: (item) => !!item.uf && precisaDetalhePci(item),
     parser: parseDetalhePci,
     construir: (item, detalhe) => construirConcursos({ item, detalhe, geo: ctx.geo, agora: ctx.agora }),
   });
-  let itensTotal = sul.length;
+  let itensTotal = itens.length;
 
-  // Nacional: só itens médicos com lotação explícita no Sul
+  // Nacional: só itens médicos; as UFs vêm da lotação citada na notícia
   try {
     const nacional = parseListagemPci(await buscarTexto(PCI_LISTAGENS.nacional), ctx.agora);
     itensTotal += nacional.length;
@@ -232,36 +264,164 @@ async function coletarCnb(ctx: Contexto) {
   const concursos: Concurso[] = [];
   let itensTotal = 0;
   let falhas = 0;
+  // Todas as listagens estaduais primeiro, depois uma fila única de notícias (o orçamento vale para o host todo).
+  const itens: ItemListagem[] = [];
   for (const uf of UFS) {
     try {
-      const itens = parseListagemCnb(await buscarTexto(CNB_LISTAGENS[uf]), uf);
-      itensTotal += itens.length;
-      log(`Concursos no Brasil ${uf}: ${itens.length} itens`);
-      concursos.push(
-        ...(await processarItens({
-          rotulo: `CNB ${uf}`,
-          itens,
-          ctx,
-          resumo,
-          // A listagem não traz cargos: toda notícia nova é aberta.
-          elegivel: () => true,
-          parser: parseDetalheCnb,
-          construir: (item, detalhe) => {
-            if (!detalhe) return [];
-            // Itens nacionais aparecem nas páginas estaduais: exige menção ao estado/cidades do Sul.
-            if (RE_ORGAO_NACIONAL.test(item.orgao) && !ctx.geo.ufsMencionadas(detalhe.texto).includes(uf)) return [];
-            return construirConcursos({ item, detalhe, geo: ctx.geo, agora: ctx.agora });
-          },
-        })),
-      );
+      itens.push(...parseListagemCnb(await buscarTexto(CNB_LISTAGENS[uf]), uf));
     } catch (e) {
       falhas++;
       log(`  ! Concursos no Brasil ${uf} indisponível: ${(e as Error).message}`);
     }
   }
   if (falhas === UFS.length) throw new Error('todas as listagens estaduais falharam');
+  itensTotal = itens.length;
+  log(`Concursos no Brasil: ${itens.length} itens em ${UFS.length - falhas} UFs`);
+  concursos.push(
+    ...(await processarItens({
+      rotulo: 'CNB',
+      itens,
+      ctx,
+      resumo,
+      // A listagem não traz cargos: toda notícia nova é aberta.
+      elegivel: () => true,
+      parser: parseDetalheCnb,
+      construir: (item, detalhe) => {
+        if (!detalhe || !item.uf) return [];
+        // Itens nacionais aparecem nas páginas estaduais: exige menção ao estado na notícia.
+        if (RE_ORGAO_NACIONAL.test(item.orgao) && !ctx.geo.ufsMencionadas(detalhe.texto).includes(item.uf)) return [];
+        return construirConcursos({ item, detalhe, geo: ctx.geo, agora: ctx.agora });
+      },
+    })),
+  );
   log(`Concursos no Brasil: ${resumoTexto(resumo)}`);
   return { concursos, itensTotal };
+}
+
+/**
+ * Diários Oficiais dos Municípios (plataforma SIGPub, ~18 estados): busca "médico" em editais dos últimos dias,
+ * descarta pelo título o que não é abertura e abre a matéria (texto integral) para confirmar e extrair os cargos.
+ */
+async function coletarDiarios(ctx: Contexto) {
+  const resumo = novoResumo();
+  const itens: ItemListagem[] = [];
+  let falhas = 0;
+  let descartadosPeloTitulo = 0;
+  for (const entidade of ENTIDADES_DIARIO) {
+    try {
+      for (let pagina = 1; pagina <= MAX_PAGINAS_DIARIO; pagina++) {
+        const r = parseBuscaDiario(await buscarTexto(urlBuscaDiario(entidade, ctx.agora, pagina)));
+        for (const item of r.itens) {
+          if (tituloPodeSerAbertura(item.titulo)) itens.push(item);
+          else descartadosPeloTitulo++;
+        }
+        if (r.ate >= r.total || !r.itens.length) break;
+      }
+    } catch (e) {
+      falhas++;
+      log(`  ! Diário ${entidade} indisponível: ${(e as Error).message}`);
+    }
+  }
+  if (falhas === ENTIDADES_DIARIO.length) throw new Error('nenhum diário municipal respondeu');
+  log(`Diários Oficiais: ${itens.length} editais candidatos (${descartadosPeloTitulo} descartados pelo título) em ${ENTIDADES_DIARIO.length - falhas} diários`);
+  const concursos = await processarItens({
+    rotulo: 'Diário',
+    itens,
+    ctx,
+    resumo,
+    elegivel: () => true,
+    parser: parseMateriaDiario,
+    construir: (item, detalhe) => {
+      if (!detalhe || !atoDeAbertura(detalhe.texto) || !ofereceVagaMedica(detalhe.texto)) return [];
+      const uf = ctx.geo.ufPorNomeEstado(detalhe.campos?.estado ?? '') ?? ctx.geo.ufPorSigla(detalhe.texto);
+      if (!uf) return [];
+      const refinado: ItemListagem = { ...item, uf, titulo: `${item.orgao}: ${detalhe.titulo || item.titulo} · Diário Oficial dos Municípios` };
+      return construirConcursos({ item: refinado, detalhe, geo: ctx.geo, agora: ctx.agora });
+    },
+  });
+  log(`Diários Oficiais: ${resumoTexto(resumo)}`);
+  return { concursos, itensTotal: itens.length + descartadosPeloTitulo };
+}
+
+/** JC Concursos: lista nacional de inscrições abertas → página do concurso (órgão, banca, UFs, agenda, cargos). */
+async function coletarJc(ctx: Contexto) {
+  const resumo = novoResumo();
+  const itens = parseListagemJc(await buscarTexto(JC_ABERTOS));
+  log(`JC Concursos: ${itens.length} concursos com inscrições abertas`);
+  const concursos = await processarItens({
+    rotulo: 'JC',
+    itens,
+    ctx,
+    resumo,
+    // Médico exige nível superior: listas só de nível fundamental/médio ficam de fora.
+    elegivel: (item) => !item.escolaridade || /superior/i.test(item.escolaridade),
+    parser: parseDetalheJc,
+    construir: (item, detalhe) => {
+      if (!detalhe) return [];
+      const campos = detalhe.campos ?? {};
+      const ufsCampo = ufsDoCampoJc(campos['Estados com Vagas']);
+      const ufs = ufsCampo.length > 1 ? ufsCampo : item.uf ? [item.uf] : ufsCampo;
+      if (!ufs.length) return [];
+      const orgao = campos['Orgão'] ? orgaoJc(campos['Orgão']) : item.orgao;
+      const refinado: ItemListagem = {
+        ...item,
+        uf: ufs.length === 1 ? (ufs[0] ?? null) : null,
+        orgao,
+        titulo: `${detalhe.titulo || item.titulo} · JC Concursos`,
+        inscricoes: { inicio: campos.inicioIso ?? null, fim: campos.fimIso ?? null },
+      };
+      return construirConcursos({ item: refinado, detalhe, geo: ctx.geo, agora: ctx.agora, ufs: ufs.length > 1 ? ufs : undefined }).map((c) => ({
+        ...c,
+        banca: campos.Organizadora || c.banca,
+        dataProva: campos.provaIso ?? c.dataProva,
+      }));
+    },
+  });
+  log(`JC Concursos: ${resumoTexto(resumo)}`);
+  return { concursos, itensTotal: itens.length };
+}
+
+/** Instituto Objetiva: home (editais recém-publicados) + inscrições abertas → página oficial com a tabela de vagas. */
+async function coletarObjetiva(ctx: Contexto) {
+  const resumo = novoResumo();
+  const porUrl = new Map<string, ItemListagem>();
+  let falhas = 0;
+  for (const url of OBJETIVA_LISTAGENS) {
+    try {
+      for (const item of parseListagemObjetiva(await buscarTexto(url), url, ctx.agora)) if (!porUrl.has(item.url)) porUrl.set(item.url, item);
+    } catch (e) {
+      falhas++;
+      log(`  ! Objetiva ${url} indisponível: ${(e as Error).message}`);
+    }
+  }
+  if (falhas === OBJETIVA_LISTAGENS.length) throw new Error('listagens da Objetiva indisponíveis');
+  const itens = [...porUrl.values()];
+  log(`Instituto Objetiva: ${itens.length} concursos nas listagens`);
+  const concursos = await processarItens({
+    rotulo: 'Objetiva',
+    itens,
+    ctx,
+    resumo,
+    elegivel: () => true,
+    parser: parseDetalheObjetiva,
+    construir: (item, detalhe) => {
+      if (!detalhe) return [];
+      // O título da página oficial diz o tipo de órgão ("Município", "Câmara Municipal", "Consórcio…").
+      const p = partesTituloObjetiva(detalhe.titulo);
+      const uf = p.uf ?? item.uf;
+      if (!uf) return [];
+      const cidade = ctx.geo.municipioOficial(p.cidade, uf) ?? p.cidade;
+      const orgao = cidade ? orgaoObjetiva(cidade, p.tipoOrgao, p.nomeOrgao) : item.orgao;
+      const refinado: ItemListagem = { ...item, uf, orgao, titulo: `${orgao} (${uf}) — ${detalhe.titulo || item.titulo} · Instituto Objetiva` };
+      return construirConcursos({ item: refinado, detalhe, geo: ctx.geo, agora: ctx.agora }).map((c) => ({
+        ...c,
+        banca: 'Instituto Objetiva',
+        inscricaoUrl: item.url,
+      }));
+    },
+  });
+  log(`Instituto Objetiva: ${resumoTexto(resumo)}`);
+  return { concursos, itensTotal: itens.length };
 }
 
 function lerJson<T>(arquivo: string, padrao: T): T {
@@ -290,7 +450,7 @@ interface ResultadoFonte {
 async function main(): Promise<void> {
   const opcoes = lerOpcoes(process.argv.slice(2));
   const agora = new Date();
-  const municipios = lerJson<{ municipios: MunicipiosPorUF }>(ARQUIVO_MUNICIPIOS, { municipios: { PR: [], SC: [], RS: [] } });
+  const municipios = lerJson<{ municipios: MunicipiosPorUF }>(ARQUIVO_MUNICIPIOS, { municipios: {} });
   const estado = carregarEstado(lerJson<unknown>(ARQUIVO_ESTADO, null));
   log(`Memória: ${Object.keys(estado.urls).length} notícias conhecidas`);
   const ctx: Contexto = {
@@ -340,6 +500,9 @@ async function main(): Promise<void> {
         log(`FEPESE: ${itens.length} destaques, ${proprios.length} com médicos no título`);
         return { concursos: proprios, itensTotal: itens.length };
       }),
+      executar('Instituto Objetiva', 'objetiva', () => coletarObjetiva(ctx)),
+      executar('JC Concursos', 'jc', () => coletarJc(ctx)),
+      executar('Diários Oficiais dos Municípios', 'diarios', () => coletarDiarios(ctx)),
     ])
   ).filter((r): r is ResultadoFonte => r !== null);
 
@@ -376,7 +539,11 @@ async function main(): Promise<void> {
   const novos = proximos.filter((c) => !existentes.some((e) => e.id === c.id));
   log('—'.repeat(40));
   log(`Coletados nesta rodada: ${daRodada.length} · no arquivo: ${proximos.length} · novos: ${novos.length} · memória: ${Object.keys(estado.urls).length} notícias (${podadas} podadas)`);
-  for (const uf of UFS) log(`  ${uf}: ${proximos.filter((c) => c.uf === uf).length}`);
+  for (const regiao of REGIOES) {
+    const porUf = UFS_DA_REGIAO[regiao].map((uf) => [uf, proximos.filter((c) => c.uf === uf).length] as const).filter(([, n]) => n > 0);
+    const total = porUf.reduce((a, [, n]) => a + n, 0);
+    log(`  ${REGIAO_NOME[regiao]}: ${total}${porUf.length ? ` (${porUf.map(([uf, n]) => `${uf} ${n}`).join(', ')})` : ''}`);
+  }
   for (const n of novos) log(`  NOVO ${n.uf} · ${n.cidade} · ${n.orgao} · ${n.cargos.map((c) => c.nome).join(', ')}`);
   for (const s of status) log(`  fonte ${s.nome}: ${s.ok ? 'ok' : 'FALHA'} (${s.itens} itens, ${s.medicos} médicos)${s.erro ? ` — ${s.erro}` : ''}`);
 
@@ -398,7 +565,7 @@ async function main(): Promise<void> {
   const feed: Feed = {
     version: 1,
     generatedAt: agora.toISOString(),
-    escopo: 'Concursos e processos seletivos que exigem graduação em Medicina, com lotação em PR, SC ou RS',
+    escopo: 'Concursos e processos seletivos que exigem graduação em Medicina, em todo o Brasil',
     sources: status,
     concursos: proximos,
   };
@@ -409,7 +576,7 @@ async function main(): Promise<void> {
 // Exportado para testes de integração leves.
 export const __test = { precisaDetalhePci, normalizar };
 
-if (process.argv[1] && /scrape-concursos-sul\.ts$/.test(process.argv[1])) {
+if (process.argv[1] && /scrape-concursos\.ts$/.test(process.argv[1])) {
   main().catch((e) => {
     console.error(e);
     process.exitCode = 1;

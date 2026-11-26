@@ -1,0 +1,944 @@
+
+
+
+<html>
+<head>
+  <title>Objetiva Instituto</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Mobile support -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Material Design fonts -->
+  <!--  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" type="text/css" href="https://www.objetivas.com.br/assets/bootstrap/css/bootstrap.min.css" >
+
+  <!-- Bootstrap Material Design -->
+  <link rel="stylesheet" type="text/css" href="https://www.objetivas.com.br/assets/dist/css/bootstrap-material-design.css" >
+  <link rel="stylesheet" type="text/css" href="https://www.objetivas.com.br/assets/dist/css/ripples.min.css">
+
+  <!-- Dropdown.js -->
+  <link href="https://www.objetivas.com.br/assets/css/jquery.dropdown.css" rel="stylesheet">
+
+
+	<script src="https://www.objetivas.com.br/assets/sweetalert-master/dist/sweetalert-dev.js"></script>
+  	<link rel="stylesheet" href="https://www.objetivas.com.br/assets/sweetalert-master/dist/sweetalert.css">
+
+
+
+  <!-- Slidebars CSS -->
+  <link rel="stylesheet" href="https://www.objetivas.com.br/assets/slidebars/slidebars.css">
+  <!-- Bootstrap -->
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://www.objetivas.com.br/assets/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://www.objetivas.com.br/assets/bootstrap/css/style.css">
+
+   <link rel="stylesheet" type="text/css" href="https://www.objetivas.com.br/assets/slick/slick.css">
+   <link rel="stylesheet" type="text/css" href="https://www.objetivas.com.br/assets/slick/slick-theme.css">
+   <link href="https://fonts.googleapis.com/css?family=Roboto|Titillium+Web" rel="stylesheet">
+
+  <!-- jQuery -->
+  <script src="https://www.objetivas.com.br/assets/js/jquery-1.10.2.min.js"></script>
+  <script src='https://www.google.com/recaptcha/api.js'></script>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-76046050-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<link rel="shortcut icon" type="image/x-icon" href="https://www.objetivas.com.br/fav.ico">
+
+</head>
+<body>
+
+ <div class="sb-slidebar sb-left sb-style-push">
+            <!-- Your left Slidebar content. -->
+           <div id="navbar" class="navbar-collapse collapse in" aria-expanded="true" style="">
+            <ul class="nav navbar-nav" >
+              <li class="active m1"><a href="https://www.objetivas.com.br/home">HOME</a></li>
+              <li class="m2"><a href="https://www.objetivas.com.br/quem-somos">O INSTITUTO</a></li>
+		      <li class="m3"><a href="https://www.objetivas.com.br/projetos-sociais" style="background-color: #2e4a7f;">PROJETOS SOCIAIS</a></li>
+              <li class="dropdown m3">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">CONCURSOS <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                <ul class="dropdown-menu">
+                  <li><a href="https://concursos.objetivas.com.br/index/abertos/">INSCRIÇÕES ABERTAS</a></li>
+                  <li><a href="https://concursos.objetivas.com.br/index/1/">EM ANDAMENTO</a></li>
+                  <li><a href="https://concursos.objetivas.com.br/index/3/">ENCERRADOS</a></li>
+                </ul>
+			  <li class="m3"><a href="https://www.objetivas.com.br/orcamento" style="background-color: #1c325c;">COMO CONTRATAR</a></li>
+
+              </li>
+
+              <li class="dropdown m5">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">CONTATO <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="https://www.objetivas.com.br/duvidas">CANDIDATO / DÚVIDAS</a></li>
+					<li><a href="https://www.objetivas.com.br/orcamento">ORÇAMENTOS / LICITAÇÕES</a></li>
+                    <li><a href="https://www.objetivas.com.br/trabalhe-conosco">TRABALHE CONOSCO</a></li>
+                </ul>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+
+	  	<div class="oc-header-mobile ">
+			<div class="menu-mobile sb-toggle-left">
+				<i class="fa fa-bars  " aria-hidden="true"></i>
+				<i class="fa fa-times" aria-hidden="true"></i>
+			</div>
+			<div class="logo-mobile">
+				<a href="https://www.objetivas.com.br/">
+					<img src="https://www.objetivas.com.br/images/logotipo-mobile.png" alt="Instituto Objetiva">
+				</a>
+			</div>
+			<div class="area-candidato-mobile"><a href="https://concursos.objetivas.com.br/painel/" target="_blank"><i class="fa fa-user" aria-hidden="true"></i></a></div>
+	  	</div>
+
+
+
+
+	  	<!-- Header max 1024-->
+	  	<div class="oc-header-small">
+
+		    <div class="form-group label-placeholder is-empty">
+		    	<i class="fa fa-home fa-2x" aria-hidden="true"></i>
+                <label for="i5p" class="control-label">*Orgão</label>
+                <input type="email" class="form-control" id="i5p">
+            </div>
+
+			<div>
+				<a href="https://concursos.objetivas.com.br/painel/" ><span >Área do Candidato </span></a>
+			</div>
+	  	</div>
+
+        <!-- Header desktop-->
+	  	<div class="oc-header" >
+
+	    	<div class="oc-menu-topo navbar-collapse ">
+	    	    <a href="https://www.objetivas.com.br/"><div class="oc-logo"></div></a>
+	    		<ul class="nav navbar-nav" style="width: 52%;">
+	    			<li ><a href="https://www.objetivas.com.br/home"  class='menu-ativo'>HOME</a></li>
+	    			<li><a href="https://www.objetivas.com.br/quem-somos" >O INSTITUTO</a></li>
+					<li><a href="https://www.objetivas.com.br/projetos-sociais"style="text-align:center;"><span style="display:block; line-height:1.2;">PROJETOS<br />SOCIAIS</span></a></li>
+					<li class="dropdown" >
+			          <a href="https://www.objetivas.com.br/concursos" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">CONCURSOS <span class="caret"></span></a>
+			          <ul class="dropdown-menu">
+			            <li><a href="https://concursos.objetivas.com.br/index/abertos/">INSCRIÇÕES ABERTAS</a></li>
+			            <li><a href="https://concursos.objetivas.com.br/index/1/">EM ANDAMENTO</a></li>
+			            <li><a href="https://concursos.objetivas.com.br/index/3/">ENCERRADOS</a></li>
+			          </ul>
+					<li><a href="https://www.objetivas.com.br/orcamento" >COMO CONTRATAR</a></li>
+			        </li>
+
+	              	<li class="dropdown " >
+	                	<a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">CONTATO</a>
+	                	<ul class="dropdown-menu">
+	                    	<li><a href="https://www.objetivas.com.br/duvidas">CANDIDATO / DÚVIDAS</a></li>
+	                    	<li><a href="https://www.objetivas.com.br/orcamento">ORÇAMENTOS / LICITAÇÕES</a></li>
+	                    	<li><a href="https://www.objetivas.com.br/trabalhe-conosco">TRABALHE CONOSCO</a></li>
+	               		</ul>
+	              	</li>
+	    		</ul>
+
+          <div class="oc-form pesquisa-top">
+            <form action="https://concursos.objetivas.com.br/index/todos/">
+              <div class="form-group label-placeholder is-empty">
+                <a id="FRMlupaPesquisar" href="javascript:void(0)" title="Pesquisar"><i class="fa fa-search" aria-hidden="true"></i></a>
+                <label for="FRMconcurso" class="control-label">Pesquisar Concurso </label>
+                <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="form-control" id="FRMconcursoPesquisa" name="busca" style="">
+
+				<style>
+				/* Para telas menores (até 800px) */
+				@media (max-width: 800px) {
+					.meu-botao-pesquisa {
+					position: absolute;
+					top: -10px;
+					margin-left: 75% !important;
+					}
+				}
+
+				/* Para telas maiores (801px em diante) */
+				@media (min-width: 801px) {
+					.meu-botao-pesquisa {
+					position: absolute;
+					top: -10px;
+					margin-left: 133px !important;
+					}
+				}
+				</style>
+				<input class="btn btn-cinza meu-botao-pesquisa" title="Pesquisar" type="submit" value="OK">
+				<!--<input class='btn btn-cinza'  style="position:absolute; top:-10px; margin-left: 133px;" title="Pesquisar" type="submit" value="OK">-->
+              </div>
+		    		</form>
+			    </div>
+			    <div  class="oc-area-candidato" style="width: 105%; margin-left: -4%;"><!--remover esse style, se algo mudar-->
+					<a href="https://concursos.objetivas.com.br/painel/" class="btn btn-blue" target="blank" style="font-size: 12px;"><span >
+					<i class="fa fa-user" aria-hidden="true"></i>  Área do Candidato </span></a>
+				</div>
+			    <!--
+			    <div class="oc-area-candidato" >
+			        <span class="text">Área do <br>Candidato </span>
+			    	<span class="glyphicon glyphicon-chevron-down" class="area-candidato" aria-hidden="true"></span>
+			    </div>
+					-->
+					
+					
+	    	</div>
+
+</div>
+<div id="sb-site" >
+<div class="cs-loader">
+  <div class="cs-loader-inner">
+    <label>	●</label>
+    <label>	●</label>
+    <label>	●</label>
+    <label>	●</label>
+    <label>	●</label>
+    <label>	●</label>
+  </div>
+</div>
+<div class="box-centro pesquisa">
+	<div class="box-conteudo-centro busca-bottom-border">
+    <div class="table-responsive">
+      <table class="table" id="resultado-filtro-concurso">
+        <!-- Mostra o resultado da pesquisa -->  
+      </table>
+    </div>
+	</div>
+</div>
+
+
+
+
+
+<div >
+  <!-- Indicators -->
+
+
+  
+
+
+  <!-- Wrapper for slides -->
+  <div id="banner-topo">
+
+
+<!---->
+<!--    <div class="item" >-->
+<!--      <a href="--><!--home"> <img src="--><!--" ></a>-->
+<!--    </div>-->
+  
+         <div class="item" >
+      <a href="https://www.objetivas.com.br/inscricoes-abertas"> <img src="https://www.objetivas.com.br/images/banners/inscricoes-abertas.png" ></a>
+      </div>
+         <div class="item" >
+      <a href="https://www.objetivas.com.br/area-candidato/login"> <img src="https://www.objetivas.com.br/images/banners/area-candidato.png" ></a>
+      </div>
+         <div class="item" >
+      <a href="https://www.objetivas.com.br/concursos-andamento"> <img src="https://www.objetivas.com.br/images/banners/concursos-andamento.png" ></a>
+      </div>
+         <div class="item" >
+      <a href="https://www.objetivas.com.br/home"> <img src="https://www.objetivas.com.br/images/banners/etica-seriedade.jpg" ></a>
+      </div>
+    
+
+  </div>
+
+
+</div>
+<style type="text/css">
+  #banner-topo .slick-slide {
+    max-height: 332px!important;
+    height: 332px!important;
+  }
+
+  #banner-topo .slick-track 
+  {
+    height: 332px!important;
+  }
+</style>
+
+
+<div class="box-centro">
+	<div class="box-conteudo-centro box-noticia">
+		<h3 class="titulo-principal azul">Últimas Notícias</h3>
+		<div id="noticias">
+	    		<section class="wrap-noticia">
+		    		<div class=''>			    			<a href='https://concursos.objetivas.com.br/informacoes/2650/'>
+			    				<div class="noticia">
+					    			<h3>CHAPECÓ/SC</h3>
+					    			<p>Concurso Público 003/2026: Inscrições de 07/12/2026, às 13h, até 07/01/2027, às 13h. Prova objetiva prevista para 21/02/2027. Acesse o edital e inscreva-se!</p>
+					    			<span><i class="fa fa-calendar" aria-hidden="true"></i> 25 Novembro 2026</span>
+				    			</div>
+				    		</a>
+			    					    			<a href='https://concursos.objetivas.com.br/informacoes/2595/'>
+			    				<div class="noticia">
+					    			<h3>GURJÃO/PB</h3>
+					    			<p>Concurso Público: Inscrições de 07/12/2026, às 13h, até 07/01/2027, às 13h. Prova objetiva prevista para 21/02/2027. Acesse o edital e inscreva-se!</p>
+					    			<span><i class="fa fa-calendar" aria-hidden="true"></i> 25 Novembro 2026</span>
+				    			</div>
+				    		</a>
+			    					    			<a href='https://concursos.objetivas.com.br/informacoes/2649/'>
+			    				<div class="noticia">
+					    			<h3>TIO HUGO/RS - TESOUREIRO</h3>
+					    			<p>Concurso Público: Inscrições de 30/11/2026, às 13h, até 22/12/2026, às 13h. Prova objetiva prevista para 24/01/2027. Acesse o edital e inscreva-se!</p>
+					    			<span><i class="fa fa-calendar" aria-hidden="true"></i> 25 Novembro 2026</span>
+				    			</div>
+				    		</a>
+			    					    			<a href='https://concursos.objetivas.com.br/informacoes/2638/'>
+			    				<div class="noticia">
+					    			<h3>PIRATINI/RS</h3>
+					    			<p>Concurso Público: Inscrições de 10/11/2026, às 13h, até 25/11/2026, às 13h. Prova objetiva prevista para 20/12/2026. Acesse o edital e inscreva-se!</p>
+					    			<span><i class="fa fa-calendar" aria-hidden="true"></i> 09 Novembro 2026</span>
+				    			</div>
+				    		</a>
+			    					    			<a href='https://concursos.objetivas.com.br/informacoes/2622/'>
+			    				<div class="noticia">
+					    			<h3>NOVO XINGU/RS</h3>
+					    			<p>Concurso Público: Inscrições de 30/10/2026, às 13h, até 30/11/2026, às 13h. Prova objetiva prevista para 24/01/2027. Acesse o edital e inscreva-se!</p>
+					    			<span><i class="fa fa-calendar" aria-hidden="true"></i> 09 Novembro 2026</span>
+				    			</div>
+				    		</a>
+			    					    			<a href='https://concursos.objetivas.com.br/informacoes/2630/'>
+			    				<div class="noticia">
+					    			<h3>SOLEDADE/RS - CÂMARA MUNICIPAL</h3>
+					    			<p>Concurso Público: Inscrições de 09/11/2026, às 13h, até 09/12/2026, às 13h. Prova objetiva prevista para 24/01/2027. Acesse o edital e inscreva-se!</p>
+					    			<span><i class="fa fa-calendar" aria-hidden="true"></i> 30 Outubro 2026</span>
+				    			</div>
+				    		</a>
+			    					    			<a href='https://concursos.objetivas.com.br/informacoes/2639/'>
+			    				<div class="noticia">
+					    			<h3>CANOAS/RS - Concurso Educação</h3>
+					    			<p>Concurso Público: Inscrições de 30/10/2026, às 13h, até 17/11/2026, às 13h. Prova objetiva prevista para 20/12/2026. Acesse o edital e inscreva-se!</p>
+					    			<span><i class="fa fa-calendar" aria-hidden="true"></i> 30 Outubro 2026</span>
+				    			</div>
+				    		</a>
+			    					    			<a href='https://concursos.objetivas.com.br/index/todos/?busca=teut'>
+			    				<div class="noticia">
+					    			<h3>TEUTÔNIA/RS</h3>
+					    			<p>Concurso Público e Processo Seletivo: Inscrições de 30/10/2026, às 13h, até 18/11/2026, às 13h. Prova objetiva prevista para 13/12/2026. Acesse o edital e inscreva-se!</p>
+					    			<span><i class="fa fa-calendar" aria-hidden="true"></i> 29 Outubro 2026</span>
+				    			</div>
+				    		</a>
+			    		</div><div class=''>			    			<a href='https://concursos.objetivas.com.br/informacoes/2627/'>
+			    				<div class="noticia">
+					    			<h3>TIO HUGO/RS</h3>
+					    			<p>Concurso Público: Inscrições de 16/10/2026, às 13h, até 16/11/2026, às 13h. Prova objetiva prevista para 20/12/2026. Acesse o edital e inscreva-se!</p>
+					    			<span><i class="fa fa-calendar" aria-hidden="true"></i> 16 Outubro 2026</span>
+				    			</div>
+				    		</a>
+			    					    			<a href='https://concursos.objetivas.com.br/informacoes/2629/'>
+			    				<div class="noticia">
+					    			<h3>IPÊ/RS</h3>
+					    			<p>Concurso Público: Inscrições de 23/10/2026, às 13h, até 23/11/2026, às 13h. Prova objetiva prevista para 17/01/2027. Acesse o edital e inscreva-se!</p>
+					    			<span><i class="fa fa-calendar" aria-hidden="true"></i> 16 Outubro 2026</span>
+				    			</div>
+				    		</a>
+			    					    			<a href='https://concursos.objetivas.com.br/informacoes/2628/'>
+			    				<div class="noticia">
+					    			<h3>NOVO CABRAIS/RS</h3>
+					    			<p>Concurso Público: Inscrições de 23/10/2026, às 13h, até 23/11/2026, às 13h. Prova objetiva prevista para 10/01/2027. Acesse o edital e inscreva-se!</p>
+					    			<span><i class="fa fa-calendar" aria-hidden="true"></i> 16 Outubro 2026</span>
+				    			</div>
+				    		</a>
+			    					    			<a href='https://concursos.objetivas.com.br/informacoes/2624/'>
+			    				<div class="noticia">
+					    			<h3>IVAÍ/PR</h3>
+					    			<p>Processo Seletivo Simplificado: Inscrições de 23/10/2026, às 13h, até 23/11/2026, às 13h. Prova objetiva prevista para 17/01/2027 . Acesse o edital e inscreva-se!</p>
+					    			<span><i class="fa fa-calendar" aria-hidden="true"></i> 16 Outubro 2026</span>
+				    			</div>
+				    		</a>
+			    					    			<a href='https://concursos.objetivas.com.br/informacoes/2632/'>
+			    				<div class="noticia">
+					    			<h3>CANGUÇU/RS (BIÓLOGO)</h3>
+					    			<p>Concurso Público: Inscrições reabertas de 20/10/2026, às 13h, até 11/11/2026, às 13h. Acesse o edital e inscreva-se!</p>
+					    			<span><i class="fa fa-calendar" aria-hidden="true"></i> 16 Outubro 2026</span>
+				    			</div>
+				    		</a>
+			    					    			<a href='https://concursos.objetivas.com.br/informacoes/2600/'>
+			    				<div class="noticia">
+					    			<h3>ARVOREZINHA/RS</h3>
+					    			<p>Concurso Público: Inscrições até 13/11/2026, às 13h. Prova objetiva prevista para 20/12/2026. Acesse o edital e inscreva-se!</p>
+					    			<span><i class="fa fa-calendar" aria-hidden="true"></i> 14 Outubro 2026</span>
+				    			</div>
+				    		</a>
+			    					    			<a href='https://concursos.objetivas.com.br/informacoes/2623/'>
+			    				<div class="noticia">
+					    			<h3>CHAPECÓ/SC</h3>
+					    			<p>Concurso Público (CLT) para Atendente de Central do Cidadão: Inscrições de 29/09/2026, às 13h, até 29/10/2026, às 13h. Prova objetiva prevista para 20/12/2026. Acesse os editais e inscreva-se!</p>
+					    			<span><i class="fa fa-calendar" aria-hidden="true"></i> 25 Setembro 2026</span>
+				    			</div>
+				    		</a>
+			    					    			<a href='https://concursos.objetivas.com.br/index/todos/?busca=JACUTIN'>
+			    				<div class="noticia">
+					    			<h3>JACUTINGA/RS</h3>
+					    			<p>Concursos Públicos 001 e 002: Inscrições de 29/09/2026, às 13h, até 19/10/2026, às 13h. Prova objetiva prevista para 29/11/2026. Acesse os editais e inscreva-se!</p>
+					    			<span><i class="fa fa-calendar" aria-hidden="true"></i> 21 Setembro 2026</span>
+				    			</div>
+				    		</a>
+			    		</div><div class=''>			    			<a href='https://concursos.objetivas.com.br/informacoes/2607/'>
+			    				<div class="noticia">
+					    			<h3>VALE REAL/RS</h3>
+					    			<p>Concurso Público: Inscrições até 16/10/2026, às 13h. Prova objetiva prevista para 13/12/2026. Acesse o edital e inscreva-se!</p>
+					    			<span><i class="fa fa-calendar" aria-hidden="true"></i> 16 Setembro 2026</span>
+				    			</div>
+				    		</a>
+			    					    			<a href='https://concursos.objetivas.com.br/informacoes/2604/'>
+			    				<div class="noticia">
+					    			<h3>EMPRESA PÚBLICA DE TRANSPORTE E CIRCULAÇÃO S/A (EPTC) - PORTO ALEGRE/RS</h3>
+					    			<p>Concurso Público: Inscrições de 09/09/2026, às 13h, até 09/10/2026, às 13h. Provas objetivas previstas para 22/11/2026 (GRUPOS 01 e 02) e 06/12/2026 (GRUPOS 03 e 04). Acesse o edital e inscreva-se!</p>
+					    			<span><i class="fa fa-calendar" aria-hidden="true"></i> 02 Setembro 2026</span>
+				    			</div>
+				    		</a>
+			    					    			<a href='https://concursos.objetivas.com.br/informacoes/2617/'>
+			    				<div class="noticia">
+					    			<h3>CÂMARA MUNICIPAL DE GUAPORÉ/RS</h3>
+					    			<p>Concurso Público: Inscrições até 28/09/2026, às 13h. Prova objetiva prevista para 22/11/2026. Acesse o edital e inscreva-se!</p>
+					    			<span><i class="fa fa-calendar" aria-hidden="true"></i> 28 Agosto 2026</span>
+				    			</div>
+				    		</a>
+			    					    			<a href='https://concursos.objetivas.com.br/informacoes/2605/'>
+			    				<div class="noticia">
+					    			<h3>ESTRELA/RS</h3>
+					    			<p>Concurso Público: Inscrições de 18/08/2026, às 13h, até 18/09/2026, às 13h. Prova objetiva prevista para 18/10/2026. Acesse o edital e inscreva-se!</p>
+					    			<span><i class="fa fa-calendar" aria-hidden="true"></i> 14 Agosto 2026</span>
+				    			</div>
+				    		</a>
+			    					    			<a href='https://concursos.objetivas.com.br/informacoes/2603/'>
+			    				<div class="noticia">
+					    			<h3>CACHOEIRA DO SUL/RS</h3>
+					    			<p>Concurso Público: Inscrições de 18/08/2026, às 13h, até 15/09/2026, às 13h. Prova objetiva prevista para 11/10/2026. Acesse o edital e inscreva-se!</p>
+					    			<span><i class="fa fa-calendar" aria-hidden="true"></i> 14 Agosto 2026</span>
+				    			</div>
+				    		</a>
+			    					    			<a href='https://concursos.objetivas.com.br/index/todos/?busca=almeida'>
+			    				<div class="noticia">
+					    			<h3>CONCEIÇÃO DO ALMEIDA/BA</h3>
+					    			<p>Concurso Público: Inscrições de 10/08/2026, às 13h, até 10/09/2026, às 13h. Prova objetiva prevista para 21 e 22/11/2026. Acesse os editais e inscreva-se!</p>
+					    			<span><i class="fa fa-calendar" aria-hidden="true"></i> 03 Agosto 2026</span>
+				    			</div>
+				    		</a>
+			    					    			<a href='https://concursos.objetivas.com.br/informacoes/2601/'>
+			    				<div class="noticia">
+					    			<h3>SANTO ÂNGELO/RS</h3>
+					    			<p>Concurso Público: Inscrições de 10/07/2026, às 13h, até 10/08/2026, às 13h. Prova objetiva prevista para 13/09/2026. Acesse o edital e inscreva-se!</p>
+					    			<span><i class="fa fa-calendar" aria-hidden="true"></i> 06 Julho 2026</span>
+				    			</div>
+				    		</a>
+			    					    			<a href='https://concursos.objetivas.com.br/informacoes/2588/'>
+			    				<div class="noticia">
+					    			<h3>CANOAS/RS - Procuradoria-Geral do Município (PGM)</h3>
+					    			<p>Concurso Público: inscrições a partir das 13h do dia 29/05/2026 até 13h do dia 23/06/2026. 
+Provas objetivas previstas para 12/07/2026.
+Acesse o edital e faça a sua inscrição!</p>
+					    			<span><i class="fa fa-calendar" aria-hidden="true"></i> 27 Maio 2026</span>
+				    			</div>
+				    		</a>
+			    		</div>		    	</section>
+	    	</div>
+	</div>
+</div>
+<!-- Rodape -->
+<div class='oc-rodape'>
+  <div class="box-rodape">
+      <div class="oc_menu-rodape">
+        <div class="menu-2">
+          <ul class="menu-titulo">
+            <li>Sobre o Instituto</li>
+            <li>Concursos</li>
+            <li>Contato</li>
+          </ul>
+          <ul class="menu-itens">
+            <li><a href="https://www.objetivas.com.br/quem-somos">O Instituto</a></li>
+            <li><a href="https://www.objetivas.com.br/projetos-sociais">Projetos Sociais</a></li>
+          </ul>
+          <ul class="menu-itens">
+            <li><a href="https://concursos.objetivas.com.br/index/abertos/">Inscrições abertas</a></li>
+            <li><a href="https://concursos.objetivas.com.br/index/1/">Em andamento</a></li>
+            <li><a href="https://concursos.objetivas.com.br/index/3/">Encerrados</a></li>
+          </ul>
+
+          <ul class="menu-itens">
+            <li><a href="https://www.objetivas.com.br/fale-conosco">Fale conosco</a></li>
+            <li><a href="https://www.objetivas.com.br/trabalhe-conosco">Trabalhe conosco</a></li>
+            <li><a href="https://www.objetivas.com.br/orcamento">Como contratar/Orçamentos</a></li>
+          </ul>
+            </div>
+        <div class="info-contato">
+          <h4>Informações de contato</h4>
+          <div>
+            <div style="font-size: 11px;">
+              <b> Horário de atendimento:</b> Segunda à Sexta-feira (das 9h às 11h30; das 13h às 17h)</b>
+            </div>
+            <span class="glyphicon glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+            <div class="endereco">
+              <b>Rua Casemiro de Abreu, 347</br>
+              Bairro Bela Vista</b></br>
+              <span>Cep: 90.420-001</br>
+              <span>Porto Alegre/RS</span>
+              
+            </div>
+          </div>
+        <div>
+            
+            <div class="tel"><b></b></div>
+          </div>
+          <div>
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+          <div style="info-contato">
+            <a href="https://api.whatsapp.com/send?phone=5551996145833" target="_blank">
+              <i class="fa-brands fa-whatsapp" style="color: white; font-size: 22px; background: transparent; margin-left: 10px;"></i>
+              <div class="tel" style="color: white; font-weight: bold;">
+                (51) 99614-5833
+              </div>
+            </a>
+          </div>
+            <span class="glyphicon glyphicon glyphicon-envelope" aria-hidden="true"></span>
+            <div class="email "> <a href="https://www.objetivas.com.br/fale-conosco" class="color-white">Fale conosco</a></div>
+          </div>
+        </div>
+        <div class="redes-sociais">
+          <a href="https://www.facebook.com/Objetiva-Concursos-Ltda-613723698754790/" target="_blank">
+            <img src="facebook.png" alt="Facebook" width="25px" height="25px"> <span >  </span>
+          </a>
+          <a href="https://twitter.com/objetivaconc" target="_blank">
+            <img src="twitter.png" alt="Twitter" width="25px" height="25px"> <span>  </span>
+          </a>
+          <a href="https://www.instagram.com/objetivaconcursosltda" target="_blank">
+            <img src="instagram.png" alt="Instagram" width="25px" height="25px"> <span>  </span>
+          </a>
+        </div>
+        <div class="texto">
+          <p>© INSTITUTO OBJETIVA - CNPJ 00.849.426/0001-14 <br> Todos os direitos reservados - Desenvolvido por Instituto Objetiva </p>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class='oc-rodape-mobile'>
+    <div class="info-contato">
+        <h4>Informações de contato</h4>
+        <div class="box">
+            <span class="glyphicon glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+            <div class="endereco">
+
+                <b>Rua Casemiro de Abreu, 347</br>
+                Bairro Bela Vista</b></br>
+                <span>CEP: 90.420.001</br>
+                Porto Alegre / RS</span></br></br>
+               <span><b>Horário de atendimento:</b></span></br>
+               <span> Segunda à Sexta-feira </span></br>
+               <span>(das 9h às 11h30; das 13h às 17h)</span></br></br>
+
+              <!-- Font Awesome para os ícones -->
+              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+              <div style="margin-left: 25%;">
+                <!-- Telefone fixo 
+                <span style="display: flex; align-items: center; gap: 8px;">
+                  <i class="fa-solid fa-phone" style="color: #ffffff; background: transparent; font-size: 18px;"></i>
+                  <a href="tel:05133353370" style="color: #fff!important; text-decoration: none; font-weight: bold;">
+                    (51) 3335-3370
+                  </a>
+                </span>-->
+                </br>
+                <!-- WhatsApp -->
+                <span style="display: flex; align-items: center; gap: 8px;">
+                  <i class="fa-brands fa-whatsapp" style="color: #ffffff; background: transparent; font-size: 18px;"></i>
+                  <a href="https://api.whatsapp.com/send?phone=5551996145833" target="_blank" style="color: #fff!important; text-decoration: none; font-weight: bold;">
+                    (51) 99614-5833
+                  </a>
+                </span>
+              </div></br>
+               <span><b><a href="https://www.objetivas.com.br/fale-conosco" style="color: #fff!important;">Fale conosco</a></b></span>
+            </div>
+        </div>
+        <!--<div class="redes-sociais">-->
+          <!--<a href=""><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i> <span>Facebook</span></a>-->
+          <!--<a href=""><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i> <span>Twitter</span></a>-->
+        </div>
+        <div class="texto" style="margin-top:17%;">
+            <p>© Instituto Objetiva <br> CNPJ 00.849.426/0001-14 </p>
+            <p> Todos os direitos reservados <br> Desenvolvido por Instituto Objetiva </p>
+        </div>
+     </div>
+</div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
+ <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+
+ </body>
+</html>
+
+<script type="text/javascript">
+  $( ".area-candidato").click(function() {
+    $(".oc-box-area-candidato").toggle();
+  });
+    $(".oc-busca-mobile").click(function() {
+
+    });
+
+
+    $(document).ready(function() {
+
+  
+        largura = $(document).width();
+        slidePag = 2;
+        if(largura > 800) {
+          slidePag = 4;
+        }
+        $(".embreve").slick({
+            breakpoint: 500,
+            dots: false,
+            arrows : false,
+            autoplay: true,
+            infinite: true,
+            slidesToShow: slidePag,
+            slidesToScroll: 1
+        });
+
+        $(".slick-inscricao").slick({
+            dots: true,
+            infinite: true,
+            speed: 1000,
+            fade: true,
+            autoplay: true,
+            autoplaySpeed: 8000,
+            cssEase: 'linear',
+            slidesToShow: 1,
+            slidesToScroll: 1
+        });
+
+        $(".slick-concursos").slick({
+             dots: true,
+            infinite: true,
+            speed: 500,
+            fade: true,
+            autoplay: false,
+            cssEase: 'linear',
+            slidesToShow: 1,
+            slidesToScroll: 1
+        });
+
+        $(".wrap-noticia").slick({
+            dots: true,
+            infinite: true,
+            speed: 500,
+            fade: true,
+            autoplay: false,
+            interval: 2000,
+            cssEase: 'linear',
+            slidesToShow: 1,
+            slidesToScroll: 1
+
+        });
+
+        $("#banner-topo").slick({
+            breakpoint: 800,
+            dots: true,
+            infinite: true,
+            speed: 800,
+            fade: true,
+            autoplay: true,
+            cssEase: 'linear',
+            slidesToShow: 1,
+            slidesToScroll: 1
+        });
+
+
+
+        $("#banner-topo").attr('style', 'opacity: 1; opacity 1; top: 0;');
+        $(".oc-menu-topo .navbar-nav").attr('style', 'opacity: 1; opacity 1; top: 0;');
+        $(".oc-logo").attr('style', 'opacity: 1; opacity 1; top: 10;');
+        $(".pesquisa-top").attr('style', 'opacity: 1; opacity 1; top: 10;');
+        $(".oc-area-candidato").attr('style', 'opacity: 1; opacity 1; top: 10;');
+
+
+        $(".FormataNome").on("input", function (e) {
+          //console.log(e.target.value);
+          //var regex = new RegExp('[^ 0-9a-zA-Zàèìòùáéíóúâêîôûãõ\b-]', 'g');
+          var regex = new RegExp('[^ a-zA-Z\b]', 'g');
+          // repare a flag "g" de global, para substituir todas as ocorrências
+          $(this).val($(this).val().toUpperCase().replace(regex, ''));
+          //  strtoupper( ereg_replace("[^a-zA-Z]", " ",
+          //  strtr(utf8_decode(trim($sVar)), utf8_decode("áàãâéêíóôõúüñçÁÀÃÂÉÊÍÓÔÕÚÜÑÇ"),"aaaaeeiooouuncAAAAEEIOOOUUNC")) );
+        });
+
+        $("#form-pesquisa").on("submit",function(e){
+          e.preventDefault();
+          var tamanho = $("#FRMconcursoPesquisa").val();
+          if(tamanho.length >= 2) {
+            Buscar();
+          }
+        });
+
+        $("#form-pesquisa-mobile").on("submit",function(e){
+          e.preventDefault();
+          var tamanho = $("#FRMconcursoPesquisa").val();
+          if(tamanho.length >= 2) {
+            Buscar();
+          }
+        });
+
+        $("#FRMlupaPesquisar").on("click",function(e){
+          var tamanho = $("#FRMconcursoPesquisa").val();
+          if(tamanho.length >= 2) {
+            Buscar();
+          }
+        });
+
+        $("#btnPesquisar").on("click",function(e){
+          var tamanho = $("#FRMconcursoPesquisa").val();
+          if(tamanho.length >= 2) {
+            Buscar();
+          }
+        });
+
+        function Buscar() {
+              var tamanho = $("#FRMconcursoPesquisa").val();
+              $("#resultado-filtro-concurso").html("");
+              if(tamanho.length >= 2) {
+                var formData = new FormData($("#form-pesquisa")[0]);
+
+                $.ajax({
+                  url: $("#form-pesquisa").prop("action"),
+                  type: 'POST',
+                  data: formData,
+                  async: true,
+                  cache: false,
+                  contentType: false,
+                  processData: false,
+                  success: function (dados) {
+                     $("body").animate({scrollTop:0}, '500');
+                    var sHTML = "";
+                    var Count = 0;
+                    var data = $.parseJSON(dados);
+                    var host =  $("#FRMhost").val();
+                    for(i=0; i < data['total']; i++) {
+                      if(Count == 0) {
+                        sHTML += "<tr>";
+                      }
+                      Count++;
+                      sHTML += "<tr>";
+                      sHTML += "<td>";
+                      sHTML += "<a href='"+host+"concurso/"+ data[i]['id_concurso'] +"'><h4>"+ data[i]['descricao'] + "</h4></a>";
+                      sHTML += "</td>";''
+                     
+                      sHTML += "</tr>";
+                      if(Count == 15 || i == data['total']) {
+                        Count = 0;
+                        sHTML += "</tr>";
+                      }
+                    }
+                    var sCampo = $("#FRMconcursoPesquisa").val();
+                    $(".pesquisa").css('opacity', '0');
+                    $("#banner-topo").hide();
+                    $(".cs-loader").show();
+                    if(data['total'] != undefined) {
+                      $("#resultado-filtro-concurso").html('<tr><td colspan="2"><p class="bg-primary"> Total de <b>'+ data['total'] +'</b> resultado(s) para " <b>'+ sCampo +'</b> " :</p></td></tr>');
+
+                      $("#resultado-filtro-concurso").append(sHTML);
+                      setTimeout(function(){
+                        $(".cs-loader").hide();
+                        $(".pesquisa").show();
+                        $(".pesquisa").css('opacity', '1');
+                      }, 1000);
+                    } else {
+                      setTimeout(function(){
+                        $(".cs-loader").hide();
+                        $(".pesquisa").show();
+                        $(".pesquisa").css('opacity', '1');
+                        $("#resultado-filtro-concurso").html('<tr><td colspan="2"><p class="bg-primary">Nenhum concurso foi encontrado para <b>"'+ sCampo +'"</b> :(</p></td></tr>');
+                      }, 1000);
+                    }
+                  }
+                });
+              }
+          }
+    });
+  </script>
+
+<script src="https://www.objetivas.com.br/assets/slidebars/slidebars.js"></script>
+<script>
+  (function($) {
+      $(document).ready(function() {
+          $.slidebars();
+          AplicarMasks();
+      });
+  }) (jQuery);
+
+  function AplicarMasks(){
+    $('.date').mask('00/00/0000');
+    $('.time').mask('00:00:00');
+    $('.date_time').mask('00/00/0000 00:00:00');
+    $('.cep').mask('00000-000');
+    $('.phone').mask('0000-0000');
+    $('.phone_with_ddd').mask('(00) 0000-00009');
+    $('.phone_us').mask('(000) 000-0000');
+    $('.mixed').mask('AAA 000-S0S');
+    $('.cpf').mask('000.000.000-00', {reverse: true});
+    $('.cnpj').mask('00.000.000/0000-00', {reverse: true});
+    $('.money').mask('000.000.000.000.000,00', {reverse: true});
+    $('.money2').mask("##.##0,00", {reverse: true});
+    $('.ip_address').mask('0ZZ.0ZZ.0ZZ.0ZZ', {
+      translation: {
+        'Z': {
+          pattern: /[0-9]/, optional: true
+        }
+      }
+    });
+    $('.ip_address').mask('099.099.099.099');
+    $('.percent').mask('##0,00%', {reverse: true});
+    $('.clear-if-not-match').mask("00/00/0000", {clearIfNotMatch: true});
+    $('.placeholder').mask("00/00/0000", {placeholder: "__/__/____"});
+    $('.fallback').mask("00r00r0000", {
+        translation: {
+          'r': {
+            pattern: /[\/]/,
+            fallback: '/'
+          },
+          placeholder: "__/__/____"
+        }
+      });
+    $('.selectonfocus').mask("00/00/0000", {selectOnFocus: true});
+  }
+
+</script>
+
+
+
+
+
+<!-- Twitter Bootstrap -->
+<script src="https://www.objetivas.com.br/assets/js/bootstrap.min.js"></script>
+
+<!-- Material Design for Bootstrap -->
+<script src="https://www.objetivas.com.br/assets/dist/js/material.js"></script>
+<script src="https://www.objetivas.com.br/assets/dist/js/ripples.min.js"></script>
+<script src="https://www.objetivas.com.br/assets//slick/slick.js" type="text/javascript" charset="utf-8"></script>
+<script>
+  $.material.init();
+</script>
+
+<script src="https://www.objetivas.com.br/area-candidato/assets/js/jquery.mask.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Dropdown.js -->
+<script src="https://cdn.rawgit.com/FezVrasta/dropdown.js/master/jquery.dropdown.js"></script>
+<script>
+  $("#dropdown-menu select").dropdown();
+</script>
+
+<script type="text/javascript">
+
+
+  (function($) {
+  AddTableRow = function() {
+
+    var newRow = $("<tr>");
+    var cols = "";
+
+cols += ' <td class="td-cargos">';
+cols += '<div class="form-group label-placeholder">';
+cols += '   <!--  <label for="FRMcargo"  class="control-label">Cargo</label> -->                                                               ';
+cols += '     <input type="text" class="form-control" required="required" name="FRMcargo[]"  id="FRMcargo">                                    ';
+cols += '   </div>';
+cols += ' </td>';
+cols += ' <td  class="td-vagas">';
+cols += '   <div class="form-group label-placeholder">                                                                                           ';
+cols += '     <!--<label for="FRMvagas"  class="control-label">Vagas</label> -->                                                               ';
+cols += '     <input type="text" class="form-control" maxlength="50" required="required" name="FRMvagas[]"  id="FRMvagas">                                    ';
+cols += '   </div>                                                                                                                               ';
+cols += ' </td>                                                                                                                               ';
+cols += '<td  class="td-cadastro_reserva">                                                                                                    ';
+cols += '  <div class="form-group label-placeholder">                                                                                         ';
+cols += '    <!--<label for="FRMvagas"  class="control-label">Vagas</label> -->                                                               ';
+cols += '    <input type="checkbox" class="form-control" value="sim" name="FRMcadastroReserva[]"  id="FRMcadastroReserva">  ';
+cols += '  </div>';
+cols += '</td>                                                                                                                                  ';
+cols += ' <td class="td-escolaridade">                                                                                                             ';
+cols += '   <div class="form-group label-placeholder">                                                                                           ';
+cols += '     <!--<label for="FRMescolaridade"   class="control-label">Escolaridade</label> -->                                                ';
+cols += '     <input type="text" class="form-control" required="required" name="FRMescolaridade[]"  id="FRMescolaridade">                      ';
+
+cols += '   </div>                                                                                                                               ';
+cols += ' </td>                                                                                                                                    ';
+cols += ' <td class="td-salario">                                                                                                                  ';
+cols += '   <div class="form-group label-placeholder">                                                                                           ';
+cols += '     <!--<label for="FRMsalario"  class="control-label">Salário(R$)</label>-->                                                        ';
+cols += '     <input type="text" class="form-control money2" required="required" name="FRMsalario[]""  id="FRMsalario">                         ';
+
+cols += '   </div>                                                                                                                               ';
+cols += ' </td>                                                                                                                                    ';
+cols += ' <td  class="td-tipo-prova">                                                                                                              ';
+cols += '   <div class="form-group label-placeholder blue">                                                                                      ';
+cols += '       <!--<label  class="control-label">Tipo de prova</label>-->                                                                   ';
+cols += '     <select name="FRMprova[]" id=FRMprova class=" blue control-label form-control" required>                                                  ';
+cols += '       <option value="" > Selecione a Prova </option>                                                                                ';
+cols += '       <option value="Objetiva" >Objetiva</option>                                                                                    ';
+cols += '       <option value="Prática" >Prática</option>                                                                                      ';
+cols += '       <option value="Avaliação Psicológica" >Avaliação Psicológica</option>                                                        ';
+cols += '       <option value="Aptidão Física" >Aptidão Física</option>                                                                        ';
+cols += '       <option value="Redação" >Redação</option>                                                                                      ';
+cols += '       <option value="Títulos" >Títulos</option>                                                                                      ';
+cols += '       <option value="Objetiva e Prática" >Objetiva e Prática</option>                                                                ';
+cols += '       <option value="Objetiva e Títulos" >Objetiva e Títulos</option>                                                                ';
+cols += '       <option value="Outros">Outros</option>                                                                                         ';
+cols += '     </select>                                                                                                                        ';
+cols += '   </div>                                                                                                                               ';
+cols += ' </td>                                                                                                                                    ';
+
+cols += ' <td  class="td-btn">                                                                                                                     ';
+cols += '   <div class="form-group">                                                                                                             ';
+cols += '     <button onclick="RemoveTableRow(this)" class=" btn-remove" type="button"><i class="fa fa-times" aria-hidden="true"></i></button> ';
+cols += '   </div>                                                                                                                               ';
+cols += ' </td>                                                                                                                                    ';
+
+
+    newRow.append(cols);
+    $("#cargos-orcamento").append(newRow);
+AplicarMasks();
+    return false;
+  };
+})(jQuery);
+
+
+
+  (function($) {
+
+  RemoveTableRow = function(handler) {
+    var tr = $(handler).closest('tr');
+
+    tr.fadeOut(400, function(){
+      tr.remove();
+    });
+
+    return false;
+  };
+})(jQuery);
+
+
+</script>
+
+<script type="text/javascript">
+/*
+	window.onload = function() {
+		console.log("sdsd");
+	swal({
+	  title: " Prezado Visitante<small></small>!",
+	  text: "Informamos que nossa linha telefônica principal encontra-se temporariamente em manutenção. Nesse período, para contato telefônico, utilize o número (51) 3085-2334, ou, utilize o canal de atendimento por e-mail Fale Conosco. <br>Objetiva Concursos Ltda.",
+	  html: true
+	});
+}*/
+</script>

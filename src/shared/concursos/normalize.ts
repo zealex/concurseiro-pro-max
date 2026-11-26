@@ -1,5 +1,22 @@
 /** Normalização de texto para comparação, slugs e deduplicação. Sem dependências. */
 
+/** As 27 siglas de UF (sem importar schema.ts: este módulo não tem dependências). */
+const SIGLAS_UF = 'AC|AL|AM|AP|BA|CE|DF|ES|GO|MA|MG|MS|MT|PA|PB|PE|PI|PR|RJ|RN|RO|RR|RS|SC|SE|SP|TO';
+const RE_SIGLA_UF_BARRA = new RegExp(`\\/(${SIGLAS_UF})\\b`, 'gi');
+const RE_SIGLA_UF_SOLTA = new RegExp(`^(${SIGLAS_UF})$`);
+const RE_SIGLA_UF_SOLTA_I = new RegExp(`^(${SIGLAS_UF})$`, 'i');
+/** Nomes dos estados (sem acento), para tirar "do Estado de X" da chave do órgão. */
+const RE_NOME_ESTADO = new RegExp(
+  `\\b(de |do |da )?(${[
+    'Santa Catarina', 'Parana', 'Rio Grande do Sul', 'Sao Paulo', 'Rio de Janeiro', 'Minas Gerais', 'Espirito Santo',
+    'Distrito Federal', 'Goias', 'Mato Grosso do Sul', 'Mato Grosso', 'Bahia', 'Sergipe', 'Alagoas', 'Pernambuco',
+    'Paraiba', 'Rio Grande do Norte', 'Ceara', 'Piaui', 'Maranhao', 'Amazonas', 'Acre', 'Rondonia', 'Roraima',
+    'Amapa', 'Tocantins',
+    // "Pará" sem acento é a preposição "para": só "do Pará".
+  ].join('|')})\\b|\\bdo Para\\b`,
+  'gi',
+);
+
 /** Remove acentos/diacríticos preservando maiúsculas. */
 export function semAcentos(texto: string): string {
   return texto.normalize('NFD').replace(/[̀-ͯ]/g, '');
@@ -34,15 +51,15 @@ export function chaveOrgao(orgao: string): string {
 
   let base = semAcentos(orgao)
     .replace(/\(.*?\)/g, ' ')
-    .replace(/\/(PR|SC|RS)\b/gi, ' ')
+    .replace(RE_SIGLA_UF_BARRA, ' ')
     .replace(/\b(S\.?\s?A\.?|Ltda\.?)\s*$/i, ' ')
     .replace(/\b(do|de|da) Estado( d[eoa]s?)?\b/gi, ' ')
-    .replace(/\b(de |do )?(Santa Catarina|Parana|Rio Grande do Sul)\b/gi, ' ')
+    .replace(RE_NOME_ESTADO, ' ')
     .replace(/\s+/g, ' ')
     .trim();
 
   // "SIGLA - Nome por extenso": a sigla é a chave
-  const partes = base.split(/\s+[-–]\s+/).map((p) => p.trim()).filter((p) => p && !/^(PR|SC|RS)$/i.test(p));
+  const partes = base.split(/\s+[-–]\s+/).map((p) => p.trim()).filter((p) => p && !RE_SIGLA_UF_SOLTA_I.test(p));
   const sigla = partes.find((p) => /^[A-Z0-9][A-Z0-9.&-]{1,9}$/.test(p));
   if (sigla) return sigla.toLowerCase().replace(/[^a-z0-9]/g, '');
   base = partes.sort((a, b) => b.length - a.length)[0] ?? base;
@@ -50,7 +67,7 @@ export function chaveOrgao(orgao: string): string {
   const tokens = base
     .split(/\s+/)
     .map((t) => t.replace(/[^A-Za-z0-9]/g, ''))
-    .filter((t) => t && !/^(PR|SC|RS)$/.test(t));
+    .filter((t) => t && !RE_SIGLA_UF_SOLTA.test(t));
   // Sigla isolada com sufixo de UF ("IMA SC", "SES")
   if (tokens.length <= 2 && tokens[0] && /^[A-Z0-9]{2,10}$/.test(tokens[0])) return tokens[0].toLowerCase();
   const significativas = tokens.map((t) => t.toLowerCase()).filter((t) => !STOPWORDS_INICIAIS.has(t));

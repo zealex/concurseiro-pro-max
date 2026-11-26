@@ -4,14 +4,16 @@ import { Download, RefreshCw, Upload } from 'lucide-react-native';
 import { useState } from 'react';
 import { View } from 'react-native';
 import { SecaoConta } from '@/components/conta/SecaoConta';
-import { Button, Callout, Campo, Card, Label, Muted, Row, Screen, Section, Segmented, Seletor, Sheet, Txt, useToast } from '@/components/ui';
+import { Button, Callout, Campo, Card, Chip, Label, Muted, Row, Screen, Section, Segmented, Seletor, Sheet, Txt, useToast } from '@/components/ui';
 import { NOMES_BANCAS } from '@/data/bancas';
 import { TRILHA_LABEL, TRILHAS, type Trilha } from '@/data/types';
 import { aplicarBackup, escolherBackup, exportarBackup, resetarTudo, type Backup } from '@/services/backupService';
 import { inicializarRadar, sincronizarRadar, urlsDoFeed } from '@/services/concursosTrackerService';
+import { REGIAO_NOME, REGIOES, UFS, UFS_DA_REGIAO, type UF } from '@/shared/concursos/schema';
 import { reiniciarPlanoHoje } from '@/store/acoes';
 import { useRadarStore } from '@/store/useRadarStore';
 import { useSettingsStore, type PreferenciaTema } from '@/store/useSettingsStore';
+import { COR_UF } from '@/theme/cores';
 import { formatBR, parseBR } from '@/utils/dates';
 import { horasMinutos } from '@/utils/format';
 import { OPCOES_ORCAMENTO } from '@/utils/scheduler';
@@ -47,6 +49,22 @@ export default function Configuracoes() {
     s.setFeedUrl(feed);
     const r = await sincronizarRadar();
     toast(r.ok ? `Feed OK: ${r.total} concursos.` : (r.erro ?? 'Falha ao ler o feed.'));
+  };
+
+  const alternarUf = (uf: UF) => {
+    const atual = new Set(s.ufsRadar);
+    if (atual.has(uf)) atual.delete(uf);
+    else atual.add(uf);
+    s.setUfsRadar(UFS.filter((u) => atual.has(u)));
+  };
+  const alternarRegiao = (ufs: readonly UF[]) => {
+    const todas = ufs.every((u) => s.ufsRadar.includes(u));
+    const atual = new Set(s.ufsRadar);
+    for (const u of ufs) {
+      if (todas) atual.delete(u);
+      else atual.add(u);
+    }
+    s.setUfsRadar(UFS.filter((u) => atual.has(u)));
   };
 
   const importar = async () => {
@@ -120,10 +138,34 @@ export default function Configuracoes() {
         </Card>
       </Section>
 
-      <Section titulo="Radar Sul — feed remoto">
+      <Section titulo="Radar — meus estados">
         <Card>
           <Muted className="mb-2">
-            Depois de publicar o projeto no GitHub, cole aqui a URL “raw” do arquivo gerado pelo robô, por exemplo:
+            O robô procura concursos médicos em todo o Brasil. Escolha onde você aceita trabalhar: o Radar e o Dashboard abrem nesses estados
+            (os outros continuam a um toque, em “Todo o Brasil”). Sem nenhum marcado, aparece o Brasil todo.
+          </Muted>
+          {REGIOES.map((r) => (
+            <View key={r} className="mb-2">
+              <Row className="mb-1 gap-2">
+                <Label>{REGIAO_NOME[r]}</Label>
+                <Button pequeno variante="fantasma" titulo={UFS_DA_REGIAO[r].every((u) => s.ufsRadar.includes(u)) ? 'desmarcar região' : 'marcar região'} onPress={() => alternarRegiao(UFS_DA_REGIAO[r])} />
+              </Row>
+              <View className="flex-row flex-wrap">
+                {UFS_DA_REGIAO[r].map((uf) => (
+                  <Chip key={uf} texto={uf} ativo={s.ufsRadar.includes(uf)} cor={COR_UF[uf]} onPress={() => alternarUf(uf)} />
+                ))}
+              </View>
+            </View>
+          ))}
+          <Muted>{s.ufsRadar.length ? `Selecionados: ${s.ufsRadar.join(', ')}.` : 'Nenhum estado marcado: o Radar mostra todo o Brasil.'}</Muted>
+          {s.ufsRadar.length ? <Button pequeno variante="fantasma" titulo="Limpar (ver todo o Brasil)" onPress={() => s.setUfsRadar([])} className="mt-1 self-start" /> : null}
+        </Card>
+      </Section>
+
+      <Section titulo="Radar — feed remoto">
+        <Card>
+          <Muted className="mb-2">
+            O app já lê o feed oficial do robô. Só preencha se quiser usar outro, por exemplo a URL “raw” de um fork:
             https://raw.githubusercontent.com/SEU-USUARIO/SEU-REPO/main/public/data/concursos-sul.json
           </Muted>
           <Campo rotulo="URL do feed" value={feed} onChangeText={setFeed} autoCapitalize="none" keyboardType="url" placeholder="https://raw.githubusercontent.com/…/concursos-sul.json" />

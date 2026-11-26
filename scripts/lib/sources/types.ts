@@ -26,6 +26,10 @@ export interface Detalhe {
   linhas: string[];
   publicadoEm: string | null;
   observacoes: string[];
+  /** Link direto do edital (PDF público), quando a fonte expõe; senão, o editalUrl é a própria página. */
+  editalUrl?: string | null;
+  /** Campos estruturados da página (rótulo → valor), quando a fonte tem (JC Concursos). */
+  campos?: Record<string, string>;
 }
 
 /** Concurso listado no site de uma banca (usado como registro próprio ou como link relacionado). */

@@ -13,7 +13,7 @@ export interface ItemNav {
 export const NAV: ItemNav[] = [
   { rota: '/', nome: 'index', rotulo: 'Início', emoji: '🏠', icone: LayoutDashboard, aba: true },
   { rota: '/cronograma', nome: 'cronograma', rotulo: 'Cronograma', emoji: '🗓️', icone: CalendarCheck, aba: true },
-  { rota: '/radar', nome: 'radar', rotulo: 'Radar Sul', emoji: '📡', icone: Radar, aba: true },
+  { rota: '/radar', nome: 'radar', rotulo: 'Radar', emoji: '📡', icone: Radar, aba: true },
   { rota: '/questoes', nome: 'questoes', rotulo: 'Questões', emoji: '🎯', icone: ListChecks, aba: true },
   { rota: '/biblioteca', nome: 'biblioteca', rotulo: 'Biblioteca', emoji: '📚', icone: BookOpen, aba: true },
   { rota: '/edital', nome: 'edital', rotulo: 'Meu Edital', emoji: '📋', icone: ClipboardList, aba: false },

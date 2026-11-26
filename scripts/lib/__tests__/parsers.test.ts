@@ -18,12 +18,15 @@ import {
 import { decodificar, interpretarRobots, permitidoPorRobots } from '../http';
 import { parseFepese, parseFundatec } from '../sources/bancas';
 import { parseDetalheCnb, parseListagemCnb } from '../sources/concursosNoBrasil';
+import { atoDeAbertura, ofereceVagaMedica, parseBuscaDiario, parseMateriaDiario, tituloPodeSerAbertura } from '../sources/diarios';
+import { orgaoJc, parseDetalheJc, parseListagemJc, ufDoItemJc, ufsDoCampoJc } from '../sources/jc';
+import { orgaoObjetiva, parseDetalheObjetiva, parseListagemObjetiva, partesTituloObjetiva } from '../sources/objetiva';
 import { parseDetalhePci, parseListagemPci } from '../sources/pci';
 
 const FIX = resolve(__dirname, '../../__fixtures__');
 const html = (nome: string) => readFileSync(resolve(FIX, nome), 'utf8');
 const geo = criarGeo(
-  (JSON.parse(readFileSync(resolve(__dirname, '../../data/municipios-sul.json'), 'utf8')) as { municipios: MunicipiosPorUF }).municipios,
+  (JSON.parse(readFileSync(resolve(__dirname, '../../data/municipios-brasil.json'), 'utf8')) as { municipios: MunicipiosPorUF }).municipios,
 );
 const AGORA = new Date('2026-11-18T12:00:00.000Z');
 
@@ -214,5 +217,140 @@ describe('seleção de docência não vira vaga médica', () => {
     };
     const detalhe = { titulo: item.titulo, texto: 'Área: Medicina de Família e Comunidade', linhas: ['Área: Medicina de Família e Comunidade (1 vaga)'], publicadoEm: null, observacoes: [] };
     expect(construirConcursos({ item, detalhe, geo, agora: AGORA })).toEqual([]);
+  });
+});
+
+describe('Instituto Objetiva (fixtures reais, 25/11/2026)', () => {
+  const latin1 = (nome: string) => decodificar(new Uint8Array(readFileSync(resolve(FIX, nome))), 'text/html; charset=ISO-8859-1');
+  const REF = new Date('2026-11-25T21:00:00Z');
+
+  it('home: Chapecó aparece no dia do edital, antes de abrir inscrição', () => {
+    const itens = parseListagemObjetiva(html('objetiva-home.html'), 'https://www.objetivas.com.br/home', REF);
+    const chapeco = itens.find((i) => i.url === 'https://concursos.objetivas.com.br/informacoes/2650/');
+    expect(chapeco).toMatchObject({ fonte: 'objetiva', uf: 'SC', orgao: 'Prefeitura de Chapecó', inscricoes: { inicio: '2026-12-07', fim: '2027-01-07' } });
+    expect(itens.length).toBeGreaterThan(10);
+    expect(new Set(itens.map((i) => i.url)).size).toBe(itens.length);
+  });
+
+  it('inscrições abertas: tipo de órgão vem do título', () => {
+    const itens = parseListagemObjetiva(latin1('objetiva-abertos.html'), 'https://concursos.objetivas.com.br/index/abertos/', REF);
+    expect(itens.length).toBeGreaterThan(0);
+    expect(itens.find((i) => i.url.endsWith('/informacoes/2630/'))).toMatchObject({ uf: 'RS', orgao: 'Câmara Municipal de Soledade' });
+  });
+
+  it('página do concurso: tabela de vagas completa, PDF do edital e data de publicação', () => {
+    const det = parseDetalheObjetiva(latin1('objetiva-informacoes-chapeco.html'));
+    expect(det.titulo).toBe('CHAPECÓ/SC - Município - Concurso Público 003/2026');
+    expect(det.editalUrl).toMatch(/^https:\/\/anexos-r2\.selecao\.net\.br\/.+\.pdf$/);
+    expect(det.publicadoEm).toBe('2026-11-25T12:00:00-03:00');
+    const item = parseListagemObjetiva(html('objetiva-home.html'), 'https://www.objetivas.com.br/home', REF).find((i) => i.url.endsWith('/2650/'))!;
+    const regs = construirConcursos({ item, detalhe: det, geo, agora: REF });
+    expect(regs.map((r) => r.tag).sort()).toEqual(['medicina-do-trabalho', 'medicina-geral-especialidades']);
+    const geral = regs.find((r) => r.tag === 'medicina-geral-especialidades')!;
+    expect(geral.cargos).toHaveLength(21);
+    expect(geral.id).toBe('sc-chapeco-prefeitura-medicina-geral-especialidades-2026');
+    expect(geral.edital).toBe('3/2026');
+    expect(geral.editalUrl).toBe(det.editalUrl);
+    expect(geral.firstSeenAt).toBe('2026-11-25T15:00:00.000Z');
+  });
+
+  it('partes do título', () => {
+    expect(partesTituloObjetiva('SÃO MIGUEL DO OESTE/SC - Consórcio Intermunicipal - Processo Seletivo 02/2026')).toEqual({
+      cidade: 'São Miguel do Oeste',
+      uf: 'SC',
+      tipoOrgao: 'Consórcio Intermunicipal',
+      nomeOrgao: null,
+      resto: 'Processo Seletivo 02/2026',
+    });
+    expect(orgaoObjetiva('Chapecó', 'Município')).toBe('Prefeitura de Chapecó');
+    // Órgão antes da cidade; "S/A" não é UF.
+    const eptc = partesTituloObjetiva('EMPRESA PÚBLICA DE TRANSPORTE E CIRCULAÇÃO S/A (EPTC) - PORTO ALEGRE/RS');
+    expect(eptc).toMatchObject({ cidade: 'Porto Alegre', uf: 'RS', nomeOrgao: 'Empresa Pública de Transporte e Circulação S/A (EPTC)' });
+    expect(orgaoObjetiva(eptc.cidade, eptc.tipoOrgao, eptc.nomeOrgao)).toBe('Empresa Pública de Transporte e Circulação S/A (EPTC)');
+  });
+});
+
+describe('JC Concursos (fixtures reais, 25/11/2026)', () => {
+  const itens = parseListagemJc(html('jc-inscricoes-abertas.html'));
+
+  it('lista nacional de inscrições abertas numa página só', () => {
+    expect(itens).toHaveLength(82);
+    expect(itens.find((i) => i.url.endsWith('/concurso-aparecida-de-goiania-go-81274'))).toMatchObject({
+      fonte: 'jc-concursos',
+      uf: 'GO',
+      orgao: 'Aparecida de Goiânia',
+      remuneracaoMax: 4508.28,
+      vagas: 6859,
+    });
+    // Órgão nacional (sem UF no título nem no slug): a UF vem da página ("Estados com Vagas").
+    expect(itens.find((i) => i.url.endsWith('/concurso-ministerio-da-saude-79866'))?.uf).toBeNull();
+  });
+
+  it('UF pelo título ou pelo slug', () => {
+    expect(ufDoItemJc('Bombeiros PB – CFO', 'concurso-bombeiros-pb-oficiais-81387')).toBe('PB');
+    expect(ufDoItemJc('Aparecida de Goiânia (GO) 2026', '/concurso/x-81274')).toBe('GO');
+    expect(ufDoItemJc('Banestes', 'concurso-banestes-81438')).toBeNull();
+  });
+
+  it('página do concurso: campos, agenda, banca e cargo médico', () => {
+    const det = parseDetalheJc(html('jc-concurso-ghc.html'));
+    expect(det.titulo).toBe('Concurso GHC 2026');
+    expect(det.campos).toMatchObject({ Organizadora: 'Fundatec', inicioIso: '2026-11-05', fimIso: '2026-12-04', provaIso: '2027-01-10' });
+    expect(ufsDoCampoJc(det.campos?.['Estados com Vagas'])).toEqual(['RS']);
+    expect(extrairCargosMedicos(det.linhas).map((c) => c.nome)).toEqual(['Médico']);
+  });
+
+  it('processo administrativo do Ministério da Saúde não vira vaga médica', () => {
+    const det = parseDetalheJc(html('jc-concurso-ministerio-saude.html'));
+    expect(ufsDoCampoJc(det.campos?.['Estados com Vagas'])).toEqual(['DF', 'GO', 'MG', 'PA', 'PR', 'PE', 'SP']);
+    expect(extrairCargosMedicos(det.linhas)).toEqual([]);
+  });
+
+  it('nome do órgão no padrão das outras fontes', () => {
+    expect(orgaoJc('Prefeitura Aparecida de Goiânia')).toBe('Prefeitura de Aparecida de Goiânia');
+    expect(orgaoJc('Prefeitura de Campinas')).toBe('Prefeitura de Campinas');
+    expect(orgaoJc('GHC - Grupo Hospitalar Conceição')).toBe('GHC - Grupo Hospitalar Conceição');
+  });
+});
+
+describe('Diários Oficiais dos Municípios (SIGPub, fixtures reais de 25/11/2026)', () => {
+  it('busca: matérias com entidade e paginação', () => {
+    const r = parseBuscaDiario(html('diariomunicipal-busca-amm-mg.html'));
+    expect(r.itens.length).toBe(r.ate);
+    expect(r.total).toBeGreaterThanOrEqual(r.ate);
+    const monlevade = r.itens.find((i) => /MONLEVADE|M[ÉE]DICO PLANTONISTA/.test(i.titulo));
+    expect(monlevade).toMatchObject({ fonte: 'diario-oficial', orgao: 'Prefeitura de João Monlevade' });
+    expect(monlevade?.url).toMatch(/^https:\/\/www\.diariomunicipal\.com\.br\/amm-mg\/materia\/[A-Z0-9]+$/);
+  });
+
+  it('título: descarta convocação, posse, licitação e resultado; mantém abertura e títulos genéricos', () => {
+    expect(tituloPodeSerAbertura('EDITAL DE CONVOCAÇÃO PARA NOMEAÇÃO E POSSE N.º 86/2026')).toBe(false);
+    expect(tituloPodeSerAbertura('AVISO DO EDITAL DO PREGÃO ELETRÔNICO Nº. 85/2026')).toBe(false);
+    expect(tituloPodeSerAbertura('EDITAL Nº 182/2026 DEFERIMENTO DAS INCRIÇÕES')).toBe(false);
+    expect(tituloPodeSerAbertura('EXTRATO DE CONTRATOS EDITAL DE CREDENCIAMENTO Nº 03/2026')).toBe(false);
+    expect(tituloPodeSerAbertura('EDITAL Nº 16/2026 PROCESSO SELETIVO PÚBLICO PARA O CARGO DE MÉDICO PLANTONISTA')).toBe(true);
+    expect(tituloPodeSerAbertura('EDITAL 171/2026 CONTRATO TEMPORÁRIO')).toBe(true);
+    expect(tituloPodeSerAbertura('EDITAL Nº 209/2026')).toBe(true);
+  });
+
+  it('matéria de abertura vira concurso com os cargos médicos', () => {
+    const det = parseMateriaDiario(html('diariomunicipal-materia-monlevade.html'));
+    expect(det.titulo).toMatch(/^EDITAL Nº 16\/2026 PROCESSO SELETIVO/);
+    expect(det.publicadoEm).toBe('2026-11-24T12:00:00-03:00');
+    expect(det.campos?.estado).toBe('ESTADO DE MINAS GERAIS');
+    expect(atoDeAbertura(det.texto)).toBe(true);
+    expect(ofereceVagaMedica(det.texto)).toBe(true);
+    expect(geo.ufPorNomeEstado(det.campos?.estado ?? '')).toBe('MG');
+    const item = { ...parseBuscaDiario(html('diariomunicipal-busca-amm-mg.html')).itens.find((i) => /MONLEVADE|PLANTONISTA/.test(i.titulo))!, uf: 'MG' as const };
+    const [reg] = construirConcursos({ item, detalhe: det, geo, agora: new Date('2026-11-25T21:00:00Z') });
+    expect(reg).toMatchObject({ uf: 'MG', cidade: 'João Monlevade', tipo: 'processo-seletivo', subcategoria: 'especialidades', firstSeenAt: '2026-11-24T15:00:00.000Z' });
+    expect(reg?.cargos.map((c) => c.nome)).toEqual(['Médico Plantonista (Pneumologista)', 'Médico Plantonista (Endocrinologista)']);
+  });
+
+  it('convocação e "atestado médico" não viram vaga', () => {
+    expect(atoDeAbertura('O Município convoca os candidatos aprovados no Processo Seletivo 02/2026 para posse.')).toBe(false);
+    expect(ofereceVagaMedica('Os aprovados apresentarão exames e atestados médicos no ato da posse.')).toBe(false);
+    expect(ofereceVagaMedica('Vaga para Médico Veterinário, 40 horas.')).toBe(false);
+    expect(ofereceVagaMedica('cargo de Médico Clínico Geral, 40 horas semanais, R$ 15.000,00')).toBe(true);
   });
 });

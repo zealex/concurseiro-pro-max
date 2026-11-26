@@ -139,7 +139,9 @@ export function useConcursos(): ConcursoView[] {
   );
 }
 
+/** Concursos novos (7 dias) nos "Meus estados" do usuário (todos, se ele não escolheu). */
 export function useNovosNoRadar(): number {
   const lista = useConcursos();
-  return useMemo(() => lista.filter((c) => c.isNew).length, [lista]);
+  const meus = useSettingsStore((s) => s.ufsRadar);
+  return useMemo(() => lista.filter((c) => c.isNew && (!meus.length || meus.includes(c.uf))).length, [lista, meus]);
 }

@@ -1,6 +1,6 @@
 # Arquitetura — Concurseiro Pro Max
 
-Ecossistema de preparação de 90 dias para o médico generalista / recém-formado que presta concursos sem exigência de especialidade (Perito Médico Federal e peritos de regimes próprios, Perito Médico-Legista, Clínico Geral/ESF na Região Sul), composto por três camadas que compartilham uma única base de código TypeScript, mais uma API própria para contas e sincronização (ver [Nuvem](#nuvem--contas-e-sincronização)).
+Ecossistema de preparação de 90 dias para o médico generalista / recém-formado que presta concursos sem exigência de especialidade (Perito Médico Federal e peritos de regimes próprios, Perito Médico-Legista, Clínico Geral/ESF; o Radar cobre todo o Brasil), composto por três camadas que compartilham uma única base de código TypeScript, mais uma API própria para contas e sincronização (ver [Nuvem](#nuvem--contas-e-sincronização)).
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────────┐
@@ -23,8 +23,9 @@ Ecossistema de preparação de 90 dias para o médico generalista / recém-forma
                 │ HTTPS GET (CORS liberado no raw.githubusercontent / same-origin)
 ┌───────────────┴──────────────────────────────────────────────────────────────┐
 │ 3. PIPELINE RADAR (GitHub Actions de hora em hora)                            │
-│    scripts/scrape-concursos-sul.ts → fontes (PCI, Concursos no Brasil,        │
-│    FUNDATEC, FEPESE) → classificação/geo/dedupe (src/shared/concursos)        │
+│    scripts/scrape-concursos.ts → fontes (PCI, Concursos no Brasil, JC,        │
+│    Objetiva, FUNDATEC, FEPESE, Diários Oficiais dos Municípios)               │
+│    → classificação/geo/dedupe (src/shared/concursos)                          │
 │    → public/data/concursos-sul.json → commit; o site serve o feed do GitHub   │
 └──────────────────────────────────────────────────────────────────────────────┘
 ```
@@ -47,7 +48,7 @@ Ecossistema de preparação de 90 dias para o médico generalista / recém-forma
 |---|---|
 | `/` | Dashboard de Prontidão |
 | `/cronograma` | Cronograma interativo (12 semanas, trilha, Modo Plantão) |
-| `/radar`, `/radar/[id]`, `/radar/novo` | Radar Sul (tabela/kanban), detalhe, cadastro manual |
+| `/radar`, `/radar/[id]`, `/radar/novo` | Radar (tabela/kanban), detalhe, cadastro manual |
 | `/questoes`, `/questoes/revisoes`, `/questoes/erros` | Central de questões, revisões D1/D7/D15/D30, caderno de erros |
 | `/questoes/treino`, `/questoes/flashcards`, `/questoes/simulado` | Treino com questões comentadas, flashcards (Leitner), simulado no formato do edital |
 | `/edital` | Meu Edital: composição da prova-alvo, nota projetada, risco de eliminação (sidebar; fora da barra mobile) |
@@ -62,7 +63,7 @@ Sem conta aberta, `src/app/(tabs)/_layout.tsx` redireciona para `/entrar`. O sna
 `src/app/(tabs)/_layout.tsx` decide o "shell" pela largura da janela (`useWindowDimensions`):
 
 - **≥ 768 px** → Sidebar fixa estilo Notion + conteúdo (`<Slot/>`), com layout multi-coluna via `md:`/`lg:`/`xl:`.
-- **< 768 px** → Bottom Tabs (Início, Cronograma, Radar Sul, Questões, Biblioteca). Foco e Configurações ficam em atalhos do cabeçalho.
+- **< 768 px** → Bottom Tabs (Início, Cronograma, Radar, Questões, Biblioteca). Foco e Configurações ficam em atalhos do cabeçalho.
 - O esquema de cores é sempre aplicado de forma explícita (claro/escuro, calculado a partir da preferência do usuário e do sistema), para que as classes `dark:` e as cores usadas em ícones nunca divirjam.
 
 ### Persistência
@@ -123,19 +124,24 @@ Zustand store (skipHydration) ──persist──▶ zustandAdapter (StateStorag
 ```
 GitHub Actions (cron 23 * * * * = de hora em hora, + workflow_dispatch)
   ├─ restaura a memória do robô (scripts/data/radar-estado.json) do cache do Actions
-  ├─ npx tsx scripts/scrape-concursos-sul.ts
+  ├─ npx tsx scripts/scrape-concursos.ts   (grava public/data/concursos-sul.json: nome mantido p/ apps instalados)
   │    ├─ fontes em paralelo por host (1,5 s entre requisições ao mesmo host, robots.txt respeitado)
-  │    │    ├─ PCI Concursos  /concursos/sul/  (+ /concursos/nacional/ só p/ itens médicos com lotação no Sul)
-  │    │    ├─ Concursos no Brasil  /concursos/{pr,sc,rs}/
+  │    │    ├─ PCI Concursos  /concursos/{sul,sudeste,centrooeste,nordeste,norte}/ (+ /nacional/: UFs da lotação na notícia)
+  │    │    ├─ Concursos no Brasil  /concursos/{uf}/  (27 UFs)
+  │    │    ├─ JC Concursos  /concursos/inscricoes-abertas (nacional) → página do concurso (órgão, banca, UFs, agenda)
+  │    │    ├─ Instituto Objetiva  home + /index/abertos/ → página oficial com a TABELA DE VAGAS e o PDF do edital
+  │    │    ├─ Diários Oficiais dos Municípios (SIGPub, ~18 estados) → busca "médico" em editais dos últimos 3 dias,
+  │    │    │    descarta pelo título o que não é abertura e lê a matéria inteira (abertura + vaga de médico)
   │    │    ├─ FUNDATEC  (lista de inscrições abertas → registro próprio ou enriquecimento)
   │    │    └─ FEPESE    (destaques → registro próprio ou enriquecimento)
   │    ├─ estado.ts     → abre TODA notícia nova ou alterada (sem pré-filtro pelo título); revisita as médicas a cada 24 h;
   │    │                  orçamento de páginas por host; o que sobrar fica pendente para a próxima hora
   │    ├─ classify.ts   → é vaga médica? (caixa alta e minúsculas) tag: medico-legista | pericia-medica | medicina-do-trabalho
   │    │                  | medicina-geral-especialidades ("Perito Médico" em Polícia Científica/IGP → legista)
-  │    ├─ geo.ts        → UF ∈ {PR, SC, RS}? cidade validada contra 1.191 municípios do IBGE
+  │    ├─ geo.ts        → 27 UFs; cidade validada contra 5.571 municípios do IBGE (scripts/gerar-municipios.ts);
+  │    │                  siglas que são palavras (SE, AL, PA…) só com "/", "-" ou "("; "para" ≠ Pará
   │    ├─ id.ts/merge   → slug(uf-cidade-orgao-tag-ano); 2º certame do mesmo órgão no ano → "-edN" (separarPorEdital)
-  │    ├─ merge.ts      → preserva firstSeenAt, atualiza lastSeenAt, isNew (≤ 7 dias), poda encerrados
+  │    ├─ merge.ts      → firstSeenAt = data da notícia (ou da 1ª coleta); isNew = ≤ 7 dias; poda encerrados
   │    └─ grava public/data/concursos-sul.json se a lista mudou, se uma fonte caiu/voltou ou a cada 6 h (batimento)
   ├─ salva a memória no cache · verificar-radar.ts → issue "Radar: fonte X com problema" (3 falhas seguidas)
   ├─ git commit + push (github-actions[bot], com rebase e novas tentativas) — NÃO redeploya o site
@@ -145,7 +151,10 @@ GitHub Actions (cron 23 * * * * = de hora em hora, + workflow_dispatch)
 - Cada fonte roda isolada (try/catch por fonte, em paralelo). A saúde vai para `feed.sources[]` (com `essencial` para PCI e Concursos no Brasil). Listagem vazia conta como falha (HTML mudou). Se **todas** falharem, o script sai com código 1 e não toca no feed.
 - Nada some em silêncio: notícia que falhou, ficou sem orçamento ou gerou registro inválido aparece no log e no resumo.
 - O site serve `/data/concursos-sul.json` por proxy do GitHub (raw), com a cópia do build como reserva (`infra/web/Caddyfile`). Commits do robô não disparam deploy.
-- Links de edital protegidos por captcha (ex.: PCI) **não** são contornados: o `editalUrl` aponta para a página pública da notícia/banca. Bloqueios de IP (FUNDATEC responde 403 aos servidores do GitHub) também não: a fonte fica como "melhor esforço".
+- Links de edital protegidos por captcha (ex.: PCI) **não** são contornados: o `editalUrl` aponta para a página pública da notícia/banca (ou para o PDF público, quando a banca o expõe, como a Objetiva). Bloqueios também não: a fonte fica como "melhor esforço" (FUNDATEC responde 403 aos servidores do GitHub; a JC às vezes responde 403 a acessos repetidos). Um 401/403 encerra as tentativas na hora.
+- Fontes **essenciais** (alarme e aviso no app): PCI e Concursos no Brasil. As demais são complementares — um concurso só some do Radar se faltar em todas.
+- Fora do Radar por regra do próprio site (verificado em 25/11/2026): DOU/`in.gov.br` e DOM/SC (`diariomunicipal.sc.gov.br`) proíbem robôs no `robots.txt`; a API do Querido Diário (`api.queridodiario.org.br`) estava fora do ar (HTTP 503) — candidata a fonte quando voltar.
+- Prioridade na fusão de registros do mesmo concurso: manual > curadoria > Objetiva (página oficial) > PCI > Concursos no Brasil > JC > FUNDATEC > FEPESE > Diário Oficial; os outros só completam campos vazios, e os cargos são unidos.
 - Parsers são testados contra HTML real salvo em `scripts/__fixtures__/` (inclusive o caso Chapecó/SC 2026).
 
 ### Consumo no app

@@ -2,6 +2,7 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import type { Trilha } from '@/data/types';
 import type { ProvaAlvo } from '@/domain/types';
+import { isUF, type UF } from '@/shared/concursos/schema';
 import { editalValidoOuNulo, type EditalAlvo } from '@/shared/edital';
 import { todayKey, type DateKey } from '@/utils/dates';
 import { ORCAMENTO_MAX, ORCAMENTO_MIN } from '@/utils/scheduler';
@@ -21,6 +22,8 @@ export interface SettingsData {
   bancaAlvo: string;
   /** Composição da prova-alvo ("Meu Edital"); pesa as básicas no cronograma e projeta a nota. */
   editalAlvo: EditalAlvo | null;
+  /** "Meus estados" no Radar (vazio = todo o Brasil). */
+  ufsRadar: UF[];
 }
 
 interface SettingsState extends SettingsData {
@@ -34,6 +37,7 @@ interface SettingsState extends SettingsData {
   setBancaAlvo: (b: string) => void;
   /** Grava o edital-alvo (inválido vira null). */
   setEditalAlvo: (e: EditalAlvo | null) => void;
+  setUfsRadar: (ufs: UF[]) => void;
 }
 
 export const settingsPadrao = (): SettingsData => ({
@@ -46,7 +50,13 @@ export const settingsPadrao = (): SettingsData => ({
   tema: 'sistema',
   bancaAlvo: '',
   editalAlvo: null,
+  ufsRadar: [],
 });
+
+/** Mantém só UFs válidas, sem repetição, na ordem do esquema. */
+export function ufsValidas(lista: unknown): UF[] {
+  return Array.isArray(lista) ? [...new Set(lista.filter((u): u is UF => typeof u === 'string' && isUF(u)))] : [];
+}
 
 export const useSettingsStore = create<SettingsState>()(
   persist(
@@ -64,6 +74,7 @@ export const useSettingsStore = create<SettingsState>()(
       setTema: (tema) => set({ tema }),
       setBancaAlvo: (bancaAlvo) => set({ bancaAlvo }),
       setEditalAlvo: (e) => set({ editalAlvo: editalValidoOuNulo(e) }),
+      setUfsRadar: (ufs) => set({ ufsRadar: ufsValidas(ufs) }),
     }),
     {
       ...opcoesPersistencia<SettingsState>('settings'),
@@ -72,9 +83,9 @@ export const useSettingsStore = create<SettingsState>()(
       // Um edital salvo corrompido não pode quebrar a agenda: valida na reidratação.
       merge: (persistido, atual) => {
         const p = (persistido ?? {}) as Partial<SettingsData>;
-        return { ...atual, ...p, editalAlvo: editalValidoOuNulo(p.editalAlvo) };
+        return { ...atual, ...p, editalAlvo: editalValidoOuNulo(p.editalAlvo), ufsRadar: ufsValidas(p.ufsRadar) };
       },
-      partialize: ({ trilha, dataInicio, orcamentoMin, diasPlantao, provaAlvo, feedUrl, tema, bancaAlvo, editalAlvo }) => ({
+      partialize: ({ trilha, dataInicio, orcamentoMin, diasPlantao, provaAlvo, feedUrl, tema, bancaAlvo, editalAlvo, ufsRadar }) => ({
         trilha,
         dataInicio,
         orcamentoMin,
@@ -84,6 +95,7 @@ export const useSettingsStore = create<SettingsState>()(
         tema,
         bancaAlvo,
         editalAlvo,
+        ufsRadar,
       }),
     },
   ),

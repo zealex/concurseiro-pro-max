@@ -9,7 +9,7 @@ on:
       max_details:
         description: 'Máximo de páginas de detalhe por site (host) nesta execução'
         required: false
-        default: '150'
+        default: '300'
 
 permissions:
   contents: write
@@ -26,7 +26,7 @@ env:
 jobs:
   coletar:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -50,7 +50,7 @@ jobs:
           restore-keys: radar-estado-
 
       - name: Coletar concursos médicos
-        run: npx tsx scripts/scrape-concursos-sul.ts --max-details=${{ github.event.inputs.max_details || '150' }}
+        run: npx tsx scripts/scrape-concursos.ts --max-details=${{ github.event.inputs.max_details || '300' }}
 
       - name: Salvar memória do robô
         if: always()

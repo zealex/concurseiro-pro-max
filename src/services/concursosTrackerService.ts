@@ -1,15 +1,15 @@
 import Constants from 'expo-constants';
 import { Platform } from 'react-native';
-import embarcado from '../../public/data/concursos-sul.json';
+import { FEED_EMBARCADO } from './feedEmbarcado';
 import { parseFeedTolerante, type Feed } from '@/shared/concursos/schema';
 import { useRadarStore } from '@/store/useRadarStore';
 import { useSettingsStore } from '@/store/useSettingsStore';
 
 /**
- * Serviço do Radar Sul.
+ * Serviço do Radar (concursos médicos de todo o Brasil).
  * Ordem de tentativa: URL do usuário → EXPO_PUBLIC_CONCURSOS_FEED_URL / app.json → /data/concursos-sul.json (web, mesma origem)
  * → cópia no GitHub (raw). No site, /data/concursos-sul.json já é um proxy do GitHub (infra/web/Caddyfile).
- * Falhou tudo → mantém o último feed em cache (AsyncStorage). Sem cache → JSON embarcado no app.
+ * Falhou tudo → mantém o último feed em cache (AsyncStorage). Sem cache → JSON embarcado no app nativo (na web, só o feed remoto/cache do service worker).
  * Status pessoais (overlay) e concursos manuais nunca são tocados pela sincronização.
  */
 
@@ -57,7 +57,7 @@ async function baixar(url: string): Promise<Feed> {
 }
 
 export function feedEmbarcado(): Feed | null {
-  return parseFeedTolerante(embarcado)?.feed ?? null;
+  return parseFeedTolerante(FEED_EMBARCADO)?.feed ?? null;
 }
 
 export interface ResultadoSync {

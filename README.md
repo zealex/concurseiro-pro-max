@@ -1,6 +1,6 @@
 # Concurseiro Pro Max 🩺
 
-Preparação intensiva de **90 dias** para o **médico generalista / recém-formado** (graduação + CRM, sem residência) que vai prestar os concursos que não exigem especialidade — **Perito Médico Federal (INSS)** e peritos de regimes próprios, **Perito Médico-Legista** (Polícia Científica/IGP) e **Clínico Geral / ESF / Plantonista** — com Medicina Legal, perícia, previdência e saúde do trabalhador como eixos centrais. App universal (iOS, Android e navegador/PWA) no estilo Notion, com um **robô gratuito** que rastreia concursos médicos em PR, SC e RS de hora em hora, destacando as vagas abertas ao generalista (as de especialidade continuam no Radar).
+Preparação intensiva de **90 dias** para o **médico generalista / recém-formado** (graduação + CRM, sem residência) que vai prestar os concursos que não exigem especialidade — **Perito Médico Federal (INSS)** e peritos de regimes próprios, **Perito Médico-Legista** (Polícia Científica/IGP) e **Clínico Geral / ESF / Plantonista** — com Medicina Legal, perícia, previdência e saúde do trabalhador como eixos centrais. App universal (iOS, Android e navegador/PWA) no estilo Notion, com um **robô gratuito** que rastreia concursos médicos em todo o Brasil de hora em hora, destacando as vagas abertas ao generalista (as de especialidade continuam no Radar).
 
 Além da parte médica, o app cobre os **Conhecimentos Básicos e Gerais** que decidem (e eliminam) nos concursos: Língua Portuguesa, Matemática, Raciocínio Lógico, Informática, Inglês, Direito Constitucional, Administrativo e Penal, regime do servidor, Ética/LAI/LGPD, legislação geral, regionais do Sul, atualidades e redação. Cada disciplina tem resumos, questões autorais comentadas no estilo das bancas e flashcards — **1.031 questões, 1.050 flashcards e 118 resumos** em 15 disciplinas, todos revisados por um segundo autor contra o texto oficial vigente; o **Meu Edital** pesa o plano pela prova real (em prefeituras, as básicas chegam a 60–75% dos pontos) e o **Simulado** reproduz o formato do edital, com a penalidade do Certo/Errado e os mínimos de cada disciplina.
 
@@ -15,7 +15,7 @@ Além da parte médica, o app cobre os **Conhecimentos Básicos e Gerais** que d
 | Contas e sincronização com a nuvem (API Hono + Better Auth + Postgres) | [server/](server/) · cliente: [src/sync/](src/sync/), [src/services/auth/](src/services/auth/) |
 | Infraestrutura (Railway, domínio, e-mail, Google) | [docs/infra/railway.md](docs/infra/railway.md) · [.railway/railway.ts](.railway/railway.ts) |
 | Roteiro de publicação nas lojas (Google Play e App Store) | [docs/publicacao-lojas.md](docs/publicacao-lojas.md) |
-| Robô do Radar Sul + base de concursos | [scripts/scrape-concursos-sul.ts](scripts/scrape-concursos-sul.ts) · [public/data/concursos-sul.json](public/data/concursos-sul.json) |
+| Robô do Radar + base de concursos | [scripts/scrape-concursos.ts](scripts/scrape-concursos.ts) · [public/data/concursos-sul.json](public/data/concursos-sul.json) |
 | Automação (de hora em hora) e publicação web | [.github/workflows/](.github/workflows/) |
 | Arquitetura e decisões | [ARCHITECTURE.md](ARCHITECTURE.md) |
 
@@ -54,9 +54,9 @@ npm run preview:web   # serve a pasta dist/ em http://localhost:4173
 
 Depois de instalado, o app abre em janela própria e funciona sem internet (o Radar usa a última cópia salva).
 
-## 3. Ativar o robô automático do Radar Sul (grátis, via GitHub)
+## 3. Ativar o robô automático do Radar (grátis, via GitHub)
 
-O robô (`scripts/scrape-concursos-sul.ts`) varre PCI Concursos (Sul + Nacional com lotação no Sul), Concursos no Brasil (PR/SC/RS), FUNDATEC e FEPESE; filtra vagas que exigem Medicina; classifica em `pericia-medica`, `medico-legista`, `medicina-do-trabalho` ou `medicina-geral-especialidades` (clínico/ESF × especialidades) e marca se a vaga **aceita o generalista** ou **exige especialidade**; deduplica; e grava `public/data/concursos-sul.json`.
+O robô (`scripts/scrape-concursos.ts`) varre PCI Concursos (as 5 regiões + Nacional, com a lotação citada na notícia), Concursos no Brasil (27 UFs), JC Concursos (inscrições abertas no Brasil), Instituto Objetiva (página oficial com a tabela de vagas), os Diários Oficiais dos Municípios da plataforma SIGPub (~18 estados, onde o edital sai primeiro), FUNDATEC e FEPESE; abre toda notícia nova ou alterada (sem pré-filtro pelo título, com memória entre execuções); filtra vagas que exigem Medicina; classifica em `pericia-medica`, `medico-legista`, `medicina-do-trabalho` ou `medicina-geral-especialidades` (clínico/ESF × especialidades) e marca se a vaga **aceita o generalista** ou **exige especialidade**; deduplica; e grava `public/data/concursos-sul.json`.
 
 ### 3.1 Subir o projeto
 
@@ -76,7 +76,7 @@ git push -u origin main
 
 1. No repositório: **Settings → Actions → General → Workflow permissions → "Read and write permissions"** → Save (o robô precisa fazer commit do JSON).
 2. Aba **Actions** → se aparecer um aviso, clique em **"I understand my workflows, go ahead and enable them"**.
-3. Abra **"Atualizar Radar de Concursos Médicos (Sul)"** → **Run workflow** para a primeira execução.
+3. Abra **"Atualizar Radar de Concursos Médicos"** → **Run workflow** para a primeira execução. Na primeira varredura do Brasil todo, o robô abre até 300 notícias por site a cada hora; a cobertura completa leva algumas execuções.
 4. Pronto: ele roda sozinho **de hora em hora** (minuto 23) e só faz commit quando há mudança (ou a cada 6 h, como batimento). Fonte principal com 3 falhas seguidas abre uma issue no repositório.
 
 > Em repositórios públicos o GitHub pausa agendamentos após 60 dias sem atividade no repositório. Os próprios commits do robô contam como atividade; se ele for pausado mesmo assim, basta reativar na aba Actions.
@@ -89,7 +89,7 @@ O GitHub Pages não é mais usado; a versão antiga do app (sem contas) está gu
 
 ### 3.4 Apontar o app para o seu feed
 
-No app: **Configurações → Radar Sul — feed remoto** → cole:
+No app: **Configurações → Radar — feed remoto** → cole:
 
 ```
 https://raw.githubusercontent.com/SEU-USUARIO/concurseiro-pro-max/main/public/data/concursos-sul.json
@@ -104,7 +104,7 @@ Ordem de leitura do app: URL configurada → `EXPO_PUBLIC_CONCURSOS_FEED_URL` �
 ```bash
 npm run scrape:dry    # coleta e mostra o resumo, sem gravar
 npm run scrape        # coleta e grava public/data/concursos-sul.json
-npx tsx scripts/scrape-concursos-sul.ts --sources=pci,cnb --max-details=40
+npx tsx scripts/scrape-concursos.ts --sources=pci,cnb --max-details=40
 ```
 
 Boas práticas embutidas: respeita `robots.txt`, espera 1,5 s entre requisições ao mesmo site, usa User-Agent identificável e **não contorna captchas** (quando o PDF do edital está protegido, o link aponta para a página pública da notícia).
@@ -144,7 +144,7 @@ O identificador `br.com.concurseiropromax.app` (`app.json`: `ios.bundleIdentifie
 | `npm test` | Testes (revisão espaçada, agenda, métricas, edital/nota projetada, simulado, treino, flashcards, bancos de conteúdo, migrações, classificador, deduplicação, parsers com HTML real, leitor de editais, backup) |
 | `npm run typecheck` | TypeScript estrito (`tsc --noEmit`) |
 | `npm run build:web` | Build web + PWA em `dist/` |
-| `npm run scrape` / `npm run scrape:dry` | Robô do Radar Sul |
+| `npm run scrape` / `npm run scrape:dry` | Robô do Radar |
 | `npm run docs:plano` | Regera o detalhamento semanal de `docs/plano-estudos-90-dias.md` a partir de `src/data/plano12Semanas.ts` |
 | `npm run conteudo:validar` | Valida os bancos de conteúdo (gabaritos equilibrados, `verificar()` das contas, `fundamento` nas questões de lei, cobertura por tema); `-- --arquivo <banco>/index.ts` valida um banco ainda não registrado |
 | `npm run edital -- <url\|pdf> [--grep re] [--secao "CONTEÚDO PROGRAMÁTICO"] [--quadro] [--paginas a-b] [--imagens a-b]` | Lê o PDF de um edital (pdftotext/Poppler, com `unpdf` como alternativa) e extrai seções, quadro de provas e páginas como imagem |
@@ -153,10 +153,10 @@ O identificador `br.com.concurseiropromax.app` (`app.json`: `ios.bundleIdentifie
 
 ## 7. Como o app funciona (resumo)
 
-- **Dashboard de Prontidão:** contagem regressiva (90 dias ou a prova escolhida no Radar), questões, % de acerto global e nos cinco eixos (Perícia, Medicina Legal, Clínica, SUS/Ética, Conhecimentos Básicos), atalho para o Meu Edital, horas líquidas da semana, ofensiva, os 3 temas abaixo de 70% e os últimos editais do Sul **abertos ao generalista**.
+- **Dashboard de Prontidão:** contagem regressiva (90 dias ou a prova escolhida no Radar), questões, % de acerto global e nos cinco eixos (Perícia, Medicina Legal, Clínica, SUS/Ética, Conhecimentos Básicos), atalho para o Meu Edital, horas líquidas da semana, ofensiva, os 3 temas abaixo de 70% e os últimos editais **abertos ao generalista** nos seus estados (ou no Brasil todo).
 - **Cronograma:** checklist diário gerado do plano de 12 semanas para a trilha escolhida, com **básicas todos os dias** (núcleo, complemento e reforço conforme o edital-alvo) e orçamento diário de **3 h a 6 h**; botão **Modo Plantão** (45–60 min); blocos não feitos são **redistribuídos** nos próximos dias (até +1 h/dia); se a prova-alvo estiver perto, o plano é **comprimido** automaticamente; tarefa **Flashcards do dia** quando há cartões vencidos.
 - **Meu Edital:** escolha um dos editais de referência (ou monte o seu) com questões, pesos, mínimos e fases. O app mostra o peso das básicas, a divisão de tempo, a **nota projetada** com o seu desempenho e o **risco de eliminação** por disciplina, e ajusta o cronograma.
-- **Radar Sul:** abre em **"Para generalista"** (perícia, legista, clínico/ESF) com um toque para **Todos** ou **Especialidades**; tabela (desktop) ou lista (celular) e **Kanban** (*Novo/Radar → Analisando → Inscrito → Prova Agendada → Finalizado*), filtros por estado, cidade/órgão, categoria (Clínico/ESF, Perícia Médica, Médico Legista, Medicina do Trabalho, Especialidades), banca e status, selo **NOVO** (7 dias), **Definir como Prova-Alvo** (com desfazer) e cadastro manual.
+- **Radar (Brasil todo):** abre nos seus estados (Configurações → Radar — meus estados; sem escolha, o Brasil todo) e em **"Para generalista"** (perícia, legista, clínico/ESF) com um toque para **Todos** ou **Especialidades**; tabela (desktop) ou lista (celular) e **Kanban** (*Novo/Radar → Analisando → Inscrito → Prova Agendada → Finalizado*), filtros por região, estado, cidade/órgão, categoria (Clínico/ESF, Perícia Médica, Médico Legista, Medicina do Trabalho, Especialidades), banca e status, selo **NOVO** (publicado nos últimos 7 dias), aviso quando o robô para ou uma fonte cai, **Definir como Prova-Alvo** (com desfazer) e cadastro manual.
 - **Questões:** **Treino** com questões autorais comentadas (modo estudo com correção na hora ou modo prova com cronômetro), **Flashcards** com caixas de Leitner (1/3/7/15/30 dias), **Simulado** no formato do edital (tempo proporcional, Certo/Errado com −0,5, resultado por prova com mínimos), registro rápido de baterias feitas em outros bancos, desempenho por disciplina e banca, **revisões D1/D7/D15/D30** e **Caderno de Erros**.
 - **Biblioteca:** **Conhecimentos Básicos** (página por disciplina com resumos por tema, treino e flashcards), **Guias das fases** (estratégia de prova, recursos, discursiva/laudo, títulos, TAF, psicológica, investigação social, posse), **Editais de referência**, **Concursos para o generalista** (requisitos, prova e trilha de cada carreira), cursinhos, bibliografia, bancas, fontes oficiais, filtros de bancos de questões, **checklists interativos** (Lei 8.213 — benefícios e acidente; Lei 8.742 — BPC; Lei 8.112 — saúde do servidor; Decreto 3.048; CLT 154–201; NRs 01, 04, 05, 06, 07, 09, 15, 16, 17, 32; CPP 158–184; CP 121–129; SUS) e **cheat sheets** (perícia previdenciária, nexo/NTEP/CAT, urgências do plantão, cronotanatognose, PAF, asfixias, indicadores biológicos, lesão corporal, prazos de NRs).
 - **Timer de Foco:** Pomodoro por timestamp (não perde tempo ao trocar de aba) vinculado à disciplina.

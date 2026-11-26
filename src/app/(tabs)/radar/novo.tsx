@@ -111,9 +111,8 @@ export default function NovoConcurso() {
   return (
     <Screen emoji="➕" titulo="Cadastrar edital" descricao="Adicione um concurso ou processo seletivo médico que você encontrou (diário oficial, site da prefeitura, indicação).">
       <Callout emoji="🔒">Cadastros manuais ficam só no seu dispositivo e nunca são sobrescritos pelas atualizações do robô.</Callout>
-      <Muted className="mb-1">Estado</Muted>
       <View className="mb-3">
-        <Segmented valor={uf} onChange={setUf} opcoes={UFS.map((u) => ({ valor: u, rotulo: `${u} · ${UF_NOME[u]}` }))} />
+        <Seletor rotulo="Estado" valor={uf} onChange={(v) => setUf(v as UF)} opcoes={UFS.map((u) => ({ valor: u, rotulo: `${u} · ${UF_NOME[u]}` }))} />
       </View>
       <Row className="flex-wrap gap-x-3">
         <Campo className="min-w-[220px] flex-1" rotulo="Cidade" value={cidade} onChangeText={setCidade} placeholder="Ex.: Chapecó" erro={erros.cidade} />

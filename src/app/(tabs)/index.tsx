@@ -32,13 +32,14 @@ export default function Dashboard() {
   const edital = useSettingsStore((s) => s.editalAlvo);
   const projecao = useProjecaoEdital();
   const concursos = useConcursos();
+  const meusEstados = useSettingsStore((s) => s.ufsRadar);
   const ultimos = useMemo(
     () =>
       [...concursos]
-        .filter((c) => !c.manual && !c.arquivado && c.acesso === 'generalista')
+        .filter((c) => !c.manual && !c.arquivado && c.acesso === 'generalista' && (!meusEstados.length || meusEstados.includes(c.uf)))
         .sort((a, b) => b.firstSeenAt.localeCompare(a.firstSeenAt))
         .slice(0, 5),
-    [concursos],
+    [concursos, meusEstados],
   );
   const progressoDia = agenda.minutosPlanejados ? agenda.minutosConcluidos / agenda.minutosPlanejados : 0;
   const pendentesHoje = agenda.tarefas.filter((t) => !t.concluida);
@@ -63,7 +64,7 @@ export default function Dashboard() {
               </Text>
               {contagem.dias < 0 ? <Text className="mt-1 text-[13px] text-[#FFA344]">A data já passou — defina uma nova prova-alvo.</Text> : null}
               {!contagem.vinculadoAConcurso ? (
-                <Text className="mt-2 text-[12px] text-[#9B9A97]">Toque para vincular uma prova do Radar Sul ou ajustar a data.</Text>
+                <Text className="mt-2 text-[12px] text-[#9B9A97]">Toque para vincular uma prova do Radar ou ajustar a data.</Text>
               ) : null}
             </View>
           </Pressable>
@@ -201,7 +202,7 @@ export default function Dashboard() {
           </Section>
 
           <Section
-            titulo="📡 Últimos editais para generalista no Sul"
+            titulo={`📡 Últimos editais para generalista ${meusEstados.length ? `em ${meusEstados.join(', ')}` : 'no Brasil'}`}
             acao={<Button pequeno variante="fantasma" titulo="Radar" icone={RadarIcon} onPress={() => router.push('/radar')} />}
           >
             <Card className="p-0">

@@ -9,10 +9,15 @@ const DIA_MS = 86_400_000;
 const PRIORIDADE_FONTE: Record<Fonte, number> = {
   manual: 0,
   curadoria: 1,
-  pci: 2,
-  'concursos-no-brasil': 3,
-  fundatec: 4,
-  fepese: 5,
+  // Página oficial da banca: tabela de vagas completa, datas e PDF do edital.
+  objetiva: 2,
+  pci: 3,
+  'concursos-no-brasil': 4,
+  'jc-concursos': 5,
+  fundatec: 6,
+  fepese: 7,
+  // Diário oficial: chega primeiro, mas o texto é o mais difícil de ler; os agregadores completam.
+  'diario-oficial': 8,
 };
 
 export function isNovo(firstSeenAt: string, agora: Date, dias = DIAS_NOVO): boolean {
@@ -53,11 +58,18 @@ export function unirCargos(a: Cargo[], b: Cargo[]): Cargo[] {
   // "Médico Endocrinologista" × "Médico Endocrinologista Pediátrico" (edital de Chapecó/SC 2026).
   const chaves = base.map((c) => chaveCargo(c.nome));
   const nucleos = chaves.map(nucleoCargo);
+  // "Médico Plantonista (Pneumologista)": a especialidade entre parênteses já cobre "Médico Pneumologista".
+  const parenteses = base.map((c) => chaveCargo(c.nome.match(/\(([^)]+)\)/)?.[1] ?? ''));
   return base.filter((_, i) => {
     const ch = chaves[i] ?? '';
     const nu = nucleos[i] ?? '';
     return !chaves.some((outra, j) => {
       if (j === i) return false;
+      if (parenteses[j] && !parenteses[i]) {
+        // "Médico Pneumologista" × "Médico Plantonista (Pneumologista)" e "Médico Plantonista" (genérico, da ficha
+        // de inscrição) × "Médico Plantonista (Pneumologista)": fica o nome com a especialidade.
+        if (parenteses[j] === nu || outra === `${ch} ${parenteses[j]}`) return true;
+      }
       const nuOutra = nucleos[j] ?? '';
       if (nu === nuOutra) {
         const [a, b] = [ch.split(' ').length, outra.split(' ').length];
@@ -234,7 +246,8 @@ export function mesclarFeed(existentes: Concurso[], coletados: Concurso[], agora
   for (const novo of deduplicar(coletados)) {
     const antigo = mapa.get(novo.id);
     if (!antigo) {
-      mapa.set(novo.id, { ...novo, firstSeenAt: iso, lastSeenAt: iso });
+      // firstSeenAt do coletado pode ser a data da notícia (anterior à coleta); nunca depois de agora.
+      mapa.set(novo.id, { ...novo, firstSeenAt: menorData(novo.firstSeenAt, iso), lastSeenAt: iso });
     } else {
       const fundido = fundirRegistros({ ...novo, firstSeenAt: antigo.firstSeenAt, lastSeenAt: iso }, antigo);
       mapa.set(novo.id, { ...fundido, firstSeenAt: antigo.firstSeenAt, lastSeenAt: iso });

@@ -1,21 +1,29 @@
 /**
  * PCI Concursos — https://www.pciconcursos.com.br
- * Listagens usadas: /concursos/sul/ (PR, SC, RS) e /concursos/nacional/ (filtrado por lotação no Sul).
+ * Listagens usadas: /concursos/{sul,sudeste,centrooeste,nordeste,norte}/ (UF na coluna .cc) e /concursos/nacional/
+ * (órgãos nacionais: a UF vem da lotação citada na notícia). O PCI não tem listagem por estado.
  * Itens da listagem: <div class="na|da|ea" data-url> com .ca (órgão/link), .cc (UF), .cd (vagas/cargos), .ce (datas).
  * Os links de edital (PDF) ficam atrás de captcha e NÃO são contornados: usamos a página da notícia.
  */
 import * as cheerio from 'cheerio';
 import { parseReais, parseVagas } from '../../../src/shared/concursos/normalize';
-import type { UF } from '../../../src/shared/concursos/schema';
+import { UFS, type UF } from '../../../src/shared/concursos/schema';
 import { periodoListagem } from '../extract';
 import type { Detalhe, ItemListagem } from './types';
 
 export const PCI_LISTAGENS = {
   sul: 'https://www.pciconcursos.com.br/concursos/sul/',
+  sudeste: 'https://www.pciconcursos.com.br/concursos/sudeste/',
+  centrooeste: 'https://www.pciconcursos.com.br/concursos/centrooeste/',
+  nordeste: 'https://www.pciconcursos.com.br/concursos/nordeste/',
+  norte: 'https://www.pciconcursos.com.br/concursos/norte/',
   nacional: 'https://www.pciconcursos.com.br/concursos/nacional/',
 } as const;
 
-const UF_VALIDAS = new Set(['PR', 'SC', 'RS']);
+/** Listagens regionais (a nacional é tratada à parte). */
+export const PCI_REGIOES = ['sul', 'sudeste', 'centrooeste', 'nordeste', 'norte'] as const;
+
+const UF_VALIDAS = new Set<string>(UFS);
 
 export function parseListagemPci(html: string, referencia: Date): ItemListagem[] {
   const $ = cheerio.load(html);

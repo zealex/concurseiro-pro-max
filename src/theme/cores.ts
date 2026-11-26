@@ -1,5 +1,6 @@
 import { useColorScheme } from 'nativewind';
 import type { Eixo } from '@/data/types';
+import { regiaoDe, UFS, type Regiao, type UF } from '@/shared/concursos/schema';
 
 /** Cores para ícones e componentes que não aceitam className (lucide, ActivityIndicator, navegação). */
 export interface Cores {
@@ -71,7 +72,11 @@ export const COR_EIXO = { clinica: 'green', pericia: 'blue', legal: 'purple', tr
   Eixo,
   CorTag
 >;
-export const COR_UF = { PR: 'yellow', SC: 'blue', RS: 'red' } as const satisfies Record<string, CorTag>;
+/** Cor do selo de UF: o Sul mantém as cores de sempre; os demais estados, a cor da região. */
+export const COR_REGIAO = { sul: 'blue', sudeste: 'purple', 'centro-oeste': 'orange', nordeste: 'green', norte: 'brown' } as const satisfies Record<Regiao, CorTag>;
+export const COR_UF = Object.fromEntries(
+  UFS.map((uf) => [uf, uf === 'PR' ? 'yellow' : uf === 'RS' ? 'red' : COR_REGIAO[regiaoDe(uf)]]),
+) as Record<UF, CorTag>;
 export const COR_STATUS = {
   radar: 'gray',
   analisando: 'yellow',

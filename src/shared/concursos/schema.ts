@@ -1,13 +1,43 @@
 import { z } from 'zod';
 
 /**
- * Esquema único de concursos do Radar Sul — usado pelo robô (scripts/) e pelo app (src/).
+ * Esquema único de concursos do Radar (Medicina, todo o Brasil) — usado pelo robô (scripts/) e pelo app (src/).
  * Datas de calendário: "YYYY-MM-DD". Instantes: ISO 8601 completo.
  */
 
-export const UFS = ['PR', 'SC', 'RS'] as const;
+/** As 27 UFs, agrupadas por região (Sul primeiro: é onde o Radar nasceu). */
+export const UFS = [
+  'PR', 'SC', 'RS',
+  'SP', 'RJ', 'MG', 'ES',
+  'DF', 'GO', 'MT', 'MS',
+  'BA', 'SE', 'AL', 'PE', 'PB', 'RN', 'CE', 'PI', 'MA',
+  'AM', 'PA', 'AC', 'RO', 'RR', 'AP', 'TO',
+] as const;
 export type UF = (typeof UFS)[number];
-export const UF_NOME: Record<UF, string> = { PR: 'Paraná', SC: 'Santa Catarina', RS: 'Rio Grande do Sul' };
+export const UF_NOME: Record<UF, string> = {
+  PR: 'Paraná', SC: 'Santa Catarina', RS: 'Rio Grande do Sul',
+  SP: 'São Paulo', RJ: 'Rio de Janeiro', MG: 'Minas Gerais', ES: 'Espírito Santo',
+  DF: 'Distrito Federal', GO: 'Goiás', MT: 'Mato Grosso', MS: 'Mato Grosso do Sul',
+  BA: 'Bahia', SE: 'Sergipe', AL: 'Alagoas', PE: 'Pernambuco', PB: 'Paraíba', RN: 'Rio Grande do Norte', CE: 'Ceará', PI: 'Piauí', MA: 'Maranhão',
+  AM: 'Amazonas', PA: 'Pará', AC: 'Acre', RO: 'Rondônia', RR: 'Roraima', AP: 'Amapá', TO: 'Tocantins',
+};
+
+export const REGIOES = ['sul', 'sudeste', 'centro-oeste', 'nordeste', 'norte'] as const;
+export type Regiao = (typeof REGIOES)[number];
+export const REGIAO_NOME: Record<Regiao, string> = { sul: 'Sul', sudeste: 'Sudeste', 'centro-oeste': 'Centro-Oeste', nordeste: 'Nordeste', norte: 'Norte' };
+export const UFS_DA_REGIAO: Record<Regiao, readonly UF[]> = {
+  sul: ['PR', 'SC', 'RS'],
+  sudeste: ['SP', 'RJ', 'MG', 'ES'],
+  'centro-oeste': ['DF', 'GO', 'MT', 'MS'],
+  nordeste: ['BA', 'SE', 'AL', 'PE', 'PB', 'RN', 'CE', 'PI', 'MA'],
+  norte: ['AM', 'PA', 'AC', 'RO', 'RR', 'AP', 'TO'],
+};
+export function regiaoDe(uf: UF): Regiao {
+  return REGIOES.find((r) => UFS_DA_REGIAO[r].includes(uf)) ?? 'sul';
+}
+export function isUF(valor: string): valor is UF {
+  return (UFS as readonly string[]).includes(valor);
+}
 
 /**
  * Tag do grupo de cargo. Faz parte do id do registro (ver id.ts), então novos valores só são acrescentados.
@@ -47,13 +77,16 @@ export const ACESSO_LABEL: Record<Acesso, string> = {
   especialista: 'Exige especialidade',
 };
 
-export const FONTES = ['pci', 'concursos-no-brasil', 'fundatec', 'fepese', 'curadoria', 'manual'] as const;
+export const FONTES = ['pci', 'concursos-no-brasil', 'fundatec', 'fepese', 'curadoria', 'manual', 'objetiva', 'jc-concursos', 'diario-oficial'] as const;
 export type Fonte = (typeof FONTES)[number];
 export const FONTE_LABEL: Record<Fonte, string> = {
   pci: 'PCI Concursos',
   'concursos-no-brasil': 'Concursos no Brasil',
   fundatec: 'FUNDATEC',
   fepese: 'FEPESE',
+  objetiva: 'Instituto Objetiva',
+  'jc-concursos': 'JC Concursos',
+  'diario-oficial': 'Diário Oficial',
   curadoria: 'Curadoria (verificado manualmente)',
   manual: 'Cadastro manual',
 };
@@ -123,7 +156,7 @@ export type SourceStatus = z.infer<typeof SourceStatusSchema>;
 export const FeedSchema = z.object({
   version: z.literal(1),
   generatedAt: z.string(),
-  escopo: z.string().default('Concursos e processos seletivos médicos em PR, SC e RS'),
+  escopo: z.string().default('Concursos e processos seletivos médicos em todo o Brasil'),
   sources: z.array(SourceStatusSchema).default([]),
   concursos: z.array(ConcursoSchema),
 });
@@ -170,7 +203,7 @@ export function parseFeedTolerante(raw: unknown): { feed: Feed; descartados: num
     feed: {
       version: 1,
       generatedAt: base.data.generatedAt,
-      escopo: typeof escopo === 'string' ? escopo : 'Concursos e processos seletivos médicos em PR, SC e RS',
+      escopo: typeof escopo === 'string' ? escopo : 'Concursos e processos seletivos médicos em todo o Brasil',
       sources: sources.success ? sources.data : [],
       concursos,
     },
