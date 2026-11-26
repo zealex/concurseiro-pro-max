@@ -59,7 +59,9 @@ export default function TabsLayout() {
               name={item.nome}
               options={{
                 title: item.rotulo,
-                href: item.aba ? undefined : null,
+                // Foco, Configurações e Meu Edital: rota normal, só sem botão na barra. Não usar `href: null`:
+                // no expo-router 58 isso esconde a aba E redireciona para o Início quem tenta abri-la.
+                tabBarItemStyle: item.aba ? undefined : { display: 'none' },
                 tabBarIcon: ({ color, size }) => <Icone color={color} size={size - 2} strokeWidth={2} />,
                 tabBarBadge: badge,
                 tabBarBadgeStyle: { backgroundColor: item.rota === '/radar' ? '#EF4444' : cores.accent, fontSize: 10 },
