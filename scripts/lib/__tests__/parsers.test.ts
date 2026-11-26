@@ -3,7 +3,7 @@ import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { criarGeo, type MunicipiosPorUF } from '../../../src/shared/concursos/geo';
 import { ConcursoSchema } from '../../../src/shared/concursos/schema';
-import { construirConcursos, construirDeBanca, tituloDeDocencia } from '../build';
+import { construirConcursos, construirDeBanca, enriquecerComBancas, tituloDeDocencia } from '../build';
 import {
   anoDoEdital,
   datasNoTexto,
@@ -20,7 +20,7 @@ import { parseFepese, parseFundatec } from '../sources/bancas';
 import { parseDetalheCnb, parseListagemCnb } from '../sources/concursosNoBrasil';
 import { atoDeAbertura, ofereceVagaMedica, parseBuscaDiario, parseMateriaDiario, tituloPodeSerAbertura } from '../sources/diarios';
 import { orgaoJc, parseDetalheJc, parseListagemJc, ufDoItemJc, ufsDoCampoJc } from '../sources/jc';
-import { orgaoObjetiva, parseDetalheObjetiva, parseListagemObjetiva, partesTituloObjetiva } from '../sources/objetiva';
+import { itensBancaObjetiva, orgaoObjetiva, parseDetalheObjetiva, parseListagemObjetiva, partesTituloObjetiva } from '../sources/objetiva';
 import { parseDetalhePci, parseListagemPci } from '../sources/pci';
 
 const FIX = resolve(__dirname, '../../__fixtures__');
@@ -252,6 +252,26 @@ describe('Instituto Objetiva (fixtures reais, 25/11/2026)', () => {
     expect(geral.edital).toBe('3/2026');
     expect(geral.editalUrl).toBe(det.editalUrl);
     expect(geral.firstSeenAt).toBe('2026-11-25T15:00:00.000Z');
+  });
+
+  it('sem a página do concurso (403), a listagem vira link oficial no registro do PCI', () => {
+    const det = parseDetalhePci(html('pci-detalhe-chapeco.html'));
+    const item = {
+      fonte: 'pci' as const,
+      url: 'https://www.pciconcursos.com.br/noticias/municipio-de-chapeco-sc-abre-concurso-com-91-vagas-e-salarios-de-ate-25599',
+      orgao: 'Prefeitura de Chapecó',
+      titulo: 'Município de Chapecó - SC abre concurso com 91 vagas e salários de até R$ 25.599,11',
+      uf: 'SC' as const,
+      cargosTexto: '',
+      vagas: 91,
+      remuneracaoMax: 25599.11,
+      escolaridade: 'Superior',
+      inscricoes: { inicio: '2026-12-07', fim: '2027-01-07' },
+      incompleto: true,
+    };
+    const banca = itensBancaObjetiva(parseListagemObjetiva(html('objetiva-home.html'), 'https://www.objetivas.com.br/home', REF));
+    const [geral] = enriquecerComBancas(construirConcursos({ item, detalhe: det, geo, agora: REF }), banca, geo);
+    expect(geral?.relacionados.map((r) => r.url)).toContain('https://concursos.objetivas.com.br/informacoes/2650/');
   });
 
   it('partes do título', () => {

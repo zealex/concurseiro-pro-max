@@ -64,7 +64,7 @@ import {
   urlBuscaDiario,
 } from './lib/sources/diarios';
 import { JC_ABERTOS, orgaoJc, parseDetalheJc, parseListagemJc, ufsDoCampoJc } from './lib/sources/jc';
-import { OBJETIVA_LISTAGENS, orgaoObjetiva, parseDetalheObjetiva, parseListagemObjetiva, partesTituloObjetiva } from './lib/sources/objetiva';
+import { itensBancaObjetiva, OBJETIVA_LISTAGENS, orgaoObjetiva, parseDetalheObjetiva, parseListagemObjetiva, partesTituloObjetiva } from './lib/sources/objetiva';
 import { parseDetalhePci, parseListagemPci, PCI_LISTAGENS, PCI_REGIOES } from './lib/sources/pci';
 import type { Detalhe, ItemBanca, ItemListagem } from './lib/sources/types';
 
@@ -111,6 +111,8 @@ class Orcamentos {
 }
 
 interface Contexto {
+  /** Concursos listados por bancas: viram link oficial/prazo nos registros do mesmo órgão vindos de outras fontes. */
+  itensBanca: ItemBanca[];
   geo: ReturnType<typeof criarGeo>;
   agora: Date;
   estado: EstadoRadar;
@@ -421,6 +423,9 @@ async function coletarObjetiva(ctx: Contexto) {
     },
   });
   log(`Instituto Objetiva: ${resumoTexto(resumo)}`);
+  // A página do concurso às vezes recusa servidores de datacenter (403 no GitHub Actions). Mesmo sem ela, a
+  // listagem da banca vira link oficial + prazo nos registros do mesmo órgão/cidade vindos de PCI, CNB etc.
+  ctx.itensBanca.push(...itensBancaObjetiva(itens));
   return { concursos, itensTotal: itens.length };
 }
 
@@ -459,8 +464,8 @@ async function main(): Promise<void> {
     estado,
     orcamentos: new Orcamentos(opcoes.maxDetalhes),
     urlsVistas: new Set(),
+    itensBanca: [],
   };
-  const itensBanca: ItemBanca[] = [];
 
   const executar = async (
     nome: string,
@@ -488,14 +493,14 @@ async function main(): Promise<void> {
       executar('Concursos no Brasil', 'cnb', () => coletarCnb(ctx)),
       executar('FUNDATEC', 'fundatec', async () => {
         const itens = parseFundatec(await buscarTexto(FUNDATEC_URL), ctx.geo, agora);
-        itensBanca.push(...itens);
+        ctx.itensBanca.push(...itens);
         const proprios = itens.flatMap((i) => construirDeBanca(i, ctx.geo, agora));
         log(`FUNDATEC: ${itens.length} concursos abertos, ${proprios.length} com médicos no título`);
         return { concursos: proprios, itensTotal: itens.length };
       }),
       executar('FEPESE', 'fepese', async () => {
         const itens = parseFepese(await buscarTexto(FEPESE_URL), ctx.geo);
-        itensBanca.push(...itens);
+        ctx.itensBanca.push(...itens);
         const proprios = itens.flatMap((i) => construirDeBanca(i, ctx.geo, agora));
         log(`FEPESE: ${itens.length} destaques, ${proprios.length} com médicos no título`);
         return { concursos: proprios, itensTotal: itens.length };
@@ -527,7 +532,7 @@ async function main(): Promise<void> {
   const anterior = parseFeedTolerante(lerJson<unknown>(ARQUIVO_FEED, null));
   const existentes = anterior?.feed.concursos ?? [];
   const curadoria = lerCuradoria(agora);
-  const daRodada = enriquecerComBancas(deduplicar(separarPorEdital([...coletados, ...curadoria], existentes)), itensBanca, ctx.geo);
+  const daRodada = enriquecerComBancas(deduplicar(separarPorEdital([...coletados, ...curadoria], existentes)), ctx.itensBanca, ctx.geo);
 
   // Registros conhecidos cuja notícia continua nas listagens seguem "vistos", mesmo sem reabrir a página.
   const iso = agora.toISOString();

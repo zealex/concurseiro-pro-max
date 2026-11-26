@@ -11,7 +11,7 @@
 import * as cheerio from 'cheerio';
 import { isUF, type UF } from '../../../src/shared/concursos/schema';
 import { periodoListagem } from '../extract';
-import type { Detalhe, ItemListagem } from './types';
+import type { Detalhe, ItemBanca, ItemListagem } from './types';
 
 export const OBJETIVA_LISTAGENS = ['https://www.objetivas.com.br/home', 'https://concursos.objetivas.com.br/index/abertos/'] as const;
 
@@ -111,6 +111,22 @@ export function parseListagemObjetiva(html: string, base: string, referencia: Da
     });
   });
   return itens;
+}
+
+/**
+ * Itens da listagem como "concursos da banca": viram link oficial + prazo nos registros do mesmo órgão/cidade vindos
+ * de outras fontes. É o que sobra quando a página do concurso recusa o robô (403 a servidores de datacenter).
+ */
+export function itensBancaObjetiva(itens: ItemListagem[]): ItemBanca[] {
+  return itens.map((i) => ({
+    banca: 'Instituto Objetiva',
+    fonte: 'objetiva',
+    orgao: i.orgao,
+    descricao: i.titulo.replace(/^Instituto Objetiva:\s*/, ''),
+    uf: i.uf,
+    url: i.url,
+    inscricoesFim: i.inscricoes.fim,
+  }));
 }
 
 export function parseDetalheObjetiva(html: string): Detalhe {

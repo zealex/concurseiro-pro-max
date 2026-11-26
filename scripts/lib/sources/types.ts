@@ -34,7 +34,7 @@ export interface Detalhe {
 
 /** Concurso listado no site de uma banca (usado como registro próprio ou como link relacionado). */
 export interface ItemBanca {
-  banca: 'FUNDATEC' | 'FEPESE';
+  banca: 'FUNDATEC' | 'FEPESE' | 'Instituto Objetiva';
   fonte: Fonte;
   orgao: string;
   descricao: string;
