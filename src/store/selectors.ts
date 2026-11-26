@@ -133,8 +133,8 @@ export function useConcursos(): ConcursoView[] {
   const conhecidos = useRadarStore((s) => s.conhecidos);
   const hoje = useHoje();
   return useMemo(
-    // `hoje` entra na dependência para recalcular o selo NOVO na virada do dia.
-    () => mesclarComOverlay({ feed, manuais, overlay, conhecidos, agora: new Date(`${hoje}T12:00:00`) }),
+    // `hoje` entra na dependência para recalcular o selo NOVO e tirar os encerrados na virada do dia.
+    () => mesclarComOverlay({ feed, manuais, overlay, conhecidos, agora: new Date(`${hoje}T12:00:00`), hoje }),
     [feed, manuais, overlay, conhecidos, hoje],
   );
 }

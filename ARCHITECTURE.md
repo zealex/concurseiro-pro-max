@@ -171,6 +171,7 @@ sincronizarRadar()
 mergeWithOverlay(feed, overlay, manuais)
   - status pessoal (Novo/Radar, Analisando, Inscrito, Prova Agendada, Finalizado) e notas nunca são sobrescritos
   - concurso com status pessoal que sumiu do feed é mantido e marcado como arquivado
+  - inscrições encerradas (fim < hoje) sem status pessoal nem notas → sai do Radar (só exibição; o feed não muda)
   - concursos manuais (id "manual-…") convivem com os do feed
   - isNew recalculado no dispositivo (firstSeenAt ≥ hoje − 7 dias)
 ```

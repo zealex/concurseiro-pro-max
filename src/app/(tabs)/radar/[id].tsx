@@ -59,7 +59,7 @@ export default function DetalheConcurso() {
   if (!c) {
     return (
       <Screen emoji="📡" titulo="Concurso não encontrado">
-        <EmptyState titulo="Este concurso não está mais no Radar" texto="Ele pode ter sido removido da base por estar encerrado." acao={<Button titulo="Voltar ao Radar" onPress={() => router.replace('/radar')} />} />
+        <EmptyState titulo="Este concurso não está mais no Radar" texto="Ele saiu do Radar porque as inscrições terminaram ou porque foi removido da base por estar encerrado." acao={<Button titulo="Voltar ao Radar" onPress={() => router.replace('/radar')} />} />
       </Screen>
     );
   }

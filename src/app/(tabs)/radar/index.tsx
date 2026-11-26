@@ -65,7 +65,7 @@ export default function Radar() {
     <Screen
       emoji="📡"
       titulo="Radar de Concursos Médicos"
-      descricao="Concursos e processos seletivos médicos de todo o Brasil — em destaque os que o generalista (graduação + CRM) pode disputar: perícia, legista e clínico. O robô procura novos editais de hora em hora."
+      descricao="Concursos e processos seletivos médicos de todo o Brasil — em destaque os que o generalista (graduação + CRM) pode disputar: perícia, legista e clínico. O robô procura novos editais de hora em hora. Concursos com inscrições encerradas saem do Radar, salvo os que você está acompanhando."
       larga
       onRefresh={atualizar}
       atualizando={sincronizando}

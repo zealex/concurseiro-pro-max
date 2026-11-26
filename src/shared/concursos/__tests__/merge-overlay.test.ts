@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { deduplicar, deveSerPodado, idComEdital, isNovo, mesclarFeed, precisaReescrever, reclassificarCargos, separarPorEdital, unirCargos } from '../merge';
-import { mesclarComOverlay, atualizarConhecidos, type Overlay } from '../overlay';
+import { encerradoSemInteresse, mesclarComOverlay, atualizarConhecidos, type Overlay } from '../overlay';
 import { ConcursoSchema, parseFeedTolerante, type Concurso } from '../schema';
 
 function concurso(parcial: Partial<Concurso> & { id: string }): Concurso {
@@ -23,6 +23,7 @@ function concurso(parcial: Partial<Concurso> & { id: string }): Concurso {
 }
 
 const AGORA = new Date('2026-11-18T12:00:00.000Z');
+const HOJE = '2026-11-18';
 
 describe('isNovo', () => {
   it('7 dias', () => {
@@ -102,7 +103,7 @@ describe('overlay do usuário', () => {
   const conhecidos = { sumido: concurso({ id: 'sumido' }), semValor: concurso({ id: 'semValor' }) };
 
   it('status pessoal sobrevive à atualização do feed', () => {
-    const v = mesclarComOverlay({ feed, manuais: [], overlay, conhecidos, agora: AGORA });
+    const v = mesclarComOverlay({ feed, manuais: [], overlay, conhecidos, agora: AGORA, hoje: HOJE });
     const f1 = v.find((c) => c.id === 'f1');
     expect(f1?.status).toBe('inscrito');
     expect(f1?.notas).toBe('pagar boleto');
@@ -111,14 +112,14 @@ describe('overlay do usuário', () => {
   });
 
   it('mantém como arquivado o que saiu do feed mas tem status pessoal', () => {
-    const v = mesclarComOverlay({ feed, manuais: [], overlay, conhecidos, agora: AGORA });
+    const v = mesclarComOverlay({ feed, manuais: [], overlay, conhecidos, agora: AGORA, hoje: HOJE });
     expect(v.find((c) => c.id === 'sumido')?.arquivado).toBe(true);
     expect(v.find((c) => c.id === 'semValor')).toBeUndefined();
   });
 
   it('concursos manuais convivem com o feed e nunca são "novos"', () => {
     const manual = concurso({ id: 'manual-pr-x', fonte: 'manual', firstSeenAt: AGORA.toISOString() });
-    const v = mesclarComOverlay({ feed, manuais: [manual], overlay: {}, conhecidos: {}, agora: AGORA });
+    const v = mesclarComOverlay({ feed, manuais: [manual], overlay: {}, conhecidos: {}, agora: AGORA, hoje: HOJE });
     const m = v.find((c) => c.id === 'manual-pr-x');
     expect(m?.manual).toBe(true);
     expect(m?.isNew).toBe(false);
@@ -127,6 +128,36 @@ describe('overlay do usuário', () => {
   it('atualizarConhecidos guarda só concursos com overlay', () => {
     const r = atualizarConhecidos({}, feed, overlay);
     expect(Object.keys(r)).toEqual(['f1']);
+  });
+});
+
+describe('inscrições encerradas saem do Radar se o usuário não acompanha', () => {
+  const insc = (fim: string | null) => ({ inicio: null, fim });
+  const item = (status: Overlay[string]['status'], notas = '') => ({ status, notas, atualizadoEm: '2026-11-10T00:00:00.000Z' });
+
+  it('encerradoSemInteresse: regra', () => {
+    const ontem = concurso({ id: 'a', inscricoes: insc('2026-11-17') });
+    expect(encerradoSemInteresse(ontem, undefined, HOJE)).toBe(true);
+    expect(encerradoSemInteresse(ontem, item('radar'), HOJE)).toBe(true);
+    expect(encerradoSemInteresse(ontem, item('radar', '  '), HOJE)).toBe(true);
+    expect(encerradoSemInteresse(ontem, item('analisando'), HOJE)).toBe(false);
+    expect(encerradoSemInteresse(ontem, item('radar', 'ver edital'), HOJE)).toBe(false);
+    expect(encerradoSemInteresse(concurso({ id: 'b', inscricoes: insc(HOJE) }), undefined, HOJE)).toBe(false);
+    expect(encerradoSemInteresse(concurso({ id: 'c', inscricoes: insc(null) }), undefined, HOJE)).toBe(false);
+  });
+
+  it('mesclarComOverlay esconde só os encerrados sem interesse; manuais ficam', () => {
+    const feed = [
+      concurso({ id: 'encerrado', inscricoes: insc('2026-11-17') }),
+      concurso({ id: 'ultimoDia', inscricoes: insc(HOJE) }),
+      concurso({ id: 'semData' }),
+      concurso({ id: 'acompanhado', inscricoes: insc('2026-11-01') }),
+      concurso({ id: 'comNota', inscricoes: insc('2026-11-01') }),
+    ];
+    const manual = concurso({ id: 'manual-pr-y', fonte: 'manual', inscricoes: insc('2026-11-01') });
+    const overlay: Overlay = { acompanhado: item('inscrito'), comNota: item('radar', 'recurso') };
+    const v = mesclarComOverlay({ feed, manuais: [manual], overlay, conhecidos: {}, agora: AGORA, hoje: HOJE });
+    expect(v.map((c) => c.id).sort()).toEqual(['acompanhado', 'comNota', 'manual-pr-y', 'semData', 'ultimoDia']);
   });
 });
 

@@ -31,8 +31,20 @@ export interface ConcursoView extends Concurso {
 }
 
 /**
+ * As inscrições já terminaram (fim antes de hoje) e o usuário não marcou interesse
+ * (status "radar" e sem notas) → o concurso sai do Radar. O último dia de inscrição ainda aparece;
+ * sem data de fim conhecida, o concurso fica.
+ */
+export function encerradoSemInteresse(c: Concurso, o: OverlayItem | undefined, hoje: string): boolean {
+  if (!c.inscricoes.fim || c.inscricoes.fim >= hoje) return false;
+  return (o?.status ?? 'radar') === 'radar' && !o?.notas.trim();
+}
+
+/**
  * Junta feed remoto + concursos manuais + overlay pessoal.
  * - status e notas do usuário nunca são sobrescritos pelo feed;
+ * - concurso do feed com inscrições encerradas que o usuário não acompanha sai da lista
+ *   (`encerradoSemInteresse`); manuais ficam sempre;
  * - concurso que sumiu do feed, mas tem status ≠ "radar" (ou notas), é preservado como arquivado
  *   a partir da última cópia conhecida (`conhecidos`);
  * - isNew é recalculado no dispositivo.
@@ -43,8 +55,10 @@ export function mesclarComOverlay(params: {
   overlay: Overlay;
   conhecidos: Record<string, Concurso>;
   agora: Date;
+  /** Data de hoje (AAAA-MM-DD, fuso do aparelho) para saber se as inscrições terminaram. */
+  hoje: string;
 }): ConcursoView[] {
-  const { feed, manuais, overlay, conhecidos, agora } = params;
+  const { feed, manuais, overlay, conhecidos, agora, hoje } = params;
   const ids = new Set<string>();
   const saida: ConcursoView[] = [];
 
@@ -65,6 +79,7 @@ export function mesclarComOverlay(params: {
   for (const c of feed) {
     if (ids.has(c.id)) continue;
     ids.add(c.id);
+    if (encerradoSemInteresse(c, overlay[c.id], hoje)) continue;
     saida.push(montar(c, false, false));
   }
   for (const c of manuais) {
