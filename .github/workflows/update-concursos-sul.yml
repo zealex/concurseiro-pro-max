@@ -7,12 +7,13 @@ on:
   workflow_dispatch:
     inputs:
       max_details:
-        description: 'Máximo de páginas de detalhe por execução'
+        description: 'Máximo de páginas de detalhe por site (host) nesta execução'
         required: false
-        default: '120'
+        default: '150'
 
 permissions:
   contents: write
+  issues: write
 
 concurrency:
   group: radar-concursos-sul
@@ -39,8 +40,32 @@ jobs:
       - name: Instalar dependências
         run: npm ci --no-audit --no-fund
 
+      # Memória do robô (notícias já abertas, saúde das fontes): cache do Actions, não o git
+      # (mudaria a cada hora). Se o cache sumir, o robô reabre as notícias aos poucos, dentro do orçamento.
+      - name: Restaurar memória do robô
+        uses: actions/cache/restore@v4
+        with:
+          path: scripts/data/radar-estado.json
+          key: radar-estado-${{ github.run_id }}
+          restore-keys: radar-estado-
+
       - name: Coletar concursos médicos
-        run: npx tsx scripts/scrape-concursos-sul.ts --max-details=${{ github.event.inputs.max_details || '120' }}
+        run: npx tsx scripts/scrape-concursos-sul.ts --max-details=${{ github.event.inputs.max_details || '150' }}
+
+      - name: Salvar memória do robô
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: scripts/data/radar-estado.json
+          key: radar-estado-${{ github.run_id }}-${{ github.run_attempt }}
+
+      # Fonte essencial falhando 3 execuções seguidas → issue (o GitHub avisa por e-mail); fecha quando voltar.
+      - name: Alarmes de fontes
+        if: always()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: npx tsx scripts/verificar-radar.ts
 
       # O site NÃO é republicado: o Caddy busca o feed direto no GitHub (infra/web/Caddyfile).
       - name: Commit e push se houver novidades

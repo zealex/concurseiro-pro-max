@@ -4,6 +4,7 @@ import { useMemo, useState } from 'react';
 import { Pressable, ScrollView, Text, View } from 'react-native';
 import { ConcursoCard, StatusBotao } from '@/components/radar/ConcursoCard';
 import { aplicarFiltros, bancasDisponiveis, contarPorAcesso, FILTROS_PADRAO, type FiltrosRadar } from '@/components/radar/filtros';
+import { saudeDoRadar, tempoDesde } from '@/components/radar/saude';
 import { Button, Callout, Campo, Chip, EmptyState, Muted, Row, Screen, Segmented, Seletor, SeloNovo, Tag, Txt, useDesktop, useToast } from '@/components/ui';
 import { STATUS_LABEL, STATUS_PESSOAL, type ConcursoView } from '@/shared/concursos/overlay';
 import { ACESSO_LABEL, CATEGORIA_CURTA, CATEGORIAS, UF_NOME, UFS, type Categoria } from '@/shared/concursos/schema';
@@ -35,6 +36,8 @@ export default function RadarSul() {
   const bancas = useMemo(() => bancasDisponiveis(todos), [todos]);
   const porAcesso = useMemo(() => contarPorAcesso(todos), [todos]);
   const novos = todos.filter((c) => c.isNew).length;
+  const saude = useMemo(() => saudeDoRadar(feedGeradoEm, fontes), [feedGeradoEm, fontes]);
+  const offline = !!ultimoErro && origemFeed !== 'remoto';
 
   const atualizar = async () => {
     const r = await sincronizarRadar();
@@ -47,7 +50,7 @@ export default function RadarSul() {
     <Screen
       emoji="📡"
       titulo="Radar Sul — Concursos Médicos"
-      descricao="Concursos e processos seletivos médicos de PR, SC e RS — em destaque os que o generalista (graduação + CRM) pode disputar: perícia, legista e clínico. Atualizado automaticamente a cada 12 h."
+      descricao="Concursos e processos seletivos médicos de PR, SC e RS — em destaque os que o generalista (graduação + CRM) pode disputar: perícia, legista e clínico. O robô procura novos editais de hora em hora."
       larga
       onRefresh={atualizar}
       atualizando={sincronizando}
@@ -63,10 +66,23 @@ export default function RadarSul() {
         {origemFeed === 'embarcado' ? ' (base embarcada)' : origemFeed === 'cache' ? ' (cópia offline)' : ''}
         {ultimaSync ? ` · sincronizado ${formatBR(ultimaSync.slice(0, 10))}` : ''}
       </Muted>
-      {ultimoErro && origemFeed !== 'remoto' ? (
+      {offline ? (
         <Callout emoji="📴" tom="amarelo">
           <Txt>{ultimoErro}</Txt>
           <Muted className="mt-1">Configure a URL do feed do seu repositório em Configurações para receber as atualizações do robô.</Muted>
+        </Callout>
+      ) : saude.desatualizado && saude.horas !== null ? (
+        <Callout emoji="⏳" tom="amarelo">
+          <Txt>O Radar não recebe dados novos {tempoDesde(saude.horas)}.</Txt>
+          <Muted className="mt-1">O robô procura editais de hora em hora; um intervalo assim indica falha na coleta. Concursos publicados nesse período podem estar faltando — confira também os sites das bancas.</Muted>
+        </Callout>
+      ) : null}
+      {saude.fontesFora.length ? (
+        <Callout emoji="⚠️" tom="amarelo">
+          <Txt>
+            {saude.fontesFora.join(' e ')} {saude.fontesFora.length > 1 ? 'ficaram indisponíveis' : 'ficou indisponível'} na última coleta.
+          </Txt>
+          <Muted className="mt-1">Concursos divulgados só nessa fonte podem demorar a aparecer. O robô tenta de novo na próxima hora.</Muted>
         </Callout>
       ) : null}
 

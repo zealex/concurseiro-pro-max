@@ -1,6 +1,6 @@
 # Concurseiro Pro Max 🩺
 
-Preparação intensiva de **90 dias** para o **médico generalista / recém-formado** (graduação + CRM, sem residência) que vai prestar os concursos que não exigem especialidade — **Perito Médico Federal (INSS)** e peritos de regimes próprios, **Perito Médico-Legista** (Polícia Científica/IGP) e **Clínico Geral / ESF / Plantonista** — com Medicina Legal, perícia, previdência e saúde do trabalhador como eixos centrais. App universal (iOS, Android e navegador/PWA) no estilo Notion, com um **robô gratuito** que rastreia concursos médicos em PR, SC e RS a cada 12 horas, destacando as vagas abertas ao generalista (as de especialidade continuam no Radar).
+Preparação intensiva de **90 dias** para o **médico generalista / recém-formado** (graduação + CRM, sem residência) que vai prestar os concursos que não exigem especialidade — **Perito Médico Federal (INSS)** e peritos de regimes próprios, **Perito Médico-Legista** (Polícia Científica/IGP) e **Clínico Geral / ESF / Plantonista** — com Medicina Legal, perícia, previdência e saúde do trabalhador como eixos centrais. App universal (iOS, Android e navegador/PWA) no estilo Notion, com um **robô gratuito** que rastreia concursos médicos em PR, SC e RS de hora em hora, destacando as vagas abertas ao generalista (as de especialidade continuam no Radar).
 
 Além da parte médica, o app cobre os **Conhecimentos Básicos e Gerais** que decidem (e eliminam) nos concursos: Língua Portuguesa, Matemática, Raciocínio Lógico, Informática, Inglês, Direito Constitucional, Administrativo e Penal, regime do servidor, Ética/LAI/LGPD, legislação geral, regionais do Sul, atualidades e redação. Cada disciplina tem resumos, questões autorais comentadas no estilo das bancas e flashcards — **1.031 questões, 1.050 flashcards e 118 resumos** em 15 disciplinas, todos revisados por um segundo autor contra o texto oficial vigente; o **Meu Edital** pesa o plano pela prova real (em prefeituras, as básicas chegam a 60–75% dos pontos) e o **Simulado** reproduz o formato do edital, com a penalidade do Certo/Errado e os mínimos de cada disciplina.
 
@@ -16,7 +16,7 @@ Além da parte médica, o app cobre os **Conhecimentos Básicos e Gerais** que d
 | Infraestrutura (Railway, domínio, e-mail, Google) | [docs/infra/railway.md](docs/infra/railway.md) · [.railway/railway.ts](.railway/railway.ts) |
 | Roteiro de publicação nas lojas (Google Play e App Store) | [docs/publicacao-lojas.md](docs/publicacao-lojas.md) |
 | Robô do Radar Sul + base de concursos | [scripts/scrape-concursos-sul.ts](scripts/scrape-concursos-sul.ts) · [public/data/concursos-sul.json](public/data/concursos-sul.json) |
-| Automação (a cada 12 h) e publicação web | [.github/workflows/](.github/workflows/) |
+| Automação (de hora em hora) e publicação web | [.github/workflows/](.github/workflows/) |
 | Arquitetura e decisões | [ARCHITECTURE.md](ARCHITECTURE.md) |
 
 ---
@@ -77,13 +77,13 @@ git push -u origin main
 1. No repositório: **Settings → Actions → General → Workflow permissions → "Read and write permissions"** → Save (o robô precisa fazer commit do JSON).
 2. Aba **Actions** → se aparecer um aviso, clique em **"I understand my workflows, go ahead and enable them"**.
 3. Abra **"Atualizar Radar de Concursos Médicos (Sul)"** → **Run workflow** para a primeira execução.
-4. Pronto: ele roda sozinho **a cada 12 horas** (00:00 e 12:00 UTC) e só faz commit quando há mudança.
+4. Pronto: ele roda sozinho **de hora em hora** (minuto 23) e só faz commit quando há mudança (ou a cada 6 h, como batimento). Fonte principal com 3 falhas seguidas abre uma issue no repositório.
 
 > Em repositórios públicos o GitHub pausa agendamentos após 60 dias sem atividade no repositório. Os próprios commits do robô contam como atividade; se ele for pausado mesmo assim, basta reativar na aba Actions.
 
 ### 3.3 Publicação do site e da API (Railway)
 
-O site (`concurseiro.zezasultratools.uk`) e a API (`api-concurseiro.zezasultratools.uk`) rodam na Railway e são publicados sozinhos a cada push em `main`, depois que o CI passa — inclusive a cada atualização do robô, que redeploya o site com o feed novo. Operação, variáveis e problemas comuns: [docs/infra/railway.md](docs/infra/railway.md).
+O site (`concurseiro.zezasultratools.uk`) e a API (`api-concurseiro.zezasultratools.uk`) rodam na Railway e são publicados sozinhos a cada push em `main`, depois que o CI passa. As atualizações do robô **não** republicam o site: o Caddy serve o feed direto do GitHub, então o app recebe concursos novos minutos depois do commit. Operação, variáveis e problemas comuns: [docs/infra/railway.md](docs/infra/railway.md).
 
 O GitHub Pages não é mais usado; a versão antiga do app (sem contas) está guardada na tag `pages-legado`.
 

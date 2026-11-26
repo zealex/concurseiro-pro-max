@@ -117,7 +117,28 @@ export function extrairDataProva(texto: string, referencia: Date, depoisDe: stri
 const BANCAS_CONHECIDAS: [RegExp, string][] = [
   [/\bfundatec\b/i, 'FUNDATEC'],
   [/\bfepese\b/i, 'FEPESE'],
-  [/objetiva concursos/i, 'Objetiva Concursos'],
+  [/objetiva concursos|instituto objetiva|objetiva instituto|objetivas\.com\.br/i, 'Instituto Objetiva'],
+  [/\biobv\b/i, 'IOBV'],
+  [/funda[çc][ãa]o la salle|\bla salle\b/i, 'Fundação La Salle'],
+  [/\bfaurgs\b/i, 'FAURGS'],
+  [/\bunifil\b/i, 'Instituto UniFil'],
+  [/\bameosc\b/i, 'AMEOSC'],
+  [/\bcesgranrio\b/i, 'Cesgranrio'],
+  [/instituto mais\b/i, 'Instituto Mais'],
+  [/\bibgp\b/i, 'IBGP'],
+  [/\bfcc\b|funda[çc][ãa]o carlos chagas/i, 'FCC'],
+  [/\bcopese\b/i, 'COPESE'],
+  [/\bcomperve\b/i, 'COMPERVE'],
+  [/\bcoperve\b/i, 'COPERVE'],
+  [/\bfadesp\b/i, 'FADESP'],
+  [/\bfunrio\b/i, 'FUNRIO'],
+  [/\bavalia sc\b|\bavaliasc\b/i, 'AvaliaSC'],
+  [/\bunoesc\b/i, 'UNOESC'],
+  [/\bunivali\b/i, 'UNIVALI'],
+  [/\bfacet\b/i, 'FACET Concursos'],
+  [/\bfuncern\b/i, 'FUNCERN'],
+  [/\bcetap\b/i, 'CETAP'],
+  [/instituto verbena/i, 'Instituto Verbena'],
   [/\bfurb\b/i, 'FURB'],
   [/n[uú]cleo de concursos da (ufpr|universidade federal do paran[aá])|\bnc[- ]?ufpr\b/i, 'NC-UFPR'],
   [/\bfauel\b/i, 'FAUEL'],
@@ -182,6 +203,26 @@ export function extrairBanca(texto: string): string | null {
 export function anoDoEdital(texto: string): number | null {
   const m = texto.match(/(?:edital|concurso p[úu]blico|processo seletivo(?: simplificado)?)\s*(?:de abertura\s*)?(?:n[º°o.]*\s*)?\d{1,4}\s*\/\s*(20\d{2})/i);
   return m?.[1] ? Number(m[1]) : null;
+}
+
+/**
+ * Número do certame, normalizado ("Concurso Público nº 003/2026" → "3/2026").
+ * Prefere "Concurso Público/Processo Seletivo nº" a "Edital nº" (o edital de abertura costuma ter numeração própria)
+ * e ignora retificações, resultados e convocações.
+ */
+export function numeroEdital(texto: string): string | null {
+  const padroes = [
+    /(concurso p[úu]blico|processo seletivo(?: simplificado| p[úu]blico)?)\s*(?:n[º°o.]*\s*)?(\d{1,4})\s*\/\s*(20\d{2})/gi,
+    /(edital(?: de abertura)?(?: de (?:concurso p[úu]blico|processo seletivo))?)\s*(?:n[º°o.]*\s*)?(\d{1,4})\s*\/\s*(20\d{2})/gi,
+  ];
+  for (const re of padroes) {
+    for (const m of texto.matchAll(re)) {
+      const contexto = normalizar(texto.slice(Math.max(0, (m.index ?? 0) - 40), (m.index ?? 0) + m[0].length));
+      if (/retifica|complementar|resultado|homologa|convoca|prorroga|suspens|cancel|anula/.test(contexto)) continue;
+      return `${Number(m[2])}/${m[3]}`;
+    }
+  }
+  return null;
 }
 
 export function extrairCargaHoraria(texto: string): string | null {

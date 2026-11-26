@@ -22,10 +22,10 @@ Ecossistema de preparação de 90 dias para o médico generalista / recém-forma
 └───────────────▲──────────────────────────────────────────────────────────────┘
                 │ HTTPS GET (CORS liberado no raw.githubusercontent / same-origin)
 ┌───────────────┴──────────────────────────────────────────────────────────────┐
-│ 3. PIPELINE RADAR SUL (GitHub Actions a cada 12h)                             │
+│ 3. PIPELINE RADAR (GitHub Actions de hora em hora)                            │
 │    scripts/scrape-concursos-sul.ts → fontes (PCI, Concursos no Brasil,        │
 │    FUNDATEC, FEPESE) → classificação/geo/dedupe (src/shared/concursos)        │
-│    → public/data/concursos-sul.json → commit automático se houver mudança     │
+│    → public/data/concursos-sul.json → commit; o site serve o feed do GitHub   │
 └──────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -118,36 +118,44 @@ Zustand store (skipHydration) ──persist──▶ zustandAdapter (StateStorag
 - `utils/edital.ts` — pontos por item/prova, fatia das básicas, perfil para o cronograma, nota projetada (Certo/Errado líquido: acerto − penalidade × erro), status de cada mínimo (folga, no limite < 115%, abaixo) e divisão de tempo.
 - `utils/treino.ts` / `utils/flashcards.ts` / `utils/simulado.ts` — seleção por rodízio de temas (inéditas primeiro, texto-base junto), correção com penalidade; caixas de Leitner 1/3/7/15/30 dias com limite diário de novos; montagem do simulado item a item (formato da prova primeiro) e correção na escala do edital, com itens sem banco estimados pelo histórico.
 
-## Camada 3 — Pipeline do Radar Sul
+## Camada 3 — Pipeline do Radar
 
 ```
-GitHub Actions (cron 0 */12 * * * + workflow_dispatch)
-  └─ npx tsx scripts/scrape-concursos-sul.ts
-       ├─ fontes (sequencial, 1–2 s entre requisições, robots.txt respeitado)
-       │    ├─ PCI Concursos  /concursos/sul/  (+ /concursos/nacional/ só p/ itens médicos com lotação no Sul)
-       │    ├─ Concursos no Brasil  /concursos/{pr,sc,rs}/  (+ detalhe para itens suspeitos de saúde)
-       │    ├─ FUNDATEC  (lista de inscrições abertas → enriquecimento: banca, prazo, link oficial)
-       │    └─ FEPESE    (destaques de concursos → enriquecimento: banca, link oficial)
-       ├─ classify.ts   → é vaga médica? tag: medico-legista | pericia-medica | medicina-do-trabalho | medicina-geral-especialidades
-       │                  ("Perito Médico" em Polícia Científica/IGP → legista; acesso generalista × especialista em schema.ts)
-       ├─ geo.ts        → UF ∈ {PR, SC, RS}? cidade validada contra 1.191 municípios do IBGE
-       ├─ id.ts         → slug(uf-cidade-orgao-cargoChave-ano)
-       ├─ merge.ts      → preserva firstSeenAt, atualiza lastSeenAt, isNew (≤ 7 dias), poda encerrados
-       └─ grava public/data/concursos-sul.json somente se a lista mudou
-  └─ git commit + push (github-actions[bot]) se houver diff
+GitHub Actions (cron 23 * * * * = de hora em hora, + workflow_dispatch)
+  ├─ restaura a memória do robô (scripts/data/radar-estado.json) do cache do Actions
+  ├─ npx tsx scripts/scrape-concursos-sul.ts
+  │    ├─ fontes em paralelo por host (1,5 s entre requisições ao mesmo host, robots.txt respeitado)
+  │    │    ├─ PCI Concursos  /concursos/sul/  (+ /concursos/nacional/ só p/ itens médicos com lotação no Sul)
+  │    │    ├─ Concursos no Brasil  /concursos/{pr,sc,rs}/
+  │    │    ├─ FUNDATEC  (lista de inscrições abertas → registro próprio ou enriquecimento)
+  │    │    └─ FEPESE    (destaques → registro próprio ou enriquecimento)
+  │    ├─ estado.ts     → abre TODA notícia nova ou alterada (sem pré-filtro pelo título); revisita as médicas a cada 24 h;
+  │    │                  orçamento de páginas por host; o que sobrar fica pendente para a próxima hora
+  │    ├─ classify.ts   → é vaga médica? (caixa alta e minúsculas) tag: medico-legista | pericia-medica | medicina-do-trabalho
+  │    │                  | medicina-geral-especialidades ("Perito Médico" em Polícia Científica/IGP → legista)
+  │    ├─ geo.ts        → UF ∈ {PR, SC, RS}? cidade validada contra 1.191 municípios do IBGE
+  │    ├─ id.ts/merge   → slug(uf-cidade-orgao-tag-ano); 2º certame do mesmo órgão no ano → "-edN" (separarPorEdital)
+  │    ├─ merge.ts      → preserva firstSeenAt, atualiza lastSeenAt, isNew (≤ 7 dias), poda encerrados
+  │    └─ grava public/data/concursos-sul.json se a lista mudou, se uma fonte caiu/voltou ou a cada 6 h (batimento)
+  ├─ salva a memória no cache · verificar-radar.ts → issue "Radar: fonte X com problema" (3 falhas seguidas)
+  ├─ git commit + push (github-actions[bot], com rebase e novas tentativas) — NÃO redeploya o site
+  └─ confere se o generatedAt novo já aparece em https://concurseiro.zezasultratools.uk/data/concursos-sul.json
 ```
 
-- Cada fonte roda isolada (`Promise.allSettled`). A saúde de cada uma vai para `feed.sources[]`. Se **todas** falharem, o script sai com código 1 e não toca no arquivo.
-- Links de edital protegidos por captcha (ex.: PCI) **não** são contornados: o `editalUrl` aponta para a página pública da notícia/banca.
-- Parsers são testados contra HTML real salvo em `scripts/__fixtures__/`.
+- Cada fonte roda isolada (try/catch por fonte, em paralelo). A saúde vai para `feed.sources[]` (com `essencial` para PCI e Concursos no Brasil). Listagem vazia conta como falha (HTML mudou). Se **todas** falharem, o script sai com código 1 e não toca no feed.
+- Nada some em silêncio: notícia que falhou, ficou sem orçamento ou gerou registro inválido aparece no log e no resumo.
+- O site serve `/data/concursos-sul.json` por proxy do GitHub (raw), com a cópia do build como reserva (`infra/web/Caddyfile`). Commits do robô não disparam deploy.
+- Links de edital protegidos por captcha (ex.: PCI) **não** são contornados: o `editalUrl` aponta para a página pública da notícia/banca. Bloqueios de IP (FUNDATEC responde 403 aos servidores do GitHub) também não: a fonte fica como "melhor esforço".
+- Parsers são testados contra HTML real salvo em `scripts/__fixtures__/` (inclusive o caso Chapecó/SC 2026).
 
 ### Consumo no app
 
 ```
-refreshRadar()
+sincronizarRadar()
   1. URL configurada pelo usuário  ─┐
   2. EXPO_PUBLIC_CONCURSOS_FEED_URL ─┤ primeira que responder 200 + JSON válido (zod)
-  3. /data/concursos-sul.json (web)  ─┘
+  3. /data/concursos-sul.json (web)  ─┤ (no site, é proxy do raw do GitHub)
+  3b. raw.githubusercontent.com      ─┘
   4. falhou tudo → último feed em cache (store `radar`, no aparelho)
   5. sem cache → JSON embarcado no bundle (public/data/concursos-sul.json)
 
@@ -207,7 +215,7 @@ Vitest cobre a lógica pura: revisão espaçada, agenda (trilhas, Plantão, redi
 
 | Decisão | Motivo | Custo aceito |
 |---|---|---|
-| Feed do Radar como JSON estático + GitHub Actions (fora da API) | grátis, auditável por commit, o mesmo para todos os usuários | atualização no máximo a cada 12 h |
+| Feed do Radar como JSON estático + GitHub Actions (fora da API) | grátis, auditável por commit, o mesmo para todos os usuários | o cron do GitHub pode atrasar; por isso roda de hora em hora e o app avisa quando o feed passa de 12 h |
 | IndexedDB (web) e expo-sqlite/kv-store (nativo) em vez de localStorage/AsyncStorage | progresso + base do sync + importação passariam da cota de ~5 MB do localStorage, que falha em silêncio | um backend por plataforma (mesma interface `BackendKV`) |
 | Um documento JSON por store + merge de 3 vias no app, em vez de CRDT ou log de eventos | os tipos de domínio não mudam; servidor simples (JSON opaco + CAS); regras de conflito testáveis em Vitest | o documento inteiro sobe a cada envio (até 2 MB; normalmente dezenas de KB) |
 | Better Auth na própria API, em vez de Firebase/Supabase | dados e contas num Postgres só, sem dependência de plataforma, custo fixo da Railway | e-mails, rate limit e exclusão de conta configurados à mão |

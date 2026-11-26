@@ -161,3 +161,29 @@ describe('manchetes', () => {
     expect(tituloIndicaVagaMedica('Fundação Hospitalar abre processo seletivo para médicos')).toBe(true);
   });
 });
+
+describe('extrairNomesCargosMedicos — caixa alta e minúsculas', () => {
+  it('tabela de edital em CAIXA ALTA', () => {
+    expect(extrairNomesCargosMedicos('MÉDICO CLÍNICO GERAL - 40H')).toEqual(['Médico Clínico Geral']);
+    expect(extrairNomesCargosMedicos('MÉDICO GINECOLOGISTA E OBSTETRA')).toEqual(['Médico Ginecologista e Obstetra']);
+    expect(extrairNomesCargosMedicos('MÉDICO ESF II')).toEqual(['Médico ESF II']);
+    expect(extrairNomesCargosMedicos('MÉDICO DO TRABALHO')).toEqual(['Médico do Trabalho']);
+  });
+  it('CAIXA ALTA continua ignorando o que não é cargo médico', () => {
+    expect(extrairNomesCargosMedicos('MÉDICO VETERINÁRIO')).toEqual([]);
+    expect(extrairNomesCargosMedicos('APRESENTAR LAUDO MÉDICO ATUALIZADO')).toEqual([]);
+  });
+  it('texto corrido em minúsculas com qualificador conhecido', () => {
+    expect(extrairNomesCargosMedicos('há vagas para médico clínico geral e médica de família')).toEqual(['Médico Clínico Geral', 'Médica de Família']);
+    expect(extrairNomesCargosMedicos('as vagas são para médico pediatra')).toEqual(['Médico Pediatra']);
+    expect(extrairNomesCargosMedicos('contratação de médicos plantonistas')).toEqual(['Médicos Plantonistas']);
+  });
+  it('"Regulação Médica (TARM)" é cargo técnico, não vaga de médico (FAHECE 2026)', () => {
+    expect(extrairNomesCargosMedicos('Técnico Auxiliar de Regulação Médica (TARM)')).toEqual([]);
+    expect(extrairNomesCargosMedicos('TÉCNICO AUXILIAR DE REGULAÇÃO MÉDICA – TARM')).toEqual([]);
+    expect(extrairNomesCargosMedicos('Médico Intervencionista e Médico Regulador')).toEqual(['Médico Intervencionista', 'Médico Regulador']);
+  });
+  it('minúsculas sem qualificador não viram cargo', () => {
+    expect(extrairNomesCargosMedicos('o candidato deve apresentar atestado médico de aptidão')).toEqual([]);
+  });
+});

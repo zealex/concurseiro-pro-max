@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { deduplicar, deveSerPodado, isNovo, mesclarFeed, precisaReescrever, reclassificarCargos } from '../merge';
+import { deduplicar, deveSerPodado, idComEdital, isNovo, mesclarFeed, precisaReescrever, reclassificarCargos, separarPorEdital, unirCargos } from '../merge';
 import { mesclarComOverlay, atualizarConhecidos, type Overlay } from '../overlay';
 import { ConcursoSchema, parseFeedTolerante, type Concurso } from '../schema';
 
@@ -158,5 +158,75 @@ describe('reclassificarCargos (regras novas aplicadas ao feed antigo)', () => {
   it('cadastro manual não é alterado', () => {
     const c = concurso({ id: 'manual-1', fonte: 'manual', cargos: [cargo('Médico Auditor', 'medicina-geral-especialidades', 'especialidades')] });
     expect(reclassificarCargos(c)).toBe(c);
+  });
+});
+
+describe('unirCargos', () => {
+  const cargo = (nome: string, tag: Concurso['tag'], subcategoria: Concurso['subcategoria']) => ({ nome, tag, subcategoria, vagas: null, cadastroReserva: false, remuneracao: null, cargaHoraria: null });
+  const nomes = (...lista: string[]) => unirCargos(lista.map((n) => cargo(n, 'medicina-geral-especialidades', 'especialidades')), []).map((c) => c.nome);
+  it('qualificador cria cargo diferente (Chapecó/SC 2026)', () => {
+    expect(nomes('Médico Endocrinologista', 'Médico Endocrinologista Pediátrico', 'Médico Pneumologista', 'Médico Pneumologista Infantil')).toEqual([
+      'Médico Endocrinologista',
+      'Médico Endocrinologista Pediátrico',
+      'Médico Pneumologista',
+      'Médico Pneumologista Infantil',
+    ]);
+  });
+  it('mesmo cargo com e sem "Médico" fica com o nome completo', () => {
+    expect(nomes('Pediatra', 'Médico Pediatra')).toEqual(['Médico Pediatra']);
+    expect(nomes('Clínico Geral', 'Médico Clínico Geral')).toEqual(['Médico Clínico Geral']);
+  });
+  it('parte de cargo composto some', () => {
+    expect(nomes('Obstetra', 'Médico Ginecologista e Obstetra')).toEqual(['Médico Ginecologista e Obstetra']);
+  });
+  it('ESF e ESF II são cargos distintos', () => {
+    expect(nomes('Médico ESF', 'Médico ESF II')).toEqual(['Médico ESF', 'Médico ESF II']);
+  });
+});
+
+describe('separarPorEdital (2º certame do mesmo órgão no mesmo ano)', () => {
+  const ID = 'sc-chapeco-prefeitura-medicina-geral-especialidades-2026';
+  const URL_A = 'https://www.pciconcursos.com.br/noticias/chapeco-edital-1';
+  const URL_B = 'https://www.pciconcursos.com.br/noticias/chapeco-edital-3';
+
+  it('edital novo de outra notícia da mesma fonte ganha id próprio e aparece como NOVO', () => {
+    const antigo = concurso({ id: ID, edital: '1/2026', fonteUrl: URL_A, firstSeenAt: '2026-03-01T12:00:00.000Z' });
+    const novo = concurso({ id: ID, edital: '3/2026', fonteUrl: URL_B });
+    const ids = separarPorEdital([novo], [antigo]).map((c) => c.id);
+    expect(ids).toEqual([idComEdital(ID, '3/2026')]);
+    const feed = mesclarFeed([antigo], separarPorEdital([novo], [antigo]), AGORA);
+    expect(feed.map((c) => [c.id, c.isNew])).toEqual([[`${ID}-ed3`, true], [ID, false]]);
+  });
+
+  it('na mesma rodada, sem histórico: o menor edital fica com o id base', () => {
+    const r = separarPorEdital(
+      [concurso({ id: ID, edital: '3/2026', fonteUrl: URL_B }), concurso({ id: ID, edital: '1/2026', fonteUrl: URL_A })],
+      [],
+    );
+    expect(r.map((c) => `${c.edital} ${c.id}`).sort()).toEqual([`1/2026 ${ID}`, `3/2026 ${ID}-ed3`]);
+  });
+
+  it('fontes diferentes com números diferentes continuam fundidas (pode ser o mesmo certame)', () => {
+    const pci = concurso({ id: ID, edital: '3/2026', fonteUrl: URL_B });
+    const cnb = concurso({ id: ID, edital: '1/2026', fonte: 'concursos-no-brasil', fonteUrl: 'https://concursosnobrasil.com/concursos/sc/chapeco' });
+    expect(separarPorEdital([pci, cnb], []).map((c) => c.id)).toEqual([ID, ID]);
+  });
+
+  it('a mesma notícia com número diferente (texto atualizado) não duplica', () => {
+    const antigo = concurso({ id: ID, edital: '1/2026', fonteUrl: URL_A });
+    const mesmo = concurso({ id: ID, edital: '2/2026', fonteUrl: URL_A });
+    expect(separarPorEdital([mesmo], [antigo]).map((c) => c.id)).toEqual([ID]);
+  });
+
+  it('registro antigo sem número de edital continua recebendo a coleta (compatível com o feed atual)', () => {
+    const antigo = concurso({ id: ID, fonteUrl: URL_A });
+    expect(separarPorEdital([concurso({ id: ID, edital: '3/2026', fonteUrl: URL_B })], [antigo]).map((c) => c.id)).toEqual([ID]);
+  });
+
+  it('outra fonte citando o número de um certame já separado vai para ele', () => {
+    const base = concurso({ id: ID, edital: '1/2026', fonteUrl: URL_A });
+    const separado = concurso({ id: `${ID}-ed3`, edital: '3/2026', fonteUrl: URL_B });
+    const cnb = concurso({ id: ID, edital: '3/2026', fonte: 'concursos-no-brasil', fonteUrl: 'https://concursosnobrasil.com/concursos/sc/chapeco' });
+    expect(separarPorEdital([cnb], [base, separado]).map((c) => c.id)).toEqual([`${ID}-ed3`]);
   });
 });

@@ -50,7 +50,7 @@ const EXCLUSOES = [
 
 /** Palavras que, antes de "Médico", indicam adjetivo ("Laudo Médico") e não cargo. */
 const ANTES_ADJETIVO =
-  /(atestado|atestados|laudo|laudos|exame|exames|pericia|relatorio|parecer|avaliacao|inspecao|acompanhamento|atendimento|servico|servicos|consultorio|prontuario|plano|convenio|assistencia|tratamento|encaminhamento|afastamento|certificado|boletim|sigilo|auxilio|corpo|area|carater|uso|cuidado|cuidados|seguro|licenca|declaracao|receituario|parecer|ato|atos|conselho)\s*$/;
+  /(atestado|atestados|laudo|laudos|exame|exames|pericia|relatorio|parecer|avaliacao|inspecao|acompanhamento|atendimento|servico|servicos|consultorio|prontuario|plano|convenio|assistencia|tratamento|encaminhamento|afastamento|certificado|boletim|sigilo|auxilio|corpo|area|carater|uso|cuidado|cuidados|seguro|licenca|declaracao|receituario|parecer|ato|atos|conselho|regulacao|orientacao|supervisao|equipe|junta|clinica|residencia)\s*$/;
 
 /** Profissões não médicas que podem anteceder um nome de especialidade ("Enfermeiro Intensivista"). */
 const ANTES_PROFISSAO =
@@ -168,12 +168,14 @@ export function ajustarTagPorOrgao<T extends { tag: TagCargo; subcategoria: Subc
  * Extrai nomes de cargos médicos de linhas de texto livre (itens de lista, células, frases).
  * Ex.: "Médico Generalista, 20 horas semanais (2 vagas)" → "Médico Generalista".
  */
-export function extrairNomesCargosMedicos(linha: string): string[] {
+export function extrairNomesCargosMedicos(linhaOriginal: string): string[] {
   const nomes = new Map<string, string>();
   const adicionar = (nome: string) => {
     const chave = chaveCargo(nome);
     if (!nomes.has(chave)) nomes.set(chave, nome);
   };
+  // Tabelas de edital em CAIXA ALTA ("MÉDICO CLÍNICO GERAL") → "Médico Clínico Geral" (mesmo comprimento).
+  const linha = ajustarCaixa(linhaOriginal);
   // Mesmo comprimento do original: índices são reaproveitados entre as duas versões.
   const semAcento = linha.normalize('NFD').replace(/[̀-ͯ]/g, '');
   const linhaComparavel = semAcento.length === linha.length ? semAcento : linha;
@@ -191,6 +193,16 @@ export function extrairNomesCargosMedicos(linha: string): string[] {
     const nome = limparNomeCargo(m[0]);
     if (nome && isCargoMedico(nome)) adicionar(nome);
   }
+  // Texto corrido em minúsculas ("vagas para médico clínico geral e médica de família"): só com qualificador conhecido.
+  const minusculas = linhaComparavel.toLowerCase();
+  for (const m of minusculas.matchAll(RE_MEDICO_MINUSCULO)) {
+    const idx = m.index ?? 0;
+    if (cobertos.some(([a, b]) => idx >= a && idx < b)) continue;
+    if (ANTES_ADJETIVO.test(normalizar(linhaComparavel.slice(Math.max(0, idx - 25), idx)))) continue;
+    cobertos.push([idx, idx + m[0].length]);
+    const nome = limparNomeCargo(capitalizarCargo(linha.slice(idx, idx + m[0].length)));
+    if (nome && isCargoMedico(nome)) adicionar(nome);
+  }
   // Especialistas sem a palavra "Médico" ("Psiquiatra", "Pediatra 20h")
   const reEsp = new RegExp(`\\b(${ESPECIALIDADES.map((e) => e.replace(/ /g, '\\s+')).join('|')})s?\\b`, 'gi');
   for (const m of linhaComparavel.matchAll(reEsp)) {
@@ -198,16 +210,60 @@ export function extrairNomesCargosMedicos(linha: string): string[] {
     // Parte de "Médico X e Y" ou de "Médico Ginecologista/Obstetra"
     if (cobertos.some(([a, b]) => idx >= a && idx <= b + 2)) continue;
     const antes = normalizar(linhaComparavel.slice(Math.max(0, idx - 30), idx)).replace(/[^a-z]+$/, '');
-    if (/medic[oa]s?(\s+e)?$/.test(antes) || ANTES_PROFISSAO.test(antes)) continue;
-    const original = linha.slice(idx, idx + m[0].length);
-    const nome = limparNomeCargo(capitalizar(original));
+    if (ANTES_PROFISSAO.test(antes)) continue;
+    let inicio = idx;
+    if (/medic[oa]s?(\s+e)?$/.test(antes)) {
+      // "médico pediatra" em minúsculas (a regex principal só pega "Médico" capitalizado) → "Médico Pediatra".
+      const prefixo = /m[ée]dic[oa]s?[ \t]+$/i.exec(linha.slice(Math.max(0, idx - 12), idx));
+      if (!prefixo) continue;
+      inicio = idx - prefixo[0].length;
+      if (ANTES_ADJETIVO.test(normalizar(linhaComparavel.slice(Math.max(0, inicio - 25), inicio)))) continue;
+    }
+    const original = linha.slice(inicio, idx + m[0].length);
+    const nome = limparNomeCargo(capitalizarCargo(original));
     if (nome && isCargoMedico(nome)) adicionar(nome);
   }
   return [...nomes.values()];
 }
 
+/** "médico" + qualificador de cargo generalista/área (texto sem acento, minúsculo). */
+const RE_MEDICO_MINUSCULO =
+  /\bmedic[oa]s?[ \t]+(?:(?:do|da|de|dos|das)[ \t]+)?(?:clinic[oa][ \t]+geral|clinica[ \t]+medica|generalista|plantonista|estrategia[ \t]+(?:de[ \t]+)?saude[ \t]+da[ \t]+familia|saude[ \t]+da[ \t]+familia|familia(?:[ \t]+e[ \t]+comunidade)?|esf|psf|trabalho|perit[oa]|legista|auditor|regulador|intervencionista|intensivista|emergencista)(?:e?s)?\b/g;
+
+/** Siglas mantidas em caixa alta quando uma linha em CAIXA ALTA é normalizada. */
+const SIGLAS_CAIXA = new Set([
+  'ESF', 'PSF', 'UBS', 'UPA', 'SAMU', 'CAPS', 'SUS', 'NASF', 'UTI', 'CTI', 'RQE', 'PCD', 'CR', 'APS', 'CRM', 'CLT',
+  'II', 'III', 'IV', 'VI', 'VII', 'VIII', 'IX', 'XI', 'XII', 'XIII', 'XIV', 'XV',
+]);
+const CONECTIVOS = new Set(['de', 'da', 'do', 'dos', 'das', 'e', 'em']);
+
+/**
+ * Palavras inteiras em caixa alta viram "Capitalizadas" (siglas conhecidas ficam, conectivos ficam minúsculos).
+ * Preserva o comprimento da linha (os índices das regex são reaproveitados).
+ */
+export function ajustarCaixa(linha: string): string {
+  if (!/[A-ZÀ-Þ]{3,}/.test(linha)) return linha;
+  return linha.replace(/[A-Za-zÀ-ÖØ-öø-ÿ]+/g, (w) => {
+    if (w !== w.toUpperCase() || w === w.toLowerCase()) return w;
+    if (CONECTIVOS.has(w.toLowerCase())) return w.toLowerCase();
+    // Até 3 letras em caixa alta costuma ser sigla (UBS, GHC, HU) — fica como está.
+    if (w.length <= 3 || SIGLAS_CAIXA.has(w)) return w;
+    const t = w.charAt(0) + w.slice(1).toLowerCase();
+    return t.length === w.length ? t : w;
+  });
+}
+
 function capitalizar(s: string): string {
   return s.replace(/\S+/g, (w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase());
+}
+
+/** Capitaliza um nome de cargo mantendo conectivos minúsculos e siglas em caixa alta ("médico da esf" → "Médico da ESF"). */
+function capitalizarCargo(s: string): string {
+  return capitalizar(s).replace(/\S+/g, (w) => {
+    const baixa = w.toLowerCase();
+    if (CONECTIVOS.has(baixa)) return baixa;
+    return SIGLAS_CAIXA.has(w.toUpperCase()) && w.length <= 4 ? w.toUpperCase() : w;
+  });
 }
 
 function limparNomeCargo(bruto: string): string {

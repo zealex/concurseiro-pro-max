@@ -50,3 +50,6 @@ server/.env.*
 !server/.env.example
 backups/
 google-service-account*.json
+
+# Memória do robô do Radar (fica no cache do GitHub Actions, não no git)
+scripts/data/radar-estado.json

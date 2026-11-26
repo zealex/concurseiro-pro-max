@@ -14,10 +14,17 @@ import { gerarIdConcurso } from '../../src/shared/concursos/id';
 import { unirCargos } from '../../src/shared/concursos/merge';
 import { normalizar } from '../../src/shared/concursos/normalize';
 import { ConcursoSchema, type Cargo, type Concurso, type TagCargo, type UF } from '../../src/shared/concursos/schema';
-import { anoDoEdital, extrairBanca, extrairCargosMedicos, extrairDataProva, extrairInscricoes, tipoDoTexto } from './extract';
+import { anoDoEdital, extrairBanca, extrairCargosMedicos, extrairDataProva, extrairInscricoes, numeroEdital, tipoDoTexto } from './extract';
 import type { Detalhe, ItemBanca, ItemListagem } from './sources/types';
 
 const RE_ESTADUAL = /\b(estado|estadual|governo do|policia cientifica|\bigp\b|instituto[- ]geral de pericias|\bsesa\b|secretaria de estado|tribunal|detran|\bpcp\b|\bpci\b)/;
+
+/** Manchete de seleção de docente/residente/estagiário que não oferece vaga de médico. */
+export function tituloDeDocencia(titulo: string): boolean {
+  const n = normalizar(titulo);
+  if (/residencia medica|\bestagi|bolsist|vestibular/.test(n)) return true;
+  return /\bprofessor|\bdocente|magisterio|preceptor|\btutor\b/.test(n) && !/\bmedic[oa]s?\b/.test(n);
+}
 
 function cargosDaListagem(cargosTexto: string): Cargo[] {
   return cargosTexto
@@ -74,6 +81,11 @@ export function construirConcursos(p: {
   let cargos = unirCargos(cargosDaListagem(item.cargosTexto), doDetalhe);
   if (!cargos.length && tituloIndicaVagaMedica(`${item.titulo} ${detalhe?.titulo ?? ''}`)) {
     cargos = [cargoGenerico(`${item.titulo} ${detalhe?.titulo ?? ''}`)];
+  }
+  // Seleção de professor/residência "de Medicina" (ex.: UFFS 2026): especialidades soltas no texto são áreas de
+  // docência, não vagas. Só sobram cargos que dizem "Médico"/"Perito"/"Legista" com todas as letras.
+  if (tituloDeDocencia(`${item.titulo} ${detalhe?.titulo ?? ''}`)) {
+    cargos = cargos.filter((c) => /\bmedic[oa]s?\b|perit[oa]|legista/.test(normalizar(c.nome)));
   }
   if (!cargos.length) return [];
   // "Perito Médico" da Polícia Científica/IGP é o legista.
@@ -138,6 +150,7 @@ export function construirConcursos(p: {
         fonte: item.fonte,
         fonteUrl: item.url,
         ano,
+        edital: numeroEdital(`${item.titulo}\n${detalhe?.titulo ?? ''}\n${textoDetalhe}\n${detalhe?.observacoes.join('\n') ?? ''}`),
         firstSeenAt: iso,
         lastSeenAt: iso,
         isNew: true,
@@ -145,6 +158,10 @@ export function construirConcursos(p: {
       };
       const r = ConcursoSchema.safeParse(bruto);
       if (r.success) saida.push(r.data);
+      else {
+        const problema = r.error.issues[0];
+        console.log(`[radar]   ! registro descartado (${item.orgao} · ${tag}): ${problema?.path.join('.')} — ${problema?.message}`);
+      }
     }
   }
   return saida;

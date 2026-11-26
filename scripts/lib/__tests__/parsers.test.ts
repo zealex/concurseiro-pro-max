@@ -3,7 +3,7 @@ import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { criarGeo, type MunicipiosPorUF } from '../../../src/shared/concursos/geo';
 import { ConcursoSchema } from '../../../src/shared/concursos/schema';
-import { construirConcursos, construirDeBanca } from '../build';
+import { construirConcursos, construirDeBanca, tituloDeDocencia } from '../build';
 import {
   anoDoEdital,
   datasNoTexto,
@@ -11,12 +11,13 @@ import {
   extrairCargosMedicos,
   extrairDataProva,
   extrairInscricoes,
+  numeroEdital,
   periodoListagem,
   tipoDoTexto,
 } from '../extract';
 import { decodificar, interpretarRobots, permitidoPorRobots } from '../http';
 import { parseFepese, parseFundatec } from '../sources/bancas';
-import { cnbVaiDetalhar, parseDetalheCnb, parseListagemCnb } from '../sources/concursosNoBrasil';
+import { parseDetalheCnb, parseListagemCnb } from '../sources/concursosNoBrasil';
 import { parseDetalhePci, parseListagemPci } from '../sources/pci';
 
 const FIX = resolve(__dirname, '../../__fixtures__');
@@ -114,7 +115,6 @@ describe('Concursos no Brasil (fixture real)', () => {
     const itens = parseListagemCnb(html('cnb-pr.html'), 'PR');
     expect(itens.length).toBeGreaterThan(20);
     expect(itens.every((i) => i.uf === 'PR' && i.url.startsWith('https://concursosnobrasil.com/'))).toBe(true);
-    expect(itens.filter(cnbVaiDetalhar).length).toBeLessThan(itens.length);
   });
   it('detalhe sem vaga médica não gera registro', () => {
     const det = parseDetalheCnb(html('cnb-detalhe.html'));
@@ -138,5 +138,81 @@ describe('bancas (fixtures reais)', () => {
     const itens = parseFepese(html('fepese-concursos.html'), geo);
     expect(itens.length).toBeGreaterThan(0);
     expect(itens.every((i) => i.uf === 'SC')).toBe(true);
+  });
+});
+
+describe('Chapecó/SC 2026 (edital que ficou fora do Radar)', () => {
+  const det = parseDetalhePci(html('pci-detalhe-chapeco.html'));
+  const item = {
+    fonte: 'pci' as const,
+    url: 'https://www.pciconcursos.com.br/noticias/municipio-de-chapeco-sc-abre-concurso-com-91-vagas-e-salarios-de-ate-25599',
+    orgao: 'Prefeitura de Chapecó',
+    titulo: 'Município de Chapecó - SC abre concurso com 91 vagas e salários de até R$ 25.599,11',
+    uf: 'SC' as const,
+    cargosTexto: 'Assistente Social, Atendente de Consultório Dentário, Cirurgião Dentista, ...',
+    vagas: 91,
+    remuneracaoMax: 25599.11,
+    escolaridade: 'Médio / Superior',
+    inscricoes: { inicio: '2026-12-07', fim: '2027-01-07' },
+    incompleto: true,
+  };
+  const registros = construirConcursos({ item, detalhe: det, geo, agora: new Date('2026-11-25T21:00:00Z') });
+
+  it('gera Medicina do Trabalho + clínico/especialidades com os 22 cargos médicos (sem perder qualificados)', () => {
+    expect(registros.map((r) => r.tag).sort()).toEqual(['medicina-do-trabalho', 'medicina-geral-especialidades']);
+    const geral = registros.find((r) => r.tag === 'medicina-geral-especialidades')!;
+    const nomes = geral.cargos.map((c) => c.nome);
+    expect(nomes).toHaveLength(21);
+    expect(nomes).toEqual(expect.arrayContaining(['Médico Endocrinologista', 'Médico Endocrinologista Pediátrico', 'Médico Pneumologista', 'Médico Pneumologista Infantil', 'Médico ESF', 'Médico Clínico Geral']));
+    expect(nomes).not.toContain('Médico Veterinário');
+    expect(geral.subcategoria).toBe('clinico-esf-plantonista');
+    expect(geral.cidade).toBe('Chapecó');
+  });
+
+  it('extrai número do edital, inscrições e prova', () => {
+    for (const r of registros) {
+      expect(r.edital).toBe('3/2026');
+      expect(r.inscricoes).toEqual({ inicio: '2026-12-07', fim: '2027-01-07' });
+      expect(r.ano).toBe(2026);
+    }
+  });
+});
+
+describe('número do edital', () => {
+  it('prefere "Concurso Público nº" e normaliza zeros', () => {
+    expect(numeroEdital('Edital nº 001/2026 – Edital de Abertura. Concurso Público nº 003/2026')).toBe('3/2026');
+    expect(numeroEdital('PROCESSO SELETIVO SIMPLIFICADO Nº 12/2026')).toBe('12/2026');
+    expect(numeroEdital('Edital de Abertura nº 05/2027')).toBe('5/2027');
+  });
+  it('ignora retificação, resultado e convocação', () => {
+    expect(numeroEdital('Edital de Retificação nº 002/2026')).toBeNull();
+    expect(numeroEdital('Resultado do Concurso Público nº 001/2025')).toBeNull();
+    expect(numeroEdital('Concurso público para médicos em 2026')).toBeNull();
+  });
+});
+
+describe('seleção de docência não vira vaga médica', () => {
+  it('título de professor/residência sem "médico"', () => {
+    expect(tituloDeDocencia('UFFS - RS abre seleção para professor de Medicina no campus de Passo Fundo')).toBe(true);
+    expect(tituloDeDocencia('Hospital abre seleção de residência médica')).toBe(true);
+    expect(tituloDeDocencia('Prefeitura abre concurso para médicos e professores')).toBe(false);
+    expect(tituloDeDocencia('Prefeitura de Chapecó abre concurso com 91 vagas')).toBe(false);
+  });
+  it('especialidade solta numa seleção de professor é descartada', () => {
+    const item = {
+      fonte: 'pci' as const,
+      url: 'https://www.pciconcursos.com.br/noticias/uffs-professor',
+      orgao: 'UFFS - Universidade Federal da Fronteira Sul',
+      titulo: 'UFFS - RS abre seleção para professor de Medicina no campus de Passo Fundo',
+      uf: 'RS' as const,
+      cargosTexto: '',
+      vagas: 1,
+      remuneracaoMax: 5037.78,
+      escolaridade: 'Superior',
+      inscricoes: { inicio: null, fim: null },
+      incompleto: true,
+    };
+    const detalhe = { titulo: item.titulo, texto: 'Área: Medicina de Família e Comunidade', linhas: ['Área: Medicina de Família e Comunidade (1 vaga)'], publicadoEm: null, observacoes: [] };
+    expect(construirConcursos({ item, detalhe, geo, agora: AGORA })).toEqual([]);
   });
 });

@@ -99,6 +99,8 @@ export const ConcursoSchema = z.object({
   fonte: z.enum(FONTES),
   fonteUrl: url,
   ano: z.number().int().min(2000).max(2100),
+  /** Número do certame ("3/2026"), quando a notícia o informa. Separa editais diferentes do mesmo órgão no mesmo ano. */
+  edital: z.string().nullable().default(null),
   firstSeenAt: z.string().min(10),
   lastSeenAt: z.string().min(10),
   isNew: z.boolean().default(false),
@@ -113,6 +115,8 @@ export const SourceStatusSchema = z.object({
   itens: z.number().int().nonnegative(),
   medicos: z.number().int().nonnegative().default(0),
   erro: z.string().nullable().default(null),
+  /** Fonte principal (agregadores): se falhar, o app avisa que o Radar pode estar incompleto. */
+  essencial: z.boolean().default(false),
 });
 export type SourceStatus = z.infer<typeof SourceStatusSchema>;
 

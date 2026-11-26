@@ -48,13 +48,29 @@ export function unirCargos(a: Cargo[], b: Cargo[]): Cargo[] {
   const lista = [...mapa.values()];
   const especificos = lista.filter((c) => !/^medic[oa]s?( \(ver edital\))?$/.test(normalizar(c.nome)));
   const base = especificos.length ? especificos : lista;
-  // Sobras curtas contidas em nomes mais completos ("Pediatra" × "Médico Pediatra", "Obstetra" × "Médico Ginecologista e Obstetra").
+  // Sobras do mesmo cargo: "Pediatra" × "Médico Pediatra" (mesmo núcleo) e "Obstetra" × "Médico Ginecologista
+  // e Obstetra" (parte de um cargo composto). Qualificadores criam cargos DIFERENTES e ficam os dois:
+  // "Médico Endocrinologista" × "Médico Endocrinologista Pediátrico" (edital de Chapecó/SC 2026).
   const chaves = base.map((c) => chaveCargo(c.nome));
+  const nucleos = chaves.map(nucleoCargo);
   return base.filter((_, i) => {
     const ch = chaves[i] ?? '';
-    if (ch.split(' ').length > 2) return true;
-    return !chaves.some((outra, j) => j !== i && outra !== ch && ` ${outra} `.includes(` ${ch} `));
+    const nu = nucleos[i] ?? '';
+    return !chaves.some((outra, j) => {
+      if (j === i) return false;
+      const nuOutra = nucleos[j] ?? '';
+      if (nu === nuOutra) {
+        const [a, b] = [ch.split(' ').length, outra.split(' ').length];
+        return a < b || (a === b && outra !== ch && j < i);
+      }
+      return nuOutra.includes(' e ') && nuOutra.split(' e ').map((p) => p.trim()).includes(nu);
+    });
   });
+}
+
+/** Nome do cargo sem o prefixo "médico"/"perito médico": "medico do trabalho" → "trabalho". */
+function nucleoCargo(chave: string): string {
+  return chave.replace(/^(perit[oa] )?medic[oa] (d[aeo]s? )?/, '').trim() || chave;
 }
 
 /**
@@ -86,6 +102,7 @@ export function fundirRegistros(principal: Concurso, outro: Concurso): Concurso 
       fim: preferir(p.inscricoes.fim, o.inscricoes.fim),
     },
     dataProva: preferir(p.dataProva, o.dataProva),
+    edital: preferir(p.edital, o.edital),
     editalUrl: preferir(p.editalUrl, o.editalUrl),
     inscricaoUrl: preferir(p.inscricaoUrl, o.inscricaoUrl),
     relacionados,
@@ -116,6 +133,60 @@ function menorData(a: string, b: string): string {
 
 function maiorData(a: string, b: string): string {
   return Date.parse(a) >= Date.parse(b) ? a : b;
+}
+
+/** Id de um 2º certame do mesmo órgão/tag/ano: "…-2026" + edital "3/2026" → "…-2026-ed3". */
+export function idComEdital(idBase: string, edital: string): string {
+  const numero = Number(edital.split('/')[0]);
+  return `${idBase}-ed${Number.isFinite(numero) ? numero : edital.replace(/\W+/g, '')}`;
+}
+
+function numeroDoEdital(edital: string | null): number {
+  const n = Number(edital?.split('/')[0]);
+  return Number.isFinite(n) ? n : Number.MAX_SAFE_INTEGER;
+}
+
+/**
+ * O id (uf-cidade-órgão-tag-ano) junta num registro só dois certames do mesmo órgão no mesmo ano. Aqui, um registro
+ * ganha id próprio ("…-ed3") quando é OUTRO certame: número de edital diferente do "dono" do id, vindo da MESMA fonte
+ * e de outra notícia (fontes diferentes às vezes citam números diferentes do mesmo certame — essas continuam fundidas).
+ * O dono do id é o registro já existente no arquivo; numa rodada sem histórico, o de menor número de edital.
+ */
+export function separarPorEdital(novos: Concurso[], existentes: Concurso[]): Concurso[] {
+  const existentePorId = new Map(existentes.map((c) => [c.id, c]));
+  const donos = new Map<string, Concurso>();
+  const separados = new Set<string>(existentes.map((c) => c.id));
+  const ordenados = [...novos].sort(
+    (a, b) => a.id.localeCompare(b.id) || numeroDoEdital(a.edital) - numeroDoEdital(b.edital) || a.fonteUrl.localeCompare(b.fonteUrl),
+  );
+  const saida: Concurso[] = [];
+  for (const r of ordenados) {
+    if (r.fonte === 'manual' || r.fonte === 'curadoria') {
+      saida.push(r);
+      continue;
+    }
+    const dono = donos.get(r.id) ?? existentePorId.get(r.id);
+    if (!dono) {
+      donos.set(r.id, r);
+      saida.push(r);
+      continue;
+    }
+    if (!donos.has(r.id)) donos.set(r.id, dono);
+    if (!r.edital || !dono.edital || r.edital === dono.edital) {
+      saida.push(r);
+      continue;
+    }
+    const idProprio = idComEdital(r.id, r.edital);
+    const outroCertame = r.fonte === dono.fonte && r.fonteUrl !== dono.fonteUrl;
+    // Outra fonte citando o número de um certame já separado → vai para ele; senão, funde com o dono.
+    if (outroCertame || separados.has(idProprio)) {
+      separados.add(idProprio);
+      saida.push({ ...r, id: idProprio });
+    } else {
+      saida.push(r);
+    }
+  }
+  return saida;
 }
 
 /** Deduplica uma lista (mesma rodada) por id, fundindo registros repetidos. */

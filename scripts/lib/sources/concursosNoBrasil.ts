@@ -3,7 +3,7 @@
  * Listagem em <table>: órgão (link com title da notícia) + vagas. Cargos só na notícia.
  */
 import * as cheerio from 'cheerio';
-import { normalizar, todosReais } from '../../../src/shared/concursos/normalize';
+import { todosReais } from '../../../src/shared/concursos/normalize';
 import type { UF } from '../../../src/shared/concursos/schema';
 import type { Detalhe, ItemListagem } from './types';
 
@@ -41,18 +41,6 @@ export function parseListagemCnb(html: string, uf: UF): ItemListagem[] {
     });
   });
   return itens;
-}
-
-/**
- * Vale abrir a notícia? Título menciona saúde/medicina/órgão pericial, ou remuneração alta
- * (vagas médicas costumam puxar o teto salarial do edital para cima).
- */
-export function cnbVaiDetalhar(item: ItemListagem): boolean {
-  const n = normalizar(item.titulo + ' ' + item.orgao);
-  if (/medic|saude|hospital|consorcio|\bupa\b|samu|ebserh|cientifica|\bigp\b|\biml\b|legista|perito|pericia|plantonista|\besf\b/.test(n)) {
-    return true;
-  }
-  return (item.remuneracaoMax ?? 0) >= 7000;
 }
 
 export function parseDetalheCnb(html: string): Detalhe {
