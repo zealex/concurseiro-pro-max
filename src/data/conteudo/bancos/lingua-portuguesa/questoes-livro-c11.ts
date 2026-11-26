@@ -878,4 +878,27 @@ export const QUESTOES_LIVRO_C11: QuestaoTreino[] = [
     comentario:
       'Alternativa D correta: sem palavra atrativa antes do verbo “amava”, a ênclise “amava-o” é a colocação prescrita, e a mudança preserva a correção. As demais erram: em A, “ainda” é advérbio atrativo que exige a próclise; em B, “não” também exige próclise; e em E, “que” atrai o pronome para antes do verbo.',
   },
+  {
+    id: 'lp-pronome-qlivro11-57',
+    temaId: 'lp-pronome',
+    formato: 'certo-errado',
+    dificuldade: 2,
+    enunciado:
+      '(Cespe/UnB — MPU — Técnico Administrativo — 2010) O deslocamento do pronome “se” para imediatamente após a forma verbal “concretizar” – “não deverá concretizar-se” – não prejudicará a correção gramatical do texto.',
+    gabaritoCE: true,
+    comentario:
+      'Certo. Em “não deverá concretizar-se”, a palavra atrativa “não” fica antes da locução verbal, e a ênclise ao infinitivo principal é admitida nesse caso, como em “não devemos preocupar-nos”. Por isso, o deslocamento do pronome para depois de “concretizar” não prejudica a correção gramatical do trecho.',
+  },
+  {
+    id: 'lp-pronome-qlivro11-58',
+    temaId: 'lp-pronome',
+    formato: 'multipla',
+    dificuldade: 3,
+    enunciado:
+      '(Consulplan - TSE - Analista Judiciário - 2012) “(...) Da governalidade aos atos cotidianos, o mundo da vida no qual ética e moral se cindiram há muito tempo transformou-se na sempre saqueável terra de ninguém. (...) A mesma polícia que combate o narcotráfico nas favelas das grandes cidades poderia ocupar o Congresso e outros espaços do governo onde a corrupção é a regra. (...) Se a conduta de praxe seria não apenas aceitar, mas exigir dinheiro em troca de uma ação qualquer na contramão do dever, é porque no sistema da corrupção o valor da honestidade, que garantiria ao sujeito a sua autonomia, foi substituído pela vantagem do dinheiro.” Assinale a palavra que, no texto, NÃO exerça papel pronominal.',
+    alternativas: ['onde', 'muito', 'qualquer', 'outros'],
+    correta: 2,
+    comentario:
+      'Alternativa C correta: em “uma ação qualquer”, o indefinido acompanha o substantivo “ação” como determinante e não o substitui, por isso não exerce papel pronominal. As demais palavras, “onde”, “muito” e “outros”, aparecem no trecho em usos que a questão trata como pronominais ou adverbiais, e não respondem ao enunciado. O exercício cobra a função da palavra no contexto, e não apenas a sua classe.',
+  },
 ];

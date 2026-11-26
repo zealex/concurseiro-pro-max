@@ -157,7 +157,9 @@ export function validarBanco(banco: BancoConteudo): ResultadoValidacao {
       const alts = q.alternativas ?? [];
       if (alts.length < 4 || alts.length > 5) erros.push(`${onde}: múltipla escolha precisa de 4 ou 5 alternativas`);
       if (alts.some((a) => !a.trim())) erros.push(`${onde}: alternativa vazia`);
-      if (new Set(alts.map(normalizarTexto)).size !== alts.length) erros.push(`${onde}: alternativas repetidas`);
+      // Acento e cedilha fazem parte da alternativa ("a" × "à", "faccões" × "facções"): só espaços e caixa são ignorados.
+      const semRuido = (s: string) => s.trim().replace(/\s+/g, ' ').toLowerCase();
+      if (new Set(alts.map(semRuido)).size !== alts.length) erros.push(`${onde}: alternativas repetidas`);
       if (q.correta === undefined || !Number.isInteger(q.correta) || q.correta < 0 || q.correta >= alts.length) {
         erros.push(`${onde}: índice da correta inválido`);
       } else {

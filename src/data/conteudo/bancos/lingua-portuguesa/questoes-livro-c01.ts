@@ -21,7 +21,7 @@ export const QUESTOES_LIVRO_C01: QuestaoTreino[] = [
     enunciado: '(Vunesp - Prefeitura de São Paulo - Auxiliar de Zoonoses - 2002) Assinale a alternativa em que as sílabas de todas as palavras estão separadas corretamente.',
     alternativas: [
       'fi-ngem, no-rte, con-fu-nde.',
-      'ex-pres-sáo, lín-gua, fo-ra.',
+      'ex-pres-são, lín-gua, fo-ra.',
       'ali-men-tar, vi-vos, ga-mbá.',
       'qu-an-do, a-ta-ca-dos, i-sso.',
     ],
@@ -37,7 +37,7 @@ export const QUESTOES_LIVRO_C01: QuestaoTreino[] = [
     enunciado: '(FUNDEC -TJ/MG - Oficial de Justiça - 2002) Assinale a alternativa INCORRETA quanto à descrição da palavra.',
     alternativas: [
       'distinguir: um encontro consonantal e dois dígrafos.',
-      'cinquentáo: dois encontros consonantais, um ditongo crescente e um ditongo decrescente.',
+      'cinquentão: dois encontros consonantais, um ditongo crescente e um ditongo decrescente.',
       'quiproquó: dois ditongos crescentes e um encontro consonantal.',
       'antiguidade: dois dígrafos e nenhum ditongo.',
     ],
@@ -107,7 +107,7 @@ export const QUESTOES_LIVRO_C01: QuestaoTreino[] = [
     dificuldade: 3,
     enunciado:
       '(Fepese — Prefeitura de Balneário de Camboriú - Arquiteto — 2008) Observe a frase, retirada do texto: Entreabri os olhos e deparei com uma quantidade enorme de cascalho e areia. Coloque dentro dos parênteses (coluna 2) o número que corresponda à classificação correta dos conjuntos destacados, de acordo com a coluna 1 (não é permitido repetir qualquer número). Coluna 1: 1. hiato; 2. ditongo decrescente; 3. ditongo crescente; 4. grupo consonantal; 5. dígrafo. Coluna 2: ( ) abri; ( ) olhos; ( ) quantidade; ( ) deparei; ( ) entreabri. Assinale agora a resposta que apresenta a sequência correta, de cima para baixo.',
-    alternativas: ['i_4_3_2-5.', '4-5-3-1-2.', '4-5-3-2-1.', '5-4-3-2-1.', '5-4-2-3-1.'],
+    alternativas: ['1-4-3-2-5.','4-5-3-1-2.', '4-5-3-2-1.', '5-4-3-2-1.', '5-4-2-3-1.'],
     correta: 2,
     comentario:
       'A sequência é 4-5-3-2-1: “abri” tem grupo consonantal (“br”), “olhos” tem dígrafo (“lh”), “quantidade” tem ditongo crescente (“ua”), “deparei” tem ditongo decrescente (“ei”) e “entreabri” tem hiato (“ea”). As demais sequências trocam pelo menos dois desses números.',
@@ -140,10 +140,10 @@ export const QUESTOES_LIVRO_C01: QuestaoTreino[] = [
     formato: 'multipla',
     dificuldade: 2,
     enunciado: '(Cespe/UnB - CEHAP - Auxiliar de Serviços Administrativos - 2009) Assinale a opção que apresenta o vocábulo classificado inadequadamente quanto ao número de sílabas.',
-    alternativas: ['acredito — polissílabo.', 'comigo — trissílabo.', 'Rosinha — dissilabo.', 'O eu — monossílabo.'],
+    alternativas: ['acredito — polissílabo.', 'comigo — trissílabo.', 'Rosinha — dissílabo.', 'eu — monossílabo.'],
     correta: 2,
     comentario:
-      'A classificação errada é a de “Rosinha”: ro-si-nha tem três sílabas, logo é trissílaba, e não dissílaba. As outras três classificações batem com a contagem de sílabas de cada termo: “acredito” (a-cre-di-to), “comigo” (co-mi-go) e “O eu” (monossílaba).',
+      'A classificação errada é a de “Rosinha”: ro-si-nha tem três sílabas, logo é trissílaba, e não dissílaba. As outras três classificações batem com a contagem de sílabas de cada termo: “acredito” (a-cre-di-to), “comigo” (co-mi-go) e “eu” (monossílaba).',
   },
   {
     id: 'lp-fonologia-qlivro01-12',
@@ -448,5 +448,71 @@ export const QUESTOES_LIVRO_C01: QuestaoTreino[] = [
     gabaritoCE: false,
     comentario:
       'A afirmação é errada: “Hermenegildo” tem doze letras, e o “h” inicial é mudo, o que já reduz a contagem de sons. Como as demais letras correspondem, em regra, a um som cada, o total de fonemas fica abaixo do de letras.',
+  },
+  {
+    id: 'lp-fonologia-qlivro01-33',
+    temaId: 'lp-fonologia',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(Consulplan - Assistente Administrativo - 2010) Assinale a alternativa em que a palavra sublinhada é um ditongo oral crescente. (Palavras destacadas no livro: a) água; b) caos; c) inteiro; d) estação; e) proteína.)',
+    alternativas: [
+      'Você não contribuiu para a contaminação da água.',
+      'Após as chuvas, a cidade está um caos.',
+      '... o processo inteiro passou por critérios de proteção ao meio ambiente.',
+      '... os alimentos da estação costumam ser mais bonitos e gostosos.',
+      'A proteína é necessária para o organismo.',
+    ],
+    correta: 0,
+    comentario:
+      'A alternativa A é a correta: em “água” o “u” é semivogal diante do “a” na mesma sílaba (á-gua), formando ditongo oral crescente. Em “caos” e “inteiro” os ditongos são decrescentes (“ao” e “ei”), em “estação” o ditongo é nasal decrescente (“ão”), e em “proteína” há hiato (pro-te-í-na).',
+  },
+  {
+    id: 'lp-fonologia-qlivro01-34',
+    temaId: 'lp-fonologia',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(Consulplan - Técnico em Informática - 2011) “Por trás de um pequeno homem talvez exista uma mulherzinha de nada”. As palavras destacadas no livro (trás, pequeno e mulherzinha) apresentam, respectivamente:',
+    alternativas: [
+      'encontro vocálico / dígrafo / encontros vocálicos;',
+      'hiato / dígrafo / encontros consonantais;',
+      'encontro consonantal / ditongo / dígrafos;',
+      'tritongo / ditongo / dígrafos;',
+      'encontro consonantal / dígrafo / dígrafos.',
+    ],
+    correta: 4,
+    comentario:
+      'A alternativa E é a correta: em “trás” o “tr” é encontro consonantal, em “pequeno” o “qu” é dígrafo e em “mulherzinha” há dois dígrafos, “lh” e “nh”. Nas outras, “trás” aparece como encontro vocálico, hiato ou tritongo, ou “pequeno” aparece como ditongo, o que não se aplica a essas palavras.',
+  },
+  {
+    id: 'lp-fonologia-qlivro01-35',
+    temaId: 'lp-fonologia',
+    formato: 'multipla',
+    dificuldade: 3,
+    enunciado:
+      '(Fumarc - Prefeitura de Nova Lima/MG - Estagiário de Técnico em Administração - 2012) Considere estes grupos de palavras: I. co-lé-gi-o; bra-si-le-i-ras; as-pe-ctos. II. e-nig-ma; pror-ro-gar; ca-ná-rio. III. due-lo; mi-ú-do; su-bli-nhar. IV. in-con-tes-tá-vel; eu-ro-pei-a; i-guais. A correta divisão silábica de todas as palavras pode ser observada:',
+    alternativas: ['apenas em II;', 'apenas em II e IV;', 'apenas em III e IV;', 'apenas em I e IV.'],
+    correta: 1,
+    comentario:
+      'A alternativa B é a correta: em II (e-nig-ma, pror-ro-gar, ca-ná-rio) e em IV (in-con-tes-tá-vel, eu-ro-pei-a, i-guais) a divisão está certa. Em I, “bra-si-le-i-ras” separa o ditongo de “lei” (o certo é bra-si-lei-ras) e “as-pe-ctos” deveria ser “as-pec-tos”; em III, “su-bli-nhar” deveria ser “sub-li-nhar”.',
+  },
+  {
+    id: 'lp-fonologia-qlivro01-36',
+    temaId: 'lp-fonologia',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(Funrio - MPOG - Analista de Tecnologia da Informação - 2013) Sobre a identificação de encontros consonantais, encontros vocálicos e dígrafos é CORRETO afirmar que:',
+    alternativas: [
+      'há dígrafo nas seguintes palavras: distintos, presidente e imposto.',
+      'há ditongo nas seguintes palavras: quando, duas e oposição.',
+      'há hiato nas seguintes palavras: negociação, muito e imediato.',
+      'há encontro consonantal nas seguintes palavras: conquista, objetivo e aumentos.',
+      'há tritongo nas seguintes palavras: imediatamente, titubeante e população.',
+    ],
+    correta: 0,
+    comentario:
+      'A alternativa A é a correta: em “distintos”, “presidente” e “imposto” a vogal nasal aparece escrita com duas letras (“in”, “en”, “im”), o que o livro chama de dígrafo vocálico. Nas demais há erro de classificação: em “negociação” e “imediato” há ditongo crescente (“ia”), e não hiato, “muito” tem ditongo (“ui”), e “população” não tem tritongo.',
   },
 ];

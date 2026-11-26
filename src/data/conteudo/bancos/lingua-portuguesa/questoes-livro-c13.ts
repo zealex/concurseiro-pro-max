@@ -797,4 +797,144 @@ export const QUESTOES_LIVRO_C13: QuestaoTreino[] = [
     comentario:
       'A afirmação está errada: “assim”, no início do período, não indica modo, e sim conclusão, pois retoma o raciocínio anterior. A comparação que se segue decorre do argumento, e não de uma maneira de agir.',
   },
+  {
+    id: 'lp-invariaveis-qlivro13-55',
+    temaId: 'lp-invariaveis',
+    formato: 'certo-errado',
+    dificuldade: 2,
+    enunciado:
+      '(FCC - DPE/SP - Agente de Defensoria - 2010) (Adaptada) Fragmento de texto: “Até umas três gerações atrás, boa parte da sustentação emocional e material das pessoas vinha dos familiares. Hoje convivemos muito mais com amigos e desconhecidos...”. A afirmação abaixo está correta ou incorreta? O emprego da preposição “Até” indica um limite de tempo, que se opõe à afirmativa introduzida pelo advérbio “Hoje”.',
+    gabaritoCE: true,
+    comentario:
+      'Certo. “Até” é preposição que marca o limite final de um intervalo de tempo, contado a partir de “umas três gerações atrás”, e “Hoje” introduz o presente, em oposição a esse período passado. Por isso, o item descreve corretamente a relação de oposição entre as duas expressões de tempo.',
+  },
+  {
+    id: 'lp-invariaveis-qlivro13-56',
+    temaId: 'lp-invariaveis',
+    formato: 'certo-errado',
+    dificuldade: 3,
+    enunciado:
+      '(Funiversa - Sejus/DFT - Ciências Contábeis - 2010) (Adaptada) Texto para as questões 18 e 19: “Era uma menina morena que chorava muito, ainda com o cordão umbilical, embrulhada em uma sacola de papel.” A afirmação abaixo está correta ou incorreta? A substituição de “ainda” por “ainda que” modifica o sentido da frase em que se insere, porque, no original, o vocábulo “ainda” tem valor de tempo e, na reescrita, passa a estabelecer uma relação de oposição, de concessão.',
+    gabaritoCE: true,
+    comentario:
+      'Certo. No original, “ainda” indica tempo, com o sentido de “até aquele momento”. Na reescrita com “ainda que”, a locução introduz uma oração concessiva, que expressa oposição. Como a troca altera o sentido da frase, a afirmação está correta.',
+  },
+  {
+    id: 'lp-invariaveis-qlivro13-57',
+    temaId: 'lp-invariaveis',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(Cesgranrio - Petrobras - Administrador Júnior - 2010) O termo destacado expressa uma circunstância de causa em:',
+    alternativas: [
+      '“entretanto, pelas inseguranças, medos e raivas,”',
+      '“...que impactam pelo resto da vida,”',
+      '“No direito e na medicina isso é mais complexo,”',
+      '“pode ser perfeitamente aplicável daqui a um tempo.”',
+      '“...e, com absoluta certeza,”',
+    ],
+    correta: 0,
+    comentario:
+      'Alternativa A correta: em “pelas inseguranças, medos e raivas”, a expressão indica a causa das reações descritas no período, pois são as inseguranças, os medos e as raivas que motivam o que se afirma. As demais expressões têm outras circunstâncias: “pelo resto da vida” indica tempo, “No direito e na medicina” indica âmbito, “daqui a um tempo” indica tempo futuro, e “com absoluta certeza” indica modo.',
+  },
+  {
+    id: 'lp-invariaveis-qlivro13-58',
+    temaId: 'lp-invariaveis',
+    formato: 'multipla',
+    dificuldade: 3,
+    enunciado:
+      '(Cesgranrio - BNDES - Engenheiro - 2011) “...e às vezes lhe passava um recado ou uma correspondência.” / “isso existe às pampas.” Quais as locuções destacadas que encerram, respectivamente, as mesmas circunstâncias das destacadas nos trechos transcritos acima?',
+    alternativas: [
+      'Aos poucos, ele ia percebendo que não precisava mais dela. / Nada em volta causava mais surpresa.',
+      'Saiu às pressas porque tinha um compromisso. / De vez em quando, é preciso repensar as estratégias.',
+      'Vá em frente que você encontrará o que procura. / De modo algum aceitarei a proposta feita pelo meu superior.',
+      'Em breve, estarei terminando de escrever minha biografia. / Trabalhou em excesso para apresentar seu projeto final.',
+      'A notícia chegou de súbito causando, assim, um grande impacto. / Hoje em dia, as pessoas pensam mais nelas próprias.',
+    ],
+    correta: 3,
+    comentario:
+      'Alternativa D correta: “Em breve” indica tempo, como “às vezes”, e “em excesso” tem valor de intensidade, como “às pampas” no sentido de abundância. As demais combinações trocam pelo menos uma das circunstâncias do par original, por isso não atendem ao enunciado.',
+  },
+  {
+    id: 'lp-invariaveis-qlivro13-59',
+    temaId: 'lp-invariaveis',
+    formato: 'multipla',
+    dificuldade: 3,
+    enunciado:
+      '(Vunesp - Pref. Sorocaba/SP - Procurador - 2012) Fragmento de texto: “(...) O menor problema do Brasil é se sua economia passará a do Reino Unido, como a mídia britânica noticiou. Um defeito grave por aqui continua sendo a falta de valores civilizatórios – e nenhum sinal de melhora desse cenário no médio prazo. (...)”. Analise as afirmações. I. Na oração – ... parei ontem em frente à rodoviária de Brasília. – (1.º parágrafo), o advérbio em destaque é indicativo de tempo passado. II. Na oração – ... o Brasil termina este ano como a 6.ª maior economia do mundo. – (1.º parágrafo), a expressão em destaque está empregada com valor adverbial, indicativa de lugar. III. Na oração – Um defeito grave por aqui continua sendo a falta de valores civilizatórios... – (2.º parágrafo), o advérbio em destaque refere-se à cidade de Brasília. Está correto o que se afirma em:',
+    alternativas: ['I, apenas', 'II, apenas', 'I e III, apenas', 'II e III, apenas', 'I, II e III'],
+    correta: 0,
+    comentario:
+      'Alternativa A correta: apenas a afirmação I está certa, pois “ontem” situa a ação no passado e, por isso, indica tempo passado. A afirmação II não se sustenta, porque a expressão destacada não indica lugar. A III erra ao tomar “aqui” como referência à cidade de Brasília, quando o advérbio se refere ao próprio país.',
+  },
+  {
+    id: 'lp-invariaveis-qlivro13-60',
+    temaId: 'lp-invariaveis',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(FAB - EAGS — Sargento - 2012) Leia: “Viramundo estranhamente se recusava a comer. Afastara-se e contemplava em silêncio a paisagem. Havia nela algo vagamente familiar”. Os advérbios destacados acima indicam, respectivamente, as circunstâncias de:',
+    alternativas: [
+      'modo, intensidade, finalidade',
+      'negação, lugar, intensidade',
+      'modo, modo, intensidade',
+      'negação, modo, negação',
+    ],
+    correta: 2,
+    comentario:
+      'Alternativa C correta: “estranhamente” e “em silêncio” indicam modo, pois descrevem como Viramundo se recusava a comer e como contemplava a paisagem, e “vagamente” intensifica o adjetivo “familiar”, com valor de intensidade. As demais atribuem a essas palavras circunstâncias de negação, lugar ou finalidade que não correspondem ao sentido do trecho.',
+  },
+  {
+    id: 'lp-invariaveis-qlivro13-61',
+    temaId: 'lp-invariaveis',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(Fundep - Pref. de Bela Vista de MG - Técnico de Enfermagem - 2014) Assinale a alternativa em que a palavra destacada é um advérbio.',
+    alternativas: [
+      '“Essa definição aparece por último, como informal e recente”',
+      '“Nada podia ser igual ao que a realeza usava”',
+      '“Não foi possível manter esse controle por muito tempo”',
+      '“As classes mais pobres passavam a ter acesso a cópias dos acessórios reais”',
+    ],
+    correta: 3,
+    comentario:
+      'Alternativa D correta: em “mais pobres”, o “mais” intensifica o adjetivo “pobres”, função típica de advérbio. Na alternativa A, a palavra destacada é adjetivo (“recente”); em B, “Nada” é pronome indefinido; e em C, “muito” acompanha o substantivo “tempo”, como adjetivo indefinido.',
+  },
+  {
+    id: 'lp-invariaveis-qlivro13-62',
+    temaId: 'lp-invariaveis',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(Vunesp - TJ/SP - Médico Judiciário - 2019) No trecho do último parágrafo – quem controla o robô “ainda” é o ser humano –, o termo destacado apresenta circunstância adverbial de',
+    alternativas: [
+      'afirmação, como em: “tende a recuperar cada vez mais sua importância”',
+      'tempo, como em: “pode discutir, remotamente, diversos casos”',
+      'tempo, como em: “Hoje médicos pedem muitos exames”',
+      'afirmação, com em: “progressão tecnológica, claro, mas mais importante”',
+      'intensidade, como em: “tornando-a mais esperta”',
+    ],
+    correta: 2,
+    comentario:
+      'Alternativa C correta: “ainda” indica tempo, ou seja, que a situação continua até o momento, e o exemplo “Hoje médicos pedem muitos exames” ilustra justamente a circunstância de tempo. A alternativa B erra no exemplo, pois “remotamente” indica modo; A e D classificam como afirmação um termo que não tem esse valor; e E atribui intensidade a um exemplo que não corresponde ao termo destacado.',
+  },
+  {
+    id: 'lp-invariaveis-qlivro13-63',
+    temaId: 'lp-invariaveis',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(FGV - TJ/RS - Oficial de Justiça - 2020) A frase abaixo em que a substituição do segmento sublinhado por um advérbio foi feita de forma adequada é:',
+    alternativas: [
+      'Sem que se entendesse o motivo, o convidado aborreceu-se na festa / irresponsavelmente',
+      'Ia à academia poucas vezes / habitualmente',
+      'Dirigia com toda a atenção / atenciosamente',
+      'Mesmo sem estudo realizou a tarefa a contento / intuitivamente',
+      'Enfrentou as dificuldades com coragem / ferozmente',
+    ],
+    correta: 3,
+    comentario:
+      'Alternativa D correta: “a contento” indica modo, e a troca por “intuitivamente” mantém a ideia de como a tarefa foi realizada, sem estudo prévio. As demais substituições alteram o sentido do segmento original ou a adequação da frase, por isso não são aceitas pelo gabarito.',
+  },
 ];

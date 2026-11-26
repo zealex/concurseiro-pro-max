@@ -78,7 +78,7 @@ export const QUESTOES_LIVRO_C31: QuestaoTreino[] = [
     formato: 'multipla',
     dificuldade: 2,
     enunciado:
-      '(FGV - MEC - Analista de Sistemas - 2009) Em face da evidência imposta, que presume que a única forma aceitável de organização de uma sociedade é a regulação pelo mercado, podemos opor a proposta de organizar as sociedades e o mundo a partir do acesso para todos aos direitos fundamentais. As ocorrências da palavra QUE no trecho acima são classificadas como:',
+      '(FGV - MEC - Analista de Sistemas - 2009) “À evidência imposta, que presume que a única forma aceitável de organização de uma sociedade é a regulação pelo mercado, podemos opor a proposta de organizar as sociedades e o mundo a partir do acesso para todos aos direitos fundamentais”. As ocorrências da palavra QUE no trecho acima são classificadas como:',
     alternativas: [
       'conjunção integrante e conjunção integrante;',
       'pronome relativo e conjunção integrante;',
@@ -286,7 +286,7 @@ export const QUESTOES_LIVRO_C31: QuestaoTreino[] = [
       'Assinale a alternativa na qual a palavra QUE tem a mesma classificação morfológica que a destacada em: “... baseados em estatísticas que têm pouca ou nenhuma importância.”',
     alternativas: [
       '“... ambiente bélico em que se transformou o futebol.”',
-      '“E óbvio que informações e estatísticas são importantíssimas.”',
+      '“É óbvio que informações e estatísticas são importantíssimas.”',
       '“Se dizem que a imagem vale mais que mil palavras...”',
       '“... para achar que todas as faltas violentas são involuntárias.”',
     ],
@@ -336,7 +336,7 @@ export const QUESTOES_LIVRO_C31: QuestaoTreino[] = [
     formato: 'multipla',
     dificuldade: 3,
     enunciado:
-      '(FUNCAB - MPE/RO - Técnico em Contabilidade - 2012) Em relação ao SE em “(...) Se a mãe estivesse em casa, ela teria dado uma ideia”, é correto afirmar que, morfologicamente, o termo é:',
+      '(FUNCAB - MPE/RO - Técnico em Contabilidade - 2012) Em relação ao SE em “(...) Se a mãe estivesse em casa, ela teria dado uma ideia (...)”, é correto afirmar que, morfologicamente, o termo é:',
     alternativas: [
       'uma conjunção subordinativa integrante, ou seja, é elemento de ligação entre a oração subordinada substantiva direta e a oração principal;',
       'uma conjunção subordinativa adverbial condicional, ou seja, é elemento de ligação entre a oração subordinada adverbial condicional e a oração principal;',
@@ -576,7 +576,7 @@ export const QUESTOES_LIVRO_C31: QuestaoTreino[] = [
     formato: 'multipla',
     dificuldade: 3,
     enunciado:
-      '(CONSULPLAN - CBTU - Técnico de Enfermagem do Trabalho - 2014) O vocábulo “que” desempenha, na Língua Portuguesa, funções morfossintáticas diferentes. Releia, então, os seguintes trechos do texto: 1. “Minha filha chega da escola dizendo que há revolução na rua.” 2. “Acreditava, até então, que dificilmente se deteria um exército com dois paralelepípedos”. Com base nos trechos apresentados, analise as afirmativas. I. O trecho 1 é formado por três verbos e o trecho 2, por dois verbos. II. Nos dois trechos, o vocábulo “que” desempenha a mesma função sintática. III. O vocábulo “que” foi usado, em ambos os trechos, para retomar informações anteriormente expressas. Está(ão) correta(s) a(s) afirmativa(s):',
+      '(CONSULPLAN - CBTU - Técnico de Enfermagem do Trabalho - 2014) O vocábulo “que” desempenha, na Língua Portuguesa, funções morfossintáticas diferentes. Releia, então, os seguintes trechos do texto: 1. “Minha filha chega da escola dizendo que há revolução na rua.” 2. “Acreditava, até então, que dificilmente se deteria um exército com dois paralelepípedos [...].” Com base nos trechos apresentados, analise as afirmativas. I. O trecho 1 é formado por três verbos e o trecho 2, por dois verbos. II. Nos dois trechos, o vocábulo “que” desempenha a mesma função sintática. III. O vocábulo “que” foi usado, em ambos os trechos, para retomar informações anteriormente expressas. Está(ão) correta(s) a(s) afirmativa(s):',
     alternativas: [
       'I, II e III.',
       'I, apenas.',
@@ -708,5 +708,17 @@ export const QUESTOES_LIVRO_C31: QuestaoTreino[] = [
     correta: 1,
     comentario:
       'A alternativa B é a correta: em “ninguém se zangou”, o “se” é parte integrante do verbo pronominal (zangar-se), a mesma função de “machucaram-se”. A e E são conjunções integrantes; C é partícula apassivadora; D é conjunção condicional.',
+  },
+  {
+    id: 'lp-que-se-como-qlivro31-45',
+    temaId: 'lp-que-se-como',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(FAB - EEAR - Sargento - 2001) Estabelecer a correlação entre o sentido e o termo grifado. Em seguida, assinalar a alternativa que apresenta a sequência correta: 1. Causa 2. Comparação 3. Conformidade ( ) Confesso que eu escrevo de palpite, como outras pessoas tocam piano de ouvido. ( ) Vinham em bandos, descansavam e, como em redor não havia comida, seguiam viagem para o Sul. ( ) Como era muito seco de maneiras, tinha inimigos que chegavam a acusá-lo de bárbaro. ( ) Não me respeitava a adolescência, como não respeitava a batina do irmão... ( ) O diabo não é tão feio como o pintam.',
+    alternativas: ['2 - 3 - 1 - 1 - 2.', '1 - 2 - 3 - 2 - 3.', '2 - 1 - 1 - 2 - 3.', '3 - 1 - 2 - 1 - 2.'],
+    correta: 2,
+    comentario:
+      'A alternativa C é a correta: “como outras pessoas tocam piano” compara (2) e “como o pintam” expressa conformidade (3), pois o diabo é retratado de certo modo. Já “como em redor não havia comida” e “Como era muito seco de maneiras” têm valor causal (1), e “como não respeitava a batina” também compara (2), confrontando duas condutas. As demais sequências trocam uma dessas classificações.',
   },
 ];

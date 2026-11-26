@@ -536,7 +536,7 @@ export const QUESTOES_LIVRO_C27: QuestaoTreino[] = [
     formato: 'multipla',
     dificuldade: 3,
     enunciado:
-      '(FCC - TCE/SP - Agente de Fiscalização Financeira - 2012) Pois se, por exemplo, criticamos a falta de liberdade e a injustiça social, seria sempre em nome de valores que ainda não se realizaram, mas a respeito dos nós, ocidentais, saberíamos, de antemão, seu sentido. Do ponto de vista da pontuação, o padrão culto escrito abonaria também, sem prejuízo do sentido original, a substituição proposta no seguinte segmento:',
+      '(FCC - TCE/SP - Agente de Fiscalização Financeira - 2012) Pois se, por exemplo, criticamos a falta de liberdade e a injustiça social, seria sempre em nome de valores que ainda não se realizaram, mas a respeito dos quais nós, ocidentais, saberíamos, de antemão, seu sentido. Do ponto de vista da pontuação, o padrão culto escrito abonaria também, sem prejuízo do sentido original, a substituição proposta no seguinte segmento:',
     alternativas: [
       'Pois se por exemplo,',
       'Pois se, por exemplo:',
@@ -911,5 +911,23 @@ export const QUESTOES_LIVRO_C27: QuestaoTreino[] = [
     gabaritoCE: true,
     comentario:
       'Certo. Deslocado para depois de “necessário”, o adjunto “Por outro lado” fica intercalado no período, o que exige vírgulas de isolamento. A alteração preserva o sentido e a gramática.',
+  },
+  {
+    id: 'lp-pontuacao-qlivro27-64',
+    temaId: 'lp-pontuacao',
+    formato: 'multipla',
+    dificuldade: 3,
+    enunciado:
+      '(Esaf - SRF - Auditor Fiscal da Receita Federal - 2000) Numa época de crise longa e generalizada como a que estamos vivendo que desestruturou o campo das ideias e dos projetos políticos e econômicos consolidados no século XX, a discussão sobre uma alternativa histórica que contemple o interesse dos fracos e inferiorizados não pode ficar prisioneira de um debate meramente conjuntural nem muito menos das ideias e propostas dos mais fortes e ganhadores. Sua primeira providência nesse sentido é clarificar o que foi a grande transformação da ordem capitalista que se cristalizou nos últimos 25 anos do século XX. (Adaptado de José Luís Fiori, Correio Braziliense, 20/10/2000) No que se refere à pontuação do texto, assinale a opção incorreta:',
+    alternativas: [
+      'Estaria correto usar vírgula isolando a expressão como a que estamos vivendo.',
+      'Seria correto colocar vírgulas isolando a expressão nesse sentido.',
+      'Caso não se coloque uma vírgula após alternativa histórica seria correto colocar uma vírgula antes de não pode ficar prisioneira.',
+      'A expressão meramente conjuntural deve ser isolada por vírgulas para que o texto fique correto.',
+      'Se a oração que contemple o interesse dos fracos e inferiorizados vier entre vírgulas será uma subordinada explicativa.',
+    ],
+    correta: 3,
+    comentario:
+      'O gabarito indicado pelo livro é a D, mas o autor manda desconsiderá-lo e aponta a C. A D está errada porque “meramente conjuntural” é adjunto restritivo de “debate” e não admite vírgulas de isolamento. A C também contém erro, pois a vírgula antes de “não pode ficar prisioneira” separaria a discussão do seu verbo, o que a norma não permite, e por isso a questão é controversa.',
   },
 ];

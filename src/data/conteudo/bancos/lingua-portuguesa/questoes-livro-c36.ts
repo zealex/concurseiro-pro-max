@@ -125,7 +125,7 @@ export const QUESTOES_LIVRO_C36: QuestaoTreino[] = [
     formato: 'multipla',
     dificuldade: 2,
     enunciado:
-      '(FCC - TCE/AP - Analista de Controle Externo - 2012) É clara e correta a frase apresentada na seguinte alternativa:',
+      '(FCC - TCE/AP - Analista de Controle Externo - 2012) É frase clara e correta a apresentada na seguinte alternativa:',
     alternativas: [
       'Nessa época do ano, as enchentes, e mais do que previsíveis, como todos o sabem, transformam a cidade uma paisagem horrenda.',
       'A atividade docente por si só já exerce uma função de liderança nata, e isso é que às vezes a sociedade teme, pois nem todos os mestres primam por ética.',
@@ -336,7 +336,7 @@ export const QUESTOES_LIVRO_C36: QuestaoTreino[] = [
     formato: 'certo-errado',
     dificuldade: 2,
     enunciado:
-      '(Cespe/UnB - PEFOCE — Auxiliar de Perícia de 1ª Classe — 2012) Com relação à correção gramatical, julgue o item, que apresenta trecho reescrito do texto de referência (texto não reproduzido no capítulo). Necessitam-se tanto da criação de métodos transparentes e previsíveis quanto da definição clara do que se considere violação ética, cujas alegações desse tipo seja submetido à investigação.',
+      'Para responder as questões de 24 a 26, considere a informação abaixo: Com relação à correção gramatical, julgue os itens subsequentes, que apresentam trechos reescritos do texto. (Cespe/UnB - PEFOCE — Auxiliar de Perícia de 1ª Classe — 2012) Necessitam-se tanto da criação de métodos transparentes e previsíveis quanto da definição clara do que se considere violação ética, cujas alegações desse tipo seja submetido à investigação.',
     gabaritoCE: false,
     comentario:
       'O item está errado: o relativo “cujas” concorda com “alegações”, por isso o verbo e o particípio deveriam ir ao plural (“sejam submetidas à investigação”). A reescrita mantém essa falha de concordância, e por isso não pode ser aceita.',
@@ -347,7 +347,7 @@ export const QUESTOES_LIVRO_C36: QuestaoTreino[] = [
     formato: 'certo-errado',
     dificuldade: 2,
     enunciado:
-      '(Cespe/UnB — PEFOCE — Auxiliar de Perícia de 1ª Classe — 2012) Com relação à correção gramatical, julgue o item, que apresenta trecho reescrito do texto de referência (texto não reproduzido no capítulo). Independentemente das razões que levem-nas a sujeitar, por exemplo, suas posses ou sua moradia ao trabalho pericial, à toda pessoa estão garantidos os direitos de: ser autor de seu destino e de optar por o caminho de sua conveniência.',
+      'Para responder as questões de 24 a 26, considere a informação abaixo: Com relação à correção gramatical, julgue os itens subsequentes, que apresentam trechos reescritos do texto. (Cespe/UnB — PEFOCE — Auxiliar de Perícia de 1ª Classe — 2012) Independentemente das razões que levem-nas a sujeitar, por exemplo, suas posses ou sua moradia ao trabalho pericial, à toda pessoa estão garantidos os direitos de: ser autor de seu destino e de optar por o caminho de sua conveniência.',
     gabaritoCE: false,
     comentario:
       'O item está errado: após o relativo “que”, o pronome átono deve vir antes do verbo (“que as levem”), e “à toda pessoa” não admite crase, pois “toda” é pronome indefinido que pede a preposição “a”. Além disso, “optar por o caminho” deveria ser “optar pelo caminho”, com a contração da preposição e do artigo.',
@@ -358,7 +358,7 @@ export const QUESTOES_LIVRO_C36: QuestaoTreino[] = [
     formato: 'certo-errado',
     dificuldade: 2,
     enunciado:
-      '(Cespe/UnB - PEFOCE - Auxiliar de Perícia de 1ª Classe - 2012) Com relação à correção gramatical, julgue o item, que apresenta trecho reescrito do texto de referência (texto não reproduzido no capítulo). Mas apesar da grande importância da ética deontológica, ela parece que é insuficiente para se aprofundarem reflexões éticas quanto à condutas profissionais, em vistas de se entender que ela seja atendida quando os códigos são simplesmente obedecidos.',
+      'Para responder as questões de 24 a 26, considere a informação abaixo: Com relação à correção gramatical, julgue os itens subsequentes, que apresentam trechos reescritos do texto. (Cespe/UnB - PEFOCE - Auxiliar de Perícia de 1ª Classe - 2012) Mas apesar da grande importância da ética deontológica, ela parece que é insuficiente para se aprofundarem reflexões éticas quanto à condutas profissionais, em vistas de se entender que ela seja atendida quando os códigos são simplesmente obedecidos.',
     gabaritoCE: false,
     comentario:
       'O item está errado: a locução “em vista de” é invariável, e a forma “em vistas de” não é aceita pela norma. Também é indevida a expressão “quanto à condutas”, que deveria ser “quanto às condutas”, com crase diante do plural feminino.',
@@ -446,7 +446,7 @@ export const QUESTOES_LIVRO_C36: QuestaoTreino[] = [
     formato: 'certo-errado',
     dificuldade: 2,
     enunciado:
-      '(Cespe/UnB - PC/CE — Inspetor — 2012) Com relação à correção gramatical, julgue o item, que propõe reescrita do trecho “No entanto, o estudo dos impérios, antigos ou recentes, permite acessar as raízes do mundo contemporâneo e aprofundar nossa compreensão das modalidades de organização do poder político”. Porém, estudando-se os impérios, antigos ou recentes, permite-se que seja acessado as raízes do mundo contemporâneo, e aprofundado, pela nossa compreensão, os modos como está organizado o poder político.',
+      'Para responder as questões 34 e 35, considere a informação abaixo: Em cada um dos itens a seguir, são apresentadas propostas de reescrita do trecho “No entanto, o estudo dos impérios, antigos ou recentes, permite acessar as raízes do mundo contemporâneo e aprofundar nossa compreensão das modalidades de organização do poder político”. Julgue-os com relação à correção gramatical. (Cespe/UnB - PC/CE — Inspetor — 2012) Porém, estudando-se os impérios, antigos ou recentes, permite-se que seja acessado as raízes do mundo contemporâneo, e aprofundado, pela nossa compreensão, os modos como está organizado o poder político.',
     gabaritoCE: false,
     comentario:
       'O item está errado: em “seja acessado as raízes”, o sujeito “as raízes” é plural e pede “sejam acessadas”, o que a reescrita não faz. A mesma falha de concordância aparece na construção “permite-se que seja acessado”, que compromete a correção do item.',
@@ -457,7 +457,7 @@ export const QUESTOES_LIVRO_C36: QuestaoTreino[] = [
     formato: 'certo-errado',
     dificuldade: 3,
     enunciado:
-      '(Cespe/UnB - PC/CE — Inspetor — 2012) Com relação à correção gramatical, julgue o item, que propõe reescrita do trecho “No entanto, o estudo dos impérios, antigos ou recentes, permite acessar as raízes do mundo contemporâneo e aprofundar nossa compreensão das modalidades de organização do poder político”. Contudo, estudar os impérios, antigos ou recentes, proporciona-nos o acesso às raízes do mundo contemporâneo e leva-nos à aprofundar a compreensão dos modos conforme aos quais organiza-se o poder político.',
+      'Para responder as questões 34 e 35, considere a informação abaixo: Em cada um dos itens a seguir, são apresentadas propostas de reescrita do trecho “No entanto, o estudo dos impérios, antigos ou recentes, permite acessar as raízes do mundo contemporâneo e aprofundar nossa compreensão das modalidades de organização do poder político”. Julgue-os com relação à correção gramatical. (Cespe/UnB - PC/CE — Inspetor — 2012) Contudo, estudar os impérios, antigos ou recentes, proporciona-nos o acesso às raízes do mundo contemporâneo e leva-nos à aprofundar a compreensão dos modos conforme aos quais organiza-se o poder político.',
     gabaritoCE: false,
     comentario:
       'O item está errado porque a crase em “à aprofundar” é indevida diante de verbo, e a forma correta seria “leva-nos a aprofundar”. Essa falha, somada à construção “conforme aos quais”, compromete a correção gramatical da reescrita.',
@@ -540,7 +540,7 @@ export const QUESTOES_LIVRO_C36: QuestaoTreino[] = [
     formato: 'multipla',
     dificuldade: 2,
     enunciado:
-      '(ESAF - STN - Analista de Finanças e Controle - 2013) Nos últimos dez anos, o Brasil passou por grandes transformações e crescimento econômico contínuo que o induziu a figurar entre os países em desenvolvimento acelerado. Com a expansão formou-se uma nova classe média, composta por trabalhadores vindos das classes D e E. Atualmente o país possui 105 milhões de pessoas com renda mensal entre R$ 1.700 e R$ 7.400 e a tendência é que esses números cresçam nos próximos anos. Em uma entrevista à revista PLANETA, o economista Marcelo Neri analisa o impacto da nova classe média no consumo, no ambiente e na sociedade e lista os desafios à frente dos brasileiros. PLANETA - O fenômeno é passageiro? NERI - Não, a nova classe média veio para ficar. O crescimento é contínuo, apesar das crises financeiras. Planos assistenciais e o aumento do crédito ao consumidor contribuíram. Mas o principal é que o número de trabalhadores que saíram da informalidade e passaram a ter carteira assinada dobrou desde 2004. (Adaptado de Milton Correia Júnior, Cigarras e formigas. PLANETA, agosto de 2012.) Assinale a reescrita proposta para trechos do texto que preserva a correção gramatical e a coerência entre as ideias.',
+      '(ESAF - STN - Analista de Finanças e Controle - 2013) Nos últimos dez anos, o Brasil passou por grandes transformações e crescimento econômico contínuo que o induziu a figurar entre os países em desenvolvimento acelerado. Com a expansão formou-se uma nova classe média, composta por trabalhadores vindos das classes D e E. Atualmente o país possui 105 milhões de pessoas com renda mensal entre R$ 1.700 e R$ 7.400 e a tendência é que esses números cresçam nos próximos anos. Em uma entrevista à revista PLANETA, o economista Marcelo Neri analisa o impacto da nova classe média no consumo, no ambiente e na sociedade e mostra os desafios à frente dos brasileiros. [...] PLANETA - O fenômeno é passageiro? NERI - Não, a nova classe média veio para ficar. O crescimento é contínuo, apesar das crises financeiras. Planos assistenciais e o aumento do crédito ao consumidor contribuíram. Mas o principal é que o número de trabalhadores que saíram da informalidade e passaram a ter carteira assinada dobrou desde 2004. (Adaptado de Milton Correia Júnior, Cigarras e formigas. PLANETA, agosto de 2012.) Assinale a reescrita proposta para trechos do texto que preserva a correção gramatical e a coerência entre as ideias.',
     alternativas: [
       '“... que o induziu a figurar entre os países...” → “... que induziu o Brasil a que se figure nos países (...)”',
       '“Com a expansão formou-se uma nova classe...” → “Em decorrência formou uma nova classe (...)”',
@@ -698,5 +698,77 @@ export const QUESTOES_LIVRO_C36: QuestaoTreino[] = [
     gabaritoCE: false,
     comentario:
       'O item está errado: a voz passiva sintética “Usaram-se as tecnologias” mantém a estrutura e o sentido, mas a locução deve ser grafada “a fim de”, e não “afim de”. Por causa dessa falha de grafia, a reescrita não atende à correção gramatical exigida.',
+  },
+  {
+    id: 'lp-registros-qlivro36-46',
+    temaId: 'lp-registros',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(CEPERJ - Pref. Angra dos Reis/RJ - Professor (Língua Portuguesa) - 2008) “Minha terra tem palmeiras” - o verbo ter foi usado segundo o registro coloquial na frase:',
+    alternativas: [
+      'O poeta tem saudades da sua terra.',
+      'Tem coisas que não se explicam: a dor do exílio é uma delas.',
+      'Muitos não têm ideia do que foi o exílio para o poeta.',
+      'De poeta e louco, todos temos um pouco.',
+      'O Brasil tem natureza exuberante e povo generoso.',
+    ],
+    correta: 1,
+    comentario:
+      'A alternativa B traz o uso coloquial de “ter” com sentido de existir (“tem coisas” equivale a “há coisas”), forma típica da fala informal. Nas demais, “ter” tem sentido de posse, de sentimento ou de algo que se possui, como em “tem saudades”, “têm ideia” e “tem natureza”, usos que seguem a norma culta.',
+  },
+  {
+    id: 'lp-registros-qlivro36-47',
+    temaId: 'lp-registros',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(FDC - CREMERJ - Agente Administrativo - 2011) O texto é predominantemente expresso em língua culta, mas, em algumas passagens, aparece uma marca de linguagem coloquial. A alternativa em que uma dessas passagens aparece é:',
+    alternativas: [
+      '“Não arrisque sua saúde!”',
+      '“Ouça um profissional antes de engolir qualquer remédio ou até mesmo um suplemento.”',
+      '“Outras têm o poder de anular ou potencializar os efeitos de medicamentos associados a elas.”',
+      '“Só eles conhecem as peculiaridades de cada substância e são capazes de prescrevê-las, garantindo a sua segurança.”',
+      '“No último caso, sintomas como sonolência, tontura, enjoo e falta de concentração podem perturbar o sujeito e até desencadear quadros mais graves.”',
+    ],
+    correta: 4,
+    comentario:
+      'A alternativa E traz a marca coloquial na palavra “enjoo”, usada no lugar do termo técnico “náusea”, enquanto o restante do trecho segue a norma culta. As demais passagens (A, B, C e D) têm vocabulário e construções próprios da língua escrita formal, com verbos, regência e pronomes adequados.',
+  },
+  {
+    id: 'lp-registros-qlivro36-48',
+    temaId: 'lp-registros',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(FDC - CREMERJ - Agente Administrativo - 2011) Como se trata de um texto relacionado à área médica, é justo que apareçam expressões que fazem parte do jargão (linguagem específica) dos médicos. A frase do texto em que NÃO ocorre qualquer vocábulo ou expressão desse tipo é:',
+    alternativas: [
+      '“Diante de uma dor de cabeça alucinante ou de uma queimação no estômago...”',
+      '“A probabilidade de o micro-organismo envolvido na história...”',
+      '“No último caso, sintomas como sonolência, tontura, enjoo...”',
+      '“...e até desencadear quadros mais graves.”',
+      '“...e são capazes de prescrevê-las.”',
+    ],
+    correta: 0,
+    comentario:
+      'A alternativa A é a única sem termo técnico, pois “dor de cabeça” e “queimação no estômago” são expressões do uso comum que qualquer leitor entende. As demais trazem vocabulário da medicina, como “micro-organismo”, “sintomas”, “sonolência”, “quadros” clínicos e o verbo “prescrever”, que caracterizam o jargão médico.',
+  },
+  {
+    id: 'lp-registros-qlivro36-49',
+    temaId: 'lp-registros',
+    formato: 'multipla',
+    dificuldade: 3,
+    enunciado:
+      '(FCC - TJ/PE - Técnico Judiciário - 2012) A frase redigida em conformidade com o padrão culto escrito é:',
+    alternativas: [
+      'A mãe sempre intervia nas discussões, mas os mal-entendidos entre o pai e o filho eram tão frequentes e tão excessivos, que um e outro já não dominavam a sua própria agressividade.',
+      'Com aquele jeito bonachão, a cada passo da viagem recaptulava a esplêndida experiência que tivera anteriormente, a ponto dos colegas pedirem que dispensasse as descrições.',
+      'Nesse processo de conscientização, são importantes o reconhecimento e respeito às diferenças, e como ele não as exercita só obstrói o crescimento do grupo.',
+      'Se muitas perdas advissem daquela decisão, ele as lamentaria, mas sem imputá-las jamais aos que denominava “guardiães da boa conduta alheia”.',
+      'Ao término do prazo de exceção, em que os processos não tiveram andamento, requereu nova acareação, com vistas a questionar o réu sobre as incongruências da anterior.',
+    ],
+    correta: 4,
+    comentario:
+      'A alternativa E é a indicada pelo gabarito do livro: o verbo “requereu” concorda com o sujeito, a locução “com vistas a” está empregada corretamente e o período é claro. Na alternativa B, a grafia “recaptulava” está errada (o correto é “recapitulava”) e a oração “pedirem que dispensasse” muda de sujeito sem motivo, o que compromete a correção.',
   },
 ];

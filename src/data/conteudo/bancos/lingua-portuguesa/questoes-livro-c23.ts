@@ -720,4 +720,22 @@ export const QUESTOES_LIVRO_C23: QuestaoTreino[] = [
     comentario:
       'Com o sentido de denominar, “chamar” é transitivo direto e predicativo (chamar algo de algo). Por isso “de a ordem das propriedades” é predicativo do objeto, e não complemento indireto. O item está errado.',
   },
+  {
+    id: 'lp-periodo-composto-qlivro23-49',
+    temaId: 'lp-periodo-composto',
+    formato: 'multipla',
+    dificuldade: 3,
+    enunciado:
+      '(Inaz do Pará — Prefeitura de Curuçá/PA — Professor de Português — 2015) No trecho “E eis que se processa a compreensão do abstrato em algo mais próximo”, não temos no período:',
+    alternativas: [
+      'uma oração subordinada substantiva objetiva direta.',
+      'uma oração subordinada substantiva subjetiva.',
+      'uma conjunção integrante.',
+      'uma conjunção coordenativa.',
+      'um pronome apassivador.',
+    ],
+    correta: 1,
+    comentario:
+      'A oração “que se processa…” é objetiva direta, complemento de “eis”, que funciona como verbo transitivo direto quando seguido da conjunção integrante “que”. O período tem essa conjunção integrante, a conjunção coordenativa inicial “e” e o pronome “se” apassivador. A única ausente é a oração subordinada substantiva subjetiva, que exigiria uma oração funcionando como sujeito.',
+  },
 ];

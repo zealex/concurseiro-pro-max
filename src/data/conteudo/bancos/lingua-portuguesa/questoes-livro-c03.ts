@@ -171,7 +171,7 @@ export const QUESTOES_LIVRO_C03: QuestaoTreino[] = [
       '(Esaf - MTE - Auditor-Fiscal do Trabalho - 2010) (Adaptada) A frase abaixo está correta ou incorreta quanto à ortografia? — Constroe-se o espaço social de tal modo que os agentes ou grupos são aí distribuídos em razão de sua posição nas distribuições estatísticas de acordo com os dois princípios de diferenciação que, em sociedades mais desenvolvidas, são sem dúvida, os mais eficientes: o capital econômico e o capital cultural.',
     gabaritoCE: false,
     comentario:
-      'A frase está incorreta: “Constroe-se” deveria ser “Constrói-se”, forma do verbo “construir”. A palavra “económico” também está errada, pois a grafia correta é “econômico”, com circunflexo.',
+      'A frase está incorreta: “Constroe-se” deveria ser “Constrói-se”, forma do verbo “construir”.',
   },
   {
     id: 'lp-ortografia-qlivro03-12',
@@ -280,10 +280,10 @@ export const QUESTOES_LIVRO_C03: QuestaoTreino[] = [
     formato: 'certo-errado',
     dificuldade: 2,
     enunciado:
-      '(Cespe/UnB - PC/ES — Auxiliar de Perícia Médico-Legal — 2011) Julgue o item com referência à correção gramatical. (Preocupe-se apenas com a ortografia nesta questão.) Não há dúvida de que o caminho iperseverar, ampliar a presença da polícia nas ruas, avançar com as UPPs e ir ao encalso dos responsáveispelos ataques; e não apenas da arraia miúda. São imensas, no entanto as dificuldades em superar, desde a carência de efetivos e recursos policiais à extensão e a profundidade que o problema adquiriu.',
+      '(Cespe/UnB - PC/ES — Auxiliar de Perícia Médico-Legal — 2011) Julgue o item com referência à correção gramatical. (Preocupe-se apenas com a ortografia nesta questão.) Não há dúvida de que o caminho é perseverar, ampliar a presença da polícia nas ruas, avançar com as UPPs e ir ao encalso dos responsáveis pelos ataques; e não apenas da arraia miúda. São imensas, no entanto as dificuldades em superar, desde a carência de efetivos e recursos policiais à extensão e a profundidade que o problema adquiriu.',
     gabaritoCE: false,
     comentario:
-      'O item está errado: “iperseverar” não existe, e a forma correta é “perseverar”. Também está errado “encalso”, que deveria ser “encalço”.',
+      'O item está errado: “encalso” deveria ser “encalço”, substantivo da expressão “ir ao encalço”. As demais palavras do trecho, como “perseverar” e “adquiriu”, estão grafadas corretamente.',
   },
   {
     id: 'lp-ortografia-qlivro03-19',
@@ -301,7 +301,7 @@ export const QUESTOES_LIVRO_C03: QuestaoTreino[] = [
     ],
     correta: 0,
     comentario:
-      'Em A, “receiem” é a forma correta do presente do subjuntivo de “recear”. As demais têm erro de conjugação: “passearam” (passear), “nomeiem” (nomear), “sapateia” (sapatear) e “freiem” (frear).',
+      'Em A, “receiem” é a forma correta do presente do subjuntivo de “recear”. As demais têm erro de conjugação: “passeiaram” (o certo é “passearam”), “nomeem” (o certo é “nomeiem”), “sapatea” (o certo é “sapateia”) e “freem” (o certo é “freiem”).',
   },
   {
     id: 'lp-ortografia-qlivro03-20',
@@ -520,5 +520,75 @@ export const QUESTOES_LIVRO_C03: QuestaoTreino[] = [
     gabaritoCE: false,
     comentario:
       'O item está errado: “discursão” não é grafia aceita. A forma correta é “discussão”, com dois “s”, e a substituição não é possível.',
+  },
+  {
+    id: 'lp-ortografia-qlivro03-34',
+    temaId: 'lp-ortografia',
+    formato: 'multipla',
+    dificuldade: 1,
+    enunciado: '(Consulplan - IBGE - Supervisor de Pesquisas (Estatística) - 2011) Quanto à grafia marque a alternativa correta.',
+    alternativas: [
+      'A sensasão de poder torna as pessoas autoritárias e exigentes.',
+      'A sociedade quer fazer contenção de despezas em relação a obras públicas.',
+      'Nabuco advinhou o que aconteceria no Brasil.',
+      'As classes mais desfavorecidas vencem os impecilhos impostos pelas elites.',
+      'As pessoas solidárias trabalharão em projetos beneficentes.',
+    ],
+    correta: 4,
+    comentario:
+      'A alternativa E é a correta: “trabalharão” e “beneficentes” seguem a ortografia atual. Em A, “sensasão” deveria ser “sensação”; em B, “despezas” deveria ser “despesas”; e em D, “impecilhos” deveria ser “empecilhos”. A alternativa C, com “advinhou”, é variante de “adivinhou”, mas o gabarito do livro a considera incorreta.',
+  },
+  {
+    id: 'lp-ortografia-qlivro03-35',
+    temaId: 'lp-ortografia',
+    formato: 'multipla',
+    dificuldade: 1,
+    enunciado: '(FCC - TRT/AL (19ª R) - Analista Judiciário - 2011) Quanto à ortografia, há INCORREÇÕES na frase:',
+    alternativas: [
+      'O crescimento da classe C tem tido uma importância incomensurável para o comércio, mas vem ocasionando também uma elevação na taxa de inadimplência, o que é perturbador.',
+      'Milhões de pessoas têm sido beneficiadas com o crescimento econômico que se vê no país, saltando da classe D para a C, algo que há poucos anos não pareceria factível.',
+      'Alguns especialistas vêm disseminando a teoria de que, a partir da distribuição de riqueza por meio da geração de milhões de novos empregos, a classe E deixe de existir.',
+      'Os “consumidores emergentes”, como vêm sendo chamados os novos integrantes da classe C, ainda têm dificuldade em poupar e adquirem grande parcela de produtos a crédito.',
+      'Sabe-se que a ascenção da classe D tem proporcionado um aumento expressivo do consumo de bens duráveis, o que pode acelerar sobremaneira esse mercado.',
+    ],
+    correta: 4,
+    comentario:
+      'A alternativa E tem a incorreção: “ascenção” deveria ser “ascensão”, com dois “s”. As demais frases estão corretas quanto à ortografia, com “incomensurável”, “factível”, “emergentes” e “poupar” grafadas como manda o padrão.',
+  },
+  {
+    id: 'lp-ortografia-qlivro03-36',
+    temaId: 'lp-ortografia',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(Consulplan - Prefeitura de Porto Velho/RO - Assistente Administrativo - 2012) “E agiliza o aprendizado”. Assim como a palavra destacada (agiliza), são escritas com “z” todas as palavras da seguinte alternativa:',
+    alternativas: [
+      'reali___ar / pesqui___ar / fiscali___ar;',
+      'avi___ar / enrai___ar / legali___ar;',
+      'arbori___ar / anali___ar / suavi___ar;',
+      'generali___ar / utili___ar / u___ar;',
+      'hospitali___ar / civili___ar / humani___ar.',
+    ],
+    correta: 4,
+    comentario:
+      'A alternativa E é a correta: “hospitalizar”, “civilizar” e “humanizar” são escritos com z, como “agilizar”. Nas demais há ao menos uma palavra com s: “pesquisar” (A), “avisar” (B), “analisar” (C) e “usar” (D).',
+  },
+  {
+    id: 'lp-ortografia-qlivro03-37',
+    temaId: 'lp-ortografia',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(Fundatec - Prefeitura de Porto Alegre/RS - Técnico em Enfermagem - 2022) As lacunas dos trechos “___ políticas daquela época”, “o bom _ parece que saiu de férias” e “não há ___ político sobre nada” devem ser preenchidas, respectivamente, por:',
+    alternativas: [
+      'Fações – censo – concenso',
+      'Facções – senso – consenso',
+      'Faccões – senso – consenso',
+      'Fações – senso – concenso',
+      'Faccões – censo – concenso',
+    ],
+    correta: 1,
+    comentario:
+      'A alternativa B, “Facções – senso – consenso”, é a correta. “Facções” é a grafia com ç, e o plural “facções políticas” exige essa forma; “senso”, no sentido de juízo, faz parte de “o bom senso”, enquanto “censo” é levantamento estatístico. “Consenso” significa acordo geral e se escreve com s, por isso as opções com “concenso” e “faccões” erram.',
   },
 ];

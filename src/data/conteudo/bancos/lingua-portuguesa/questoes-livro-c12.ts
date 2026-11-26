@@ -1179,12 +1179,12 @@ export const QUESTOES_LIVRO_C12: QuestaoTreino[] = [
     formato: 'multipla',
     dificuldade: 2,
     enunciado:
-      '(Esaf — MI-CENAD — Estatístico — 2012) Assinale a opção que, na sequência, preenche corretamente as lacunas do texto, de modo a manter o correto uso dos modos e tempos verbais e a coerência entre as ideias. Assim que o governo divulgou o crescimento zero do produto interno bruto brasileiro no terceiro semestre, não faltaram prognósticos negativos a respeito da economia do país e houve até quem _____ (1) _____ em risco de recessão no futuro próximo. Basta um olhar mais atento aos números de 2011 para _____ (2) _____ o pessimismo não se justifica. Entre os empresários não são poucas as vozes que _____ (3) _____ os alarmistas. Não faltam motivos para supor que, em 2011, os números da economia brasileira _____ (4) _____ vir ainda mais fortes. Além dos juros menores, conforme _____ (5) _____ a maioria dos economistas, do crédito em expansão, e dos incentivos fiscais, está previsto para janeiro um reajuste no salário mínimo, o que _____ (6) _____ impactos significativos à renda dos trabalhadores e aposentados. Nesse (…), o mercado interno seguirá aquecido.',
+      '(Esaf — MI-CENAD — Estatístico — 2012) Assinale a opção que, na sequência, preenche corretamente as lacunas do texto, de modo a manter o correto uso dos modos e tempos verbais e a coerência entre as ideias. Assim que o governo divulgou o crescimento zero do produto interno bruto brasileiro no terceiro semestre, não faltaram prognósticos negativos a respeito da economia do país e houve até quem _____ (1) _____ em risco de recessão no futuro próximo. Basta um olhar mais atento aos números de 2011 para _____ (2) _____ que o pessimismo não se justifica. Entre os empresários não são poucas as vozes que _____ (3) _____ dos alarmistas. Não faltam motivos para supor que, em 2011, os números da economia brasileira _____ (4) _____ vir ainda mais fortes. Além dos juros menores, conforme _____ (5) _____ a maioria dos economistas, do crédito em expansão, e dos incentivos fiscais, está previsto para janeiro um reajuste no salário mínimo, o que _____ (6) _____ impactos significativos à renda dos trabalhadores e aposentados. Nesse ciclo, o mercado interno seguirá aquecido.',
     alternativas: [
-      'fale / percebermos / discordassem / possam / preverá / trará',
+      'fale / percebermos / discordassem / possam / prevera / trará',
       'falasse / perceberem / discordassem / pudessem / prevê / trouxera',
       'falasse / perceber / discordam / possam / prevê / trará',
-      'filiou / percebermos / discordaram / podem / preverá / traria',
+      'falou / percebermos / discordaram / podem / prevera / traria',
       'falou / perceberem / discordaram / podem / previssem / trouxera',
     ],
     correta: 2,
@@ -1353,5 +1353,17 @@ export const QUESTOES_LIVRO_C12: QuestaoTreino[] = [
     gabaritoCE: true,
     comentario:
       'A afirmação está correta: “que se possuem e se consomem” são construções de voz passiva sintética, com o pronome “se” apassivador, e “que são possuídas e consumidas” é a passiva analítica equivalente. Como o sujeito “as coisas” é paciente nas duas formas, a troca preserva a correção e a coerência.',
+  },
+  {
+    id: 'lp-verbos-qlivro12-90',
+    temaId: 'lp-verbos',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(FCC — TRE/RN — Técnico Judiciário — 2011) ... viu pedrinhas ali perto. A passagem para a voz passiva da frase acima resulta na seguinte forma verbal:',
+    alternativas: ['viu-se;', 'é visto;', 'são vistas;', 'tinha visto;', 'foram vistas.'],
+    correta: 4,
+    comentario:
+      'A alternativa E é a correta: o objeto direto “pedrinhas” passa a sujeito, o verbo ser permanece no pretérito perfeito e o particípio concorda com o plural, formando “foram vistas”. A alternativa A não concorda com o plural, B e C estão no presente, e D usa o verbo ter, que não é auxiliar da voz passiva.',
   },
 ];

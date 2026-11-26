@@ -26,7 +26,7 @@ export const QUESTOES_LIVRO_C04: QuestaoTreino[] = [
     formato: 'multipla',
     dificuldade: 2,
     enunciado:
-      'Assinale a única frase que se completa com a segunda forma entre parênteses.',
+      '(FDC - Professor de Português II - 2005) Assinale a única frase que se completa com a segunda forma entre parênteses.',
     alternativas: [
       'Os culpados ____ as leis (infringiram / infligiram).',
       'O ____ do senador termina no próximo ano (mandado / mandato).',
@@ -523,7 +523,7 @@ export const QUESTOES_LIVRO_C04: QuestaoTreino[] = [
     formato: 'multipla',
     dificuldade: 1,
     enunciado:
-      '(Idecan - Pref. Ubatuba/SP - Agente Administrativo - 2015) No trecho “No levantamento, os participantes viram o nome de Aiír cuja letra faz menção ao álcool”, a palavra destacada pode ser substituída, sem alteração de sentido, por:',
+      '(Idecan - Pref. Ubatuba/SP - Agente Administrativo - 2015) No trecho “No levantamento, os participantes viram o nome de hits cuja letra faz menção ao álcool”, a palavra destacada pode ser substituída, sem alteração de sentido, por:',
     alternativas: ['citação', 'quantia', 'campanha', 'composição'],
     correta: 0,
     comentario:
@@ -648,5 +648,51 @@ export const QUESTOES_LIVRO_C04: QuestaoTreino[] = [
     correta: 2,
     comentario:
       'A resposta é c: em I e III, “mas” é conjunção adversativa, equivalente a “porém”, e em II, “mais” é pronome indefinido de quantidade (mais pessoas). Nas demais alternativas, as formas são trocadas: “mais” aparece como conjunção ou “mas” como quantidade, o que não se sustenta.',
+  },
+  {
+    id: 'lp-semantica-qlivro04-43',
+    temaId: 'lp-semantica',
+    formato: 'multipla',
+    dificuldade: 3,
+    enunciado:
+      '(FCC - TRE-SP - Analista - 2004) O elemento sublinhado na frase:',
+    alternativas: [
+      'É correta a disposição (...) de abandonar os planos de seu antecessor para descentralizar os recursos investidos na área expressa uma causalidade.',
+      'Distribuir pouco dinheiro a muitos centros pode equivaler a desperdiçar toda a verba constitui um paradoxo.',
+      'A pulverização das verbas pode atender a interesses populistas de políticos tem o sentido de compromissos populares.',
+      '(...) cabe ao poder público colocar suas fichas em projetos com maior possibilidade de oferecer retorno tem o sentido de ir de encontro a.',
+      'Não se trata de ser contra a descentralização como conceito tem o sentido de em tese.',
+    ],
+    correta: 4,
+    comentario:
+      'A resposta é e: em “como conceito”, a expressão tem o sentido de “em tese”, ou seja, no plano teórico, e não na prática. Em a, “para descentralizar” indica finalidade, e não causalidade; em b, a relação é de equivalência, e não de paradoxo; em c, “interesses populistas” são interesses de políticos que buscam agradar o eleitor, e não compromissos populares; em d, “colocar fichas em” significa apostar ou investir, e não “ir de encontro a”.',
+  },
+  {
+    id: 'lp-semantica-qlivro04-44',
+    temaId: 'lp-semantica',
+    formato: 'certo-errado',
+    dificuldade: 2,
+    enunciado:
+      '(Cespe/UnB - TRT/RN (21R) - Técnico Judiciário - 2010) A expressão “em lugar” (Logo descobrimos que a tecnologia, na verdade, nos trazia uma carga maior de atribuições e, em lugar das 8 horas, passamos a trabalhar muito mais. Mas não foi só...) poderia ser substituída por “em vez”, sem prejuízo para o sentido e a clareza do texto.',
+    gabaritoCE: true,
+    comentario:
+      'O item está certo. Em “em lugar das 8 horas”, a expressão tem o sentido de “em vez das 8 horas”, ou seja, indica substituição de uma coisa por outra. Por isso, “em vez” pode ocupar esse lugar sem alterar o sentido nem a clareza do período.',
+  },
+  {
+    id: 'lp-semantica-qlivro04-45',
+    temaId: 'lp-semantica',
+    formato: 'multipla',
+    dificuldade: 3,
+    enunciado:
+      '(FAB - EEAr - Controlador de Tráfego Aéreo - 2012) Assinale a alternativa em que os termos destacados em cada grupo de frases são parônimos.',
+    alternativas: [
+      '1. Tudo já está preparado para a cidade empossar o novo prefeito. / 2. É preciso cuidar para o piso da varanda não empoçar água.',
+      '1. Uma das grandes festas de apreço popular é a do Círio de Nazaré. / 2. Chegou à hospedaria um homem; dizem que é sírio.',
+      '1. Nas cidades europeias, após o almoço, a sesta põe tudo a dormir com as pessoas. / 2. A menina, feliz, preparou uma grande cesta de Páscoa para sua avó.',
+      '1. Espera-se que as delegações dos países viajem nesta semana para a realização dos jogos olímpicos. / 2. Segundo o poeta, a viagem mais difícil é a que fazemos para dentro de nós mesmos.',
+    ],
+    correta: 2,
+    comentario:
+      'A resposta é c: “sesta” (cochilo depois da refeição) e “cesta” (recipiente) são parônimos, com grafia e pronúncia próximas e sentidos diferentes. A alternativa a também traz palavras de grafia parecida (“empossar” e “empoçar”), o que deixa a questão controversa, mas o gabarito do livro é c.',
   },
 ];

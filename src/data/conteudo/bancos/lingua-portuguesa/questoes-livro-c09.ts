@@ -454,4 +454,123 @@ export const QUESTOES_LIVRO_C09: QuestaoTreino[] = [
     comentario:
       'A alternativa A é a correta: em “o algoritmo”, o artigo definido se refere a um algoritmo já conhecido, ou seja, determinado; em “um algoritmo”, o artigo indefinido apresenta um algoritmo qualquer, indeterminado; e em “algum deles”, o indefinido também não especifica qual. As demais combinações trocam esses valores.',
   },
+  {
+    id: 'lp-nomes-qlivro09-31',
+    temaId: 'lp-nomes',
+    formato: 'multipla',
+    dificuldade: 3,
+    enunciado:
+      '(FGV - BESC - Assistente Administrativo - 2004) “... por outro lado, a taxa Selic continuará a ser reduzida a partir do patamar de 16,5% a que chegou no fim do ano passado...”. Os termos grifados no trecho acima classificam-se, respectivamente, como:',
+    alternativas: [
+      'artigo - artigo - preposição - preposição.',
+      'preposição - artigo - preposição - artigo.',
+      'artigo - preposição - preposição - artigo.',
+      'artigo - preposição - preposição - preposição.',
+      'preposição - preposição - artigo - artigo.',
+    ],
+    correta: 3,
+    comentario:
+      'A alternativa D é a correta: o primeiro “a”, em “a taxa Selic”, é artigo definido, e os três seguintes são preposições, regidas por verbo ou locução: “continuará a ser” (o verbo pede a preposição), “a partir” (locução prepositiva) e “chegou a 16,5%” (regência de “chegar”). As demais alternativas erram ao classificar o primeiro “a” como preposição ou o último como artigo.',
+  },
+  {
+    id: 'lp-nomes-qlivro09-32',
+    temaId: 'lp-nomes',
+    formato: 'multipla',
+    dificuldade: 3,
+    enunciado:
+      '(Esaf - Aneel - Técnico Administrativo - 2006) Verifique quantas alterações propostas para o texto preservam sua coerência e correção gramatical. “Não é a violência nem as turbulências da economia e muito menos a saúde. A maior preocupação do brasileiro é o trabalho. A conclusão é resultado de uma consulta realizada com 23,5 mil pessoas de 42 países. Num suposto ranking mundial de pessimismo em relação às oportunidades de trabalho, o brasileiro apareceria nas primeiras posições. Na média global, o emprego seguro é citado por 21% dos entrevistados, ficando em segundo lugar entre as preocupações de curto prazo, depois da economia”. I. Retirar os artigos antes de “violência”, “turbulências” e “saúde”. II. Substituir o sinal de ponto pelo de dois-pontos depois de “saúde”, grafando a palavra seguinte com letra inicial minúscula. III. Inserir a preposição com antes de “resultado”. IV. Substituir “Num” por Em um. V. Retirar o artigo definido antes de “oportunidades”, escrevendo apenas à. VI. Substituir a preposição “entre” pela preposição em, o que resulta na contração nas. A quantidade de itens corretos é:',
+    alternativas: ['1 item.', '2 itens.', '3 itens.', '4 itens.', '5 itens.'],
+    correta: 3,
+    comentario:
+      'A alternativa D é a correta: as alterações I, II, IV e VI preservam a gramática e o sentido, enquanto a III e a V quebram a norma, pois “é resultado de” não aceita “com” e, sem o artigo, “às oportunidades” viraria “à oportunidades”, com a concordância errada. Por isso são quatro itens corretos, e não cinco nem três.',
+  },
+  {
+    id: 'lp-nomes-qlivro09-33',
+    temaId: 'lp-nomes',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(Upenet/Iaupe - Pref. Olinda/PE - Assistente Social - 2006) Partindo-se do princípio de que CRASE é o fenômeno resultante da fusão da preposição “a” e do artigo “a”, assinale a alternativa cujo termo sublinhado se classifica apenas como artigo, daí justificar a inexistência desse fenômeno.',
+    alternativas: [
+      '“Todos os estudos feitos nos anos 1990 (...) continuam a mostrar...”.',
+      '“... enquanto que 70 a 80 por cento das mulheres afirmam...”.',
+      '“A exemplo de seu ancestral, ele quer ficar sentado em uma pedra...”.',
+      '“... afirmam que a família é prioridade absoluta.”.',
+    ],
+    correta: 3,
+    comentario:
+      'A alternativa D é a correta: em “a família”, o “a” só pode ser artigo definido, pois antecede o substantivo sem ser regido por verbo ou nome. Nas demais, o “a” é preposição: em “continuam a mostrar” ela é regida pelo verbo, em “70 a 80” indica intervalo e em “A exemplo de” compõe locução prepositiva.',
+  },
+  {
+    id: 'lp-nomes-qlivro09-34',
+    temaId: 'lp-nomes',
+    formato: 'multipla',
+    dificuldade: 3,
+    enunciado:
+      '(Cespe/UnB - TJ - Analista Judiciário - 2008) Assinale a opção em que a partícula “o” sublinhada aparece com o mesmo emprego que se apresenta no seguinte trecho do texto: “A primeira é o que queremos dizer”.',
+    alternativas: [
+      'Eles devem realizar logo o projeto do grupo.',
+      'Responda-me: o que você tem com isso?',
+      'Seu sucesso depende de o livro ser aceito.',
+      'É preciso conhecer a rotina do laboratório.',
+      'Este livro foi o que você indicou.',
+    ],
+    correta: 4,
+    comentario:
+      'A alternativa E é a correta: em “foi o que você indicou”, o “o” é pronome demonstrativo, com o sentido de “aquilo”, como no trecho do enunciado. Nas alternativas A, C e D, o “o” é artigo definido, que acompanha um substantivo ou um verbo no infinitivo.',
+  },
+  {
+    id: 'lp-nomes-qlivro09-35',
+    temaId: 'lp-nomes',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(Consulplan - Auxiliar Administrativo - 2010) Assinale a alternativa que apresenta ERRO quanto ao uso do artigo:',
+    alternativas: [
+      'Avisei a ela que não haveria a reunião.',
+      'Feliz o pai cujos filhos são ajuizados.',
+      'Li a notícia no “Estado de Sergipe”.',
+      'Ambos os casos merecem consideração.',
+      'Discutia os assuntos mais profundos.',
+    ],
+    correta: 2,
+    comentario:
+      'A alternativa C é a correta: o nome do jornal é “O Estado de Sergipe”, e o artigo “O” faz parte do título, por isso a forma “no Estado de Sergipe” apresenta o erro, já que omite esse artigo. As demais usam corretamente o artigo: “a” antes de “reunião” e “notícia”, “o” antes de “pai”, “os” antes de “casos” e “assuntos”.',
+  },
+  {
+    id: 'lp-nomes-qlivro09-36',
+    temaId: 'lp-nomes',
+    formato: 'multipla',
+    dificuldade: 3,
+    enunciado:
+      '(Cesgranrio - Finep - Nível Superior - 2014) (Adaptada) O artigo definido em destaque tem papel de estabelecer retomada de expressão:',
+    alternativas: [
+      '“Num país em que a Justiça é caolha, não dá para liberar geral”.',
+      '“O desprezo e o desrespeito pelos direitos humanos resultaram em atos bárbaros”.',
+      '“Naquela ocasião, percebi claramente que os fantasmas dos traumas”.',
+      '“Segundo a declaração, são consideradas intoleráveis as interferências”.',
+      '“O presidente do Supremo Tribunal Federal, Joaquim Barbosa, sugeriu”.',
+    ],
+    correta: 3,
+    comentario:
+      'A alternativa D é a correta: em “a declaração”, o artigo definido retoma uma expressão já citada no texto, o que cria coesão por retomada. Nas demais, o artigo acompanha termos que ainda não foram mencionados ou que apresentam novos referentes, e por isso não estabelece retomada.',
+  },
+  {
+    id: 'lp-nomes-qlivro09-37',
+    temaId: 'lp-nomes',
+    formato: 'multipla',
+    dificuldade: 3,
+    enunciado:
+      '(FGV - Imbel - Engenheiro de Materiais - 2021) “O valor de todo conhecimento está no seu vínculo com as nossas necessidades, as nossas aspirações e ações; de modo diferente, o conhecimento torna-se um simples lastro de memória.” Nesse pensamento foi utilizada corretamente o indefinido todo, sem artigo após ele; assinale a opção em que o emprego desse indefinido também está correto.',
+    alternativas: [
+      '“Não, senhor meu amigo; algum dia, sim, é possível que componha um abreviado do que ali vi e vivi, das pessoas que tratei, dos costumes, de todo resto.”',
+      '“Assim devia ser, mas um fluido particular que me correu todo corpo desviou de mim a conclusão que deixo escrita.”',
+      '“Outrossim, ria largo, se era preciso, de um grande riso sem vontade, mas comunicativo, a tal ponto as bochechas, os dentes, os olhos, toda a cara, toda a pessoa, todo mundo pareciam rir nele.”',
+      '“Novamente me recomendou que não me desse por achado, e recapitulou todo mal que pensava de José Dias, e não era pouco, um intrigante, um bajulador, um especulador, e, apesar da casca de polidez, um grosseirão.”',
+      '“Esta fórmula era melhor, e tinha a vantagem de me fortalecer o coração contra a investidura eclesiástica. Juramos pela segunda fórmula, e ficamos tão felizes que todo receio de perigo desapareceu.”',
+    ],
+    correta: 4,
+    comentario:
+      'A alternativa E é a correta: em “todo receio de perigo”, o indefinido “todo” vem sem artigo e tem o sentido de “qualquer”, como no pensamento do enunciado. Nas demais, “todo” aparece com o sentido de “inteiro”, que pede o artigo, como em “todo o corpo” e “todo o resto”, ou se combina com outro termo de modo diferente.',
+  },
 ];

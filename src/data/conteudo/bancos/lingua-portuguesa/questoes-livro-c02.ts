@@ -25,7 +25,7 @@ export const QUESTOES_LIVRO_C02: QuestaoTreino[] = [
     formato: 'certo-errado',
     dificuldade: 1,
     enunciado:
-      '(Cespe/UnB - Instituto Rio Branco - Diplomata - 2008) As palavras “líderes”, “empréstimo”, “Económico” e “públicas” recebem acento gráfico com base na mesma justificativa gramatical.',
+      '(Cespe/UnB - Instituto Rio Branco - Diplomata - 2008) As palavras “líderes”, “empréstimo”, “Econômico” e “públicas” recebem acento gráfico com base na mesma justificativa gramatical.',
     gabaritoCE: true,
     comentario:
       'A afirmação está correta: “lí-de-res”, “em-prés-ti-mo”, “e-co-nô-mi-co” e “pú-bli-cas” são todas proparoxítonas, com a tônica na antepenúltima sílaba, e por isso recebem acento pela mesma regra.',
@@ -51,7 +51,7 @@ export const QUESTOES_LIVRO_C02: QuestaoTreino[] = [
     alternativas: [
       'família - arcaico - espermatozóide - pólo;',
       'epopeia — voo - tranquilo - constrói;',
-      'troféu — bilíngue - feiura - entrevêem;',
+      'troféu — bilíngue - feiúra - entrevêem;',
       'decompor - aguentar - apóio - colmeia;',
       'linguística - joia - refém - assembléia.',
     ],
@@ -65,10 +65,10 @@ export const QUESTOES_LIVRO_C02: QuestaoTreino[] = [
     formato: 'certo-errado',
     dificuldade: 1,
     enunciado:
-      '(Cespe/UnB - Instituto Rio Branco - Diplomata - 2010) Julgue o item quanto à correção gramatical. Todas as línguas indígenas em terras brasileiras tem menos de 40 mil falantes, sendo que a mais forte, a tikúna, falada no alto Solimóes, apenas, ultrapassa os 30 mil. O aspecto mais grave é que muitas dessas línguas contam com menos de 1 mil falantes.',
+      '(Cespe/UnB - Instituto Rio Branco - Diplomata - 2010) Julgue o item quanto à correção gramatical. Todas as línguas indígenas em terras brasileiras tem menos de 40 mil falantes, sendo que a mais forte, a tikúna, falada no alto Solimões, apenas, ultrapassa os 30 mil. O aspecto mais grave é que muitas dessas línguas contam com menos de 1 mil falantes.',
     gabaritoCE: false,
     comentario:
-      'O item está errado: o verbo deveria ser “têm”, concordando com o sujeito plural “todas as línguas”, e “Solimóes” deveria ser grafado “Solimões”, com til.',
+      'O item está errado: o verbo deveria ser “têm”, concordando com o sujeito plural “todas as línguas”.',
   },
   {
     id: 'lp-ortografia-qlivro02-06',
@@ -160,9 +160,9 @@ export const QUESTOES_LIVRO_C02: QuestaoTreino[] = [
     alternativas: [
       'lapis — bonus — bainha.',
       'serie - aspecto - torax.',
-      'álcool - moinho — sucuri.',
+      'alcool - moinho — sucuri.',
       'urubu — egoismo — magoa.',
-      'armazém— orgáo — carater.',
+      'armazem — orgão — carater.',
     ],
     correta: 4,
     comentario:
@@ -397,5 +397,77 @@ export const QUESTOES_LIVRO_C02: QuestaoTreino[] = [
     correta: 3,
     comentario:
       '“Dos” é monossílabo átono, resultado da contração de “de” com “os”, por isso não tem tonicidade própria. “Lei”, “fim”, “mais” e “ser” são monossílabos tônicos.',
+  },
+  {
+    id: 'lp-ortografia-qlivro02-31',
+    temaId: 'lp-ortografia',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(Cesgranrio - Petrobras - Técnico de Administração e Controle Jr. - 2011) A frase em que ocorre ERRO quanto à acentuação gráfica é:',
+    alternativas: [
+      'Eles têm confiança no colega da equipe.',
+      'Visitou as ruínas do Coliseu em Roma.',
+      'O seu sustento provém da aposentadoria.',
+      'Descoberta a verdade, ele ficou em maus lençóis.',
+      'Alguns ítens do edital foram retificados.',
+    ],
+    correta: 4,
+    comentario:
+      'A alternativa E traz o erro: “ítens” perdeu o acento com o Acordo de 2009, por ser paroxítona terminada em -ens, e a grafia correta é “itens”. As demais estão certas: “têm” leva o acento diferencial do plural, “provém” é oxítona terminada em -em, “ruínas” tem hiato tônico e “lençóis” é oxítona terminada em -óis.',
+  },
+  {
+    id: 'lp-ortografia-qlivro02-32',
+    temaId: 'lp-ortografia',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(Cesgranrio - SEEC/RN - Professor de Português - 2011) Segundo o novo Acordo Ortográfico da Língua Portuguesa, “Não se acentuam graficamente os ditongos representados por ei e oi da sílaba tônica das palavras paroxítonas, dado que existe oscilação em muitos casos entre o fechamento e a abertura na sua articulação”. Segundo essa regra, portanto, as palavras que eram acentuadas por terem o ditongo aberto ei ou oi não o são mais. São exemplos dessa mudança as palavras:',
+    alternativas: [
+      'assembleia, aldeia, proteico;',
+      'cadeia, paranoico, introito;',
+      'heroi, boina, epopeico;',
+      'heroico, onomatopeico, plateia;',
+      'jiboia, comboio, papeis.',
+    ],
+    correta: 3,
+    comentario:
+      'A alternativa D é a correta: “heroico”, “onomatopeico” e “plateia” eram paroxítonas com ditongo aberto (heróico, onomatopéico, platéia) e perderam o acento. Nas demais há palavras que nunca tiveram esse acento, como “aldeia” e “cadeia”, ou oxítonas que o mantêm, como “herói” e “papéis”.',
+  },
+  {
+    id: 'lp-ortografia-qlivro02-33',
+    temaId: 'lp-ortografia',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(Cesgranrio - LIQUIGÁS - Oficial de Produção - 2014) A palavra que precisa ser acentuada graficamente para estar correta quanto às normas em vigor está destacada na seguinte frase. (Palavras destacadas no livro: a) tem; b) vem; c) supor; d) doam; e) reúnem.)',
+    alternativas: [
+      'Todo torcedor tem um sentimento especial em relação à seleção.',
+      'Muita gente do exterior vem ao Brasil para ver a Copa do Mundo.',
+      'Há árbitros que costumam supor que são os principais artistas do espetáculo.',
+      'Alguns jogadores dizem nas entrevistas que eles sempre se doam nos jogos.',
+      'Os jornalistas de emissoras diferentes também se reúnem ao final do trabalho.',
+    ],
+    correta: 4,
+    comentario:
+      'A alternativa E é a correta: em “reúnem” o “u” tônico forma hiato com o “e” anterior e por isso recebe acento agudo, como em “reúne”. As demais palavras destacadas não levam acento: “tem” e “vem” estão no singular, “supor” é infinitivo oxítono terminado em -r e “doam” é verbo paroxítono terminado em -am.',
+  },
+  {
+    id: 'lp-ortografia-qlivro02-34',
+    temaId: 'lp-ortografia',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(Cesgranrio — Transpetro — Técnico de Contabilidade Jr. — 2011) Considere a frase abaixo. O chefe de vários departamentos identifica a mudança no cenário da informática. A palavra identifica pode ser substituída, mantendo o sentido da sentença, pelo verbo ver, flexionado de acordo com a norma-padrão, por:',
+    alternativas: [
+      'vêm',
+      'veem',
+      'vem',
+      'vê',
+      'viram',
+    ],
+    correta: 3,
+    comentario:
+      'A alternativa D, “vê”, é a correta. O sujeito “O chefe” é singular, e o presente do indicativo do verbo ver, na terceira pessoa do singular, é “vê”, com acento circunflexo diferencial. “Vêm” e “veem” estão no plural, “vem” é forma do verbo vir, e “viram” é pretérito e plural, por isso nenhuma delas substitui corretamente “identifica”.',
   },
 ];

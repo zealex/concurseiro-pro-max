@@ -479,4 +479,262 @@ export const QUESTOES_LIVRO_C35: QuestaoTreino[] = [
     comentario:
       'A afirmação está errada. O possessivo “suas” retoma “mulheres”, sujeito do verbo “fanavam-se” e a referência de “Estas”, e não “crianças”.',
   },
+  {
+    id: 'lp-coesao-qlivro35-34',
+    temaId: 'lp-coesao',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      'Em “Quando confrontados pelos aspectos mais obscuros ou espinhosos da existência” (1º §), “Após muito meditar sobre as palavras do oráculo” (2º §), “então o verdadeiro sábio é aquele que tem consciência da própria ignorância” (2º §), “A partir daí, Sócrates começou uma cruzada pessoal contra a falsa sabedoria” (2º §), e “Mas havia grandes diferenças entre a dialética de Sócrates e a de seus antigos mestres” (3º §), as expressões destacadas indicam, respectivamente, ideia de:',
+    alternativas: [
+      'Tempo, tempo, conclusão, conclusão, adversidade.',
+      'Tempo, tempo, tempo, conclusão, adversidade.',
+      'Tempo, tempo, conclusão, tempo, adversidade.',
+      'Consequência, tempo, tempo, conclusão, adversidade.',
+      'Tempo, tempo, tempo, conclusão, adição.',
+    ],
+    correta: 2,
+    comentario:
+      'A alternativa C é a correta: “Quando” e “Após” marcam tempo, “então” introduz uma conclusão, “A partir daí” volta a marcar tempo e “Mas” expressa adversidade. A alternativa A erra ao tomar “A partir daí” como conclusão, e as demais erram em “então” ou em “Mas”.',
+  },
+  {
+    id: 'lp-coesao-qlivro35-35',
+    temaId: 'lp-coesao',
+    formato: 'multipla',
+    dificuldade: 3,
+    enunciado:
+      '(Consulplan - Pref. Santo Antônio do Descoberto/GO - Advogado - 2011) É impossível colocar em série exata os fatos da infância porque há aqueles que já acontecem permanentes, que vêm para ficar e doer, que nunca mais são esquecidos, que são sempre trazidos tempo afora, como se fossem d’agora. É a carga. Há os outros, miúdos fatos, incolores e quase sem som – que mal se deram, a memória os atira nos abismos do esquecimento. Mesmo próximos eles viram logo passado remoto. Surgem às vezes, na lembrança, como se fossem uma incongruência. Só aparentemente sem razão, porque não há associação de ideias que seja ilógica. O que assim parece, em verdade, liga-se e harmoniza-se no subconsciente pelas raízes subterrâneas – raízes lógicas! – de que emergem os pequenos caules isolados – aparentemente ilógicos! só aparentemente! – às vezes chegados à memória vindos do esquecimento, que é outra função ativa dessa mesma memória. (Pedro Nava, Baú de Ossos) Considerando-se as relações de coesão do texto, assinale a opção em que o 2º elemento faz referência ao 1º:',
+    alternativas: [
+      'os fatos da infância – aqueles;',
+      'tempo afora – d’agora;',
+      'carga – os outros;',
+      'carga – miúdos fatos;',
+      'abismos do esquecimento – eles.',
+    ],
+    correta: 0,
+    comentario:
+      'A alternativa A é a correta: o pronome “aqueles” retoma “os fatos da infância”, que é o primeiro elemento, e a relação é de referência anafórica. Em B, “d’agora” é uma expressão de tempo, não um referente de “tempo afora”; em C e D, “os outros” e “miúdos fatos” não retomam a “carga”; e em E, “eles” retoma os fatos, e não os abismos do esquecimento.',
+  },
+  {
+    id: 'lp-coesao-qlivro35-36',
+    temaId: 'lp-coesao',
+    formato: 'multipla',
+    dificuldade: 3,
+    enunciado:
+      'Fragmentos de texto: (Cesgranrio - BNDES - Engenheiro - 2011) Acho que foi o Hemingway quem disse que olhava cada coisa à sua volta como se a visse pela última vez. (...) Você sai todo dia, por exemplo, pela mesma porta. Se alguém lhe perguntar o que é que você vê no seu caminho, você não sabe. De tanto ver, você não vê. Sei de um profissional que passou 32 anos a fio pelo mesmo hall do prédio do seu escritório. Lá estava sempre, pontualíssimo, o mesmo porteiro. Dava-lhe bom-dia e às vezes lhe passava um recado ou uma correspondência. Um dia o porteiro cometeu a descortesia de falecer. Como era ele? Sua cara? Sua voz? Como se vestia? Não fazia a mínima ideia. Em 32 anos, nunca o viu. Para ser notado, o porteiro teve que morrer. Se um dia no seu lugar estivesse uma girafa, cumprindo o rito, pode ser também que ninguém desse por sua ausência. O hábito suja os olhos e lhes baixa a voltagem. Mas há sempre o que ver. Gente, coisas, bichos. E vemos? Não, não vemos. (...) A passagem transcrita em que NÃO há correspondência entre o pronome destacado e o referente a ele atribuído é:',
+    alternativas: [
+      '“...como se a visse pela última vez.” (l. 2-3) – coisa',
+      '“Lá estava sempre, pontualíssimo, o mesmo porteiro.” (l. 20-21) – hall do prédio',
+      '“Dava-lhe bom-dia...” (l. 21-22) – profissional',
+      '“pode ser também que ninguém desse por sua ausência.” (l. 29-30) – girafa',
+      '“O hábito suja os olhos e lhes baixa a voltagem.” (l. 30-31) – olhos',
+    ],
+    correta: 3,
+    comentario:
+      'A alternativa D é a correta: o pronome “sua” de “sua ausência” retoma o porteiro, e não a girafa, que aparece apenas como hipótese no texto. As demais correspondências são adequadas ao trecho, pois “a” retoma “coisa”, “lá” indica o hall do prédio, “lhe” e a expressão do bom-dia se relacionam aos personagens e “lhes” retoma os olhos.',
+  },
+  {
+    id: 'lp-coesao-qlivro35-37',
+    temaId: 'lp-coesao',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(Cesgranrio - FINEP - Técnico (Apoio Adm. e Secr.) - 2011) O período “Fiquei perturbada, mas acabei dando as costas para o resultado [...]” (L. 27-29) pode ser reescrito, mantendo-se o mesmo sentido, assim:',
+    alternativas: [
+      'Como fiquei perturbada, acabei dando as costas para o resultado.',
+      'Antes de ficar perturbada, acabei dando as costas para o resultado.',
+      'Conforme ficava perturbada, acabei dando as costas para o resultado.',
+      'Caso tivesse ficado perturbada, acabei dando as costas para o resultado.',
+      'Embora tenha ficado perturbada, acabei dando as costas para o resultado.',
+    ],
+    correta: 4,
+    comentario:
+      'A alternativa E é a correta: “embora” introduz uma concessiva, mantendo a ideia de que, apesar da perturbação, a ação ocorreu, como no original com “mas”. As demais alteram o sentido: “como” indica causa, “antes de” muda a ordem temporal, “conforme” indica conformidade e “caso tivesse” cria uma condição hipotética.',
+  },
+  {
+    id: 'lp-coesao-qlivro35-38',
+    temaId: 'lp-coesao',
+    formato: 'multipla',
+    dificuldade: 3,
+    enunciado:
+      '(FDC - Cremerj - Administrador - 2011) “As drogas medicinais ou ‘drogas da virtude’, prescritas pelos físicos, odontólogos e médicos homeopatas ou alopatas eram manipuladas por boticários, que importavam remédios europeus e usavam produtos nativos em sua formulação”. No texto há um conjunto de elementos que se prendem a termos anteriores a fim de produzir coesão (ligações formais e semânticas) entre esses elementos. A indicação INCORRETA de um desses termos é:',
+    alternativas: [
+      'o pronome possessivo sua tem como referente “remédios europeus”;',
+      'o particípio prescritas refere-se às duas espécies de drogas mencionadas antes;',
+      'o conectivo por une a forma verbal eram manipuladas a seu agente;',
+      'a forma verbal usavam repete o mesmo sujeito de importavam;',
+      'o pronome relativo que refere-se a boticários.',
+    ],
+    correta: 1,
+    comentario:
+      'A alternativa B é a correta, por ser a indicação incorreta: “prescritas” retoma o conjunto “drogas medicinais ou drogas da virtude”, e não duas espécies distintas de drogas. As demais indicações são adequadas: “sua” retoma “remédios europeus”, “por” liga “manipuladas” ao agente, “usavam” repete o sujeito de “importavam” (os boticários) e “que” retoma “boticários”.',
+  },
+  {
+    id: 'lp-coesao-qlivro35-39',
+    temaId: 'lp-coesao',
+    formato: 'multipla',
+    dificuldade: 3,
+    enunciado:
+      '(FCC - INSS - Perito Médico Previdenciário - 2012) Identifica-se uma consequência e sua causa, respectivamente, em:',
+    alternativas: [
+      'Há felicidade coletiva // quando são adequadamente observados os itens que tornam mais feliz a sociedade. (2º parágrafo)',
+      'E a sociedade será mais feliz // se todos tiverem acesso aos básicos serviços públicos de saúde... (2º parágrafo)',
+      'A educação, a segurança, a saúde, o lazer, a moradia e outros mais são considerados direitos fundamentais de cunho social pela Constituição // exatamente por serem essenciais ao bem-estar da população no seu todo. (5º parágrafo)',
+      '... por dizer a Constituição serem os direitos sociais essenciais à busca da felicidade, // se vai, então, forçar os entes públicos a garantir condições mínimas de vida ... (3º parágrafo)',
+      'O povo pode ter intensa alegria, por exemplo, ao se ganhar a Copa do Mundo de Futebol, // mas não há felicidade coletiva, e sim bem-estar coletivo. (6º parágrafo)',
+    ],
+    correta: 2,
+    comentario:
+      'A alternativa C é a correta: a consequência (“são considerados direitos fundamentais”) vem antes da barra e a causa (“exatamente por serem essenciais”) vem depois, na ordem pedida. Em A e B, a barra separa uma condição, e não uma causa; em D, a ordem está invertida, com a causa antes; e em E, a relação é de oposição.',
+  },
+  {
+    id: 'lp-coesao-qlivro35-40',
+    temaId: 'lp-coesao',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(Consulplan - Pref. Nova Iguaçu/RJ - Médico Acupunturista - 2012) Dentre os trechos destacados a seguir, está expressa ideia de oposição em:',
+    alternativas: [
+      '“... atingido esse consenso, porém, não é motivo para a humanidade...”',
+      '“Dar o mundo de presente aos filhos? Vá a uma loja de brinquedos lotada...”',
+      '“... isso não garante que também eles serão capazes de repassar a fortuna...”',
+      '“... sem nem mesmo respeitar o silencioso pacto de espera...”',
+      '“Quanto mais vou a aniversários, menos confiante eu fico...”',
+    ],
+    correta: 0,
+    comentario:
+      'A alternativa A é a correta: o conectivo “porém” introduz uma oposição, pois o consenso alcançado não justifica que a humanidade se orgulhe. Em B há uma pergunta seguida de sugestão, sem contraste; em C, a expressão restringe uma garantia, sem opor duas ideias; em D, “sem nem mesmo” exprime negação; e em E, a relação é de proporcionalidade.',
+  },
+  {
+    id: 'lp-coesao-qlivro35-41',
+    temaId: 'lp-coesao',
+    formato: 'multipla',
+    dificuldade: 3,
+    enunciado:
+      'Fragmento de texto: “Nesta altura do campeonato já dá para dizer que todos concordam com a importância de deixar um planeta melhor para os nossos filhos. E que, exatamente por isso, a sustentabilidade é uma questão importante dos nossos tempos. O fato de termos atingido esse consenso, porém, não é motivo para a humanidade bater no peito e acreditar que deu um passo à frente. (...)”. Tendo em vista a importância e função dos elementos de coesão textual, o termo destacado (“isso”) em “E que, exatamente por isso, a sustentabilidade é uma questão importante dos nossos tempos” refere-se:',
+    alternativas: [
+      'ao futuro das novas gerações;',
+      'aos atos inconsequentes contra o meio ambiente;',
+      'à importância da sustentabilidade em nossos tempos;',
+      'à opinião em comum que todos possuem a respeito dos filhos;',
+      'ao fato de que é importante deixar um planeta melhor para as próximas gerações.',
+    ],
+    correta: 4,
+    comentario:
+      'A alternativa E é a correta: o “isso” retoma a ideia da frase anterior, de que todos concordam com a importância de deixar um planeta melhor, ou seja, o fato de que isso é importante. As demais opções não correspondem ao conteúdo retomado pelo pronome: a sustentabilidade é o predicado da frase, e não o seu antecedente, e as outras alternativas trazem noções que não aparecem no trecho.',
+  },
+  {
+    id: 'lp-coesao-qlivro35-42',
+    temaId: 'lp-coesao',
+    formato: 'multipla',
+    dificuldade: 1,
+    enunciado:
+      '(Ceperj - Procon/RJ - Agente de Proteção e Defesa do Consumidor - 2012) “Sei que você sente muitas saudades, porque eu também sinto saudades de você”. O conectivo “porque”, no contexto acima, estabelece relação de:',
+    alternativas: ['modo;', 'causa;', 'adversidade;', 'conformidade;', 'proporcionalidade.'],
+    correta: 1,
+    comentario:
+      'A alternativa B é a correta: o “porque” introduz a causa da saudade, já que a pessoa sente saudade porque o outro também sente. Modo, adversidade, conformidade e proporcionalidade não se aplicam ao conector, que liga duas orações sem contraste nem comparação.',
+  },
+  {
+    id: 'lp-coesao-qlivro35-43',
+    temaId: 'lp-coesao',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      'Texto: “Para os trabalhadores, é o mês em que eles pensam que estão mais ricos. Recebem o 13º salário ou parte dele – e compram. A verdade é que já há algum tempo vêm se sentindo menos pobres, vêm comprando. Compram de tudo”. (Ceperj - Degase - Agente Socioeducativo - 2012) O período “A verdade é que já há algum tempo vêm se sentindo menos pobres, vêm comprando” poderia ser reescrito com a introdução de um conectivo, de modo a explicitar a relação de sentido do contexto original. A inserção do conectivo preserva o sentido original da frase na seguinte alternativa:',
+    alternativas: [
+      'embora venham comprando;',
+      'para virem comprando;',
+      'porque vêm comprando;',
+      'contudo vêm comprando;',
+      'apesar de virem comprando.',
+    ],
+    correta: 2,
+    comentario:
+      'A alternativa C é a correta: o “porque” explicita a causa do fato de os trabalhadores se sentirem menos pobres, preservando o sentido do original. As demais alteram a relação: “embora” e “apesar de” introduzem concessão, “para” indica finalidade e “contudo” indica oposição.',
+  },
+  {
+    id: 'lp-coesao-qlivro35-44',
+    temaId: 'lp-coesao',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(Ceperj - Seplag - Analista de Planejamento e Orçamento - 2012) “Delfino Natal de Souza, secretário de logística e tecnologia da informação, defende que esta nova modalidade de gestão de documentos irá modernizar a gestão pública / ao permitir que o gerenciamento de processos seja feito de forma eletrônica”. As relações lógicas entre os segmentos sublinhados são as de:',
+    alternativas: [
+      'causa / consequência.',
+      'fato / justificativa.',
+      'previsão / retificação.',
+      'opinião / modo.',
+      'afirmação / exemplificação.',
+    ],
+    correta: 3,
+    comentario:
+      'A alternativa D é a correta: o primeiro segmento apresenta a opinião do secretário (“defende que”) e o segundo indica o modo como a modernização ocorrerá (“ao permitir que ... seja feito de forma eletrônica”). As demais relações não se encaixam no trecho, que não traz causa e consequência, fato e justificativa, previsão, retificação ou exemplificação.',
+  },
+  {
+    id: 'lp-coesao-qlivro35-45',
+    temaId: 'lp-coesao',
+    formato: 'multipla',
+    dificuldade: 3,
+    enunciado:
+      '(Esaf - MDIC - Analista de Comércio Exterior - 2012) Assinale a opção que constitui continuação coesa, coerente e gramaticalmente correta para o texto abaixo. O governo concedeu R$ 97,8 bilhões em benefícios fiscais a empresas, nos últimos cinco anos, e adotou dezenas de medidas para conter a valorização cambial e proteger a indústria da concorrência estrangeira – mas tudo isso teve resultados insignificantes, como demonstra o fraco desempenho brasileiro no mercado internacional de manufaturados. Incapaz de acompanhar o crescimento do mercado interno, a indústria de transformação perdeu espaço no Brasil para os concorrentes de fora e cresceu em 2011 apenas 0,1%, ou quase nada.',
+    alternativas: [
+      'Por isso esse protecionismo seja uma forma de compensar a falta de uma estratégia minimamente eficaz. O resultado só poderá ser o desperdício de mais dinheiro, esforços e oportunidades.',
+      'Esses investidores tomam dinheiro barato na Europa e aplicam no Brasil, em troca de juros altos. A ação defensiva, nesse caso, é justificável, embora pouco eficaz.',
+      'Além disso, é consenso entre esses empresários, administradores e governantes que é preciso aplicar muito mais dinheiro em máquinas, equipamentos e obras de infraestrutura.',
+      'Portanto, diante desse bom desempenho é um erro atribuir os problemas nacionais a fatores externos. Mas é preciso responsabilizar os bancos centrais do mundo rico por uma parcela importante dos males econômicos do País.',
+      'Sem competitividade, essa indústria é superada pelos produtores instalados nas economias mais dinâmicas e mal consegue manter, mesmo na América do Sul, posições conquistadas em tempos melhores.',
+    ],
+    correta: 4,
+    comentario:
+      'A alternativa E é a correta: ela dá continuidade ao raciocínio sobre a perda de competitividade da indústria de transformação, sem romper a lógica do texto. A alternativa A contradiz o texto ao tratar o protecionismo como solução, B traz um assunto sem relação com a indústria, C desvia para investimentos e D atribui os problemas a fatores externos, o que o texto já afasta.',
+  },
+  {
+    id: 'lp-coesao-qlivro35-46',
+    temaId: 'lp-coesao',
+    formato: 'multipla',
+    dificuldade: 3,
+    enunciado:
+      'Assinale a opção que, na sequência, preenche corretamente as lacunas do texto. Quando a crise financeira eclodiu em 2008, uma das ameaças mais temidas foi __1__ ela trouxesse consigo o protecionismo generalizado. A crise ainda não acabou, as perspectivas pessimistas __2__ comércio mundial não se concretizaram, e __3__ Brasil tenta agora é obter sinal verde para fechar por um tempo sua economia, abrindo caminhos __4__ outros países em situação semelhante façam o mesmo. A Organização Mundial do Comércio - OMC daria então aval a esse protecionismo, supondo que ela fosse capaz de estabelecer __5__ deveria ser a taxa de câmbio de equilíbrio de seus membros, e o período pelo qual uma taxa desalinhada poderia voltar ao seu nível “normal”, que é o que o Brasil parece supor ao pedir proteção temporária. A proteção, se concedida ao Brasil, provavelmente elevaria seus substanciais saldos comerciais, valorizando mais sua moeda, __6__ esse é apenas um dos problemas da proposta.',
+    alternativas: [
+      '1 o de que; 2 com o; 3 aquilo que o; 4 para; 5 onde; 6 porém.',
+      '1 que; 2 do; 3 o; 4 de que; 5 que; 6 todavia.',
+      '1 a de que; 2 a respeito do; 3 o que o; 4 para que; 5 qual; 6 mas.',
+      '1 que; 2 sobre o; 3 que o; 4 dos quais; 5 de quanto; 6 no entanto.',
+      '1 qual; 2 para com o; 3 nosso; 4 com que; 5 como; 6 porquanto.',
+    ],
+    correta: 2,
+    comentario:
+      'A alternativa C é a correta: “a de que” completa “foi a de que ela trouxesse”, “a respeito do” prepara o complemento de “perspectivas”, “o que o” retoma a ação do Brasil, “para que” expressa finalidade, “qual” introduz a taxa de câmbio e “mas” marca oposição. As demais alternativas trazem ao menos um conector que não encaixa na lacuna correspondente.',
+  },
+  {
+    id: 'lp-coesao-qlivro35-47',
+    temaId: 'lp-coesao',
+    formato: 'multipla',
+    dificuldade: 3,
+    enunciado:
+      '(FEC - Pref. Angra dos Reis/RJ - Administrador - 2012) Em relação à construção textual, a expressão destacada em “Felizmente, a medicina atual dispõe de inúmeras drogas capazes de curar, controlar e até mesmo de evitar inúmeras doenças. Aparelhos eletrônicos sofisticados são capazes de fazer um diagnóstico apurado, passando informações importantes sobre o paciente. Os avanços NESTA ÁREA são rápidos e possibilitam uma vida cada vez melhor para as pessoas”, coesivamente, se refere a:',
+    alternativas: [
+      'aparelhos eletrônicos;',
+      'medicina atual;',
+      'informações;',
+      'doenças;',
+      'avanços.',
+    ],
+    correta: 0,
+    comentario:
+      'A alternativa A é a correta: “nesta área” retoma o campo dos aparelhos eletrônicos sofisticados, cujos avanços diagnósticos são descritos no período anterior. A alternativa B (“medicina atual”) é o tema geral do trecho, e não o campo específico a que a expressão se refere; C, D e E retomam termos que não designam esse campo.',
+  },
+  {
+    id: 'lp-coesao-qlivro35-48',
+    temaId: 'lp-coesao',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(Dom Cintra - Pref. Itaboraí/RJ - Agente Administrativo Escolar - 2012) “Durante os últimos três anos, o historiador alagoano Nireu Cavalcanti (...) compilou informações a respeito do casamento no Brasil colônia, período que se encerra em 1815, quando o Brasil é declarado Reino Unido. (...) Cavalcanti reuniu um material rico em detalhes”. Nesse primeiro segmento do texto, o vocábulo que NÃO faz referência a qualquer termo anterior é:',
+    alternativas: ['Cavalcanti;', 'material;', 'detalhes;', 'período;', 'quando.'],
+    correta: 2,
+    comentario:
+      'A alternativa C é a correta: “detalhes” não retoma nenhum termo anterior, pois apenas completa a expressão “rico em”. As demais palavras mantêm relação de referência com termos do trecho: “Cavalcanti” retoma o historiador, “quando” retoma o marco de 1815 e “período” e “material” se ligam ao assunto do segmento.',
+  },
 ];

@@ -8,7 +8,7 @@ export const QUESTOES_LIVRO_C33: QuestaoTreino[] = [
     formato: 'certo-errado',
     dificuldade: 2,
     enunciado:
-      '(Cespe/UnB - IRBr - Diplomata - 2003) Mistura linguística. Muita gente, em vários países, fala um pouco de inglês todo dia sem perceber. Sem contar o “informatiquês”, cujos verbetes - como megabyte, browser, hard disk, software - são expressões do mais puro inglês, muitas outras palavras do dia a dia de brasileiros, franceses, alemães e, principalmente, japoneses têm origem no idioma bretão. Futebol (footbatt), sanduíche (sandwich) e deletar (verbo criado a partir de to delete, suprimir) são exemplos conhecidos de anglicismo (uso de expressões em inglês ou originadas dele) no português. Os alemães apertam o reset knopf ou reset button ou botão de reset para iniciar o computador. E os franceses, conhecidos por sua ojeriza a estrangeirismos, despedem-se dos colegas de trabalho na sexta-feira dizendo bon weekend. A situação do japonês é particularmente curiosa. Estima-se que cerca de vinte mil palavras do vocabulário moderno tenham origem no inglês. Sorvete é aisukurimu, de ice cream. Ar condicionado é eacon, de air conditioner. E banheiro deixou de ser obenjyo para se tornar toiré, de toillet. A história dessa imposição linguística certamente desperta animosidades. Na Índia, por exemplo, onde o inglês é uma das línguas oficiais, ele não é muito ouvido nas ruas. Falar inglês ainda lembra um passado de opressão. Galileu, fev./2002, p. 37 (com adaptações). A seleção de argumentos e do vocabulário mostra o grau de engajamento do autor em face do assunto: paralelamente às funções referencial e metalinguística, que veiculam informações objetivas, há marcadores linguísticos que deixam entrever elementos subjetivos.',
+      '(Cespe/UnB - IRBr - Diplomata - 2003) Mistura linguística. Muita gente, em vários países, fala um pouco de inglês todo dia sem perceber. Sem contar o “informatiquês”, cujos verbetes - como megabyte, browser, hard disk, software - são expressões do mais puro inglês, muitas outras palavras do dia a dia de brasileiros, franceses, alemães e, principalmente, japoneses têm origem no idioma bretão. Futebol (football), sanduíche (sandwich) e deletar (verbo criado a partir de to delete, suprimir) são exemplos conhecidos de anglicismo (uso de expressões em inglês ou originadas dele) no português. Os alemães apertam o reset knopf ou reset button ou botão de reset para iniciar o computador. E os franceses, conhecidos por sua ojeriza a estrangeirismos, despedem-se dos colegas de trabalho na sexta-feira dizendo bon weekend. A situação do japonês é particularmente curiosa. Estima-se que cerca de vinte mil palavras do vocabulário moderno tenham origem no inglês. Sorvete é aisukurimu, de ice cream. Ar condicionado é eacon, de air conditioner. E banheiro deixou de ser obenjyo para se tornar toiré, de toillet. A história dessa imposição linguística certamente desperta animosidades. Na Índia, por exemplo, onde o inglês é uma das línguas oficiais, ele não é muito ouvido nas ruas. Falar inglês ainda lembra um passado de opressão. Galileu, fev./2002, p. 37 (com adaptações). A seleção de argumentos e do vocabulário mostra o grau de engajamento do autor em face do assunto: paralelamente às funções referencial e metalinguística, que veiculam informações objetivas, há marcadores linguísticos que deixam entrever elementos subjetivos.',
     gabaritoCE: true,
     comentario:
       'O texto combina informações objetivas, como exemplos de palavras de origem inglesa, com marcas de avaliação do autor, como o adjetivo “particularmente curiosa” e a expressão “lembra um passado de opressão”. Essas marcas revelam o engajamento de quem escreve. O item está correto.',
@@ -67,7 +67,7 @@ export const QUESTOES_LIVRO_C33: QuestaoTreino[] = [
     formato: 'multipla',
     dificuldade: 1,
     enunciado:
-      '(IBFC - ABDI - Assistente Jurídico - 2008) Assinale a alternativa que indica corretamente a função de linguagem predominante no texto abaixo: A estação Júlio Prestes, marco histórico e turístico de São Paulo, completou 70 anos nesta semana. Atualmente, o prédio abriga a Sala São Paulo, sede da Orquestra Sinfônica do Estado, além de ser o ponto de partida da atual Linha 8 (Júlio Prestes-Itapevi) da CPTM (Companhia Paulista de Trens Metropolitanos).',
+      '(IBFC - ABDI - Assistente Jurídico - 2008) Assinale a alternativa que indica corretamente a função de linguagem predominante no texto abaixo: A estação Júlio Prestes, marco histórico e turístico de São Paulo, completou 70 anos nesta semana. Atualmente, o local abriga a Sala São Paulo, sede da Orquestra Sinfônica do Estado, além de ser o ponto de partida da atual Linha 8 (Júlio Prestes-Itapevi) da CPTM (Companhia Paulista de Trens Metropolitanos).',
     alternativas: ['emotiva.', 'apelativa.', 'referencial.', 'fática.'],
     correta: 2,
     comentario:
@@ -136,7 +136,7 @@ export const QUESTOES_LIVRO_C33: QuestaoTreino[] = [
     formato: 'certo-errado',
     dificuldade: 3,
     enunciado:
-      '(Fadesp - Pref. Juruti/PA - Enfermeiro - 2010) (Adaptada) “(...) Isso dá valor ímpar ao par “com ideais”/“sem ideais”: em “com ideais”, a preposição “com” introduz o instrumento; em “sem ideais”, a preposição “sem” introduz a condição (“Não se atua na sociedade sem ideais” = “Não se atua na sociedade se não houver ideais”/“sem que haja ideais”). Como se vê, a relação que existe entre “com ideais” e “sem ideais” vai muito além da mera antonímia. (...)”. Sobre o texto, a afirmação abaixo está correta ou incorreta? No penúltimo parágrafo do texto, a função de linguagem predominante é a metalinguística.',
+      '(Fadesp - Pref. Juruti/PA - Enfermeiro - 2010) (Adaptada) “(...) Isso dá valor ímpar ao par “com ideais/sem ideais”: em “com ideais”, a preposição “com” introduz o instrumento; em “sem ideais”, a preposição “sem” introduz a condição (“Não se atua na sociedade sem ideais” = “Não se atua na sociedade se não houver/ sem que haja ideais”). Como se vê, a relação que existe entre “com ideais” e “sem ideais” vai muito além da mera antonímia. (...)”. Sobre o texto, a afirmação abaixo está correta ou incorreta? No penúltimo parágrafo do texto, a função de linguagem predominante é a metalinguística.',
     gabaritoCE: true,
     comentario:
       'O trecho explica o sentido das preposições “com” e “sem”, analisando a própria língua, o que é função metalinguística. A afirmação está correta.',
@@ -165,7 +165,7 @@ export const QUESTOES_LIVRO_C33: QuestaoTreino[] = [
     formato: 'multipla',
     dificuldade: 2,
     enunciado:
-      '(Crespe/UnB - SAEB/BA - Professor de Língua Portuguesa - 2011) Pelos sentidos e pelas estruturas linguísticas, é correto concluir que o emprego de “Conheça” e “Não perca” indica que a função da linguagem predominante no texto C é a:',
+      '(Cespe/UnB - SAEB/BA - Professor de Língua Portuguesa - 2011) Pelos sentidos e pelas estruturas linguísticas, é correto concluir que o emprego de “Conheça” e “Não perca” indica que a função da linguagem predominante no texto é a:',
     alternativas: ['metalinguística;', 'poética;', 'conativa;', 'expressiva.'],
     correta: 2,
     comentario:
@@ -177,7 +177,7 @@ export const QUESTOES_LIVRO_C33: QuestaoTreino[] = [
     formato: 'certo-errado',
     dificuldade: 2,
     enunciado:
-      '(Cespe/UnB - IRBr - Diplomata - 2011) Poucos depoimentos eu tenho lido mais emocionantes que o artigo-reportagem de Oscar Niemeyer sobre sua experiência em Brasília. Para quem conhece apenas o arquiteto, o artigo poderá passar por uma defesa em causa própria — o revide normal de um pai que sai de sua mansidão costumeira para ir brigar por um filho em quem querem bater. Mas, para quem conhece o homem, o artigo assume proporções dramáticas. Pois Oscar é mão só o avesso do causídico, como um dos seres mais antiautopromocionais que já conheci em minha vida. Sua modéstia não é, como de comum, uma forma infame de vaidade. Ela não tem nada a ver com o conhecimento realista - que Oscar tem — de seu valor profissional e de suas possibilidades. E a modéstia dos criadores verdadeiramente integrados com a vida, dos que sabem que não há tempo a perder, é preciso construir a beleza e a felicidade no mundo, por isso mesmo que, no indivíduo, é tudo tão frágil e precário. Oscar não acredita em Papai do Céu, nem que estará um dia construindo brasílias angélicas nas verdes pastagens do Paraíso. Põe ele, como um verdadeiro homem, a felicidade do seu semelhante no aproveitamento das pastagens verdes da Terra; no exemplo do trabalho para o bem comum e na criação de condições urbanas e rurais, em estreita interconexão, que estimulem e desenvolvam este nobre fim: fazer o homem feliz dentro do curto prazo que lhe foi dado para viver. Eu acredito também nisso, e quando vejo aquilo em que creio refletido num depoimento como o de Oscar Niemeyer, velho e querido amigo, como não me emocionar? (Vinícius de Moraes. Para viver um grande amor. RJ: J. Olympio, 1982, p. 134-5 (com adaptações)). No texto, a linguagem foi empregada predominantemente em suas funções emotiva e poética.',
+      '(Cespe/UnB - IRBr - Diplomata - 2011) Poucos depoimentos eu tenho lido mais emocionantes que o artigo-reportagem de Oscar Niemeyer sobre sua experiência em Brasília. Para quem conhece apenas o arquiteto, o artigo poderá passar por uma defesa em causa própria — o revide normal de um pai que sai de sua mansidão costumeira para ir brigar por um filho em quem querem bater. Mas, para quem conhece o homem, o artigo assume proporções dramáticas. Pois Oscar é não só o avesso do causídico, como um dos seres mais antiautopromocionais que já conheci em minha vida. Sua modéstia não é, como de comum, uma forma infame de vaidade. Ela não tem nada a ver com o conhecimento realista - que Oscar tem — de seu valor profissional e de suas possibilidades. É a modéstia dos criadores verdadeiramente integrados com a vida, dos que sabem que não há tempo a perder, é preciso construir a beleza e a felicidade no mundo, por isso mesmo que, no indivíduo, é tudo tão frágil e precário. Oscar não acredita em Papai do Céu, nem que estará um dia construindo brasílias angélicas nas verdes pastagens do Paraíso. Põe ele, como um verdadeiro homem, a felicidade do seu semelhante no aproveitamento das pastagens verdes da Terra; no exemplo do trabalho para o bem comum e na criação de condições urbanas e rurais, em estreita intercorrência, que estimulem e desenvolvam este nobre fim: fazer o homem feliz dentro do curto prazo que lhe foi dado para viver. Eu acredito também nisso, e quando vejo aquilo em que creio refletido num depoimento como o de Oscar Niemeyer, velho e querido amigo, como não me emocionar? (Vinícius de Moraes. Para viver um grande amor. RJ: J. Olympio, 1982, p. 134-5 (com adaptações)). No texto, a linguagem foi empregada predominantemente em suas funções emotiva e poética.',
     gabaritoCE: true,
     comentario:
       'O texto expressa a visão e a emoção do autor sobre Oscar Niemeyer (“como não me emocionar?”, “quando vejo aquilo em que creio”) e recorre a construções criativas e a imagens, como “brasílias angélicas nas verdes pastagens do Paraíso”. Isso caracteriza as funções emotiva e poética, e o item está correto.',
@@ -206,7 +206,7 @@ export const QUESTOES_LIVRO_C33: QuestaoTreino[] = [
     formato: 'multipla',
     dificuldade: 2,
     enunciado:
-      '(Ceperj - Pref. Cantagalo/RJ — Oficial Administrativo - 2011) 0 QUE VOCÊ DEVE FAZER. (Se for bom leitor de jornais e revistas, fiel ouvinte de rádio, obediente telespectador ou simples passageiro de bonde.) Consuma aveia, como experiência, durante 30 anos. Emagreça um quilo por semana sem regime e sem dieta. Livre-se do complexo de magreza, usando Koxkoax hoje mesmo. Procure nosso revendedor autorizado. Economize servindo a garrafa monstro de Lero-Lero. Ganhe a miniatura da garrafa de Lisolete. Tenha sempre à mão um comprimido de leite de magnólia. Resolva de uma vez o problema de seu assoalho, aplicando-lhe Sintaxe. Use somente peças originais, para o funcionamento ideal do seu WfKZ. Tenha sempre à mão uma caixa de adesivos plásticos. Faça o curso de madureza por correspondência. Aprenda em casa, nas horas vagas, a fascinante profissão de relojoeiro. [...] Carlos Drummond de Andrade. Sempre que há comunicação há uma intenção, o que determina que a linguagem varie, assumindo funções. A função da linguagem predominante no texto com a respectiva característica está expressa em:',
+      '(Ceperj - Pref. Cantagalo/RJ — Oficial Administrativo - 2011) O QUE VOCÊ DEVE FAZER. (Se for bom leitor de jornais e revistas, fiel ouvinte de rádio, obediente telespectador ou simples passageiro de bonde.) Consuma aveia, como experiência, durante 30 anos. Emagreça um quilo por semana sem regime e sem dieta. Livre-se do complexo de magreza, usando Koxkoax hoje mesmo. Procure nosso revendedor autorizado. Economize servindo a garrafa monstro de Lero-Lero. Ganhe a miniatura da garrafa de Lisolete. Tenha sempre à mão um comprimido de leite de magnólia. Resolva de uma vez o problema de seu assoalho, aplicando-lhe Sintaxe. Use somente peças originais, para o funcionamento ideal do seu W.Y.Z. Tenha sempre à mão uma caixa de adesivos plásticos. Faça o curso de madureza por correspondência. Aprenda em casa, nas horas vagas, a fascinante profissão de relojoeiro. [...] Carlos Drummond de Andrade. Sempre que há comunicação há uma intenção, o que determina que a linguagem varie, assumindo funções. A função da linguagem predominante no texto com a respectiva característica está expressa em:',
     alternativas: [
       'referencial - presença de termos científicos e técnicos;',
       'expressiva - predominância da 1ª pessoa do singular;',
@@ -374,5 +374,86 @@ export const QUESTOES_LIVRO_C33: QuestaoTreino[] = [
     correta: 1,
     comentario:
       'O texto se dirige diretamente ao leitor (“com você”, “Sabe quando você está no trabalho”), buscando envolvê-lo e atrair sua atenção para a situação. Isso caracteriza a função apelativa, centrada no receptor. A referencial não se aplica, por não haver dados, e a fática, por não se limitar a manter o contato.',
+  },
+  {
+    id: 'lp-interpretacao-qlivro33-33',
+    temaId: 'lp-interpretacao',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(FUMARC - PM/MG - Oficial da PM - 2011) Leia e analise o BRASÃO da Polícia Militar de Minas Gerais [imagem do brasão, não reproduzida]. Pode-se inferir que o BRASÃO representa, predominantemente, uma função de linguagem:',
+    alternativas: ['expressiva;', 'referencial;', 'conativa;', 'fática.'],
+    correta: 1,
+    comentario:
+      'A alternativa B é a correta: o brasão traz símbolos que identificam a própria instituição e informam sobre o que ela é, e não sobre a emoção de quem o criou. Esse foco no referente caracteriza a função referencial. A expressiva teria foco no emissor, a conativa, em provocar o receptor, e a fática, em manter o contato, funções que o emblema não destaca.',
+  },
+  {
+    id: 'lp-interpretacao-qlivro33-34',
+    temaId: 'lp-interpretacao',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(ENEM - Vestibular - 2011) Pequeno concerto que virou canção. Não, não há por que mentir ou esconder / A dor que foi maior do que é capaz meu coração / Não, nem há por que seguir cantando só para explicar / Não vai nunca entender de amor quem nunca soube amar / Ah, eu vou voltar pra mim / Seguir sozinho assim / Até me consumir ou consumir toda essa dor / Até sentir de novo o coração capaz de amor. Na canção de Geraldo Vandré, tem-se a manifestação da função poética da linguagem, que é percebida na elaboração artística e criativa da mensagem, por meio de combinações sonoras e rítmicas. Pela análise do texto, entretanto, percebe-se, também, a presença marcante da função emotiva ou expressiva, por meio da qual o emissor:',
+    alternativas: [
+      'imprime à canção as marcas de sua atitude pessoal, seus sentimentos;',
+      'transmite informações objetivas sobre o tema de que trata a canção;',
+      'busca persuadir o receptor da canção a adotar um certo comportamento;',
+      'procura explicar a própria linguagem que utiliza para construir a canção;',
+      'objetiva verificar ou fortalecer a eficiência da mensagem veiculada.',
+    ],
+    correta: 0,
+    comentario:
+      'A alternativa A é a correta: o eu lírico expõe dor, desabafo e decisão pessoal (“Não, não há por que mentir ou esconder”, “Ah, eu vou voltar pra mim”), marcas da função emotiva, centrada em quem fala. A alternativa B descreve a função referencial; a C, a conativa, que age sobre o receptor; a D, a metalinguística, que toma o código como assunto; e a E, a fática, voltada ao contato.',
+  },
+  {
+    id: 'lp-interpretacao-qlivro33-35',
+    temaId: 'lp-interpretacao',
+    formato: 'certo-errado',
+    dificuldade: 2,
+    enunciado:
+      '(Cespe/UnB - Correios - Analista de Correios (Letras) - 2011) Início do texto (ao longo dele, predominam as mesmas características gramaticais e discursivas presentes aqui): “Não fui, e não sou, um corredor de cartas. Acredito que, no momento em que você estiver lendo esta mensagem, meus sentimentos a respeito dela”. Linhas 25 a 27: O maior epistológrafo (que palavra horrível!) de todos os tempos foi, sem dúvida, São Paulo. Há quem diga que suas epístolas deram origem à Educação a Distância, já que ele difundia o cristianismo por meio de cartas para seus discípulos. Linhas 38 a 40: Na música, em minha adolescência, me comovia com a voz de Dalva de Oliveira cantando “Quando o carteiro chegou / meu nome gritou / com uma carta na mão / ante surpresa tão rude / não sei como pude chegar ao portão...”. Deve-se a Roman Jakobson a discriminação das seis funções da linguagem na expressão e na comunicação humanas, conforme o realce particular que cada um dos componentes do processo de comunicação recebe no enunciado. Por isso mesmo, é raro encontrar em uma única mensagem apenas uma dessas funções, ou todas reunidas em um mesmo texto. O mais frequente é elas se superporem, apresentando-se uma ou outra como predominante. No que se refere à presença das funções da linguagem no texto acima apresentado, julgue os itens a seguir. A função fática se manifesta, no texto, nos versos transcritos nas linhas de 38 a 40, nos quais se evidencia um trabalho de construção da linguagem para produzir sonoridades, ritmo e rimas, recursos característicos da produção de letras de composições musicais.',
+    gabaritoCE: false,
+    comentario:
+      'Errado. A função fática serve para manter o contato entre os interlocutores, como em “alô” ou “hein?”. Nos versos das linhas 38 a 40, o que se destaca é o trabalho sonoro e rítmico, com rimas e cadência, que pertence à função poética. A afirmação troca uma função pela outra.',
+  },
+  {
+    id: 'lp-interpretacao-qlivro33-36',
+    temaId: 'lp-interpretacao',
+    formato: 'certo-errado',
+    dificuldade: 2,
+    enunciado:
+      '(Cespe/UnB - Correios - Analista de Correios (Letras) - 2011) Início do texto (ao longo dele, predominam as mesmas características gramaticais e discursivas presentes aqui): “Não fui, e não sou, um corredor de cartas. Acredito que, no momento em que você estiver lendo esta mensagem, meus sentimentos a respeito dela”. Linhas 25 a 27: O maior epistológrafo (que palavra horrível!) de todos os tempos foi, sem dúvida, São Paulo. Há quem diga que suas epístolas deram origem à Educação a Distância, já que ele difundia o cristianismo por meio de cartas para seus discípulos. Linhas 38 a 40: Na música, em minha adolescência, me comovia com a voz de Dalva de Oliveira cantando “Quando o carteiro chegou / meu nome gritou / com uma carta na mão / ante surpresa tão rude / não sei como pude chegar ao portão...”. Deve-se a Roman Jakobson a discriminação das seis funções da linguagem na expressão e na comunicação humanas, conforme o realce particular que cada um dos componentes do processo de comunicação recebe no enunciado. Por isso mesmo, é raro encontrar em uma única mensagem apenas uma dessas funções, ou todas reunidas em um mesmo texto. O mais frequente é elas se superporem, apresentando-se uma ou outra como predominante. No que se refere à presença das funções da linguagem no texto acima apresentado, julgue os itens a seguir. A função emotiva, centrada no destinador ou emissor da mensagem, está presente no texto, o que se comprova pelo emprego de verbos na primeira pessoa, de segmentos com julgamentos subjetivos e de pronomes de primeira pessoa.',
+    gabaritoCE: true,
+    comentario:
+      'Certo. O emissor se coloca no centro do texto, com verbos na primeira pessoa (“Não fui”, “Acredito”, “me comovia”) e julgamentos subjetivos, como “que palavra horrível!”. Esses traços são as marcas da função emotiva, centrada em quem fala.',
+  },
+  {
+    id: 'lp-interpretacao-qlivro33-37',
+    temaId: 'lp-interpretacao',
+    formato: 'certo-errado',
+    dificuldade: 2,
+    enunciado:
+      '(Cespe/UnB - Correios - Analista de Correios (Letras) - 2011) Início do texto (ao longo dele, predominam as mesmas características gramaticais e discursivas presentes aqui): “Não fui, e não sou, um corredor de cartas. Acredito que, no momento em que você estiver lendo esta mensagem, meus sentimentos a respeito dela”. Linhas 25 a 27: O maior epistológrafo (que palavra horrível!) de todos os tempos foi, sem dúvida, São Paulo. Há quem diga que suas epístolas deram origem à Educação a Distância, já que ele difundia o cristianismo por meio de cartas para seus discípulos. Linhas 38 a 40: Na música, em minha adolescência, me comovia com a voz de Dalva de Oliveira cantando “Quando o carteiro chegou / meu nome gritou / com uma carta na mão / ante surpresa tão rude / não sei como pude chegar ao portão...”. Deve-se a Roman Jakobson a discriminação das seis funções da linguagem na expressão e na comunicação humanas, conforme o realce particular que cada um dos componentes do processo de comunicação recebe no enunciado. Por isso mesmo, é raro encontrar em uma única mensagem apenas uma dessas funções, ou todas reunidas em um mesmo texto. O mais frequente é elas se superporem, apresentando-se uma ou outra como predominante. No que se refere à presença das funções da linguagem no texto acima apresentado, julgue os itens a seguir. A função metalinguística manifesta-se nos enunciados “(que palavra horrível!)” (L.24) e “Há quem diga que suas epístolas deram origem à Educação a Distância, já que ele difundia o cristianismo por meio de cartas para seus discípulos” (L.25-27), nos quais o autor tomou o próprio código de comunicação como assunto da mensagem.',
+    gabaritoCE: false,
+    comentario:
+      'Errado. A metalinguagem toma o código como assunto, e no trecho das linhas 25 a 27 o autor trata da origem da Educação a Distância e do uso de cartas por São Paulo, ou seja, de um fato sobre a comunicação, e não da língua em si. Só a expressão “que palavra horrível!” comenta o próprio vocabulário, por isso o item está incorreto.',
+  },
+  {
+    id: 'lp-interpretacao-qlivro33-38',
+    temaId: 'lp-interpretacao',
+    formato: 'multipla',
+    dificuldade: 1,
+    enunciado:
+      '(FCC - TRF (4ª R) - Analista Judiciário (Taquigrafia) - 2010) Analise: A Semiologia (ou Semiótica) é a teoria geral ...J.... Ela difere da Linguística por sua maior abrangência; enquanto a Linguística é o estudo científico ...K..., a Semiologia preocupa-se com todo e qualquer sistema ...L..., seja ele natural ou convencional. Por esse ângulo, a Linguística insere-se como uma parte da Semiologia. Semiologia e Semiótica são termos permutáveis. (Adaptado de Castelar de Carvalho (UFRJ, ABF). Saussure e a Língua Portuguesa, http://www.filologia.org.br/viisenefil/09.htm. Acesso em: 2 fev. 2010.) As lacunas J, K e L são, correta e respectivamente, preenchidas por:',
+    alternativas: [
+      'dos significados – das linguagens – de significantes;',
+      'da significação – da fala – linguístico;',
+      'dos símbolos – dos signos – de fala;',
+      'da comunicação – da morfossintaxe – de troca;',
+      'dos sinais – da linguagem humana – de comunicação.',
+    ],
+    correta: 4,
+    comentario:
+      'A alternativa E é a correta: a Semiologia é a ciência geral dos signos ou sinais (lacuna J), a Linguística estuda a linguagem humana (lacuna K) e a Semiologia abrange sistemas de comunicação naturais ou convencionais (lacuna L). As demais opções trocam o objeto de cada ciência, como “significados”, “fala” ou “morfossintaxe”, que não definem a Semiologia nem a Linguística.',
   },
 ];

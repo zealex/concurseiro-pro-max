@@ -682,4 +682,230 @@ export const QUESTOES_LIVRO_C30: QuestaoTreino[] = [
     comentario:
       '“Resistir” exige a preposição a, e “mudanças” vem determinado pelo artigo plural “as”, o que gera a fusão a + as = às. Sem o acento a preposição desapareceria e a regência ficaria incorreta, então a supressão prejudica o texto e a afirmação está certa.',
   },
+  {
+    id: 'lp-crase-qlivro30-59',
+    temaId: 'lp-crase',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      'Indique a opção que corresponde a erro gramatical na transcrição do texto. A(1) seca nos Estados Unidos prenuncia mais uma fase de preços altos para os alimentos, com perspectivas de bons ganhos para os exportadores e de graves dificuldades para as (2) economias pobres e dependentes da importação de comida. (...) A (3) longa estiagem, excepcionalmente severa, afeta mais de 60% do país e a maior parte das regiões agrícolas. O mercado reagiu imediatamente às (4) novas estimativas, divulgadas pelo Departamento de Agricultura dos Estados Unidos, com indicações de redução dos estoques na temporada 2012-2013. O Brasil será um dos países em condições de aproveitar às (5) oportunidades abertas pela quebra da safra americana.',
+    alternativas: ['A (1)', 'as (2)', 'A (3)', 'às (4)', 'às (5)'],
+    correta: 4,
+    comentario:
+      'A alternativa E traz o erro: “aproveitar” é transitivo direto e pede o objeto “oportunidades” sem preposição, por isso o correto seria “as (5)”. Em (1) e (3), “seca” e “longa estiagem” são sujeitos femininos com artigo simples, sem preposição. Em (2), “para as economias” pede a preposição com o artigo plural, e em (4), “reagiu às novas estimativas” usa o verbo “reagir a” com esse mesmo artigo, por isso ambos estão corretos.',
+  },  {
+    id: 'lp-crase-qlivro30-60',
+    temaId: 'lp-crase',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(FCC — TRF (5ª R) — Analista Judiciário — 2012) Do mesmo modo que no segmento “ameaça à paz e à segurança”, o sinal indicativo de crase também está corretamente empregado em:',
+    alternativas: [
+      'O mais grave foi a ameaça à integridade física da vítima.',
+      'A crise econômica ameaça à preservação do acervo de vários museus.',
+      'Certos animais reagem agressivamente a ameaças à seus interesses.',
+      'Houve ameaça à grupo de manifestantes presos durante protesto.',
+      'A censura ameaça à liberdade de criação.',
+    ],
+    correta: 0,
+    comentario:
+      'A alternativa A está correta: “ameaça” é substantivo, pede a preposição a e vem seguido de artigo feminino, por isso há crase, como no enunciado. Em B e E, “ameaça” é verbo transitivo direto e não admite preposição; em C o acento aparece antes de “seus”, pronome masculino plural; e em D não há artigo feminino antes de “grupo”.',
+  },  {
+    id: 'lp-crase-qlivro30-61',
+    temaId: 'lp-crase',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(Consulplan — Pref. São Domingos Prata/MG — Assistente Social — 2012) O uso do acento grave indicativo de crase é obrigatório em “vem à cabeça da maioria das pessoas”. O mesmo ocorre em:',
+    alternativas: [
+      'Sempre aspirou a tal emprego.',
+      'Eles aspiravam a altos cargos.',
+      'Disse que aspirava a ser médico.',
+      'O jovem aspirava à notoriedade.',
+      'Aspirava a uma posição mais brilhante.',
+    ],
+    correta: 3,
+    comentario:
+      'A alternativa D está correta: “aspirar” pede a preposição a, e “a notoriedade” traz o artigo feminino, o que produz a crase como em “vem à cabeça”. Nas demais alternativas a preposição vem diante de pronome masculino, de termo masculino plural, de infinitivo ou de indefinido, e por isso não há acento.',
+  },
+  {
+    id: 'lp-crase-qlivro30-62',
+    temaId: 'lp-crase',
+    formato: 'multipla',
+    dificuldade: 3,
+    enunciado:
+      '(FCC - TST - Técnico Judiciário - 2017) ...... mobilização dos mais diversos profissionais que faziam ...... vezes de figurantes da ópera e dos estudantes que participavam do coro da Ufrgs,...... que se acrescentar a dedicação do maestro Pablo Komlós, formado pela Academia Real da Hungria, sob a orientação de Kodály, então...... frente da Ospa, em que se manteve até 1978. Preenche correta e respectivamente as lacunas da frase acima:',
+    alternativas: [
+      'A - as - há - a',
+      'À - às - há - a',
+      'A - às - a - à',
+      'A - às - a - a',
+      'À - as - há - à',
+    ],
+    correta: 4,
+    comentario:
+      'A alternativa E está correta. Na primeira lacuna, a preposição “a” da expressão “À mobilização” se funde com o artigo feminino que acompanha o substantivo, por isso há crase. Em “as vezes”, o artigo plural vem sem preposição, pois “fazer as vezes de” é locução fixa que não admite crase. Em “há que se acrescentar”, o verbo haver é impessoal e se grafa “há”, e em “à frente da Ospa” a locução pede a preposição com o artigo feminino, o que exige o acento grave.',
+  },
+  {
+    id: 'lp-crase-qlivro30-63',
+    temaId: 'lp-crase',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(Esaf — CGU — Analista de Finanças e Controle — 2012) No que diz respeito ao uso do sinal de crase, assinale a opção que preenche corretamente as lacunas do texto abaixo. Uma mera observação __(1)__ olho nu já basta para constatar que parcela relevante do spread está ligada, direta ou indiretamente, __(2)__ políticas públicas, sejam tributárias regulatórias ou de outra natureza. (...) Por outro lado, o aumento da eficiência do sistema bancário é igualmente relevante para __(3)__ queda dos spreads. (...) Em suma, é necessário um permanente diálogo entre o setor bancário e o governo, com vistas __(4)__ implementação de medidas sustentáveis para redução de spread, objetivo que deve ser atingido sem ameaças __(5)__ estabilidade financeira.',
+    alternativas: [
+      'à/às/a/à/à',
+      'a/as/a/à/a',
+      'a/às/a/à/à',
+      'a/a/à/a/a',
+      'à/a/à/a/à',
+    ],
+    correta: 2,
+    comentario:
+      'A alternativa C está correta. Em (1), “a olho nu” é locução de modo sem artigo, porque “olho” é masculino, então fica só a preposição “a”. Em (2), “ligada a políticas” pede a preposição diante do artigo plural “as” de “políticas”, o que resulta em “às”. Em (3), “relevante para a queda” usa “para”, que não se funde com o artigo, e em (4) e (5) “vistas à implementação” e “ameaças à estabilidade” pedem a preposição “a” fundida ao artigo feminino.',
+  },
+  {
+    id: 'lp-crase-qlivro30-64',
+    temaId: 'lp-crase',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      'Em relação ao uso do sinal indicativo de crase, assinale a opção que preenche corretamente as lacunas do fragmento a seguir. Será necessário aceitar que há um princípio darwiniano regendo ______ ascensão e ______ queda de setores da economia mundial. Um país não consegue ser bom em tudo, e alguns setores tendem ______ desaparecer em uma parte do mundo para florescer do outro lado do planeta. Por essa dinâmica, alguns setores tendem até ______ definhar no Brasil. A diminuição da fatia industrial na economia frequentemente se dá de forma natural e lenta, como parte do desenvolvimento das nações. Por isso, não costuma ser encarada como um transtorno, mas como mais uma etapa rumo ______ maturidade econômica.',
+    alternativas: [
+      'à, à, a, a, a',
+      'a, a, à, a, à',
+      'à, a, a, a, à',
+      'a, a, à, à, a',
+      'a, a, a, a, à',
+    ],
+    correta: 4,
+    comentario:
+      'A alternativa E é a correta. Nas duas primeiras lacunas, “regendo” pede objeto direto, então entra apenas o artigo “a”, sem crase. Em “tendem a desaparecer” e “tendem até a definhar”, a preposição “a” antecede verbo no infinitivo, que não aceita artigo, por isso não há crase. Já em “rumo à maturidade”, a preposição da locução “rumo a” se funde com o artigo feminino de “maturidade”, e só aí ocorre o acento grave.',
+  },
+  {
+    id: 'lp-crase-qlivro30-65',
+    temaId: 'lp-crase',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(FCC - TRT/AM (1ª R) - Técnico Judiciário - 2012) É a atividade de construção de que o artista dispõe, o seu poder de imprimir ...... um trabalho sentimentos e sensações, e a qualidade de pensamento que conferem humanidade ...... arte; e essa humanidade pode ser realizada com uma série ilimitada de temas ou elementos formais. Tudo isso já foi repetido ...... exaustão. Preenchem corretamente as lacunas da frase acima, na ordem dada:',
+    alternativas: [
+      'à - à - a',
+      'a - à - à',
+      'a - à - a',
+      'à - a - à',
+      'à - a - a',
+    ],
+    correta: 1,
+    comentario:
+      'A alternativa B, “a - à - à”, é a correta. Em “imprimir a um trabalho”, a preposição “a” é exigida pelo verbo e vem antes do artigo indefinido “um”, por isso não recebe crase. Em “conferem humanidade à arte”, a preposição do verbo conferir se funde com o artigo feminino de “arte”, e em “repetido à exaustão” a locução adverbial feminina pede o acento grave. As demais opções trocam esses casos.',
+  },
+  {
+    id: 'lp-crase-qlivro30-66',
+    temaId: 'lp-crase',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(FCC — TCE/SP - Auxiliar de Fiscalização Financeira — 2012) A parcela da população mundial que ascendeu ...... classe média nos últimos vinte anos passou ...... consumir mais, ...... um ritmo acelerado, o que põe em risco a sustentabilidade do planeta. As lacunas da frase acima estarão corretamente preenchidas, respectivamente, por:',
+    alternativas: [
+      'à - a - a',
+      'à - à - a',
+      'à - a - à',
+      'a - a - à',
+      'a - a - a',
+    ],
+    correta: 0,
+    comentario:
+      'A alternativa A, “à - a - a”, é a correta. Em “ascendeu à classe média”, o verbo ascender pede a preposição “a”, que se funde com o artigo feminino de “classe”, produzindo crase. Em “passou a consumir”, a locução verbal “passar a” seguida de infinitivo não aceita artigo, e por isso o “a” fica sem acento. Na última lacuna, “a um ritmo acelerado” tem a preposição antes do artigo indefinido “um”, sem crase.',
+  },
+  {
+    id: 'lp-crase-qlivro30-67',
+    temaId: 'lp-crase',
+    formato: 'multipla',
+    dificuldade: 3,
+    enunciado:
+      '(FCC — MPE/AP — Promotor de Justiça — 2012) A palavra “maquiavélico”, ...... que se costuma atribuir uma acepção negativa, está longe de fazer justiça ...... complexidade do pensamento de Maquiavel, mesmo aquele restrito ...... seu mais famoso tratado, O príncipe. Preenchem corretamente as lacunas da frase acima, na ordem dada:',
+    alternativas: [
+      'a - à - à',
+      'à - a - a',
+      'à - a - à',
+      'a - à - a',
+      'à - à - à',
+    ],
+    correta: 3,
+    comentario:
+      'A alternativa D, “a - à - a”, é a correta. Na primeira lacuna, o “a” é preposição regida por “atribuir” e vem antes do pronome relativo “que”, por isso não há artigo nem crase. Em “fazer justiça à complexidade”, a preposição exigida por “justiça” funde-se com o artigo feminino de “complexidade”. Em “restrito a seu mais famoso tratado”, o termo seguinte é masculino, o que impede o artigo feminino e, portanto, a crase.',
+  },
+  {
+    id: 'lp-crase-qlivro30-68',
+    temaId: 'lp-crase',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(FCC - TRF (2ª R) - Analista Judiciário - 2012) Não deixa de ser paradoxal o fato de o crescimento da descrença, que parecia levar ...... uma ampliação da liberdade, ter dado lugar ...... escalada do fundamentalismo religioso, ...... que se associam manifestações profundamente reacionárias. Preenchem corretamente as lacunas da frase acima, na ordem dada:',
+    alternativas: [
+      'a - à - a',
+      'à - a - a',
+      'a - a - à',
+      'à - à - a',
+      'a - à - à',
+    ],
+    correta: 0,
+    comentario:
+      'A alternativa A, “a - à - a”, é a correta. Em “levar a uma ampliação”, o verbo pede a preposição “a”, que antecede o artigo indefinido “uma” e por isso não recebe crase. Em “ter dado lugar à escalada”, a locução “dar lugar a” funde a preposição com o artigo feminino de “escalada”, o que produz o acento grave. Na última lacuna, “a que se associam” traz a preposição antes do pronome relativo, sem artigo e sem crase.',
+  },
+  {
+    id: 'lp-crase-qlivro30-69',
+    temaId: 'lp-crase',
+    formato: 'multipla',
+    dificuldade: 3,
+    enunciado:
+      '(FCC - TST - Técnico Judiciário - 2012) Considere: ...... angústia de imaginar que o homem pode estar só no universo soma-se a curiosidade humana, que se prende ...... tudo o que é desconhecido, para que não desapareça de todo o interesse por pistas que dariam embasamento ...... teses de que haveria vida em outros planetas. Preenchem corretamente as lacunas da frase acima, na ordem dada:',
+    alternativas: [
+      'À - a - às',
+      'A - à - as',
+      'À - a - as',
+      'A - a - às',
+      'À - à - as',
+    ],
+    correta: 0,
+    comentario:
+      'A alternativa A, “À - a - às”, é a correta. A primeira lacuna pede a preposição “a” antes de “angústia”, e a fusão com o artigo feminino produz “À”. Em “prende-se a tudo o que é desconhecido”, o verbo pede a preposição “a”, mas “tudo” é pronome e não admite artigo, então não há crase. Em “embasamento às teses”, o substantivo pede a preposição “a”, que se junta ao artigo plural feminino de “teses”.',
+  },
+  {
+    id: 'lp-crase-qlivro30-70',
+    temaId: 'lp-crase',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(VUNESP - Prefeitura de São Paulo - Analista Fiscal de Serviços - 2016) Nas universidades, as iniciativas de solidariedade visam oferecer apoio ______ precisa, com respeito ______ diferenças, entendendo-se que não se deve negar ______ um refugiado ______ esperança por uma vida melhor. De acordo com a norma-padrão, as lacunas da frase devem ser preenchidas, respectivamente, com:',
+    alternativas: [
+      'aquele que – à – a – à',
+      'àquele que – às – a – a',
+      'à quem – às – à – à',
+      'a quem – as – à – a',
+      'àquele que – as – a – à',
+    ],
+    correta: 1,
+    comentario:
+      'A alternativa B, “àquele que – às – a – a”, é a correta. Na primeira lacuna, “apoio” pede a preposição “a”, que se funde com o demonstrativo “aquele”, por isso há crase. Em “respeito às diferenças”, a preposição “a” se junta ao artigo plural feminino de “diferenças”. Nas duas últimas lacunas, “negar a um refugiado” tem artigo indefinido e “esperança” aparece em sentido geral, sem artigo definido, então a preposição fica sem acento.',
+  },
+  {
+    id: 'lp-crase-qlivro30-71',
+    temaId: 'lp-crase',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(VUNESP - TJ/SP - Médico Judiciário - 2019) Graças ______ leitura de “A vida invisível de Eurídice Gusmão”, romance de Martha Batalha, referente ______ angústias de duas irmãs na década de 1940, um homem de 42 anos, preso em São Paulo, decidiu reatar com a filha. O livro chegou ______ essa pessoa por meio do Programa Clubes de Leitura e Remição de Pena. (Mariana Vick. Folha de S.Paulo, 26.06.2018. Adaptado) De acordo com a norma-padrão, as lacunas do texto devem ser preenchidas, respectivamente, por:',
+    alternativas: [
+      'a ... as ... a',
+      'a ... às ... à',
+      'à ... às ... a',
+      'à ... as ... à',
+      'à ... às ... à',
+    ],
+    correta: 2,
+    comentario:
+      'A alternativa C, “à ... às ... a”, é a correta. “Graças à leitura” é locução prepositiva que se une ao artigo feminino de “leitura”, daí a crase. “Referente às angústias” tem a preposição “a” antes do artigo plural feminino de “angústias”, e “chegou a essa pessoa” fica sem crase, pois o demonstrativo “essa” não admite artigo antes dele.',
+  },
 ];

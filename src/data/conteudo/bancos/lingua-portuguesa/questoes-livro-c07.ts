@@ -501,4 +501,111 @@ export const QUESTOES_LIVRO_C07: QuestaoTreino[] = [
     comentario:
       'A alternativa C é a correta: “enfrentar” gera o cognato “enfrentamento”, que mantém o sentido da ação. As demais erram o substantivo correspondente: “ocultar” gera “ocultação”, e não “ocultismo”; “morrer” gera “morte”, e não “mortandade”; “oferecer” gera “oferta”, e não “ofertório”; e “viver” não tem como cognato “vivacidade”, que significa outra coisa.',
   },
+  {
+    id: 'lp-nomes-qlivro07-37',
+    temaId: 'lp-nomes',
+    formato: 'multipla',
+    dificuldade: 3,
+    enunciado:
+      '(MP/PE - Penum (Estágio Nível Universitário) - 2011) Os compostos estão corretamente pluralizados em:',
+    alternativas: [
+      'pés-de-moleques, guarda-roupas, ex-diretores.',
+      'grão-duques, bananas-maçã, piscas-piscas.',
+      'pés-de-moleque, bananas-maçã, canetas-tinteiro.',
+      'pés-de-moleques, canetas tinteiros, tique-taques.',
+      'pés-de-cabras, pores do sol, porta-bandeiras.',
+    ],
+    correta: 2,
+    comentario:
+      'A alternativa C é a correta: em “pés-de-moleque” só o primeiro elemento vai ao plural, em “bananas-maçã” o substantivo que funciona como núcleo se flexiona e “maçã” fica invariável, e em “canetas-tinteiro” o segundo elemento permanece no singular. As alternativas A e D trazem “pés-de-moleques”, a D também “canetas tinteiros”, e a E traz “pés-de-cabras” e “pores do sol”, plurais que a questão considera errados.',
+  },
+  {
+    id: 'lp-nomes-qlivro07-38',
+    temaId: 'lp-nomes',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(FCC - TRE/AP - Técnico Judiciário - 2011) A palavra destacada que está empregada corretamente é:',
+    alternativas: [
+      'Diante de tantos abaixos-assinados, teve de acatar a solicitação.',
+      'Considerando os incontestáveis contra-argumento, reconheceu a falha do projeto.',
+      'Ele é um dos mais antigos tabeliões deste cartório.',
+      'Os guardas-costas do artista foram agressivos com os jornalistas.',
+      'Os funcionários da manutenção já instalaram os corrimãos.',
+    ],
+    correta: 4,
+    comentario:
+      'A alternativa E é a correta: “corrimão” é substantivo terminado em -ão, e seu plural regular é “corrimãos”. Na A, “abaixo-assinado” pluraliza só o segundo elemento, pois “abaixo” é invariável, e na D “guarda-costas” é invariável. Na B, o adjetivo “incontestáveis” pede um substantivo no plural, o que não ocorre com “contra-argumento”.',
+  },
+  {
+    id: 'lp-nomes-qlivro07-39',
+    temaId: 'lp-nomes',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(Cesgranrio - FINEP - Analista Jurídica - 2011) A formação do plural da palavra cartão-postal é a mesma que ocorre em:',
+    alternativas: [
+      'abaixo-assinado.',
+      'alto-falante.',
+      'porta-voz.',
+      'cavalo-vapor.',
+      'guarda-civil.',
+    ],
+    correta: 4,
+    comentario:
+      'A alternativa E é a correta: em “cartão-postal”, substantivo seguido de adjetivo, os dois elementos vão ao plural (“cartões-postais”), o mesmo padrão de “guarda-civil”, que faz “guardas-civis”. Nas demais, só um dos elementos se flexiona: “abaixo-assinados”, “alto-falantes”, “porta-vozes” e “cavalos-vapor”.',
+  },
+  {
+    id: 'lp-nomes-qlivro07-40',
+    temaId: 'lp-nomes',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(FAB - EAGS - Sargento - 2012) Em qual alternativa não é possível identificar se o ser ao qual o substantivo em destaque se refere é masculino ou feminino?',
+    alternativas: [
+      'A agente de turismo me garantiu que o hotel é excelente.',
+      'A cliente reclamou do péssimo atendimento ao gerente do banco.',
+      'O público aplaudiu muito a intérprete quando o espetáculo terminou.',
+      'Depois de várias ameaças anônimas, a testemunha passou a receber proteção policial.',
+    ],
+    correta: 3,
+    comentario:
+      'A alternativa D é a correta: “testemunha” é sobrecomum, com uma só forma para homens e mulheres, de modo que nem o artigo nem o contexto revelam o sexo do referente. Nas demais, “agente”, “cliente” e “intérprete” são comuns de dois gêneros, e o artigo feminino “a” indica que o ser é mulher.',
+  },
+  {
+    id: 'lp-nomes-qlivro07-41',
+    temaId: 'lp-nomes',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(Funcab - PC/ES - Escrivão de Polícia - 2013) No que respeita ao gênero, comportam-se como “comandante” todos os substantivos relacionados em:',
+    alternativas: [
+      'vítima – artista – atendente.',
+      'camarada – testemunha – dentista.',
+      'pianista – cliente – colegial.',
+      'estudante – colega – indivíduo.',
+      'cônjuge – criança – pessoa.',
+    ],
+    correta: 2,
+    comentario:
+      'A alternativa C é a correta: “comandante” é comum de dois gêneros (o comandante, a comandante), e “pianista”, “cliente” e “colegial” seguem o mesmo padrão. Nas demais há ao menos uma palavra de outro tipo: “vítima”, “testemunha”, “criança” e “pessoa” são sobrecomuns, com uma só forma para os dois sexos, e “indivíduo” é só masculino.',
+  },
+  {
+    id: 'lp-nomes-qlivro07-42',
+    temaId: 'lp-nomes',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(Vunesp - Semae de Piracicaba/SP - Almoxarife - 2021) Tirinha de Bob Thaves (“Frank & Ernest”, 13.03.2020), em que aparecem as expressões “Lendo Palmas” e “Palmas Lendo”. Considerando-se as classes gramaticais, o efeito de humor da tira decorre do emprego do termo:',
+    alternativas: [
+      '“palmas”, substantivo na primeira ocorrência; e adjetivo, na segunda.',
+      '“lendo”, verbo na primeira ocorrência; e adjetivo, na segunda.',
+      '“palmas”, adjetivo nas duas ocorrências, com o mesmo sentido.',
+      '“lendo”, verbo nas duas ocorrências, com o mesmo sentido.',
+      '“palmas”, substantivo nas duas ocorrências, com sentidos diferentes.',
+    ],
+    correta: 4,
+    comentario:
+      'A alternativa E é a correta: “palmas” é substantivo nas duas ocorrências, e o humor nasce da troca de sentido entre a palma da mão, ligada à quiromancia, e a palmeira, ligada à botânica, como sugerem as placas da tirinha. Nas demais, a classificação está errada: “palmas” não é adjetivo, e “lendo” não é o termo que produz o efeito.',
+  },
 ];

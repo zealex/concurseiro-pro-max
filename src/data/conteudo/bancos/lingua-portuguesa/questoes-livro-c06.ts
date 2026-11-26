@@ -606,4 +606,58 @@ export const QUESTOES_LIVRO_C06: QuestaoTreino[] = [
     comentario:
       'A resposta é e: a II está certa, pois “ilimitado” tem o prefixo i- e o sufixo -ado; a III também está certa, pois “automóveis” junta o elemento grego “auto” e o latino “móvel”, o que é hibridismo. A I é falsa, porque “resolvermos” tem o prefixo re- além dos sufixos, e não se forma só por sufixação.',
   },
+  {
+    id: 'lp-classes-qlivro06-44',
+    temaId: 'lp-classes',
+    formato: 'multipla',
+    dificuldade: 3,
+    enunciado:
+      '(FGV - Caern - Agente Administrativo - 2010) Assinale a palavra que seja formada pelo mesmo processo que megalópoles.',
+    alternativas: ['internacional', 'sustentabilidade', 'saneamento', 'obrigatoriedade', 'olímpicos'],
+    correta: 0,
+    comentario:
+      'O gabarito do livro é a letra a, “internacional”, mas a comparação é questionável: “megalópoles” é formada por composição de radicais gregos (mega + polis), enquanto “internacional” junta o prefixo inter- e o sufixo -al a um radical. Por isso, vale conferir o processo de formação de cada palavra antes de marcar a alternativa.',
+  },
+  {
+    id: 'lp-classes-qlivro06-45',
+    temaId: 'lp-classes',
+    formato: 'multipla',
+    dificuldade: 3,
+    enunciado:
+      '(FGV - TRE/PA - Analista Judiciário - 2011) Assinale a palavra em que o prefixo tenha o mesmo valor semântico que o de dissociação.',
+    alternativas: ['dissolver', 'dispor', 'discordar', 'disenteria', 'dissimular'],
+    correta: 2,
+    comentario:
+      'O gabarito do livro é a letra c, “discordar”, mas a questão é controversa: em “dissociação”, o dis- indica separação, sentido que aparece também em “dissolver” (a), enquanto em “discordar” o prefixo marca oposição ou negação. Assim, a alternativa a parece mais coerente com o sentido do prefixo, e o gabarito merece conferência.',
+  },
+  {
+    id: 'lp-classes-qlivro06-46',
+    temaId: 'lp-classes',
+    formato: 'multipla',
+    dificuldade: 3,
+    enunciado:
+      '(Instituto AOCP - TRT/1ª R (RJ) - Analista Judiciário (Oficial de Justiça Avaliador Federal) - 2018) O processo de derivação imprópria de palavras compreende a mudança de classe de uma palavra, estendendo-lhe a significação. Assinale a alternativa cujo excerto apresenta tal processo de derivação na palavra em destaque:',
+    alternativas: [
+      '“A cultura é o sedimento da tentativa incessante de tornar possível [...]”',
+      '“[...] o lugar que ele ocupa na existência [...]”',
+      '“[...] todo tipo de sociedade e toda época histórica têm os seus próprios medos [...]”',
+      '“Os medos que o poder transforma em mercadoria política e comercial [...]”',
+      '“[...] a necessidade de preencher o abismo que separa o transitório do eterno [...]”',
+    ],
+    correta: 4,
+    comentario:
+      'A resposta é e: em “o transitório do eterno”, o adjetivo “transitório” passa a funcionar como substantivo, com artigo, e assume o sentido de “aquilo que é transitório”. Isso é derivação imprópria, ou conversão, sem acréscimo de afixo. Nas demais alternativas, as palavras destacadas mantêm sua classe original, o que descarta a mudança pedida.',
+  },
+  {
+    id: 'lp-classes-qlivro06-47',
+    temaId: 'lp-classes',
+    formato: 'multipla',
+    dificuldade: 3,
+    enunciado:
+      '(Consulplan - Assistente Administrativo - 2011) Assinale a opção na qual o vocábulo tem o mesmo processo de formação da palavra “endurecimento”.',
+    alternativas: ['Descarregar', 'Dentista', 'Pescaria', 'Desalmado', 'Jogador'],
+    correta: 3,
+    comentario:
+      'O gabarito do livro é a letra d, “desalmado”, mas o próprio autor questiona a resposta: “endurecimento” é derivação sufixal (endurecer + -mento), e “desalmado” é tido como parassintético (des- + alma + -ado). Além disso, “dentista”, “pescaria” e “jogador” também são formados por sufixação, o que deixa a questão sem alternativa exata.',
+  },
 ];

@@ -528,4 +528,158 @@ export const QUESTOES_LIVRO_C08: QuestaoTreino[] = [
     comentario:
       'A alternativa C é a correta: “agradável” e “tranquila” são adjetivos que qualificam “vida” e “morte”, somando dois. As demais têm no máximo um adjetivo de fato, pois “vivos” e “mortos” funcionam como substantivos, e “final”, “interminável” e “vivida” aparecem isolados.',
   },
+  {
+    id: 'lp-nomes-qlivro08-35',
+    temaId: 'lp-nomes',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(Funiversa - Analista Júnior - Jurídica - 2006) “Seu corpo como que se marca ainda na velha poltrona da sala.” Sobre os termos destacados, é correto afirmar:',
+    alternativas: [
+      'Os dois possuem valor de adjetivo.',
+      'Os dois possuem valor de advérbio.',
+      'Possuem valor de adjetivo e advérbio respectivamente.',
+      'Possuem valor de advérbio e adjetivo respectivamente.',
+      'Os dois possuem valor pronominal.',
+    ],
+    correta: 0,
+    comentario:
+      'A alternativa A é a correta: “velha” qualifica o substantivo “poltrona”, e “da sala” é locução adjetiva, que também modifica esse substantivo. As demais falham porque nenhum dos dois termos tem valor de advérbio ou pronominal, e a alternativa C e a D invertem a ordem dos valores, já que “da sala” não é advérbio.',
+  },
+  {
+    id: 'lp-nomes-qlivro08-36',
+    temaId: 'lp-nomes',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(Consulplan - Agente de Pesquisas e Mapeamento - 2009) Todos os termos destacados têm natureza adjetiva, EXCETO:',
+    alternativas: [
+      '“algumas generosas”.',
+      '“Meus ensaios têm colimado assuntos candentes e controvertidos”.',
+      '“seria de implantação inverossímil”.',
+      '“Sua imaginação criativa”.',
+      '“sobre a aborrecida lógica do texto”.',
+    ],
+    correta: 4,
+    comentario:
+      'A alternativa E é a correta: em “a aborrecida lógica do texto”, o termo destacado, “lógica”, é substantivo, pois nomeia aquilo que é aborrecido, e não tem natureza adjetiva. Nas demais, o termo destacado é adjetivo ou pronome possessivo com função adjetiva: “generosas”, “Meus”, “inverossímil” e “criativa” qualificam ou determinam um substantivo.',
+  },
+  {
+    id: 'lp-nomes-qlivro08-37',
+    temaId: 'lp-nomes',
+    formato: 'certo-errado',
+    dificuldade: 2,
+    gabaritoCE: true,
+    enunciado:
+      '(Cespe/UnB - MPU - Analista de Informática - 2010) Fragmento de texto (...) É necessário investir em pesquisa... Na linha 19, o emprego do adjetivo “necessário”, no masculino, estabelece a concordância com a oração que a ele se segue.',
+    comentario:
+      'O item está certo: em “É necessário investir em pesquisa”, o sujeito é a oração “investir em pesquisa”, e o adjetivo fica no masculino singular, que é a forma de concordância usada quando o sujeito é oracional e não tem gênero. Por isso a concordância se faz com a oração que vem depois do adjetivo, e não com um substantivo.',
+  },
+  {
+    id: 'lp-nomes-qlivro08-38',
+    temaId: 'lp-nomes',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(Consulplan - Advogado - 2010) Assinale a alternativa em que o termo destacado NÃO pertence à mesma classe gramatical dos demais:',
+    alternativas: [
+      '“camadas iletradas”.',
+      '“direitos políticos”.',
+      '“perpétuo exercício”.',
+      '“ofício mecânico”.',
+      '“precária condição”.',
+    ],
+    correta: 1,
+    comentario:
+      'A alternativa B é a correta: em “direitos políticos”, o termo destacado, “políticos”, é adjetivo que qualifica “direitos”. Nas demais, os termos destacados, “camadas”, “exercício”, “ofício” e “condição”, são substantivos.',
+  },
+  {
+    id: 'lp-nomes-qlivro08-39',
+    temaId: 'lp-nomes',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(FGV - SEAD/AP - Delegado de Polícia - 2010) Assinale a alternativa em que o termo sublinhado tenha função adjetiva.',
+    alternativas: [
+      'Característica da nação.',
+      'Ameaça de colapso.',
+      'Deterioração de valores.',
+      'Instituição da escravidão.',
+      'Uso de violência.',
+    ],
+    correta: 0,
+    comentario:
+      'A alternativa A é a correta: o termo sublinhado, “da nação”, é locução adjetiva que caracteriza o substantivo “característica”. Nas demais, o termo sublinhado é complemento nominal de um substantivo que pede complemento (“ameaça”, “deterioração”, “instituição” e “uso”), e não tem valor de adjetivo.',
+  },
+  {
+    id: 'lp-nomes-qlivro08-40',
+    temaId: 'lp-nomes',
+    formato: 'multipla',
+    dificuldade: 3,
+    enunciado:
+      '(Cesgranrio - Citepe - Supervisor de Produção Têxtil - 2011) O adjetivo destacado em “...fino manto...”, se deslocado para depois do substantivo “manto”, sofre alteração de sentido, o que NÃO ocorre em:',
+    alternativas: [
+      'Passamos por negras situações naquela época.',
+      'Aquele profissional é um pobre homem.',
+      'Ela era uma simples pessoa.',
+      'Recebi uma única oferta de trabalho.',
+      'Tornou-se, quando adulto, um grande homem.',
+    ],
+    correta: 0,
+    comentario:
+      'A alternativa A é a correta: em “negras situações”, o adjetivo tem o sentido de “ruins”, e posposto em “situações negras” mantém esse mesmo sentido, por isso não há alteração. Nas demais, o deslocamento muda o sentido: “pobre homem” (infeliz) passa a “homem pobre” (sem recursos), “grande homem” (importante) passa a “homem grande” (de porte físico), e “única oferta” (só uma) passa a “oferta única” (exclusiva).',
+  },
+  {
+    id: 'lp-nomes-qlivro08-41',
+    temaId: 'lp-nomes',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(FAB - EEAr - Controlador de Tráfego Aéreo - 2012) Marque a alternativa em que se destacam locução adjetiva e adjetivo nas frases.',
+    alternativas: [
+      '“Certa hora da tarde era mais perigosa.”',
+      '“Desceu a íngreme escada, apegando-se às cordas.”',
+      '“Um dia, ao pino do sol, ela repousava em um claro da floresta.”',
+      '“Houve um momento de silêncio: todos os rostos empalideceram (...)”',
+    ],
+    correta: 0,
+    comentario:
+      'A alternativa A é a correta: “da tarde” é locução adjetiva que modifica “hora”, e “perigosa” é adjetivo que qualifica essa hora. Nas demais, ou a locução tem outra função, como “ao pino do sol”, que é adjunto adverbial, e “às cordas”, que é complemento verbal, ou falta a locução adjetiva ou o adjetivo que a questão pede.',
+  },
+  {
+    id: 'lp-nomes-qlivro08-42',
+    temaId: 'lp-nomes',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(Vunesp - TCE/SP - Agente de Fiscalização - 2017) Assinale a alternativa em que estão destacados, respectivamente, um adjetivo e uma locução adjetiva.',
+    alternativas: [
+      'Você assustou ele falando alto... / ... teria impedido a fuga do pássaro.',
+      'Miguel era o mais velho... / ... a viagem se fazia a cavalo.',
+      'E pensávamos com ânsia no seu regresso... / ... o tapa no rosto de Tito.',
+      '... para aprender nomes feios... / ... o risinho malévolo dos Guimarães.',
+      '... os socos que ele nos dera, o miserável. / ... de certo modo participava dele.',
+    ],
+    correta: 3,
+    comentario:
+      'A alternativa D é a correta: “feios” é adjetivo que qualifica “nomes”, e “dos Guimarães” é locução adjetiva que modifica “risinho malévolo”. Nas demais, há advérbios, como “alto” e “de certo modo” ou “a cavalo”, que são adjuntos adverbiais, ou locuções que não caracterizam substantivo, como “do pássaro”, que é complemento nominal.',
+  },
+  {
+    id: 'lp-nomes-qlivro08-43',
+    temaId: 'lp-nomes',
+    formato: 'multipla',
+    dificuldade: 3,
+    enunciado:
+      '(FGV - Banestes - Analista Econômico Financeiro (Gestão Contábil) - 2018) Na escrita, pode-se optar frequentemente entre uma construção de substantivo + locução adjetiva ou substantivo + adjetivo (esportes da água = esportes aquáticos). O termo abaixo sublinhado que NÃO pode ser substituído por um adjetivo é:',
+    alternativas: [
+      'A indústria causou a poluição do rio.',
+      'As águas do rio ficaram poluídas.',
+      'As margens do rio estão cheias de lama.',
+      'Os turistas se encantam com a imagem do rio.',
+      'Os peixes do rio são bem saborosos.',
+    ],
+    correta: 0,
+    comentario:
+      'A alternativa A é a correta: em “a poluição do rio”, a expressão sublinhada é complemento nominal de “poluição”, e não locução adjetiva, por isso não se converte em adjetivo sem mudar a função. Nas demais, “do rio” é locução adjetiva que pode ser trocada por um adjetivo de sentido equivalente, como “fluviais”.',
+  },
 ];

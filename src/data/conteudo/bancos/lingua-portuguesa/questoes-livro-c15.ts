@@ -950,4 +950,55 @@ export const QUESTOES_LIVRO_C15: QuestaoTreino[] = [
     comentario:
       'Na alternativa B, o “e” aditivo carrega a ideia de sequência temporal: vestir a camisa é normalmente anterior a pôr a gravata, e a troca muda o sentido. As demais não criam essa ordem necessária entre os fatos, por isso a troca de posição não altera o sentido.',
   },
+  {
+    id: 'lp-invariaveis-qlivro15-68',
+    temaId: 'lp-invariaveis',
+    formato: 'certo-errado',
+    dificuldade: 2,
+    enunciado:
+      '(Cespe/UnB - MPE/PI - Analista Ministerial - 2012) No quarto período do primeiro parágrafo, a conjunção “Enquanto” introduz oração de valor consecutivo.',
+    gabaritoCE: false,
+    comentario:
+      'A afirmação está errada: “enquanto” é conjunção temporal, que indica simultaneidade, ou, conforme o contexto, adversativa ou comparativa. Ela não exprime consequência, que é o valor das conjunções consecutivas, como “de modo que” e “de forma que”.',
+  },
+  {
+    id: 'lp-invariaveis-qlivro15-69',
+    temaId: 'lp-invariaveis',
+    formato: 'certo-errado',
+    dificuldade: 1,
+    enunciado:
+      '(Cespe/UnB - PEFOCE/CE - Auxiliar de Perícia de 1ª Classe - 2012) No segundo parágrafo, destaca-se o início de períodos com ideias de natureza adversativa, por meio das expressões “No entanto”, “Porém” e “Entretanto”.',
+    gabaritoCE: true,
+    comentario:
+      'A afirmação está correta: “no entanto”, “porém” e “entretanto” são conjunções adversativas, que contrapõem o período que iniciam ao que foi dito antes. Por isso o segundo parágrafo, ao usar essas três expressões, apresenta ideias de oposição.',
+  },
+  {
+    id: 'lp-invariaveis-qlivro15-70',
+    temaId: 'lp-invariaveis',
+    formato: 'certo-errado',
+    dificuldade: 2,
+    enunciado:
+      '(Cespe/UnB - TJ/RR - Cargos de Nível Médio - 2012) Mantêm-se a correção gramatical e as informações originais do período ao se substituir o conectivo “pois” por já que, uma vez que, porquanto, visto que ou porque.',
+    gabaritoCE: true,
+    comentario:
+      'A afirmação está correta: no período, o “pois” tem valor explicativo, ou causal, e todas as alternativas listadas expressam essa mesma relação de causa ou explicação. Como o sentido é equivalente e a construção se mantém, a substituição não altera a correção nem as informações originais.',
+  },
+  {
+    id: 'lp-invariaveis-qlivro15-71',
+    temaId: 'lp-invariaveis',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(AOCP - Prefeitura de Novo Hamburgo/RS - Procurador - 2022) Assinale a alternativa em que o termo em destaque é uma conjunção integrante.',
+    alternativas: [
+      '“[...] apreensivas com as condições QUE serão deixadas a seus filhos [...]”.',
+      '“Isso só é possível SE defendermos a tese [...]”.',
+      '“[...] não SE deve entender trabalho apenas como trabalho assalariado [...]”.',
+      '“[...] a questão de saber SE é possível compreender [...]”.',
+      '“[...] aqueles homens e mulheres que foram demitidos ou QUE se encontram privados de qualquer possibilidade [...]”.',
+    ],
+    correta: 3,
+    comentario:
+      'Em “a questão de saber SE é possível compreender”, o “se” introduz uma oração que completa o sentido de “saber”, o que caracteriza a conjunção integrante. Nas demais, o “que” é pronome relativo e o “se” é conjunção condicional ou pronome de indeterminação, por isso essas alternativas não servem.',
+  },
 ];

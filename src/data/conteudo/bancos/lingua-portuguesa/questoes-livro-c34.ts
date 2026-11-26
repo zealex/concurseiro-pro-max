@@ -686,4 +686,58 @@ export const QUESTOES_LIVRO_C34: QuestaoTreino[] = [
     comentario:
       'A alternativa E é a correta: ao lembrar que era período de férias escolares, o marido explica a razão da grande fila. As demais atribuem ao marido arrependimento, planejamento infantil ou engano por informação de jornal, que a frase não sugere.',
   },
+  {
+    id: 'lp-tipologia-qlivro34-44',
+    temaId: 'lp-tipologia',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(Cesgranrio - PROMINP - Nível Superior - Área de Qualidade - 2012) Os extratos 1 e 2 do texto apresentam características que permitem estabelecer diferenças entre a tipologia textual. 1) “Você começa a escrever um e-mail de trabalho, e é interrompido pelo toque do celular. Atende à ligação e, quando desliga, vê avisos de mensagens na telinha. Abre uma delas e, antes mesmo de responder, algum colega chama você para terminar aquela conversa que começaram de manhã...” (linhas 1-5) 2) “Como empreendia seus próprios projetos e trabalhava de casa, o empresário não sabia mais o que era horário de expediente, final de semana ou feriados. Mas reagiu a essa falta de limites e criou espaço para folgas e diversão.” (linhas 30-33) Considerando tais características, constata-se que o extrato:',
+    alternativas: [
+      '1 é argumentação, e o 2, narração;',
+      '1 é narração, e o 2, argumentação;',
+      '1 é narração, e o 2, descrição;',
+      '1 é descrição, e o 2, argumentação;',
+      '1 é descrição, e o 2, narração.',
+    ],
+    correta: 4,
+    comentario:
+      'A alternativa E é a correta: o extrato 1 descreve uma situação habitual de trabalho, sem um enredo de começo, meio e fim, enquanto o extrato 2 narra fatos ocorridos com o empresário (ele reagiu e criou espaço). As demais combinações atribuem ao extrato 1 a narração ou a argumentação, o que não corresponde à sua organização.',
+  },
+  {
+    id: 'lp-interpretacao-qlivro34-45',
+    temaId: 'lp-interpretacao',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(FGV - Tribunal de Justiça do Estado de Santa Catarina - Analista Administrativo - 2018) Observe a charge a seguir: [Charge com a legenda “Stephen Hawking”. À esquerda, o cientista em cadeira de rodas; ao centro, um homem de cabelos despenteados; à direita, um personagem de manto e barba longa. Texto no balão: “Olha, Galileu, a mente brilhante que estávamos esperando!”.] A charge acima é uma homenagem a Stephen Hawking, destacando o fato de o cientista:',
+    alternativas: [
+      'ter alcançado o céu após sua morte;',
+      'mostrar determinação no combate à doença;',
+      'ser comparado a cientistas famosos;',
+      'ser reconhecido como uma mente brilhante;',
+      'localizar seus interesses nos estudos de Física.',
+    ],
+    correta: 3,
+    comentario:
+      'A alternativa D é a correta: a fala da charge reconhece Hawking como uma mente brilhante, aguardada pelos personagens. A cena após a morte serve apenas de moldura humorística, e a charge não mostra determinação diante da doença, não faz comparação explícita com outros cientistas nem se concentra em seus estudos de Física.',
+  },
+  {
+    id: 'lp-interpretacao-qlivro34-46',
+    temaId: 'lp-interpretacao',
+    formato: 'multipla',
+    dificuldade: 3,
+    enunciado:
+      '(IDECAN - IF/RR - Técnico em informática (médio) - 2020) [Tirinha de três quadros com um personagem infantil que caminha por uma calçada; no último quadro, ele está diante do poste de uma placa de sinalização com duas indicações: “PUNIR — 2 Km”, com seta para a direita, e “EDUCAR — 60 Km”, com seta para cima.] Assinale a única alternativa que não represente uma interpretação (inclusive de pressupostos, subentendidos e implícitos) coerente da tirinha acima.',
+    alternativas: [
+      'Punir é bem mais fácil que educar, embora seja menos eficiente.',
+      'Ao seguir o caminho de punir, nos desviamos do caminho de educar.',
+      'A educação é muito mais demorada que a punição, mas vale mais a pena.',
+      'Antes de iniciar o caminho para educar, precisamos passar pelo caminho de punir.',
+      'Se desejarmos seguir o caminho de educar, não deveremos passar pelo caminho de punir.',
+    ],
+    correta: 3,
+    comentario:
+      'A alternativa D é a correta, por ser incoerente com a tirinha: a placa apresenta “punir” e “educar” como caminhos distintos e alternativos, e não como etapas em que a punição precede a educação. As demais são leituras coerentes: punir é mais próximo e menos eficiente, seguir o caminho de punir desvia do de educar, a educação demora mais, mas compensa, e educar não exige passar pela punição.',
+  },
 ];

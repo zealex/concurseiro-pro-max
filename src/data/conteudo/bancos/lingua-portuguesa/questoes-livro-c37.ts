@@ -435,7 +435,7 @@ export const QUESTOES_LIVRO_C37: QuestaoTreino[] = [
     enunciado:
       '(FEC — PC/RJ — Inspetor de Polícia Civil (6ª Classe) — 2012) Invertem-se os termos da relação causa/consequência expressa em: “Pela baixa qualificação dos alunos, o aumento nas vagas do ensino superior não trará o resultado desejado” na alternativa:',
     alternativas: [
-      'Dado que é baixa a qualificação dos alunos, o aumento nas vagas do ensino superior não trará o resultado desejado.',
+      'Dado que é baixa qualificação dos alunos, o aumento nas vagas do ensino superior não trará o resultado desejado.',
       'É baixa a qualificação dos alunos, motivo por que o aumento nas vagas do ensino superior não trará o resultado desejado.',
       'O aumento nas vagas do ensino superior não trará o resultado desejado, porquanto é baixa a qualificação dos alunos.',
       'É baixa a qualificação dos alunos, a ponto de que o aumento nas vagas do ensino superior não trará o resultado desejado.',

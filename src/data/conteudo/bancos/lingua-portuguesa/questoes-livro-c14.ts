@@ -513,4 +513,82 @@ export const QUESTOES_LIVRO_C14: QuestaoTreino[] = [
     comentario:
       'Contadas as preposições puras e as contraídas, há seis: de (lógica de), de (das atividades), de (atividades de atenção), a (à saúde), de (além das) e de (dela). Esse total corresponde à alternativa D.',
   },
+  {
+    id: 'lp-invariaveis-qlivro14-39',
+    temaId: 'lp-invariaveis',
+    formato: 'multipla',
+    dificuldade: 3,
+    enunciado:
+      '(Ceperj - Pref. Angra dos Reis/RJ - Professor - 2008) No título do poema “Canção do exílio”, a preposição tem o mesmo valor semântico que a destacada na frase:',
+    alternativas: [
+      'Nem sempre o seu silêncio é de ouro.',
+      'Ele se nutre de saudades.',
+      'O poeta morria de amores pela pátria.',
+      'De noite, seu sofrimento aumentara.',
+      'O poeta admirava de longe os primeiros nacionais.',
+    ],
+    correta: 4,
+    comentario:
+      '“Do exílio” no título indica a origem do poema, o lugar de onde nasce a canção. Entre as alternativas, só a última traz a noção de procedência ou distância, em “de longe”; as demais marcam matéria (“de ouro”), causa (“de amores”) ou tempo (“De noite”), sentidos que não coincidem com o do título.',
+  },
+  {
+    id: 'lp-invariaveis-qlivro14-40',
+    temaId: 'lp-invariaveis',
+    formato: 'multipla',
+    dificuldade: 3,
+    enunciado:
+      '(Vunesp - Pref. São José dos Campos/SP - Agente Educador - 2012) Assinale a alternativa cujas preposições completam, correta e respectivamente, o texto a seguir. “São um grande erro as gratificações ____ que alguns pais se servem para agradar, constantemente e por qualquer motivo, a seus filhos, pois essas crianças se tornam aquelas ____ quem cumprir um dever ou agir corretamente não são obrigações, mas sim atitudes excepcionais.”',
+    alternativas: ['de ... por.', 'de ... para.', 'em ... a.', 'com ... para.', 'com ... por.'],
+    correta: 1,
+    comentario:
+      'A primeira lacuna pede “de”, pois o verbo “servir-se” exige a preposição “de” (“gratificações de que os pais se servem”). A segunda pede “para”, que introduz o destinatário em “aquelas para quem cumprir um dever”. As demais combinações trocam a preposição regida pelo verbo ou pelo sentido da frase.',
+  },
+  {
+    id: 'lp-invariaveis-qlivro14-41',
+    temaId: 'lp-invariaveis',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(Consulplan - Pref. São Domingos do Prata/MG - Arquivista - 2012) Relacione os vocábulos sublinhados com suas respectivas classes gramaticais. 1. “... filhos com até dois anos de idade...” 2. “... Os pais que acreditam...” 3. “... são muito importantes...” 4. “... algum tipo de conteúdo...” 5. “... pais disseram que seus filhos...” ( ) Pronome relativo. ( ) Advérbio. ( ) Pronome indefinido. ( ) Conjunção integrante. ( ) Preposição. A sequência está correta em:',
+    alternativas: ['5, 3, 4, 1, 2;', '4, 3, 1, 5, 2;', '2, 3, 4, 5, 1;', '2, 4, 3, 5, 1;', '3, 1, 2, 5, 4.'],
+    correta: 2,
+    comentario:
+      'Cada classe recebe o número do vocábulo que a exemplifica: pronome relativo é o “que” do item 2, advérbio é “muito” (item 3), pronome indefinido é “algum” (item 4), conjunção integrante é o “que” do item 5 e preposição é o “até” (item 1). A sequência, lida na ordem dos parênteses, é 2, 3, 4, 5, 1, alternativa C.',
+  },
+  {
+    id: 'lp-invariaveis-qlivro14-42',
+    temaId: 'lp-invariaveis',
+    formato: 'multipla',
+    dificuldade: 3,
+    enunciado:
+      '(FGV - TJ/RJ - Analista Judiciário - 2014) O segmento em que a preposição destacada faz parte de um adjunto e NÃO é solicitada obrigatoriamente por nenhum termo anterior é:',
+    alternativas: [
+      '“Estamos no trânsito de São Paulo”.',
+      '“salvo de acidentes”.',
+      '“em sincronia com os demais veículos lá fora”.',
+      '“assistindo ao seu seriado preferido”.',
+      '“basta informar ao computador”.',
+    ],
+    correta: 0,
+    comentario:
+      'Em “trânsito de São Paulo”, o “de” forma um adjunto adnominal de valor nocional, indicando o lugar, e nenhum termo anterior o exige. Nas demais, a preposição é regida: “salvo de” pelo adjetivo salvo, “sincronia com” pelo nome, e “assistindo a” e “informar a” pelos verbos.',
+  },
+  {
+    id: 'lp-invariaveis-qlivro14-43',
+    temaId: 'lp-invariaveis',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(Vunesp - Prefeitura de Garça/SP - Professor de Educação Básica I - 2018) Nas passagens do primeiro e do último quadrinho – “Você precisa de estudar para se preparar para o mercado” e “Vou de olhos fechados pro [para o] corredor de chocotone” –, os termos destacados expressam, respectivamente, relações de sentido de',
+    alternativas: [
+      'direção e direção;',
+      'finalidade e causa;',
+      'finalidade e finalidade;',
+      'finalidade e direção;',
+      'direção e causa.',
+    ],
+    correta: 3,
+    comentario:
+      'No primeiro quadrinho, “para se preparar” indica finalidade, o objetivo de estudar. No último, “pro corredor” indica direção, o lugar para onde a pessoa se dirige. Por isso a alternativa D, finalidade e direção, é a correta.',
+  },
 ];

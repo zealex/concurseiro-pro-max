@@ -31,7 +31,7 @@ export const QUESTOES_LIVRO_C32: QuestaoTreino[] = [
     formato: 'multipla',
     dificuldade: 2,
     enunciado:
-      '(FUNRIO - PRF - Policial Rodoviário Federal - 2009) Observe o trecho de “O Cortiço”, de Aluísio de Azevedo: “Eram cinco horas da manhã e o cortiço acordava, Um acordar alegre e farto de quem dormiu de uma assentada sete horas de chumbo”. Seu autor utiliza o seguinte recurso estilístico:',
+      '(FUNRIO - PRF - Policial Rodoviário Federal - 2009) Observe o trecho de “O Cortiço”, de Aluísio de Azevedo: “Eram cinco horas da manhã e o cortiço acordava, [...]. Um acordar alegre e farto de quem dormiu de uma assentada sete horas de chumbo”. Seu autor utiliza o seguinte recurso estilístico:',
     alternativas: ['eufemismo;', 'gradação;', 'comparação;', 'antítese;', 'personificação.'],
     correta: 4,
     comentario:
@@ -43,7 +43,7 @@ export const QUESTOES_LIVRO_C32: QuestaoTreino[] = [
     formato: 'multipla',
     dificuldade: 2,
     enunciado:
-      '(FIP - Câmara-SfC - Analista de Sistemas - 2009) Observe a sequência de frases abaixo e responda a seguir. (1) E no dia lindo vi que vinhas vindo, minha vida. (Guilherme de Almeida) (2) Conhecerás as manhas e as manhãs. (Almir Sater e Renato Teixeira) (3) E as cantilenas de serenos sons amenos fogem fluidas. (Eugênio de Castro) Nas frases apresentadas em (1), (2) e (3), temos, respectivamente, as seguintes figuras de estilo que exploram a sonoridade das palavras:',
+      '(FIP - Câmara-SfC - Analista de Sistemas - 2009) Observe a sequência de frases abaixo e responda a seguir. (1) E no dia lindo vi que vinhas vindo, minha vida. (Guilherme de Almeida) (2) Conhecer as manhas e as manhãs. (Almir Sater e Renato Teixeira) (3) E as cantilenas de serenos sons amenos fogem fluidas. (Eugênio de Castro) Nas frases apresentadas em (1), (2) e (3), temos, respectivamente, as seguintes figuras de estilo que exploram a sonoridade das palavras:',
     alternativas: [
       'Assonância, paranomásia e aliteração.',
       'Onomatopeia, assonância e paranomásia.',
@@ -539,7 +539,7 @@ export const QUESTOES_LIVRO_C32: QuestaoTreino[] = [
     formato: 'multipla',
     dificuldade: 2,
     enunciado:
-      '(SEDUC/PA - Professor Classe I (Português) - 2018) Segundo o autor, “Quis o irónico destino, uns anos mais tarde, que eu fosse professor da Escola de Administração da Universidade Federal da Bahia” (3º§). O sujeito da primeira oração do trecho destacado remete-nos ao emprego de figura de linguagem que demonstra:',
+      '(CONSULPLAN - SEDUC/PA - Professor Classe I (Português) - 2018) Segundo o autor, “Quis o irônico destino, uns anos mais tarde, que eu fosse professor da Escola de Administração da Universidade Federal da Bahia [...]” (3º§). O sujeito da primeira oração do trecho destacado remete-nos ao emprego de figura de linguagem que demonstra:',
     alternativas: ['Ironia.', 'Exagero.', 'Metáfora.', 'Personificação.'],
     correta: 3,
     comentario:
@@ -551,7 +551,7 @@ export const QUESTOES_LIVRO_C32: QuestaoTreino[] = [
     formato: 'multipla',
     dificuldade: 2,
     enunciado:
-      '(CESPE - SEFAZ/RS — Auditor Fiscal da Receita Estadual - 2019) Fragmento de texto: “Pixis foi um músico medíocre, mas teve seu dia de glória no distante ano de 1837. (...) Em um concerto em Paris, Franz Liszt tocou uma peça do (hoje) desconhecido compositor, junto com outra, do admirável, maravilhoso e extraordinário Beethoven... (...) Desconsiderar, no fenômeno estético, os mecanismos de recepção é correr o risco de aplaudir Pixis como se fosse Beethoven.” No trecho “aplaudir Pixis como se fosse Beethoven”, observa-se a figura de linguagem:',
+      '(CESPE - SEFAZ/RS — Auditor Fiscal da Receita Estadual - 2019) Fragmento de texto: “Pixis foi um músico medíocre, mas teve seu dia de glória no distante ano de 1837. (...) Em um concerto em Paris, Franz Liszt tocou uma peça do (hoje) desconhecido compositor, junto com outra, do admirável, maravilhoso e extraordinário Beethoven... (...) A música de Pixis, ouvida como sendo de Beethoven, foi recebida com entusiasmo e paixão, e a de Beethoven, ouvida como sendo de Pixis, foi enxovalhada. (...) Desconsiderar, no fenômeno estético, os mecanismos de recepção é correr o risco de aplaudir Pixis como se fosse Beethoven.” No trecho “aplaudir Pixis como se fosse Beethoven”, observa-se a figura de linguagem:',
     alternativas: ['catacrese.', 'metonímia.', 'eufemismo.', 'pleonasmo.', 'personificação.'],
     correta: 1,
     comentario:
@@ -563,7 +563,7 @@ export const QUESTOES_LIVRO_C32: QuestaoTreino[] = [
     formato: 'multipla',
     dificuldade: 2,
     enunciado:
-      '(Instituto Consulplan - Prefeitura de Formiga - MG - Farmacêutico - 2020) Releia os seguintes trechos do texto: “(...) o plugin é uma espécie de caixa de marca do seu site”; e, “(...) depois de três séculos de minutos pensando (...)”. Nesses dois trechos, o autor utilizou recursos expressivos próprios da linguagem conotativa para explicar, de forma inusitada, o funcionamento dos plugins. Assinale a alternativa que identifica, correta e respectivamente, os dois recursos expressivos utilizados pelo autor.',
+      '(Instituto Consulplan - Prefeitura de Formiga - MG - Farmacêutico - 2020) Releia os seguintes trechos do texto: “(...) o plugin é uma espécie de ‘caixa de marca’ do seu site”; e, “(...) depois de três séculos de minutos pensando (...)”. Nesses dois trechos, o autor utilizou recursos expressivos próprios da linguagem conotativa para explicar, de forma inusitada, o funcionamento dos plugins. Assinale a alternativa que identifica, correta e respectivamente, os dois recursos expressivos utilizados pelo autor.',
     alternativas: [
       'Ironia e metáfora.',
       'Metáfora e ironia.',
@@ -582,7 +582,7 @@ export const QUESTOES_LIVRO_C32: QuestaoTreino[] = [
     enunciado:
       '(FGV - PC/RJ — Perito Legista — 2021) Um pleonasmo é uma figura que repete termos; um anacoluto é marcado por uma interrupção. A frase abaixo que contém um anacoluto, e não um pleonasmo, é:',
     alternativas: [
-      'As mulheres, não se pode dar um elogio atualmente;',
+      'Às mulheres, não se pode dar um elogio atualmente;',
       'Os livros, o aluno não os trouxe para a aula;',
       'Paisagens, quero-as comigo por toda a vida;',
       'Ao homem mesquinho, basta-lhe pouquinho;',

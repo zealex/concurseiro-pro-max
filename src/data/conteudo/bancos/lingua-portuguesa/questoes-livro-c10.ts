@@ -429,4 +429,141 @@ export const QUESTOES_LIVRO_C10: QuestaoTreino[] = [
     comentario:
       'A alternativa D é a correta: “14” indica quantidade de anos, sendo cardinal; “quinta” indica a posição da repetição, sendo ordinal; e “três” indica quantidade de metros, sendo cardinal. As demais trocam o tipo de um desses numerais.',
   },
+  {
+    id: 'lp-nomes-qlivro10-28',
+    temaId: 'lp-nomes',
+    formato: 'multipla',
+    dificuldade: 3,
+    enunciado:
+      '(Uniaraxá - Vestibular - 2003) Em “... às dez horas”, “sob as olaias” e “Ambos se abanavam”, as palavras grifadas são, respectivamente:',
+    alternativas: [
+      'artigo - preposição - pronome - numeral - pronome.',
+      'artigo - preposição - pronome - numeral - conjunção.',
+      'preposição - artigo - preposição - numeral - pronome.',
+      'preposição - pronome - preposição - substantivo - conjunção.',
+      'preposição - pronome - conjunção - substantivo - pronome.',
+    ],
+    correta: 2,
+    comentario:
+      'A alternativa C é a correta: em “às dez horas”, “às” é contração de preposição “a” com o artigo “as”, então vêm primeiro a preposição e depois o artigo; “sob” é preposição, “Ambos” é numeral e “se” é pronome. As demais erram ao dar a “às” a classe de artigo, como na A e na B, ou ao classificar “Ambos” como substantivo ou “sob” como conjunção.',
+  },
+  {
+    id: 'lp-nomes-qlivro10-29',
+    temaId: 'lp-nomes',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(NCE/UFRJ - CEPEL - Auxiliar de Segurança Patrimonial - 2006) “e no monopólio em 1953”; o numeral relativo ao ano (1953) deve ser lido da seguinte forma:',
+    alternativas: [
+      'mil e novecentos e cinquenta e três.',
+      'mil, novecentos e cinquenta e três.',
+      'mil, novecentos e cinquenta três.',
+      'um mil, novecentos e cinquenta três.',
+      'mil e novecentos, cinquenta três.',
+    ],
+    correta: 1,
+    comentario:
+      'A alternativa B é a correta: 1953 se lê “mil, novecentos e cinquenta e três”, com a conjunção “e” antes da dezena e antes da unidade. A alternativa A usa “e” depois de “mil”, a C omite o “e” antes de “três”, a D acrescenta “um” antes de “mil” e a E separa de forma errada as classes do numeral.',
+  },
+  {
+    id: 'lp-nomes-qlivro10-30',
+    temaId: 'lp-nomes',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(NCE/UFRJ - Eletronorte - Assistente Técnico de Engenharia - 2006) A expressão “mais de cem vezes” apresenta uma quantificação imprecisa; a alternativa que mostra uma forma mais precisa de quantificar é:',
+    alternativas: [
+      'cerca de 100 vezes.',
+      'ambas as vezes.',
+      'inúmeras vezes.',
+      'uma meia dúzia de vezes.',
+      'incontáveis vezes.',
+    ],
+    correta: 1,
+    comentario:
+      'A alternativa B é a correta: “ambas” indica exatamente duas ocasiões, por isso é a quantificação mais precisa. “Cerca de 100” e “uma meia dúzia” são aproximações, e “inúmeras” e “incontáveis” são indefinidas, sem número determinado.',
+  },
+  {
+    id: 'lp-nomes-qlivro10-31',
+    temaId: 'lp-nomes',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(NCE/UFRJ - Assembleia Legislativa - Taquígrafo Parlamentar - 2006) No texto há uma série de numerais de diferentes tipos; a frase abaixo que apresenta um numeral ordinal é:',
+    alternativas: [
+      'O investidor Warren Buffett tem 75 anos bem vividos.',
+      'Warren decidiu doar 85% de seus bens.',
+      'Para os americanos, fazer filantropia é prioridade a.',
+      'Gates é dono de várias obras-primas.',
+      'Cerca de três quartos da fortuna foram doados.',
+    ],
+    correta: 2,
+    comentario:
+      'A alternativa C é a correta: em “prioridade a”, o “a” é a abreviação de “primeira”, numeral ordinal que indica posição na ordem de prioridades. Nas demais, “75” e “85%” são cardinais, “várias” é indefinido e “três quartos” é fracionário, e nenhum deles indica posição em uma sequência.',
+  },
+  {
+    id: 'lp-nomes-qlivro10-32',
+    temaId: 'lp-nomes',
+    formato: 'certo-errado',
+    dificuldade: 3,
+    gabaritoCE: false,
+    enunciado:
+      '(FCC - TRF (2R) - Analista Judiciário - 2007) É correto afirmar: “século XIX”, de acordo com a norma padrão, deve ser escrito por extenso por meio do numeral cardinal – “dezenove” –, assim como deve ocorrer com “século VIII”.',
+    comentario:
+      'O item está errado: “século XIX” pode ser lido com cardinal (“século dezenove”), mas “século VIII” pede o numeral ordinal (“século oitavo”), já que os séculos de I a X são lidos com ordinal. A afirmação generaliza o cardinal para os dois casos, e isso não atende à norma.',
+  },
+  {
+    id: 'lp-nomes-qlivro10-33',
+    temaId: 'lp-nomes',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(Funcab - SESAU/RO - Técnico de Radiologia - 2009) Assinale a opção que apresenta, correta e respectivamente, a classe gramatical a que pertencem as palavras grifadas no trecho abaixo: “O brasileiro foi um dos primeiros no mundo a reconhecer a tese de que o mosquito era o causador da epidemia.”',
+    alternativas: [
+      'substantivo - numeral - preposição - artigo - artigo - substantivo.',
+      'adjetivo - artigo - artigo - pronome - pronome - adjetivo.',
+      'adjetivo - numeral - preposição - artigo - artigo - substantivo.',
+      'substantivo - artigo - artigo - artigo - artigo - substantivo.',
+      'substantivo - numeral - preposição - preposição - pronome - adjetivo.',
+    ],
+    correta: 0,
+    comentario:
+      'A alternativa A é a correta: “brasileiro” e “epidemia” são substantivos, “um” é numeral, o “a” de “a reconhecer” é preposição, e o “a” de “a tese” e o “o” de “o mosquito” são artigos. As demais erram em pelo menos uma classe, como a B e a C, que dão a “brasileiro” e “epidemia” a classe de adjetivo.',
+  },
+  {
+    id: 'lp-nomes-qlivro10-34',
+    temaId: 'lp-nomes',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(UNIT - EAD - Vestibular - 2010) “Três perguntas costumam acompanhar a discussão em torno do aquecimento global.” As palavras grifadas possuem, respectivamente, as seguintes classes gramaticais:',
+    alternativas: [
+      'numeral - adjetivo - artigo.',
+      'substantivo - artigo - substantivo.',
+      'numeral - artigo - substantivo.',
+      'artigo - substantivo - numeral.',
+      'numeral - preposição - adjetivo.',
+    ],
+    correta: 2,
+    comentario:
+      'A alternativa C é a correta: “Três” é numeral cardinal, o “a” de “acompanhar a discussão” é artigo definido que acompanha “discussão”, e “aquecimento” é substantivo. As demais trocam pelo menos uma dessas classes, como a A, que dá a “a” a classe de adjetivo e a “aquecimento” a de artigo.',
+  },
+  {
+    id: 'lp-nomes-qlivro10-35',
+    temaId: 'lp-nomes',
+    formato: 'multipla',
+    dificuldade: 3,
+    enunciado:
+      '(FGV - Funarte - Contador - 2014) (Adaptada) Há, abaixo, elementos que expressam quantidade. A alternativa em que o termo destacado NÃO tem esse valor é:',
+    alternativas: [
+      '“Há em nosso povo duas constantes que nos induzem a sustentar que o Brasil é o único país brasileiro de todo o mundo”.',
+      '“Adiamos tudo: o bem e o mal, o bom e o mau, que não se confundem, mas tantas vezes se desemparelham”.',
+      '“Só a morte e a promissória são mais ou menos pontuais entre nós”.',
+      '“encontrei no fim do volume algumas informações essenciais sobre nós e sobre a nossa terra”.',
+      '“Entre poucos endereços de embaixadas e consulados, estatísticas, indicações culinárias, o autor intercalou”.',
+    ],
+    correta: 2,
+    comentario:
+      'A alternativa C é a correta: em “mais ou menos pontuais”, a locução é adverbial e indica grau de pontualidade, não quantidade de elementos. Nas demais, “duas”, “tantas”, “algumas” e “poucos” quantificam, respectivamente, “constantes”, “vezes”, “informações” e “endereços”.',
+  },
 ];

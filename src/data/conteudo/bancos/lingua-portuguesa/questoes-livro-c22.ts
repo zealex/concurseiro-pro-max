@@ -533,4 +533,79 @@ export const QUESTOES_LIVRO_C22: QuestaoTreino[] = [
     comentario:
       'O período tem quatro orações coordenadas assindéticas (tomou, desceu, encaminhou-se, achou), todas independentes, e nenhuma subordinada. Por isso a afirmação está errada.',
   },
+  {
+    id: 'lp-periodo-composto-qlivro22-35',
+    temaId: 'lp-periodo-composto',
+    formato: 'certo-errado',
+    dificuldade: 2,
+    enunciado:
+      '(Cespe/UnB — TRE/AL — Analista Judiciário — 2004) (...) Mas leitura, quer do mundo, quer de livros, só se aprende e se vivencia, de forma plena, coletivamente, em troca contínua de experiências com os outros. (...) No segundo período do texto (acima), a relação entre as orações dá-se por coordenação.',
+    gabaritoCE: true,
+    comentario:
+      'O segundo período começa com “Mas”, conjunção coordenativa adversativa que liga a oração a outra anterior sem depender dela sintaticamente. Como a relação entre as orações é de coordenação, a afirmação está correta. Basta reconhecer a conjunção inicial para responder.',
+  },
+  {
+    id: 'lp-periodo-composto-qlivro22-36',
+    temaId: 'lp-periodo-composto',
+    formato: 'multipla',
+    dificuldade: 3,
+    enunciado:
+      '(FUNDATEC — DETRAN/RS — Técnico de nível superior — 2009) Na linha 04 (... cuidar do asfalto e instalar placas...), o elemento coesivo e tem a função de unir:',
+    alternativas: [
+      'termos de mesmo valor sintático;',
+      'orações coordenadas;',
+      'orações subordinadas;',
+      'termos de mesmo sentido;',
+      'expressões semanticamente semelhantes.',
+    ],
+    correta: 1,
+    comentario:
+      'O “e” liga duas construções no infinitivo (“cuidar do asfalto” e “instalar placas”), cada uma com valor de oração, e não duas palavras de mesma função. Uma conjunção aditiva que une orações de mesmo nível faz coordenação entre orações. As demais alternativas trazem outras relações, como mesma função sintática, subordinação, sinonímia ou semelhança semântica, que não correspondem ao papel de unir orações.',
+  },
+  {
+    id: 'lp-periodo-composto-qlivro22-37',
+    temaId: 'lp-periodo-composto',
+    formato: 'multipla',
+    dificuldade: 1,
+    enunciado:
+      '(Cesgranrio — BACEN — Analista — 2010) As duas orações enunciadas estão ligadas por conectivo adequado ao sentido expresso no texto em:',
+    alternativas: [
+      'Acredito na existência de vida em outros planetas, mas tenho três adolescentes em casa.',
+      'Acredito na existência de vida em outros planetas, pois tenho três adolescentes em casa.',
+      'Acredito na existência de vida em outros planetas, posto que tenho três adolescentes em casa.',
+      'Acredito na existência de vida em outros planetas, porém tenho três adolescentes em casa.',
+      'Acredito na existência de vida em outros planetas, não obstante ter três adolescentes em casa.',
+    ],
+    correta: 1,
+    comentario:
+      '“Pois” introduz uma explicação para a afirmação anterior, sentido natural para a frase. “Mas”, “porém” e “não obstante” marcam oposição ou concessão, sentido que não combina com a ideia de justificativa. “Posto que” é causal ou concessiva conforme o contexto, e não é a forma mais adequada aqui.',
+  },
+  {
+    id: 'lp-periodo-composto-qlivro22-38',
+    temaId: 'lp-periodo-composto',
+    formato: 'certo-errado',
+    dificuldade: 3,
+    enunciado:
+      '(FGV — SEFAZ/RJ — Auditor-Fiscal da Receita Estadual — 2011) “Na Espanha, por exemplo, a recentíssima reforma do Código Penal – que atende diretivas da União Europeia sobre o tema – trouxe, no artigo 31 bis, não só a possibilidade de responsabilização penal da pessoa jurídica (por delitos que sejam cometidos no exercício de suas atividades sociais, ou por conta, nome, ou em proveito delas), mas também estabelece regras de como essa responsabilização será aferida nos casos concretos (ela será aplicável [...], em função da inoperância de controles empresariais, sobre atividades desempenhadas pelas pessoas físicas que as dirigem ou que agem em seu nome)”. A respeito do período acima, analise a afirmativa a seguir: Há uma oração coordenada sindética aditiva e uma oração coordenada sindética alternativa.',
+    gabaritoCE: true,
+    comentario:
+      'A afirmação está correta. O período tem coordenação sindética aditiva em “não só … mas também estabelece regras”, em que “mas também” acrescenta uma nova informação, e coordenação sindética alternativa em “ou por conta, nome, ou em proveito delas”, em que “ou” indica alternância entre possibilidades. A questão exige reconhecer o valor semântico de cada conjunção, não só a forma.',
+  },
+  {
+    id: 'lp-periodo-composto-qlivro22-39',
+    temaId: 'lp-periodo-composto',
+    formato: 'multipla',
+    dificuldade: 3,
+    enunciado:
+      '(FAB — EAGS — Sargento — 2011) Leia: “Você não estuda, nem me deixa estudar. Faça silêncio, que quero ouvir a explicação. Você quer que eu participe de suas brincadeiras durante as aulas, e nenhuma influência externa vai me atrapalhar”. Considerando os períodos compostos por coordenação, há no texto:',
+    alternativas: [
+      'duas orações aditivas e uma oração explicativa;',
+      'uma oração aditiva, uma oração adversativa, uma oração alternativa;',
+      'uma oração aditiva, uma oração alternativa, uma oração conclusiva;',
+      'uma oração aditiva, uma oração explicativa, uma oração adversativa.',
+    ],
+    correta: 3,
+    comentario:
+      'Em “nem me deixa estudar”, o “nem” soma uma negativa à anterior, valor aditivo. Em “que quero ouvir a explicação”, a oração justifica o pedido de silêncio, valor explicativo. O “e” de “e nenhuma influência externa vai me atrapalhar” tem sentido de contraste com a ideia anterior, valor adversativo. Por isso a alternativa D é a única que reúne esses três valores.',
+  },
 ];

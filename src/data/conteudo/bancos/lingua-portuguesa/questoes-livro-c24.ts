@@ -479,4 +479,22 @@ export const QUESTOES_LIVRO_C24: QuestaoTreino[] = [
     comentario:
       'O infinitivo “de criar o programa espião” completa o particípio “acusado”, o que caracteriza uma oração substantiva completiva, reduzida de infinitivo. As alternativas que trazem oração adjetiva ou adverbial não correspondem a essa relação de complemento.',
   },
+  {
+    id: 'lp-periodo-composto-qlivro24-35',
+    temaId: 'lp-periodo-composto',
+    formato: 'multipla',
+    dificuldade: 2,
+    enunciado:
+      '(FGV — SFPOG/RO — Analista em Tecnologia da Informação e Comunicação — 2017) Alguns locais são impróprios “para a construção de moradias”. Se substituirmos o segmento destacado por uma oração reduzida, teremos como forma correta:',
+    alternativas: [
+      'para construírem-se moradias.',
+      'para que se construísse moradias.',
+      'para que se construa moradias.',
+      'para que se construam moradias.',
+      'para moradias ser construídas.',
+    ],
+    correta: 0,
+    comentario:
+      'O segmento expressa finalidade, e a forma reduzida de infinitivo traz o verbo sem flexão de tempo e modo, com o pronome “se” ligado a ele: “para construírem-se moradias”. As alternativas com “que” e verbo conjugado são orações desenvolvidas, não reduzidas. “Para moradias ser construídas” não concorda com o sujeito plural do infinitivo e não é a forma correta.',
+  },
 ];
