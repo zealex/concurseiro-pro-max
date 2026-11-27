@@ -1,21 +1,21 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-27T02:16:54.339Z",
+  "generatedAt": "2026-11-27T10:59:47.463Z",
   "escopo": "Concursos e processos seletivos que exigem graduação em Medicina, em todo o Brasil",
   "sources": [
     {
       "nome": "PCI Concursos",
       "ok": true,
-      "itens": 680,
-      "medicos": 122,
+      "itens": 636,
+      "medicos": 4,
       "erro": null,
       "essencial": true
     },
     {
       "nome": "Concursos no Brasil",
       "ok": true,
-      "itens": 735,
-      "medicos": 97,
+      "itens": 709,
+      "medicos": 17,
       "erro": null,
       "essencial": true
     },
@@ -54,13 +54,81 @@
     {
       "nome": "Diários Oficiais dos Municípios",
       "ok": true,
-      "itens": 177,
-      "medicos": 5,
+      "itens": 167,
+      "medicos": 2,
       "erro": null,
       "essencial": false
     }
   ],
   "concursos": [
+    {
+      "id": "rs-sao-leopoldo-prefeitura-medicina-geral-especialidades-2026",
+      "titulo": "Prefeitura Municipal de São Leopoldo: PROCESSO SELETIVO SIMPLIFICADO 01/2026: EXTRATO DO EDITAL ABERTURA E INSCRIÇÕES · Diário Oficial dos Municípios",
+      "orgao": "Prefeitura Municipal de São Leopoldo",
+      "cidade": "São Leopoldo",
+      "uf": "RS",
+      "tipo": "processo-seletivo",
+      "tag": "medicina-geral-especialidades",
+      "subcategoria": "clinico-esf-plantonista",
+      "cargos": [
+        {
+          "nome": "Médico Emergencista",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico de Saúde da Família",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "clinico-esf-plantonista",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Neuropediatra",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        },
+        {
+          "nome": "Médico Psiquiatra",
+          "tag": "medicina-geral-especialidades",
+          "subcategoria": "especialidades",
+          "vagas": null,
+          "cadastroReserva": false,
+          "remuneracao": null,
+          "cargaHoraria": null
+        }
+      ],
+      "vagasTotal": null,
+      "remuneracaoMax": null,
+      "cargaHoraria": null,
+      "banca": "Legalle Concursos",
+      "inscricoes": {
+        "inicio": "2026-11-27",
+        "fim": "2026-12-29"
+      },
+      "dataProva": null,
+      "editalUrl": "https://www.diariomunicipal.com.br/famurs/materia/77925B48",
+      "inscricaoUrl": null,
+      "relacionados": [],
+      "fonte": "diario-oficial",
+      "fonteUrl": "https://www.diariomunicipal.com.br/famurs/materia/77925B48",
+      "ano": 2026,
+      "edital": "1/2026",
+      "firstSeenAt": "2026-11-27T10:59:47.463Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
+      "isNew": true,
+      "observacoes": null
+    },
     {
       "id": "sc-santo-amaro-da-imperatriz-prefeitura-medicina-geral-especialidades-2026",
       "titulo": "Prefeitura de Santo Amaro da Imperatriz - SC abre processos seletivos com salários de até R$ 10.800,00",
@@ -134,7 +202,7 @@
       "ano": 2026,
       "edital": "73/2026",
       "firstSeenAt": "2026-11-26T21:09:16.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": true,
       "observacoes": "EDITAL DO PROCESSO SELETIVO Nº 073/2026 — disponível na página da notícia (PCI) · EDITAL DO PROCESSO SELETIVO Nº 074/2026 — disponível na página da notícia (PCI)"
     },
@@ -175,7 +243,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-11-26T20:23:32.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": true,
       "observacoes": "EDITAL DE PROCESSO SELETIVO Nº 001/2026 — disponível na página da notícia (PCI)"
     },
@@ -216,7 +284,7 @@
       "ano": 2026,
       "edital": "48/2026",
       "firstSeenAt": "2026-11-26T20:08:45.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": true,
       "observacoes": "EDITAL DE PROCESSO SELETIVO SIMPLIFICADO Nº 048/2026 — disponível na página da notícia (PCI)"
     },
@@ -257,7 +325,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-11-26T18:43:35.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": true,
       "observacoes": "EDITAL Nº 01/2026 — disponível na página da notícia (PCI) · PRORROGAÇÃO DAS INSCRIÇÕES — disponível na página da notícia (PCI) · RETIFICAÇÃO Nº 01 AO EDITAL Nº 01/2026 — disponível na página da notícia (PCI)"
     },
@@ -303,7 +371,7 @@
       "ano": 2026,
       "edital": "4/2026",
       "firstSeenAt": "2026-11-26T15:11:26.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": true,
       "observacoes": "EDITAL DO PROCESSO SELETIVO SIMPLIFICADO Nº 04/2026 — disponível na página da notícia (PCI)"
     },
@@ -367,7 +435,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-11-26T14:24:23.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": true,
       "observacoes": "EDITAL DE CONCURSO PÚBLICO Nº 01/2026 — disponível na página da notícia (PCI)"
     },
@@ -417,7 +485,7 @@
       "ano": 2026,
       "edital": "4/2026",
       "firstSeenAt": "2026-11-26T08:35:30.141Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": true,
       "observacoes": null
     },
@@ -458,7 +526,7 @@
       "ano": 2026,
       "edital": "2/2026",
       "firstSeenAt": "2026-11-26T00:17:35.371Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": true,
       "observacoes": null
     },
@@ -499,7 +567,7 @@
       "ano": 2026,
       "edital": "5/2026",
       "firstSeenAt": "2026-11-26T00:17:35.371Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": true,
       "observacoes": "EDITAL DE PROCESSO SELETIVO SIMPLIFICADO Nº 005/2026 — disponível na página da notícia (PCI)"
     },
@@ -540,7 +608,7 @@
       "ano": 2026,
       "edital": null,
       "firstSeenAt": "2026-11-26T00:17:35.371Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": true,
       "observacoes": "EDITAL Nº 406 — disponível na página da notícia (PCI) · EDITAL Nº 406 COMPLETO — disponível na página da notícia (PCI) · RETIFICAÇÃO DO EDITAL DE ABERTURA - CONCURSO PÚBLICO Nº 01/2026 — disponível na página da notícia (PCI)"
     },
@@ -581,7 +649,7 @@
       "ano": 2026,
       "edital": "406/2026",
       "firstSeenAt": "2026-11-26T00:17:35.371Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": true,
       "observacoes": null
     },
@@ -622,7 +690,7 @@
       "ano": 2026,
       "edital": null,
       "firstSeenAt": "2026-11-26T00:17:35.371Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": true,
       "observacoes": null
     },
@@ -672,7 +740,7 @@
       "ano": 2026,
       "edital": "3/2026",
       "firstSeenAt": "2026-11-25T21:21:11.574Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": true,
       "observacoes": "EDITAL DE CONCURSO PÚBLICO Nº 003/2026 — disponível na página da notícia (PCI)"
     },
@@ -758,7 +826,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-11-25T21:21:11.574Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": true,
       "observacoes": "EDITAL DE ABERTURA Nº 01.001/2026 — disponível na página da notícia (PCI)"
     },
@@ -822,7 +890,7 @@
       "ano": 2026,
       "edital": "317/2026",
       "firstSeenAt": "2026-11-25T21:21:11.574Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": true,
       "observacoes": null
     },
@@ -881,7 +949,7 @@
       "ano": 2026,
       "edital": "11/2026",
       "firstSeenAt": "2026-11-25T21:21:11.574Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": true,
       "observacoes": "EDITAL DE PROCESSO SELETIVO SIMPLIFICADO Nº 011/2026 — disponível na página da notícia (PCI)"
     },
@@ -1115,7 +1183,7 @@
       "ano": 2026,
       "edital": "3/2026",
       "firstSeenAt": "2026-11-25T21:21:11.574Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": true,
       "observacoes": "EDITAL DE CONCURSO PÚBLICO Nº 003/2026 — disponível na página da notícia (PCI)"
     },
@@ -1161,7 +1229,7 @@
       "ano": 2026,
       "edital": "21/2026",
       "firstSeenAt": "2026-11-25T21:21:11.574Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": true,
       "observacoes": "EDITAL DO PROCESSO SELETIVO SIMPLIFICADO Nº 021/2026 — disponível na página da notícia (PCI)"
     },
@@ -1202,7 +1270,7 @@
       "ano": 2026,
       "edital": "92/2026",
       "firstSeenAt": "2026-11-25T15:00:00.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": true,
       "observacoes": null
     },
@@ -1275,7 +1343,7 @@
       "ano": 2026,
       "edital": "327/2026",
       "firstSeenAt": "2026-11-25T14:16:39.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": true,
       "observacoes": "EDITAL Nº 331/2026 — disponível na página da notícia (PCI) · EDITAL Nº 330/2026 — disponível na página da notícia (PCI) · EDITAL Nº 329/2026 — disponível na página da notícia (PCI) · EDITAL Nº 328/2026 — disponível na página da notícia (PCI) · EDITAL Nº 327/2026 — disponível na página da notícia (PCI)"
     },
@@ -1316,7 +1384,7 @@
       "ano": 2026,
       "edital": "2/2026",
       "firstSeenAt": "2026-11-25T12:55:26.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": true,
       "observacoes": "EDITAL DE CONCURSO PÚBLICO Nº 02/2026 — disponível na página da notícia (PCI) · EDITAL DE PROCESSO SELETIVO Nº 003/2026 — disponível na página da notícia (PCI)"
     },
@@ -1362,7 +1430,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-11-25T12:54:07.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": true,
       "observacoes": "EDITAL DE ABERTURA Nº 002/2026 — disponível na página da notícia (PCI) · EDITAL DE ABERTURA Nº 001/2026 — disponível na página da notícia (PCI)"
     },
@@ -1403,7 +1471,7 @@
       "ano": 2026,
       "edital": null,
       "firstSeenAt": "2026-11-24T22:05:37.069Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": true,
       "observacoes": "EDITAL Nº 457/2026 — disponível na página da notícia (PCI)"
     },
@@ -1444,7 +1512,7 @@
       "ano": 2026,
       "edital": "127/2026",
       "firstSeenAt": "2026-11-24T21:03:09.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": true,
       "observacoes": "EDITAL Nº 127/2026 — disponível na página da notícia (PCI) · EDITAL Nº 126/2026 — disponível na página da notícia (PCI)"
     },
@@ -1526,7 +1594,7 @@
       "ano": 2026,
       "edital": "3/2026",
       "firstSeenAt": "2026-11-24T21:01:20.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": true,
       "observacoes": "EDITAL DE CONCURSO PÚBLICO Nº 003/2026 — disponível na página da notícia (PCI)"
     },
@@ -1567,7 +1635,7 @@
       "ano": 2026,
       "edital": "5/2026",
       "firstSeenAt": "2026-11-24T20:54:59.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": true,
       "observacoes": "EDITAL DE PROCESSO SELETIVO SIMPLIFICADO Nº 005/2026 — disponível na página da notícia (PCI)"
     },
@@ -1608,7 +1676,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-11-24T20:53:03.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": true,
       "observacoes": "EDITAL DE CONCURSO PÚBLICO Nº 01/2026 — disponível na página da notícia (PCI)"
     },
@@ -1649,7 +1717,7 @@
       "ano": 2026,
       "edital": "126/2026",
       "firstSeenAt": "2026-11-24T16:39:20.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": true,
       "observacoes": null
     },
@@ -1699,7 +1767,7 @@
       "ano": 2026,
       "edital": "185/2026",
       "firstSeenAt": "2026-11-24T14:03:29.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": true,
       "observacoes": null
     },
@@ -1758,7 +1826,7 @@
       "ano": 2026,
       "edital": "16/2026",
       "firstSeenAt": "2026-11-24T10:56:25.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": true,
       "observacoes": "EDITAL Nº 16/2026 — disponível na página da notícia (PCI)"
     },
@@ -1799,7 +1867,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-11-23T17:18:25.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": true,
       "observacoes": "EDITAL DE CONCURSO PÚBLICO Nº 001/2026 — disponível na página da notícia (PCI)"
     },
@@ -1845,7 +1913,7 @@
       "ano": 2026,
       "edital": "2/2026",
       "firstSeenAt": "2026-11-23T17:16:48.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": true,
       "observacoes": "EDITAL DE PROCESSO SELETIVO Nº 01/2026 — disponível na página da notícia (PCI) · EDITAL DE CONCURSO PÚBLICO Nº 02/2026 — disponível na página da notícia (PCI)"
     },
@@ -1937,7 +2005,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-11-23T15:18:31.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": true,
       "observacoes": "EDITAL Nº 01/2026 — disponível na página da notícia (PCI)"
     },
@@ -2005,7 +2073,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-11-23T15:14:54.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": true,
       "observacoes": "EDITAL DE CONCURSO PÚBLICO Nº 001/2026 — disponível na página da notícia (PCI)"
     },
@@ -2069,7 +2137,7 @@
       "ano": 2026,
       "edital": "4/2026",
       "firstSeenAt": "2026-11-23T15:14:34.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": true,
       "observacoes": "EDITAL DE CONCURSO PÚBLICO Nº 004/2026 — disponível na página da notícia (PCI)"
     },
@@ -2160,7 +2228,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-11-23T15:13:01.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": true,
       "observacoes": "EDITAL DE CONCURSO PÚBLICO Nº 01/2026 — disponível na página da notícia (PCI) · EDITAL DE CONCURSO PÚBLICO Nº 02/2026 — disponível na página da notícia (PCI) · EDITAL DE CONCURSO PÚBLICO Nº 03/2026 — disponível na página da notícia (PCI)"
     },
@@ -2206,7 +2274,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-11-22T19:14:53.661Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": true,
       "observacoes": "EDITAL DE PROCESSO SELETIVO SIMPLIFICADO Nº 001/2026 — disponível na página da notícia (PCI)"
     },
@@ -2419,7 +2487,7 @@
       "ano": 2026,
       "edital": "2/2026",
       "firstSeenAt": "2026-11-21T16:28:50.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": true,
       "observacoes": "EDITAL DE SELEÇÃO PÚBLICA SIMPLIFICADA Nº 002/2026 — disponível na página da notícia (PCI) · EDITAL DE SELEÇÃO PÚBLICA SIMPLIFICADA Nº 003/2026 — disponível na página da notícia (PCI) · EDITAL DE SELEÇÃO PÚBLICA SIMPLIFICADA Nº 004/2026 — disponível na página da notícia (PCI) · EDITAL DE SELEÇÃO PÚBLICA SIMPLIFICADA Nº 005/2026 — disponível na página da notícia (PCI) · EDITAL DE SELEÇÃO PÚBLICA SIMPLIFICADA Nº 006/2026 — disponível na página da notícia (PCI) · EDITAL DE SELEÇÃO PÚBLICA SIMPLIFICADA Nº 007/2026 — disponível na página da notícia (PCI)"
     },
@@ -2492,7 +2560,7 @@
       "ano": 2026,
       "edital": "2/2026",
       "firstSeenAt": "2026-11-20T19:47:29.618Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": true,
       "observacoes": "EDITAL Nº 002/2026 — disponível na página da notícia (PCI)"
     },
@@ -2538,7 +2606,7 @@
       "ano": 2026,
       "edital": "5/2026",
       "firstSeenAt": "2026-11-20T19:47:29.618Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": true,
       "observacoes": "EDITAL DE PROCESSO SELETIVO Nº 05/2026 — disponível na página da notícia (PCI) · EDITAL DE PROCESSO SELETIVO Nº 06/2026 — disponível na página da notícia (PCI)"
     },
@@ -2593,7 +2661,7 @@
       "ano": 2026,
       "edital": "2/2026",
       "firstSeenAt": "2026-11-19T21:45:18.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL Nº 002/2026 — disponível na página da notícia (PCI)"
     },
@@ -2643,7 +2711,7 @@
       "ano": 2026,
       "edital": null,
       "firstSeenAt": "2026-11-19T20:57:49.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL DE ABERTURA DE CONCURSO P/BLICO Nº 004/2026 — disponível na página da notícia (PCI)"
     },
@@ -2684,7 +2752,7 @@
       "ano": 2026,
       "edital": null,
       "firstSeenAt": "2026-11-19T20:47:50.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "RIBEIRAO CORRENTE 1 PS — disponível na página da notícia (PCI)"
     },
@@ -2838,7 +2906,7 @@
       "ano": 2026,
       "edital": "3/2026",
       "firstSeenAt": "2026-11-19T20:25:09.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL Nº 003/2026 — disponível na página da notícia (PCI)"
     },
@@ -2884,7 +2952,7 @@
       "ano": 2026,
       "edital": "7/2026",
       "firstSeenAt": "2026-11-19T20:13:22.578Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL DE PROCESSO SELETIVO SIMPLIFICADO Nº 07/2026 — disponível na página da notícia (PCI)"
     },
@@ -2930,7 +2998,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-11-19T20:13:22.578Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL DE ABERTURA Nº 01/2026 — disponível na página da notícia (PCI)"
     },
@@ -3030,7 +3098,7 @@
       "ano": 2026,
       "edital": "5/2026",
       "firstSeenAt": "2026-11-19T20:13:22.578Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL 005/2026 — disponível na página da notícia (PCI)"
     },
@@ -3148,7 +3216,7 @@
       "ano": 2026,
       "edital": "3/2026",
       "firstSeenAt": "2026-11-19T17:37:41.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL Nº 003 — disponível na página da notícia (PCI)"
     },
@@ -3358,7 +3426,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-11-19T04:24:10.897Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL DE ABERTURA Nº 01/2026 — disponível na página da notícia (PCI)"
     },
@@ -3413,7 +3481,7 @@
       "ano": 2026,
       "edital": "15/2026",
       "firstSeenAt": "2026-11-19T04:24:10.897Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL DE PROCESSO SELETIVO 15/2026 — disponível na página da notícia (PCI)"
     },
@@ -3550,7 +3618,7 @@
       "ano": 2026,
       "edital": "7/2026",
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL DE ABERTURA Nº 341/2026 - PROCESSO SELETIVO SIMPLIFICADO Nº 007/2026 — disponível na página da notícia (PCI)"
     },
@@ -3596,7 +3664,7 @@
       "ano": 2026,
       "edital": "27/2026",
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL Nº 0027/2026 — disponível na página da notícia (PCI)"
     },
@@ -3642,7 +3710,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL Nº 030/2026 - CONCURSO PÚBLICO Nº 001/2026 — disponível na página da notícia (PCI) · EDITAL Nº 030/2026 RETIFICADO - CONCURSO PÚBLICO Nº 001/2026 — disponível na página da notícia (PCI) · RETIFICAÇÃO — disponível na página da notícia (PCI)"
     },
@@ -3688,7 +3756,7 @@
       "ano": 2026,
       "edital": "130/2026",
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL DE ABERTURA Nº 130/2026 — disponível na página da notícia (PCI)"
     },
@@ -3752,7 +3820,7 @@
       "ano": 2026,
       "edital": "70/2026",
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL Nº 070/2026 — disponível na página da notícia (PCI)"
     },
@@ -3923,7 +3991,7 @@
       "ano": 2026,
       "edital": "2/2026",
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL DE CONCURSO Nº 02/2026 — disponível na página da notícia (PCI) · EDITAL DE CONCURSO Nº 03/2026 — disponível na página da notícia (PCI)"
     },
@@ -4680,7 +4748,7 @@
       "ano": 2026,
       "edital": null,
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL Nº 3 — disponível na página da notícia (PCI)"
     },
@@ -5131,7 +5199,7 @@
       "ano": 2026,
       "edital": "7/2026",
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL DE ABERTURA Nº 341/2026 - PROCESSO SELETIVO SIMPLIFICADO Nº 007/2026 — disponível na página da notícia (PCI)"
     },
@@ -5241,7 +5309,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL 01/2026 — disponível na página da notícia (PCI)"
     },
@@ -5300,7 +5368,7 @@
       "ano": 2026,
       "edital": "4/2026",
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL DE PROCESSO SELETIVO SIMPLIFICADO 004/2026 EDUCAÇÃO — disponível na página da notícia (PCI) · EDITAL DE PROCESSO SELETIVO SIMPLIFICADO 003/2026 ADMINISTRAÇÃO — disponível na página da notícia (PCI)"
     },
@@ -5422,7 +5490,7 @@
       "ano": 2026,
       "edital": "7/2026",
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL DE ABERTURA Nº 07/2026 — disponível na página da notícia (PCI)"
     },
@@ -5498,7 +5566,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL DE CONCURSO PÚBLICO Nº 01/2026 — disponível na página da notícia (PCI) · EDITAL DE PROCESSO SELETIVO Nº 002/2026 — disponível na página da notícia (PCI) · DECRETO Nº 456/2026 — disponível na página da notícia (PCI)"
     },
@@ -5580,7 +5648,7 @@
       "ano": 2026,
       "edital": "27/2026",
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL Nº 0027/2026 — disponível na página da notícia (PCI)"
     },
@@ -5626,7 +5694,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL DE CONCURSO PÚBLICO Nº 001/2026 — disponível na página da notícia (PCI) · EDITAL DE PROCESSO SELETIVO Nº 001/2026 — disponível na página da notícia (PCI) · EDITAL DE PROCESSO SELETIVO Nº 002/2026 — disponível na página da notícia (PCI)"
     },
@@ -5690,7 +5758,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL Nº 01/2026 — disponível na página da notícia (PCI)"
     },
@@ -5850,7 +5918,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL DO CONCURSO PÚBLICO Nº 001 — disponível na página da notícia (PCI)"
     },
@@ -6045,7 +6113,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL DE PROCESSO SELETIVO PÚBLICO Nº 001/2026 — disponível na página da notícia (PCI) · EDITAL DE PROCESSO SELETIVO Nº 002/2026 - SECRETARIA DE EDUCAÇÃO — disponível na página da notícia (PCI) · EDITAL DE PROCESSO SELETIVO Nº 003/2026 DEMAIS SECRETARIAS — disponível na página da notícia (PCI) · EDITAL RETIFICADO Nº 003/2026 — disponível na página da notícia (PCI) · RETIFICAÇÃO Nº 01/2026 - PROCESSO SELETIVO PÚBLICO Nº 003/2026 — disponível na página da notícia (PCI)"
     },
@@ -6095,7 +6163,7 @@
       "ano": 2026,
       "edital": "3/2026",
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL DE PROCESSO SELETIVO SIMPLIFICADO Nº 003/2026 — disponível na página da notícia (PCI) · EDITAL DE PROCESSO SELETIVO SIMPLIFICADO Nº 003/2026 — disponível na página da notícia (PCI) · RETIFICAÇÃO Nº 01/2026 - PROCESSO SELETIVO SIMPLIFICADO Nº 003/2026 — disponível na página da notícia (PCI)"
     },
@@ -6323,7 +6391,7 @@
       "ano": 2026,
       "edital": "2/2026",
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL DO PROCESSO SELETIVO SIMPLIFICADO EDUCAÇÃO Nº 002 — disponível na página da notícia (PCI) · EDITAL DO PROCESSO SELETIVO SIMPLIFICADO CARGOS GERAIS Nº 003 — disponível na página da notícia (PCI)"
     },
@@ -6369,7 +6437,7 @@
       "ano": 2026,
       "edital": "6/2026",
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL DE PROCESSO SELETIVO SIMPLIFICADO Nº 006/2026 — disponível na página da notícia (PCI)"
     },
@@ -6460,7 +6528,7 @@
       "ano": 2026,
       "edital": "3/2026",
       "firstSeenAt": "2026-11-18T18:07:01.379Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL Nº 03/2026 — disponível na página da notícia (PCI) · EDITAL Nº 04/2026 — disponível na página da notícia (PCI)"
     },
@@ -6618,7 +6686,7 @@
       "ano": 2026,
       "edital": "187/2026",
       "firstSeenAt": "2026-11-18T17:52:14.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": null
     },
@@ -6664,7 +6732,7 @@
       "ano": 2026,
       "edital": "2/2026",
       "firstSeenAt": "2026-11-18T12:42:28.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL Nº 002/2026 — disponível na página da notícia (PCI)"
     },
@@ -6705,13 +6773,13 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-11-17T20:30:58.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL Nº 01/2026 — disponível na página da notícia (PCI) · EDITAL RETIFICADO Nº 01/2026 — disponível na página da notícia (PCI) · RETIFICAÇÃO Nº 01 — disponível na página da notícia (PCI) · RETIFICAÇÃO Nº 02 — disponível na página da notícia (PCI) · RETIFICAÇÃO Nº 03 — disponível na página da notícia (PCI)"
     },
     {
       "id": "mg-belo-horizonte-fundacao-hospitalar-medicina-geral-especialidades-2026",
-      "titulo": "Fhemig - MG abre seleção para médicos em Belo Horizonte",
+      "titulo": "Fhemig - MG abre processos seletivos para 14 vagas e cadastro reserva em Belo Horizonte",
       "orgao": "Fhemig - Fundação Hospitalar do Estado de Minas Gerais",
       "cidade": "Belo Horizonte",
       "uf": "MG",
@@ -6846,16 +6914,16 @@
           "cargaHoraria": "12h ou 24h semanais"
         }
       ],
-      "vagasTotal": 34,
+      "vagasTotal": 13,
       "remuneracaoMax": 13212.64,
-      "cargaHoraria": "12h ou 24h ou 12h ou 24h semanais",
+      "cargaHoraria": "12h ou 24h ou 12h ou 24h ou 12h ou 24h ou 24h ou 12h ou 24h ou 24h ou 12h ou 24h ou 24h semanais",
       "banca": "Fhemig",
       "inscricoes": {
-        "inicio": "2026-11-23",
-        "fim": "2026-11-27"
+        "inicio": "2026-11-26",
+        "fim": "2026-12-02"
       },
       "dataProva": null,
-      "editalUrl": "https://www.pciconcursos.com.br/noticias/fhemig-mg-abre-selecao-para-medicos-em-belo-horizonte",
+      "editalUrl": "https://www.pciconcursos.com.br/noticias/fhemig-mg-abre-processos-seletivos-para-14-vagas-e-cadastro-reserva-em-belo-horizonte",
       "inscricaoUrl": null,
       "relacionados": [
         {
@@ -6868,13 +6936,13 @@
         }
       ],
       "fonte": "pci",
-      "fonteUrl": "https://www.pciconcursos.com.br/noticias/fhemig-mg-abre-selecao-para-medicos-em-belo-horizonte",
+      "fonteUrl": "https://www.pciconcursos.com.br/noticias/fhemig-mg-abre-processos-seletivos-para-14-vagas-e-cadastro-reserva-em-belo-horizonte",
       "ano": 2026,
       "edital": "191/2026",
       "firstSeenAt": "2026-11-17T20:20:49.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
-      "observacoes": "EDITAL FHEMIG 187/2026 — disponível na página da notícia (PCI)"
+      "observacoes": "EDITAL Nº 191/2026 — disponível na página da notícia (PCI) · EDITAL Nº 193/2026 — disponível na página da notícia (PCI)"
     },
     {
       "id": "pe-custodia-prefeitura-medicina-geral-especialidades-2026",
@@ -6918,7 +6986,7 @@
       "ano": 2026,
       "edital": "2/2026",
       "firstSeenAt": "2026-11-17T19:16:20.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL Nº 002/2026 — disponível na página da notícia (PCI)"
     },
@@ -6964,7 +7032,7 @@
       "ano": 2026,
       "edital": "4/2026",
       "firstSeenAt": "2026-11-17T12:45:02.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL Nº 01/2026 - PROCESSO SELETIVO Nº 04/2026 — disponível na página da notícia (PCI)"
     },
@@ -7019,7 +7087,7 @@
       "ano": 2026,
       "edital": "2/2026",
       "firstSeenAt": "2026-11-17T11:10:33.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL DE CONCURSO PÚBLICO Nº 02/2026 — disponível na página da notícia (PCI)"
     },
@@ -7074,7 +7142,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-11-16T17:03:57.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL Nº 001/2026 — disponível na página da notícia (PCI) · EDITAL Nº 002/2026 — disponível na página da notícia (PCI) · EDITAL Nº 003/2026 — disponível na página da notícia (PCI)"
     },
@@ -7161,7 +7229,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-11-16T12:19:35.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL DE ABERTURA - CONCURSO PÚBLICO Nº 001/2026 — disponível na página da notícia (PCI)"
     },
@@ -7202,7 +7270,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-11-16T11:58:00.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL DE CONCURSO PÚBLICO Nº 3/2026 — disponível na página da notícia (PCI) · EDITAL DE CONCURSO PÚBLICO Nº 2/2026 — disponível na página da notícia (PCI) · EDITAL DE CONCURSO PÚBLICO Nº 1/2026 — disponível na página da notícia (PCI)"
     },
@@ -7275,7 +7343,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-11-16T11:58:00.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL DE CONCURSO PÚBLICO Nº 3/2026 — disponível na página da notícia (PCI) · EDITAL DE CONCURSO PÚBLICO Nº 2/2026 — disponível na página da notícia (PCI) · EDITAL DE CONCURSO PÚBLICO Nº 1/2026 — disponível na página da notícia (PCI)"
     },
@@ -7321,7 +7389,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-11-16T11:47:37.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL DE CONCURSO PÚBLICO Nº 01/2026 — disponível na página da notícia (PCI)"
     },
@@ -7371,7 +7439,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-11-16T11:16:42.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": null
     },
@@ -7412,7 +7480,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-11-13T17:50:09.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL Nº 001/2026 — disponível na página da notícia (PCI)"
     },
@@ -7548,7 +7616,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-11-13T16:20:43.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL DE ABERTURA Nº 01/2026 — disponível na página da notícia (PCI)"
     },
@@ -7711,7 +7779,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-11-13T15:19:24.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL Nº 001/2026 — disponível na página da notícia (PCI)"
     },
@@ -7770,7 +7838,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-11-12T13:14:55.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL Nº 01/2026 - PROCESSO SELETIVO Nº 02/2026 — disponível na página da notícia (PCI) · EDITAL Nº 01/2026 - CONCURSO PÚBLICO Nº 01/2026 — disponível na página da notícia (PCI)"
     },
@@ -7870,7 +7938,7 @@
       "ano": 2026,
       "edital": "25/2026",
       "firstSeenAt": "2026-11-12T11:08:46.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL Nº 25/2026 — disponível na página da notícia (PCI) · EDITAL RETIFICADO Nº 25/2026 — disponível na página da notícia (PCI) · RETIFICAÇÃO Nº 01 — disponível na página da notícia (PCI) · RETIFICAÇÃO Nº 02 — disponível na página da notícia (PCI)"
     },
@@ -8073,7 +8141,7 @@
       "ano": 2026,
       "edital": "25/2026",
       "firstSeenAt": "2026-11-12T11:08:46.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL Nº 25/2026 — disponível na página da notícia (PCI) · EDITAL RETIFICADO Nº 25/2026 — disponível na página da notícia (PCI) · RETIFICAÇÃO Nº 01 — disponível na página da notícia (PCI) · RETIFICAÇÃO Nº 02 — disponível na página da notícia (PCI)"
     },
@@ -8321,7 +8389,7 @@
       "ano": 2026,
       "edital": null,
       "firstSeenAt": "2026-11-11T15:27:44.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": null
     },
@@ -8385,7 +8453,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-11-11T11:14:33.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL DO CONCURSO PÚBLICO Nº 001/2026 — disponível na página da notícia (PCI)"
     },
@@ -8431,7 +8499,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-11-11T11:05:42.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL DE CONCURSO PÚBLICO CPPMT 001/2026 — disponível na página da notícia (PCI)"
     },
@@ -8486,7 +8554,7 @@
       "ano": 2026,
       "edital": null,
       "firstSeenAt": "2026-11-10T11:10:19.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL NORMATIVO Nº 01/2026 — disponível na página da notícia (PCI) · BAÍA DA TRAIÇÃO 1 CP EDITAL RETIFICADO — disponível na página da notícia (PCI)"
     },
@@ -8532,7 +8600,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-11-09T17:56:00.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL Nº 01/2026 — disponível na página da notícia (PCI)"
     },
@@ -8578,7 +8646,7 @@
       "ano": 2026,
       "edital": "20/2026",
       "firstSeenAt": "2026-11-09T17:32:16.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL - PROCESSO SELETIVO SIMPLIFICADO 20/2026 — disponível na página da notícia (PCI) · EDITAL - PROCESSO SELETIVO SIMPLIFICADO 21/2026 — disponível na página da notícia (PCI)"
     },
@@ -8624,7 +8692,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-11-09T16:48:08.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL DE CONCURSO PÚBLICO Nº 001/2026 — disponível na página da notícia (PCI)"
     },
@@ -8665,7 +8733,7 @@
       "ano": 2026,
       "edital": null,
       "firstSeenAt": "2026-11-09T16:11:17.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": null
     },
@@ -8711,7 +8779,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-11-09T11:58:18.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL Nº 01/2026 — disponível na página da notícia (PCI)"
     },
@@ -8757,7 +8825,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-11-09T10:38:21.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL DE CONCURSO PÚBLICO Nº 01/2026 — disponível na página da notícia (PCI) · EDITAL DE PROCESSO SELETIVO Nº 01/2026 — disponível na página da notícia (PCI)"
     },
@@ -8798,7 +8866,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-11-06T23:36:35.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": null
     },
@@ -8839,7 +8907,7 @@
       "ano": 2026,
       "edital": null,
       "firstSeenAt": "2026-11-06T20:42:09.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL Nº 001 — disponível na página da notícia (PCI)"
     },
@@ -8880,7 +8948,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-11-06T19:29:45.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": null
     },
@@ -9088,7 +9156,7 @@
       "ano": 2026,
       "edital": "2/2026",
       "firstSeenAt": "2026-11-06T19:29:45.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL DE ABERTURA DE INSCRIÇÕES - CONCURSO PÚBLICO Nº 2/2026 — disponível na página da notícia (PCI) · EDITAL DE ABERTURA DE INSCRIÇÕES - CONCURSO PÚBLICO Nº 3/2026 — disponível na página da notícia (PCI) · EDITAL DE ABERTURA DE INSCRIÇÕES - CONCURSO PÚBLICO Nº 4/2026 — disponível na página da notícia (PCI)"
     },
@@ -9129,7 +9197,7 @@
       "ano": 2026,
       "edital": null,
       "firstSeenAt": "2026-11-06T15:08:39.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": null
     },
@@ -9175,7 +9243,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-11-06T11:42:51.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL Nº 01/2026 — disponível na página da notícia (PCI)"
     },
@@ -9266,7 +9334,7 @@
       "ano": 2026,
       "edital": "3/2026",
       "firstSeenAt": "2026-11-05T17:40:59.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL DE ABERTURA Nº 003/2026 — disponível na página da notícia (PCI)"
     },
@@ -9393,7 +9461,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-11-05T15:07:04.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL Nº 001/2026 — disponível na página da notícia (PCI)"
     },
@@ -9434,7 +9502,7 @@
       "ano": 2026,
       "edital": "44/2026",
       "firstSeenAt": "2026-11-05T12:35:09.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL Nº 44/2026 — disponível na página da notícia (PCI)"
     },
@@ -9516,7 +9584,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-11-05T12:30:46.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL Nº 01/2026 — disponível na página da notícia (PCI)"
     },
@@ -9557,7 +9625,7 @@
       "ano": 2026,
       "edital": "44/2026",
       "firstSeenAt": "2026-11-05T12:04:51.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": null
     },
@@ -9598,7 +9666,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-11-04T20:38:41.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL DE ABERTURA - CONCURSO PÚBLICO Nº 001/2026 — disponível na página da notícia (PCI)"
     },
@@ -9806,7 +9874,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-11-04T20:38:41.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL DE ABERTURA - CONCURSO PÚBLICO Nº 001/2026 — disponível na página da notícia (PCI)"
     },
@@ -9874,7 +9942,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-11-04T17:47:29.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL Nº 001/2026 — disponível na página da notícia (PCI) · SUSPENSÃO — disponível na página da notícia (PCI) · EDITAL Nº 001/2026 RETIFICADO — disponível na página da notícia (PCI) · EDITAL Nº 002/2026 — disponível na página da notícia (PCI) · SUSPENSÃO — disponível na página da notícia (PCI) · EDITAL Nº 002/2026 RETIFICADO — disponível na página da notícia (PCI)"
     },
@@ -9915,7 +9983,7 @@
       "ano": 2026,
       "edital": "2/2026",
       "firstSeenAt": "2026-11-04T12:21:43.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL DE ABERTURA CONCURSO PÚBLICO Nº 002/2026 — disponível na página da notícia (PCI) · EDITAL DE RETIFICAÇÃO 1 - CONCURSO PÚBLICO Nº 002/2026 — disponível na página da notícia (PCI)"
     },
@@ -9970,7 +10038,7 @@
       "ano": 2026,
       "edital": null,
       "firstSeenAt": "2026-11-04T03:49:02.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL DE CONCURSO PÚBLICO MUNICIPAL Nº 001/2026 — disponível na página da notícia (PCI) · EDITAL RETIFICADO Nº 001/2026 — disponível na página da notícia (PCI) · RETIFICAÇÃO Nº 001/2026 — disponível na página da notícia (PCI)"
     },
@@ -10016,7 +10084,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-11-03T14:22:01.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL DE ABERTURA E REGULAMENTAÇÃO DO CONCURSO PÚBLICO Nº 001/2026 — disponível na página da notícia (PCI)"
     },
@@ -10057,7 +10125,7 @@
       "ano": 2026,
       "edital": null,
       "firstSeenAt": "2026-11-03T12:27:36.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL DE ABERTURA DE INSCRIÇÕES Nº 41/2026 — disponível na página da notícia (PCI) · EDITAL DE ABERTURA DE INSCRIÇÕES Nº 42/2026 — disponível na página da notícia (PCI) · EDITAL DE ABERTURA DE INSCRIÇÕES Nº 43/2026 — disponível na página da notícia (PCI)"
     },
@@ -10116,7 +10184,7 @@
       "ano": 2026,
       "edital": "41/2026",
       "firstSeenAt": "2026-11-03T11:49:41.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": null
     },
@@ -10162,7 +10230,7 @@
       "ano": 2026,
       "edital": "4/2026",
       "firstSeenAt": "2026-10-30T17:57:11.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL DE ABERTURA - CONCURSO PUBLICO Nº 04/2026 — disponível na página da notícia (PCI) · EDITAL DE RETIFICAÇÃO - CONCURSO PUBLICO Nº 04/2026 — disponível na página da notícia (PCI)"
     },
@@ -10208,7 +10276,7 @@
       "ano": 2026,
       "edital": "152/2026",
       "firstSeenAt": "2026-10-30T17:44:18.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL PROGEP/UFMS Nº 152 — disponível na página da notícia (PCI)"
     },
@@ -10249,7 +10317,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-10-29T17:51:13.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": null
     },
@@ -10304,7 +10372,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-10-29T16:29:44.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL Nº 1/2026 — disponível na página da notícia (PCI) · SUSPENSÃO — disponível na página da notícia (PCI)"
     },
@@ -10350,7 +10418,7 @@
       "ano": 2026,
       "edital": "2/2026",
       "firstSeenAt": "2026-10-28T21:54:10.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL Nº 02/2026 — disponível na página da notícia (PCI)"
     },
@@ -10468,7 +10536,7 @@
       "ano": 2026,
       "edital": "2/2026",
       "firstSeenAt": "2026-10-28T21:54:10.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL Nº 02/2026 — disponível na página da notícia (PCI)"
     },
@@ -10564,7 +10632,7 @@
       "ano": 2024,
       "edital": "1/2024",
       "firstSeenAt": "2026-10-28T17:17:05.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL DE ABERTURA Nº 001/2024 — disponível na página da notícia (PCI) · SUSPENSÃO — disponível na página da notícia (PCI) · REABERTURA DO CONCURSO — disponível na página da notícia (PCI) · EDITAL 02 REABERTURA E REGULAMENTO GERAL — disponível na página da notícia (PCI)"
     },
@@ -10660,7 +10728,7 @@
       "ano": 2026,
       "edital": "2/2026",
       "firstSeenAt": "2026-10-26T03:49:38.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL Nº 02/2026 — disponível na página da notícia (PCI)"
     },
@@ -10742,7 +10810,7 @@
       "ano": 2026,
       "edital": "2/2026",
       "firstSeenAt": "2026-10-26T03:49:38.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL Nº 02/2026 — disponível na página da notícia (PCI)"
     },
@@ -10788,7 +10856,7 @@
       "ano": 2026,
       "edital": "4/2026",
       "firstSeenAt": "2026-10-23T15:28:38.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL DE PROCESSO SELETIVO Nº 004/2026 — disponível na página da notícia (PCI)"
     },
@@ -10829,7 +10897,7 @@
       "ano": 2026,
       "edital": "33/2026",
       "firstSeenAt": "2026-10-23T14:29:08.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL Nº 033/2026 — disponível na página da notícia (PCI) · EDITAL Nº 034/2026 — disponível na página da notícia (PCI) · EDITAL Nº 035/2026 — disponível na página da notícia (PCI) · EDITAL Nº 036/2026 — disponível na página da notícia (PCI) · EDITAL Nº 037/2026 — disponível na página da notícia (PCI) · EDITAL Nº 039/2026 — disponível na página da notícia (PCI) · EDITAL Nº 040/2026 — disponível na página da notícia (PCI) · EDITAL Nº 041/2026 — disponível na página da notícia (PCI) · EDITAL Nº 042/2026 — disponível na página da notícia (PCI)"
     },
@@ -10870,7 +10938,7 @@
       "ano": 2026,
       "edital": "33/2026",
       "firstSeenAt": "2026-10-23T13:42:58.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": null
     },
@@ -10916,7 +10984,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-10-22T15:46:17.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL Nº 01/2026 — disponível na página da notícia (PCI)"
     },
@@ -10975,7 +11043,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-10-20T18:54:00.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL Nº 01/2026 — disponível na página da notícia (PCI)"
     },
@@ -11021,7 +11089,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-10-15T17:03:16.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL DO CONCURSO PÚBLICO Nº 001 — disponível na página da notícia (PCI) · EDITAL DO CONCURSO PÚBLICO Nº 003 — disponível na página da notícia (PCI) · EDITAL DO CONCURSO PÚBLICO Nº 003 — disponível na página da notícia (PCI)"
     },
@@ -11085,7 +11153,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-10-07T13:03:39.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL DE CONCURSO PÚBLICO Nº 01/2026 — disponível na página da notícia (PCI)"
     },
@@ -11131,7 +11199,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-10-02T19:19:58.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL 01/2026 — disponível na página da notícia (PCI)"
     },
@@ -11240,7 +11308,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-10-02T12:09:05.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL Nº 01/2026 — disponível na página da notícia (PCI)"
     },
@@ -11286,7 +11354,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-09-30T04:41:33.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL 01/2026 — disponível na página da notícia (PCI)"
     },
@@ -11332,7 +11400,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-09-30T04:41:33.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL 01/2026 — disponível na página da notícia (PCI)"
     },
@@ -11387,7 +11455,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-09-25T21:00:23.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL 01/2026 — disponível na página da notícia (PCI)"
     },
@@ -11433,7 +11501,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-09-19T02:59:08.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL 01/2026 — disponível na página da notícia (PCI)"
     },
@@ -11479,7 +11547,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-09-14T23:35:42.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL Nº 001/2026 — disponível na página da notícia (PCI)"
     },
@@ -11525,7 +11593,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-09-10T12:35:47.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL Nº 1 — disponível na página da notícia (PCI) · RETIFICAÇÃO I — disponível na página da notícia (PCI) · RETIFICAÇÃO II — disponível na página da notícia (PCI)"
     },
@@ -11571,7 +11639,7 @@
       "ano": 2026,
       "edital": "1/2026",
       "firstSeenAt": "2026-08-24T11:41:26.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": "EDITAL Nº 01/2026 — disponível na página da notícia (PCI)"
     },
@@ -11612,7 +11680,7 @@
       "ano": 2026,
       "edital": null,
       "firstSeenAt": "2026-07-01T12:32:31.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": null
     },
@@ -11653,7 +11721,7 @@
       "ano": 2026,
       "edital": null,
       "firstSeenAt": "2026-05-22T21:46:52.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": null
     },
@@ -11838,7 +11906,7 @@
       "ano": 2024,
       "edital": "1/2024",
       "firstSeenAt": "2026-01-21T19:08:14.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": null
     },
@@ -11879,7 +11947,7 @@
       "ano": 2026,
       "edital": null,
       "firstSeenAt": "2026-01-08T13:55:35.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": null
     },
@@ -11920,7 +11988,7 @@
       "ano": 2025,
       "edital": null,
       "firstSeenAt": "2025-10-08T12:56:42.000Z",
-      "lastSeenAt": "2026-11-27T02:16:54.339Z",
+      "lastSeenAt": "2026-11-27T10:59:47.463Z",
       "isNew": false,
       "observacoes": null
     }
